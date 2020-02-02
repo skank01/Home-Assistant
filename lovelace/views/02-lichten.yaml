@@ -1,0 +1,77 @@
+title: Lichten
+icon: 'mdi:lightbulb-outline'
+path: lichten
+theme: ios-dark-mode
+cards:
+  - entities:
+      - entity: light.zithoek_2
+        hide_when_off: true
+        icon: 'mdi:sofa'
+        toggle: true
+        type: 'custom:slider-entity-row'
+      - entity: light.keuken_2
+        hide_when_off: true
+        icon: 'mdi:spotlight-beam'
+        toggle: true
+        type: 'custom:slider-entity-row'
+      - entity: light.dimmable_light_1
+        hide_when_off: true
+        icon: 'mdi:ceiling-light'
+        toggle: true
+        type: 'custom:slider-entity-row'
+      - entity: light.inkom
+        hide_when_off: true
+        icon: 'mdi:coat-rack'
+        toggle: true
+        type: 'custom:slider-entity-row'
+      - entity: light.kastlamp
+        hide_when_off: true
+        icon: 'mdi:floor-lamp'
+        toggle: true
+        type: 'custom:slider-entity-row'
+    show_header_toggle: false
+    title: Lichten Gelijkvloers
+    type: entities
+  - entities:
+      - entity: light.slaapkamer
+        hide_when_off: true
+        icon: 'mdi:bed-king-outline'
+        toggle: true
+        type: 'custom:slider-entity-row'
+      - entity: light.nachtlampje_kim
+        hide_when_off: true
+        icon: 'mdi:coach-lamp'
+        toggle: true
+        type: 'custom:slider-entity-row'
+      - entity: light.dressing
+        hide_when_off: true
+        icon: 'mdi:dresser-outline'
+        toggle: true
+        type: 'custom:slider-entity-row'
+      - entity: light.nachtlampje_noor
+        hide_when_off: true
+        icon: 'mdi:coach-lamp'
+        toggle: true
+        type: 'custom:slider-entity-row'
+    show_header_toggle: false
+    title: Lichten Eerste Verdieping
+    type: entities
+  - entities:
+      - entity: light.zithoek_2
+        hide_when_off: true
+        icon: 'mdi:sofa'
+        toggle: true
+        type: 'custom:slider-entity-row'
+    show_header_toggle: false
+    title: Lichten Zolder
+    type: entities
+  - entities:
+      - entity: light.zithoek_2
+        hide_when_off: true
+        icon: 'mdi:sofa'
+        toggle: true
+        type: 'custom:slider-entity-row'
+    show_header_toggle: false
+    title: Buitenverlichting
+    type: entities
+    

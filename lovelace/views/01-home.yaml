@@ -1,0 +1,18 @@
+title: Home
+icon: mdi:home-outline
+path: Home
+theme: ios-dark-mode
+cards:
+  - current: true
+    details: false
+    entity: weather.thuis
+    name: 'Home'
+    type: 'custom:weather-card'
+  - entities:
+      - entity: person.stijn 
+      - entity: person.kim
+    show_header_toggle: false
+    theme: ios-dark-mode
+    title: 'Aanwezig:'
+    type: entities
+    

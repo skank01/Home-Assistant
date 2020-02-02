@@ -1,0 +1,41 @@
+# Example .gitignore file for your config dir.
+# An * ensures that everything will be ignored.
+*
+
+
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
+!lovelace/
+!packages/
+!images/
+!lovelace/views/
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+custom_components/
+deps/
+glances/
+downloads/
+themes/
+tts/
+www/community/
+
+# Discovered devices
+harmony_*.conf
+known_devices.yaml
+
+# Ignore Log & DB
+home-assistant.log
+home-assistant_v2.db
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+
+#Ignore other
+.HA_VERSION
+.pip_progress

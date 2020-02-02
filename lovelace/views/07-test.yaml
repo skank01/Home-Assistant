@@ -1,0 +1,26 @@
+title: Test
+icon: mdi:test-tube
+path: test
+theme: ios-dark-mode
+cards:
+  - entities:
+      - entity: sensor.count_automations
+      - entity: sensor.count_binary_sensors
+      - entity: device_tracker.unifi_switch
+      - entity: sensor.count_device_trackers
+      - entity: sensor.count_lights
+      - entity: sensor.count_scripts
+      - entity: sensor.count_sensors
+      - entity: device_tracker.unifi_usg
+      - entity: device_tracker.alarmsysteem
+      - entity: sensor.count_zones
+      - entity: sensor.unifi_gateway_lan
+      - entity: sensor.unifi_gateway_wlan
+      - entity: sensor.unifi_gateway_www
+      - entity: sensor.unifi_gateway_wan
+      - entity: sensor.count_switches
+      - entity: sensor.usg_online
+    type: entities
+    
+    
+    

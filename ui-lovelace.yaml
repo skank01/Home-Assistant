@@ -1,0 +1,28 @@
+background: var(--background-image)
+custom_header:
+  background: 'rgba(155, 155, 155, 0.25)'
+  button_text: null
+  compact_mode: true
+  options: ':'
+  shadow: false
+  swipe_animate: fade
+  swipe_prevent_default: true
+resources: !include lovelace/resources.yaml
+title: Thuis
+views:
+  - !include lovelace/views/01-home.yaml
+  - !include lovelace/views/02-lichten.yaml
+  - !include lovelace/views/03-cameras.yaml
+  - !include lovelace/views/04-server.yaml
+  - !include lovelace/views/05-entertainment.yaml
+  - !include lovelace/views/06-cinema.yaml
+  - !include lovelace/views/07-test.yaml
+  
+  
+  
+      
+  
+  
+  
+  
+  
