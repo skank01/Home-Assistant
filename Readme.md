@@ -3,15 +3,14 @@
 My configuration still is a under construction, so is this readme page.
 
 
-
 ## Devices ##
 
-###Network###
+### Network ###
 - [Unifi USG](https://www.ui.com/unifi-routing/usg/)
 - [Unifi 16 PoE Switch](https://www.ui.com/unifi-switching/unifi-switch-16-150w/)
 - [Unifi Access Points](https://www.ui.com/unifi/unifi-ap-ac-lite/)
 
-###System###
+### System ###
 My system is a [Raspberry Pi 3B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) running [hass.io](https://www.home-assistant.io/hassio/) with several addons:
 
 
@@ -24,17 +23,17 @@ My system is a [Raspberry Pi 3B+](https://www.raspberrypi.org/products/raspberry
 - Hass.io Google Drive Backup
 - IDE (probably gonna get rid of it)
 
-###Gateways###
+### Gateways ###
 - [Harmony Hub](https://support.myharmony.com/nl-us/hub)
 - [Philips Hue Bridge](https://www2.meethue.com/nl-be/p/hue-bridge/8718696511800)
 
-###Smart Speakers###
+### Smart Speakers ###
 - [Google Nest Hub Max](https://store.google.com/us/product/google_nest_hub_max?hl=en-US)
 - [Google Nest Hub](https://store.google.com/be/product/google_nest_hub?hl=nl-BE)
 - [Google Home Mini](https://store.google.com/be/product/google_nest_mini?hl=nl-BE)
 - [Sonos Play One](https://www.sonos.com/nl-be/shop/one.html)
 
-###Lights###
+### Lights ###
 - [Philips Hue GU10](https://www2.meethue.com/nl-be/p/hue-white-ambiance-2-pack-gu10/8718699629298)
 - [Philips Hue E14](https://www2.meethue.com/nl-be/p/hue-white-ambiance-losse-kaarslamp-e14-duopak/8718696695265)
 - [Philips Hue E27](https://www2.meethue.com/nl-be/p/hue-white-1-pack-e27/8718696785317)
