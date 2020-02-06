@@ -31,6 +31,7 @@ scene: !include scenes.yaml
 sensor:
   - platform: unifigateway
     host: !secret unifi_host
+    site_id: !secret unifi_site
     username: !secret unifi_username  
     password: !secret unifi_password
     monitored_conditions:
@@ -38,6 +39,7 @@ sensor:
       - lan
       - wan
       - wlan
+      - vpn
       - alerts
       - firmware
       

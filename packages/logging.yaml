@@ -1,0 +1,12 @@
+recorder:
+  purge_keep_days: 5
+  purge_interval: 1
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sun.sun
+      - sensor.last_boot
+      - sensor.date

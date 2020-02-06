@@ -12,3 +12,9 @@
   url: /community_plugin/lovelace-layout-card/layout-card.js
 - type: js
   url: /community_plugin/calendar-card/calendar-card.js
+- type: module 
+  url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+- type: js
+  url: /community_plugin/bar-card/bar-card.js
+ 
+     

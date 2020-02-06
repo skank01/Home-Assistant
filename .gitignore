@@ -11,6 +11,8 @@
 !packages/
 !images/
 !lovelace/views/
+!Lovelace_Info.jpg
+!Lovelace_Network.jpg
 
 # Ignore folders.
 .storage

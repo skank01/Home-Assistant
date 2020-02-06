@@ -1,0 +1,28 @@
+sensor:
+  - platform: template
+    sensors:
+      unifi_gateway_wan_cpu:
+        friendly_name: 'CPU percentage'
+        value_template: "{{ states.sensor.unifi_gateway_wan.attributes['gw_system-stats']['cpu'] }}"
+        unit_of_measurement: percentage
+      unifi_gateway_wan_mem:
+        friendly_name: 'Memory percentage'
+        value_template: "{{ states.sensor.unifi_gateway_wan.attributes['gw_system-stats']['mem'] }}"
+        unit_of_measurement: percentage
+      unifi_gateway_www_xput_down:
+        friendly_name: 'USG Speedtest Download'
+        unit_of_measurement: Mbps
+        value_template: "{{ states.sensor.unifi_gateway_www.attributes.xput_down }}"
+        icon_template: mdi:speedometer
+      unifi_gateway_www_xput_up:
+        friendly_name: 'USG Speedtest Upload'
+        unit_of_measurement: Mbps
+        value_template: "{{ states.sensor.unifi_gateway_www.attributes.xput_up }}"
+        icon_template: mdi:speedometer
+      unifi_gateway_www_speedtest_ping:
+        friendly_name: 'USG Speedtest Ping'
+        unit_of_measurement: ms
+        value_template: "{{ states.sensor.unifi_gateway_www.attributes.speedtest_ping }}"
+      unifi_gateway_wlan_num_guest:
+        friendly_name: 'Guests'
+        value_template: '{{ states.sensor.unifi_gateway_wlan.attributes.num_guest }}'

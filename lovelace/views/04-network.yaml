@@ -1,0 +1,100 @@
+title: Network
+icon: mdi:server-network
+path: network
+theme: ios-dark-mode
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.processor_use
+            title: CPU
+            icon: mdi:chip
+          - entity: sensor.memory_use_percent
+            title: RAM
+            icon: mdi:memory
+          - entity: sensor.disk_use_percent
+            title: HDD
+            icon: mdi:harddisk 
+        title: System
+        show_header_toggle: false
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.unifi_gateway_www_speedtest_ping
+            name: Ping
+            decimals: 0
+            hours_to_show: 72
+            # line_color: "#3498db"
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.unifi_gateway_www_xput_down
+            name: Download
+            icon: mdi:download-network
+            decimals: 0
+            hours_to_show: 72
+            # line_color: "#3498db"
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.unifi_gateway_www_xput_up
+            name: Upload
+            icon: mdi:upload-network
+            decimals: 0
+            hours_to_show: 72
+            # line_color: "#3498db"
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.pi_hole_ads_percentage_blocked_today
+            name: Ads blocked
+            decimals: 0
+            hour24: true
+            hours_to_show: 72
+            show:
+              graph: line
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.pi_hole_dns_unique_clients
+            name: Clients
+            hour24: true
+            hours_to_show: 72
+            show:
+              graph: none   
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.unifi_gateway_wan
+          - entity: sensor.unifi_gateway_lan
+          - entity: sensor.unifi_gateway_wlan
+          - entity: sensor.unifi_gateway_vpn
+          - entity: sensor.unifi_gateway_www
+          - entity: sensor.unifi_gateway_alerts
+          - entity: sensor.unifi_gateway_firmware_upgradable
+          - entity: sensor.unifi_gateway_wlan_num_guest
+          - entity: sensor.unifi_gateway_wan_cpu
+          - entity: sensor.unifi_gateway_wan_mem
+        show_header_toggle: false
+        title: Network
+  - type: vertical-stack
+    cards:
+      - type: entities 
+        entities:
+          - entity: sensor.count_automations
+          - entity: sensor.count_binary_sensors
+          - entity: sensor.count_sensors
+          - entity: sensor.count_device_trackers
+          - entity: sensor.count_lights
+          - entity: sensor.count_scripts
+          - entity: sensor.count_zones
+          - entity: sensor.count_switches
+        show_header_toggle: false
+        title: Home Assistant Stats
+      - type: entities
+        entities:
+          - entity: sensor.unraid_server
+        show_header_toggle: false
+        title: Server  

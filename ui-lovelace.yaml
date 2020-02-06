@@ -13,7 +13,7 @@ views:
   - !include lovelace/views/01-home.yaml
   - !include lovelace/views/02-lichten.yaml
   - !include lovelace/views/03-cameras.yaml
-  - !include lovelace/views/04-server.yaml
+  - !include lovelace/views/04-network.yaml
   - !include lovelace/views/05-entertainment.yaml
   - !include lovelace/views/06-cinema.yaml
   - !include lovelace/views/07-test.yaml

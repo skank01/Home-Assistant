@@ -1,0 +1,3 @@
+speedtestdotnet:
+  scan_interval:
+    minutes: 180
