@@ -1,6 +1,6 @@
 # Welcome to my home assistant configuration #
 
-My configuration still is a under construction, so is this readme page.
+My configuration still is under construction, so is this readme page.
 
 
 ## Devices ##
@@ -40,3 +40,8 @@ My system is a [Raspberry Pi 3B+](https://www.raspberrypi.org/products/raspberry
 - [Icasa Zigbee Dimmer](https://www.beaumotica.nl/icasa-iczb-iw11d-ac-dimmer-7061257407014)
 - [Icasa Zigbee Switch](https://www.beaumotica.nl/icasa-iczb-iw11sw-ac-switch-7104389273352)
 
+##Frontend##
+
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)
+
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Lichten.JPG)
