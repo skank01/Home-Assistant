@@ -9,10 +9,9 @@
 !*.md
 !lovelace/
 !packages/
-!images/
+!images/*.jpg
 !lovelace/views/
-!Lovelace_Info.jpg
-!Lovelace_Network.jpg
+
 
 # Ignore folders.
 .storage
