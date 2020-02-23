@@ -3,6 +3,49 @@
 My configuration still is under construction, so is this readme page.
 
 
+## Frontend ##
+
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)
+
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Lichten.JPG)
+
+
+## Backend ##
+
+### Addons ###
+- [Samba Share](https://github.com/home-assistant/hassio-addons/tree/master/samba)
+- [SSH Server](https://github.com/home-assistant/hassio-addons/tree/master/ssh)
+- [Unifi Controller](https://github.com/hassio-addons/addon-unifi)
+- [Pi-hole](https://github.com/hassio-addons/addon-pi-hole)
+- [Hass.io Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
+- [Check HA Configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config)
+
+### HACS (Home Assistant Community Store) ###
+
+Integrations: 
+
+- Unifi Gateway
+
+Plugins:
+
+- Bar Card
+- Button Card
+- Calendar Card
+- Custom Header
+- Entity Attributes Card
+- Harmony Card
+- Mini Graph Card
+- Mini Media Player
+- Weather Card
+- Fold-entity-row
+- Slider-entity-row
+- Layout-card
+- Vertical-stack-in-card
+
+Theme:
+Ios Dark Mode
+
+
 ## Devices ##
 
 ### Network ###
@@ -11,17 +54,8 @@ My configuration still is under construction, so is this readme page.
 - [Unifi Access Points](https://www.ui.com/unifi/unifi-ap-ac-lite/)
 
 ### System ###
-My system is a [Raspberry Pi 3B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) running [hass.io](https://www.home-assistant.io/hassio/) with several addons:
+My system is a [Raspberry Pi 4B+ with 4 gig RAM](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) running [hass.io](https://www.home-assistant.io/hassio/) with several addons:
 
-
-- [Pi-hole](https://pi-hole.net/)
-- [Unifi Controller](https://www.ui.com/software/)
-- Samba Share (to easily acces my home assistant files through explorer in windows)
-- Check Home Assistant Configuration
-- Log Viewer
-- Glances (for monitoring)
-- Hass.io Google Drive Backup
-- IDE (probably gonna get rid of it)
 
 ### Gateways ###
 - [Harmony Hub](https://support.myharmony.com/nl-us/hub)
@@ -39,9 +73,3 @@ My system is a [Raspberry Pi 3B+](https://www.raspberrypi.org/products/raspberry
 - [Philips Hue E27](https://www2.meethue.com/nl-be/p/hue-white-1-pack-e27/8718696785317)
 - [Icasa Zigbee Dimmer](https://www.beaumotica.nl/icasa-iczb-iw11d-ac-dimmer-7061257407014)
 - [Icasa Zigbee Switch](https://www.beaumotica.nl/icasa-iczb-iw11sw-ac-switch-7104389273352)
-
-## Frontend ##
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Lichten.JPG)

@@ -1,3 +1,28 @@
+#### CUSTOMIZE #################################################################
+
+homeassistant:
+  customize_glob:
+    sensor.unifi_usg:
+      templates:
+        hs_color: "if (state === 'up') return [115,100];
+          else return [360,100];"
+    sensor.unifi_switch:
+      templates:
+        hs_color: "if (state === 'up') return [115,100];
+          else return [360,100];"
+    sensor.unifi_ap_living:
+      templates:
+        hs_color: "if (state === 'up') return [115,100];
+          else return [360,100];"
+    sensor.unifi_ap_verdiep_1:
+      templates:
+        hs_color: "if (state === 'up') return [115,100];
+          else return [360,100];"      
+    sensor.unraid_server:
+      templates:
+        hs_color: "if (state === 'up') return [115,100];
+          else return [360,100];"
+
 sensor:
   - platform: template
     sensors:
@@ -26,3 +51,43 @@ sensor:
       unifi_gateway_wlan_num_guest:
         friendly_name: 'Guests'
         value_template: '{{ states.sensor.unifi_gateway_wlan.attributes.num_guest }}'
+      unifi_usg:
+        entity_id: device_tracker.unifi_usg
+        friendly_name: Unifi USG
+        icon_template: mdi:network-router
+        value_template: >
+          {% if is_state('device_tracker.unifi_usg', 'home') %}
+            up
+          {% else %}
+            down
+          {% endif %} 
+      unifi_switch:
+        entity_id: device_tracker.unifi_switch
+        friendly_name: Unifi Switch
+        icon_template: mdi:switch
+        value_template: >
+          {% if is_state('device_tracker.unifi_switch', 'home') %}
+            up
+          {% else %}
+            down
+          {% endif %}  
+      unifi_ap_living:
+        entity_id: device_tracker.unifi_ap_living
+        friendly_name: AP Living
+        icon_template: mdi:access-point-network
+        value_template: >
+          {% if is_state('device_tracker.unifi_ap_living', 'home') %}
+            up
+          {% else %}
+            down
+          {% endif %}
+      unifi_ap_verdiep_1:
+        entity_id: device_tracker.unifi_ap_verdiep_1
+        friendly_name: AP 1e Verdiep
+        icon_template: mdi:access-point-network
+        value_template: >
+          {% if is_state('device_tracker.unifi_ap_verdiep_1', 'home') %}
+            up
+          {% else %}
+            down
+          {% endif %}      

@@ -1,0 +1,5 @@
+person.stijn:
+  entity_picture: /local/stijn.jpg
+
+switch.netflix_kijken:
+  entity_picture: /local/netflix.png

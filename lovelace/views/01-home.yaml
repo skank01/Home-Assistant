@@ -2,17 +2,93 @@ title: Home
 icon: mdi:home-outline
 path: Home
 theme: ios-dark-mode
-cards:
-  - current: true
-    details: false
-    entity: weather.thuis
-    name: 'Home'
-    type: 'custom:weather-card'
-  - entities:
-      - entity: person.stijn 
-      - entity: person.kim
-    show_header_toggle: false
-    theme: ios-dark-mode
-    title: 'Aanwezig:'
-    type: entities
-    
+cards: 
+  - type: vertical-stack
+    cards:
+      - type: 'custom:weather-card'
+        current: true
+        details: false
+        entity: weather.thuis
+        name: 'Home'
+      - type: horizontal-stack
+        cards: []
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards: 
+              - type: picture-entity
+                entity: person.stijn
+                show_name: true
+                image: /local/stijn.jpg
+              - type: picture-entity
+                entity: person.kim
+                show_name: true
+                image: /local/kim.jpg  
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                label: Lights
+                show_label: true
+                size: 50%
+                icon: mdi:lightbulb-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/lichten
+              - type: custom:button-card
+                label: Security
+                show_label: true
+                size: 50%
+                icon:
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/cameras
+              - type: custom:button-card
+                label: Scenes
+                show_label: true
+                size: 50%
+                icon:
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/scenes
+              - type: custom:button-card
+                label: Household
+                show_label: true
+                size: 50%
+                icon:
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/household    
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            label: Entertainment
+            show_label: true
+            size: 50%
+            icon: mdi:video-vintage
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/entertainment
+          - type: custom:button-card
+            label: Cinema
+            show_label: true
+            size: 50%
+            icon: mdi:theater
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/cinema
+          - type: custom:button-card
+            label: Server
+            show_label: true
+            size: 50%
+            icon: mdi:nas
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/server  
+          - type: custom:button-card
+            label: Network
+            show_label: true
+            size: 50%
+            icon: mdi:server-network
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/network

@@ -1,3 +1,5 @@
+
+
 sensor:
 #### SERVER MONITORING #######################################################
   - platform: systemmonitor
@@ -51,56 +53,3 @@ sensor:
         icon_template: mdi:map-marker-radius
         value_template: "{{ states.zone | count }}"
       
-#### CONNECTED DEVICES #######################################################      
-  - platform: template
-    sensors:  
-      unifi_usg:
-        entity_id: device_tracker.unifi_usg
-        friendly_name: Unifi USG
-        icon_template: mdi:network-router
-        value_template: >
-          {% if is_state('device_tracker.unifi_usg', 'home') %}
-            up
-          {% else %}
-            down
-          {% endif %} 
-      unifi_switch:
-        entity_id: device_tracker.unifi_switch
-        friendly_name: Unifi Switch
-        icon_template: mdi:switch
-        value_template: >
-          {% if is_state('device_tracker.unifi_switch', 'home') %}
-            up
-          {% else %}
-            down
-          {% endif %}  
-      unifi_ap_living:
-        entity_id: device_tracker.unifi_ap_living
-        friendly_name: Unifi Acces Point Living
-        icon_template: mdi:access-point-network
-        value_template: >
-          {% if is_state('device_tracker.unifi_ap_living', 'home') %}
-            up
-          {% else %}
-            down
-          {% endif %}
-      unifi_ap_verdiep_1:
-        entity_id: device_tracker.unifi_ap_verdiep_1
-        friendly_name: Unifi Acces Point 1e Verdiep
-        icon_template: mdi:access-point-network
-        value_template: >
-          {% if is_state('device_tracker.unifi_ap_verdiep_1', 'home') %}
-            up
-          {% else %}
-            down
-          {% endif %}    
-      unraid_server:
-        entity_id: device_tracker.unraid_server
-        friendly_name: Unraid
-        icon_template: mdi:nas
-        value_template: >
-          {% if is_state('device_tracker.unraid_server', 'home') %}
-            up
-          {% else %}
-            down
-          {% endif %} 

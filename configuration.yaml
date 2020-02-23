@@ -1,6 +1,7 @@
 default_config:
 
 homeassistant:
+  customize: !include customize.yaml
   packages: !include_dir_named packages
 
 
@@ -14,6 +15,9 @@ frontend:
 lovelace:
   mode: yaml
 
+customizer:
+  custom_ui: local
+  
 hacs:
   token: !secret hacs_token
   appdaemon: true
@@ -43,7 +47,10 @@ sensor:
       - alerts
       - firmware
       
-    
-    
-    
-      
+remote:
+  - platform: harmony
+    name: Harmony Hub
+    host: !secret harmony
+
+
+  

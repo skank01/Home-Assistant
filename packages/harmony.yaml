@@ -1,0 +1,53 @@
+switch:
+  - platform: template
+    switches:
+      # FILM KIJKEN HARMONY ACTIVITY
+      film_kijken:
+        value_template: "{{ is_state_attr('remote.harmony_hub', 'current_activity', 'Film kijken') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.harmony_hub
+            activity: 'Film kijken'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.harmony_hub
+            activity: 'PowerOff'
+
+      # TV KIJKEN HARMONY ACTIVITY
+      tv_kijken:
+        value_template: "{{ is_state_attr('remote.harmony_hub', 'current_activity', 'Tv kijken') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.harmony_hub
+            activity: 'Tv kijken'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.harmony_hub
+            activity: 'PowerOff'
+            
+      # NETFLIX KIJKEN HARMONY ACTIVITY      
+      netflix_kijken:
+        value_template: "{{ is_state_attr('remote.harmony_hub', 'current_activity', 'Netflix kijken') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.harmony_hub
+            activity: 'Netflix kijken'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.harmony_hub
+            activity: 'PowerOff'
+            
+            
+sensor:
+  - platform: template
+    sensors:
+      harmony_hub:
+        value_template: "{{ state_attr('remote.harmony_hub', 'current_activity') }}"
+        friendly_name: 'Current Activity'
+        

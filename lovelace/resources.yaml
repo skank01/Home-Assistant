@@ -16,5 +16,17 @@
   url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
 - type: js
   url: /community_plugin/bar-card/bar-card.js
- 
-     
+- type: js
+  url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+- type: js
+  url: /community_plugin/entity-attributes-card/entity-attributes-card.js
+- type: module
+  url: /community_plugin/harmony-card/harmony-card.js
+- type: module
+  url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+- type: module
+  url: /community_plugin/lovelace-card-mod/card-mod.js
+- type: module 
+  url: /local/auto-entities.js
+      
+       

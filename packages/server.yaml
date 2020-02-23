@@ -1,0 +1,26 @@
+#### CUSTOMIZE #################################################################
+
+homeassistant:
+  customize_glob:
+    sensor.unraid_server:
+      templates:
+        hs_color: "if (state === 'up') return [115,100];
+          else return [360,100];"
+
+glances:
+  - host: !secret unraid_server
+
+sensor:
+  - platform: template 
+    sensors:
+      unraid_server:
+        entity_id: device_tracker.unraid_server
+        friendly_name: Unraid
+        icon_template: mdi:nas
+        value_template: >
+          {% if is_state('device_tracker.unraid_server', 'home') %}
+            up
+          {% else %}
+            down
+          {% endif %} 
+      

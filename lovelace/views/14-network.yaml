@@ -79,6 +79,15 @@ cards:
           - entity: sensor.unifi_gateway_wan_mem
         show_header_toggle: false
         title: Network
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            entities:
+              - entity: sensor.unifi_usg
+              - entity: sensor.unifi_switch
+              - entity: sensor.unifi_ap_living
+              - entity: sensor.unifi_ap_verdiep_1
+            show_state: false  
   - type: vertical-stack
     cards:
       - type: entities 
