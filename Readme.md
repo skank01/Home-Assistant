@@ -5,6 +5,10 @@ My configuration still is under construction, so is this readme page.
 
 ## Frontend ##
 
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Home.JPG)
+
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Server.JPG)
+
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)
 
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Lichten.JPG)
