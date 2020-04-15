@@ -28,6 +28,7 @@ www/community/
 # Discovered devices
 harmony_*.conf
 known_devices.yaml
+google_calendars.yaml
 
 # Ignore Log & DB
 home-assistant.log
@@ -36,6 +37,7 @@ home-assistant_v2.db
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 secrets.yaml
+google_calendars.yaml
 
 #Ignore other
 .HA_VERSION

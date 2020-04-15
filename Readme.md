@@ -20,15 +20,20 @@ My configuration still is under construction, so is this readme page.
 - [Samba Share](https://github.com/home-assistant/hassio-addons/tree/master/samba)
 - [SSH Server](https://github.com/home-assistant/hassio-addons/tree/master/ssh)
 - [Unifi Controller](https://github.com/hassio-addons/addon-unifi)
-- [Pi-hole](https://github.com/hassio-addons/addon-pi-hole)
+- [AdGuard Home](https://github.com/hassio-addons/addon-adguard-home)
 - [Hass.io Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 - [Check HA Configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config)
+- [Mosquitto Broker](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto)
+
 
 ### HACS (Home Assistant Community Store) ###
 
 Integrations: 
 
 - Unifi Gateway
+- Garmin Connect
+- Afvalbeheer
+- Google Calendar 
 
 Plugins:
 
@@ -45,6 +50,10 @@ Plugins:
 - Slider-entity-row
 - Layout-card
 - Vertical-stack-in-card
+- Card-mod
+- Homekit panel card
+- Auto-entities
+- mm2-clock-card
 
 Theme:
 Ios Dark Mode
@@ -58,7 +67,9 @@ Ios Dark Mode
 - [Unifi Access Points](https://www.ui.com/unifi/unifi-ap-ac-lite/)
 
 ### System ###
-My system is a [Raspberry Pi 4B+ with 4 gig RAM](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) running [hass.io](https://www.home-assistant.io/hassio/) with several addons:
+My system is a [Raspberry Pi 4B+ with 4 gig RAM](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) running [Raspbian](https://www.raspberrypi.org/downloads/raspbian/).
+All data is on a [Samsung Fit Plus 128GB USB flash drive](https://www.samsung.com/us/computing/memory-storage/usb-flash-drives/usb-3-1-flash-drive-fit-plus-128gb-muf-128ab-am/).
+Several addons are installed:
 
 
 ### Gateways ###
@@ -77,3 +88,15 @@ My system is a [Raspberry Pi 4B+ with 4 gig RAM](https://www.raspberrypi.org/pro
 - [Philips Hue E27](https://www2.meethue.com/nl-be/p/hue-white-1-pack-e27/8718696785317)
 - [Icasa Zigbee Dimmer](https://www.beaumotica.nl/icasa-iczb-iw11d-ac-dimmer-7061257407014)
 - [Icasa Zigbee Switch](https://www.beaumotica.nl/icasa-iczb-iw11sw-ac-switch-7104389273352)
+
+## Automations ##
+
+Coming
+
+
+## Inspiration ##
+
+Inspiration and code was taken from many different sources:
+
+- [Duboisph](https://github.com/duboisph/home-assistant-config)
+- [Hmmbob](https://github.com/hmmbob/HomeAssistantConfig)

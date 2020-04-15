@@ -14,10 +14,15 @@ frontend:
 
 lovelace:
   mode: yaml
+  resources: !include lovelace/resources.yaml
 
 customizer:
   custom_ui: local
   
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
+
 hacs:
   token: !secret hacs_token
   appdaemon: true
@@ -26,6 +31,7 @@ hacs:
 
 tts:
   - platform: google_translate
+    base_url: !secret tts_base_url
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -51,6 +57,3 @@ remote:
   - platform: harmony
     name: Harmony Hub
     host: !secret harmony
-
-
-  

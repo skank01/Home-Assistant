@@ -1,5 +1,6 @@
 title: Test
 icon: mdi:test-tube
 path: test
+panel: true
 theme: ios-dark-mode
 cards: []

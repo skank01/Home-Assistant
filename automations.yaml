@@ -1,5 +1,5 @@
 - id: '1576093494347'
-  alias: Lichten inkom aan bij zonsondergang
+  alias: Licht kastlamp aan bij zonsondergang
   description: ''
   trigger:
   - event: sunset
@@ -10,8 +10,7 @@
     entity_id: group.family
     state: home
   action:
-  - data:
-      entity_id: light.inkom
+  - entity_id: light.kastlamp
     service: light.turn_on
 - id: '1578501356390'
   alias: Nachtlampje Kim aan
@@ -108,12 +107,12 @@
       entity_id: media_player.woonkamer
     service: media_player.turn_off
 - id: '1578251418685'
-  alias: Lichten inkom aan bij thuiskomst
+  alias: Lichten inkom en keuken aan bij thuiskomst
   description: ''
   trigger:
   - entity_id: group.family
-    platform: state
     from: not_home
+    platform: state
     to: home
   condition:
   - condition: state
@@ -122,5 +121,37 @@
   action:
   - data:
       entity_id: light.inkom
+    entity_id: light.keuken
     service: light.turn_on
-    
+- id: '1586875920509'
+  alias: Notificatie afval
+  description: ''
+  trigger:
+  - at: '20:00:00'
+    platform: time
+  condition:
+    condition: or
+    conditions:
+    - condition: template
+      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'pmd') %}true{% endif %}"
+    - condition: template
+      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'restafval') %}true{% endif %}"
+    - condition: template
+      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'papier en karton') %}true{% endif %}"
+  action:
+  - data:
+      message: Herinnering:Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+    service: notify.mobile_app_nokia_7_plus
+  - data:
+      entity_id: media_player.keuken
+    service: media_player.turn_on
+  - delay: '00:00:02'
+  - data:
+      entity_id: media_player.keuken
+      language: nl
+      message: Herinnering, Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+    service: tts.google_translate_say
+  - delay: '00:00:04'
+  - data:
+      entity_id: media_player.keuken
+    service: media_player.turn_off 

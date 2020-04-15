@@ -28,5 +28,7 @@
   url: /community_plugin/lovelace-card-mod/card-mod.js
 - type: module 
   url: /local/auto-entities.js
-      
-       
+- url: /community_plugin/Homekit-panel-card/homekit-panel-card.js
+  type: module
+- url: /community_plugin/mm2-clock-card/mm2-clock-card.js
+  type: module       

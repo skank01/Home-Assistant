@@ -1,6 +1,30 @@
 
 
 sensor:
+  - platform: time_date
+    display_options:
+      - time
+      - date
+      - date_time
+  - platform: template
+    sensors:
+      greeting:
+        value_template: >
+          {% set state = states('sensor.time') %}
+          {% if '00:00' <= state  < '06:00' %}
+            Goeienacht !
+          {% elif '06:00' <= state  < '12:00' %}
+            Goeiemorgen !
+          {% elif '12:00' <= state  < '18:00' %}
+            Goeiemiddag !
+          {% else %}
+            Goeieavond !
+          {% endif %}    
+  - platform: template
+    sensors: 
+      temperature: 
+        unit_of_measurement: °C
+        value_template: "{{ state_attr('weather.thuis', 'temperature') }}"
 #### SERVER MONITORING #######################################################
   - platform: systemmonitor
     resources:

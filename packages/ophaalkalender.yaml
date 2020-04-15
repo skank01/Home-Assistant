@@ -1,0 +1,16 @@
+#### CUSTOMIZE #################################################################
+
+sensor:
+  - platform: afvalbeheer
+    wastecollector: ophaalkalender
+    resources:
+      - restafval
+      - papier
+      - pmd
+    postcode: !secret ophaalkalender_postcode
+    streetname: !secret ophaalkalender_streetname
+    dutch: 1
+    dateformat: '%d-%B'
+    dateonly: 0
+    builtinicons: 1
+    upcomingsensor: 1

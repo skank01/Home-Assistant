@@ -1,0 +1,50 @@
+title: Stijn
+path: persoon1
+theme: ios-dark-mode
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: picture
+            image: /local/stijn.jpg
+          - type: markdown
+            content: |
+              - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.nokia_7_plus') }}
+              - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.battery_level') }} %
+              - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.wifi_connection') }}
+      - type: custom:calendar-card
+        entities:
+          - calendar.agenda  
+  - type: horizontal-stack
+    cards:
+      - type: map
+        default_zoom: 14
+        aspect_ratio: 16:9
+        entities:
+          - person.stijn
+  
+  - type: custom:vertical-stack-in-card
+    cards:
+      - entities:
+          - name: Stappen
+            icon: mdi:shoe-print
+            entity: sensor.total_steps
+          - name: Verdiepingen
+            icon: mdi:stairs
+            entity: sensor.floors_ascended
+          - name: Calorieën
+            icon: mdi:food
+            entity: sensor.bmr_kilocalories
+        type: glance
+      - entities:
+          - name: Stress
+            icon: mdi:human-handsup
+            entity: sensor.max_stress_level
+          - name: Rust HR
+            icon: mdi:heart
+            entity: sensor.resting_heart_rate
+          - name: Max HR
+            icon: mdi:heart
+            entity: sensor.max_heart_rate
+        type: glance      
