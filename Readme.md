@@ -7,6 +7,8 @@ My configuration still is under construction, so is this readme page.
 
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Home.JPG)
 
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Entertainment.JPG)
+
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Server.JPG)
 
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)

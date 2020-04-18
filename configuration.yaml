@@ -15,6 +15,16 @@ frontend:
 lovelace:
   mode: yaml
   resources: !include lovelace/resources.yaml
+   # Add more dashboards
+  dashboards:
+    lovelace-test: # Needs to contain a hyphen (-)
+      mode: yaml
+      filename: dashboard_test.yaml
+      title: Test
+      icon: mdi:tools
+      show_in_sidebar: true
+      require_admin: false
+      
 
 customizer:
   custom_ui: local

@@ -2,145 +2,152 @@ title: Server
 icon: mdi:nas
 path: server
 theme: ios-dark-mode
-cards:
-  - type: custom:vertical-stack-in-card
-    title: Unraid Server
+panel: true
+cards: 
+  - type: custom:layout-card
+    layout: vertical
+    min_columns: 1
+    max_columns: 3
     cards:
-      - type: horizontal-stack
+      - type: custom:vertical-stack-in-card
+        title: Unraid Server
         cards:
-          - type: picture-glance
-            entities:
-              - entity: sensor.unraid_server
-            image: /local/unraid.png
-          - type: vertical-stack
-            cards:  
-              - type: custom:entity-attributes-card
-                filter:
-                  include:
-                    - key: binary_sensor.unraid_server.motherboard
-                    - key: binary_sensor.unraid_server.cpu                      
-                    - key: binary_sensor.unraid_server.memory
-                    - key: binary_sensor.unraid_server.arrayStatus
-                    - key: binary_sensor.unraid_server.diskSpace
-                    - key: binary_sensor.unraid_server.arrayProtection                                   
-              - type: entities
-                show_header_toggle: false
-                entities:            
-                  - switch.unraid_array                                
-      - type: conditional
-        conditions:
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unavailable"
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unknown"    
-        card:
-            type: custom:bar-card
-            align: split
-            show_icon: true
-            padding: 4px
-            columns: 2
-            card_style: 
-              border-radius: 5px
-            severity:
-            - value: 50
-              color: '#3bb3ee'
-            - value: 80
-              color: '#e7a24a'
-            - value: 100
-              color: '#ff0000'                        
-            entities:
+          - type: horizontal-stack
+            cards:
+              - type: picture-glance
+                entities:
+                  - entity: sensor.unraid_server
+                image: /local/unraid.png
+              - type: vertical-stack
+                cards:  
+                  - type: custom:entity-attributes-card
+                    filter:
+                      include:
+                        - key: binary_sensor.unraid_server.motherboard
+                        - key: binary_sensor.unraid_server.cpu                      
+                        - key: binary_sensor.unraid_server.memory
+                        - key: binary_sensor.unraid_server.arrayStatus
+                        - key: binary_sensor.unraid_server.diskSpace
+                        - key: binary_sensor.unraid_server.arrayProtection                                   
+                  - type: entities
+                    show_header_toggle: false
+                    entities:            
+                      - switch.unraid_array                                
+          - type: conditional
+            conditions:
               - entity: sensor.glances_disk_used_percent
-                title: Disk
-                max: 100            
-              - entity: sensor.glances_cpu_used
-                title: CPU
-                max: 100             
-      - type: conditional
-        conditions:
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unavailable"
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unknown"    
-        card:
-            type: custom:bar-card
-            align: split
-            show_icon: true
-            padding: 4px
-            columns: 2
-            card_style: 
-              border-radius: 5px
-            severity:
-            - value: 50
-              color: '#3bb3ee'
-            - value: 80
-              color: '#e7a24a'
-            - value: 100
-              color: '#ff0000'                        
+                state_not: "unavailable"
+              - entity: sensor.glances_disk_used_percent
+                state_not: "unknown"    
+            card:
+                type: custom:bar-card
+                align: split
+                show_icon: true
+                padding: 4px
+                columns: 2
+                card_style: 
+                  border-radius: 5px
+                severity:
+                - value: 50
+                  color: '#3bb3ee'
+                - value: 80
+                  color: '#e7a24a'
+                - value: 100
+                  color: '#ff0000'                        
+                entities:
+                  - entity: sensor.glances_disk_used_percent
+                    title: Disk
+                    max: 100            
+                  - entity: sensor.glances_cpu_used
+                    title: CPU
+                    max: 100             
+          - type: conditional
+            conditions:
+              - entity: sensor.glances_disk_used_percent
+                state_not: "unavailable"
+              - entity: sensor.glances_disk_used_percent
+                state_not: "unknown"    
+            card:
+                type: custom:bar-card
+                align: split
+                show_icon: true
+                padding: 4px
+                columns: 2
+                card_style: 
+                  border-radius: 5px
+                severity:
+                - value: 50
+                  color: '#3bb3ee'
+                - value: 80
+                  color: '#e7a24a'
+                - value: 100
+                  color: '#ff0000'                        
+                entities:
+                  - entity: sensor.glances_swap_used_percent
+                    title: SWAP             
+                    max: 100
+                  - entity: sensor.glances_ram_used_percent
+                    title: RAM
+                    max: 100
+          - type: conditional
+            conditions:
+              - entity: sensor.glances_containers_active
+                state_not: '0'
+              - entity: sensor.glances_disk_used_percent
+                state_not: "unavailable"
+              - entity: sensor.glances_disk_used_percent
+                state_not: "unknown"                
+            card:
+                type: custom:bar-card
+                align: split
+                show_icon: true
+                padding: 4px
+                columns: 2
+                card_style: 
+                  border-radius: 5px
+                entities:
+                  - entity: sensor.glances_containers_ram_used
+                    title: Docker RAM 
+                    max: 10000                
+                  - entity: sensor.glances_containers_cpu_used
+                    title: Docker CPU                   
+          - type: conditional
+            conditions:
+              - entity: sensor.glances_disk_used_percent
+                state_not: "unavailable"
+              - entity: sensor.glances_disk_used_percent
+                state_not: "unknown"    
+            card:
+                type: custom:bar-card
+                align: left
+                title_position: left
+                show_icon: true
+                padding: 4px
+                columns: 1
+                card_style: 
+                  border-radius: 5px
+                severity:
+                - value: 50
+                  color: '#3bb3ee'
+                - value: 80
+                  color: '#e7a24a'
+                - value: 100
+                  color: '#ff0000'                        
+                entities:
+                  - entity: sensor.glances_containers_active 
+                    title: Containers    
+                    max: 40   
+      - break
+      - type: vertical-stack
+        cards:
+          - type: entities
             entities:
-              - entity: sensor.glances_swap_used_percent
-                title: SWAP             
-                max: 100
-              - entity: sensor.glances_ram_used_percent
-                title: RAM
-                max: 100
-      - type: conditional
-        conditions:
-          - entity: sensor.glances_containers_active
-            state_not: '0'
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unavailable"
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unknown"                
-        card:
-            type: custom:bar-card
-            align: split
-            show_icon: true
-            padding: 4px
-            columns: 2
-            card_style: 
-              border-radius: 5px
-            entities:
-              - entity: sensor.glances_containers_ram_used
-                title: Docker RAM 
-                max: 10000                
-              - entity: sensor.glances_containers_cpu_used
-                title: Docker CPU                   
-      - type: conditional
-        conditions:
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unavailable"
-          - entity: sensor.glances_disk_used_percent
-            state_not: "unknown"    
-        card:
-            type: custom:bar-card
-            align: left
-            title_position: left
-            show_icon: true
-            padding: 4px
-            columns: 1
-            card_style: 
-              border-radius: 5px
-            severity:
-            - value: 50
-              color: '#3bb3ee'
-            - value: 80
-              color: '#e7a24a'
-            - value: 100
-              color: '#ff0000'                        
-            entities:
-              - entity: sensor.glances_containers_active 
-                title: Containers    
-                max: 40   
-  - type: vertical-stack
-    cards:
-      - type: entities
-        entities:
-          - entity: switch.unraid_docker_embyserver
-          - entity: switch.unraid_docker_sabnzbd
-          - entity: switch.unraid_docker_tsmuxer
-          - entity: switch.unraid_docker_glances
-          - entity: switch.unraid_docker_makemkv
-          - entity: switch.unraid_docker_mediainfo
-          - entity: switch.unraid_docker_unraid_api
-        title: Dockers
-        show_header_toggle: false
+              - entity: switch.unraid_docker_embyserver
+              - entity: switch.unraid_docker_sabnzbd
+              - entity: switch.unraid_docker_tsmuxer
+              - entity: switch.unraid_docker_glances
+              - entity: switch.unraid_docker_makemkv
+              - entity: switch.unraid_docker_mediainfo
+              - entity: switch.unraid_docker_unraid_api
+            title: Dockers
+            show_header_toggle: false

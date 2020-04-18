@@ -4,24 +4,29 @@ homeassistant:
   customize_glob:
     sensor.unifi_usg:
       templates:
-        hs_color: "if (state === 'up') return [115,100];
-          else return [360,100];"
+        icon_color: >
+          if (state === 'up') return 'rgb(0,255,0)';
+          else return 'rgb(255,0,0)';
     sensor.unifi_switch:
       templates:
-        hs_color: "if (state === 'up') return [115,100];
-          else return [360,100];"
+        icon_color: >
+          if (state === 'up') return 'rgb(0,255,0)';
+          else return 'rgb(255,0,0)';
     sensor.unifi_ap_living:
       templates:
-        hs_color: "if (state === 'up') return [115,100];
-          else return [360,100];"
+        icon_color: >
+          if (state === 'up') return 'rgb(0,255,0)';
+          else return 'rgb(255,0,0)';
     sensor.unifi_ap_verdiep_1:
       templates:
-        hs_color: "if (state === 'up') return [115,100];
-          else return [360,100];"      
+        icon_color: >
+          if (state === 'up') return 'rgb(0,255,0)';
+          else return 'rgb(255,0,0)';
     sensor.unraid_server:
       templates:
-        hs_color: "if (state === 'up') return [115,100];
-          else return [360,100];"
+        icon_color: >
+          if (state === 'up') return 'rgb(0,255,0)';
+          else return 'rgb(255,0,0)';
 
 sensor:
   - platform: template

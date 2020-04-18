@@ -47,8 +47,8 @@ cards:
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.pi_hole_ads_percentage_blocked_today
-            name: Ads blocked
+              - sensor.adguard_dns_queries
+            name: Dns queries
             decimals: 0
             hour24: true
             hours_to_show: 72
@@ -56,13 +56,18 @@ cards:
               graph: line
           - type: custom:mini-graph-card
             entities:
-              - sensor.pi_hole_dns_unique_clients
-            name: Clients
+              - sensor.adguard_dns_queries_blocked_ratio
+            name: Dns queries blocked
             hour24: true
             hours_to_show: 72
             show:
               graph: none   
-
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: switch.adguard_protection
+          - type: custom:button-card
+            entity: switch.adguard_parental_control
   - type: vertical-stack
     cards:
       - type: entities

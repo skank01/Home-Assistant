@@ -4,8 +4,9 @@ homeassistant:
   customize_glob:
     sensor.unraid_server:
       templates:
-        hs_color: "if (state === 'up') return [115,100];
-          else return [360,100];"
+        icon_color: >
+          if (state === 'up') return 'rgb(0,255,0)';
+          else return 'rgb(255,0,0)';
 
 glances:
   - host: !secret unraid_server

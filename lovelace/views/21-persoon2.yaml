@@ -1,51 +1,58 @@
 title: Kim
 path: persoon2
 theme: ios-dark-mode
-cards:
-  - type: vertical-stack
+panel: true
+cards: 
+  - type: custom:layout-card
+    layout: vertical
+    min_columns: 1
+    max_columns: 3
     cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: picture
+                image: /local/kim.jpg
+              - type: markdown
+                content: |
+                  - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.iphone_kim_2') }}
+                  - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.iphone_kim_battery_level') }} %
+                  - <ha-icon icon="mdi:battery-charging-30"></ha-icon> {{ states('sensor.iphone_kim_battery_state') }}
+                  - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.iphone_kim_connection_type') }}
+          - type: custom:calendar-card
+            entities:
+              - calendar.calendar_shared  
+      - break
       - type: horizontal-stack
         cards:
-          - type: picture
-            image: /local/kim.jpg
-          - type: markdown
-            content: |
-              - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.iphone_kim_2') }}
-              - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.iphone_kim_battery_level') }} %
-              - <ha-icon icon="mdi:battery-charging-30"></ha-icon> {{ states('sensor.iphone_kim_battery_state') }}
-              - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.iphone_kim_connection_type') }}
-      - type: custom:calendar-card
-        entities:
-          - calendar.calendar_shared  
-  - type: horizontal-stack
-    cards:
-      - type: map
-        default_zoom: 14
-        aspect_ratio: 16:9
-        entities:
-          - person.kim
-  
-  - type: custom:vertical-stack-in-card
-    cards:
-      - entities:
-          - name: Stappen
-            icon: mdi:shoe-print
-            entity: sensor.total_steps_2
-          - name: Verdiepingen
-            icon: mdi:stairs
-            entity: sensor.floors_ascended_2
-          - name: Calorieën
-            icon: mdi:food
-            entity: sensor.bmr_kilocalories_2
-        type: glance
-      - entities:
-          - name: Stress
-            icon: mdi:human-handsup
-            entity: sensor.max_stress_level_2
-          - name: Rust HR
-            icon: mdi:heart
-            entity: sensor.resting_heart_rate_2
-          - name: Max HR
-            icon: mdi:heart
-            entity: sensor.max_heart_rate_2
-        type: glance
+          - type: map
+            default_zoom: 14
+            aspect_ratio: 16:9
+            entities:
+              - person.kim
+      - break
+      - type: custom:vertical-stack-in-card
+        cards:
+          - entities:
+              - name: Stappen
+                icon: mdi:shoe-print
+                entity: sensor.total_steps_2
+              - name: Verdiepingen
+                icon: mdi:stairs
+                entity: sensor.floors_ascended_2
+              - name: Calorieën
+                icon: mdi:food
+                entity: sensor.bmr_kilocalories_2
+            type: glance
+          - entities:
+              - name: Stress
+                icon: mdi:human-handsup
+                entity: sensor.max_stress_level_2
+              - name: Rust HR
+                icon: mdi:heart
+                entity: sensor.resting_heart_rate_2
+              - name: Max HR
+                icon: mdi:heart
+                entity: sensor.max_heart_rate_2
+            type: glance

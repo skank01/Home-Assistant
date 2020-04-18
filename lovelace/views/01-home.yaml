@@ -2,117 +2,125 @@ title: Home
 icon: mdi:home-outline
 path: Home
 theme: ios-dark-mode
+panel: true
 cards: 
-  - type: custom:vertical-stack-in-card
+  - type: custom:layout-card
+    layout: vertical
+    min_columns: 1
+    max_columns: 3
     cards:
-      - type: custom:mm2-clock-card
-        timeFormat: 24
-        displaySeconds: true
-        clockBold: false
-        displayType: both
-        timezone: Europe/Brussels
-      - type: custom:weather-card
-        entity: weather.thuis
-        name: 'Home'
-        current: true
-        details: true
-        forecast: true
-  - type: horizontal-stack
-    cards: 
-      - type: picture-entity
-        entity: person.stijn
-        show_name: true
-        image: /local/stijn.jpg
-        tap_action:
-          action: navigate
-          navigation_path: /lovelace/persoon1
-      - type: picture-entity
-        entity: person.kim
-        show_name: true
-        image: /local/kim.jpg
-        tap_action:
-          action: navigate
-          navigation_path: /lovelace/persoon2    
-  - type: vertical-stack
-    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:mm2-clock-card
+            timeFormat: 24
+            displaySeconds: true
+            clockBold: false
+            displayType: both
+            timezone: Europe/Brussels
+          - type: custom:weather-card
+            entity: weather.thuis
+            name: 'Home'
+            current: true
+            details: true
+            forecast: true
+      - break
+      - type: horizontal-stack
+        cards: 
+          - type: picture-entity
+            entity: person.stijn
+            show_name: true
+            image: /local/stijn.jpg
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/persoon1
+          - type: picture-entity
+            entity: person.kim
+            show_name: true
+            image: /local/kim.jpg
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/persoon2    
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                show_label: false
+                name: Lichten
+                size: 40%
+                icon: mdi:lightbulb-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/lichten
+              - type: custom:button-card
+                label: Security
+                name: Security
+                show_label: false
+                size: 40%
+                icon: mdi:cctv
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/cameras
+              - type: custom:button-card
+                label: Scenes
+                show_label: true
+                size: 40%
+                icon: mdi:clock-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/scenes
+              - type: custom:button-card
+                label: Entertainment
+                show_label: true
+                size: 40%
+                icon: mdi:video-vintage
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/entertainment    
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                label: Cinema
+                show_label: false
+                name: Cinema
+                size: 40%
+                icon: mdi:theater
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/cinema
+              - type: custom:button-card
+                label: Server
+                show_label: true
+                size: 40%
+                icon: mdi:nas
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/server  
+              - type: custom:button-card
+                label: Network
+                show_label: true
+                size: 40%
+                icon: mdi:server-network
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/network
+              - type: custom:button-card
+                label: Testing
+                show_label: false
+                size: 40%
+                icon: mdi:test-tube
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/test
+                name: Testing
+      - break
       - type: horizontal-stack
         cards:
-          - type: custom:button-card
-            show_label: false
-            name: Lichten
-            size: 40%
-            icon: mdi:lightbulb-outline
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/lichten
-          - type: custom:button-card
-            label: Security
-            name: Security
-            show_label: false
-            size: 40%
-            icon: mdi:cctv
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/cameras
-          - type: custom:button-card
-            label: Scenes
-            show_label: true
-            size: 40%
-            icon: mdi:clock-outline
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/scenes
-          - type: custom:button-card
-            label: Entertainment
-            show_label: true
-            size: 40%
-            icon: mdi:video-vintage
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/entertainment    
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            label: Cinema
-            show_label: false
-            name: Cinema
-            size: 40%
-            icon: mdi:theater
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/cinema
-          - type: custom:button-card
-            label: Server
-            show_label: true
-            size: 40%
-            icon: mdi:nas
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/server  
-          - type: custom:button-card
-            label: Network
-            show_label: true
-            size: 40%
-            icon: mdi:server-network
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/network
-          - type: custom:button-card
-            label: Testing
-            show_label: false
-            size: 40%
-            icon: mdi:test-tube
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/test
-            name: Testing
-  - type: horizontal-stack
-    cards:
-      - entities:
-          - name: Restafval
-            entity: sensor.ophaalkalender_restafval
-          - name: Pmd
-            entity: sensor.ophaalkalender_pmd
-          - name: Papier en karton
-            entity: sensor.ophaalkalender_papier
-        type: glance
+          - entities:
+              - name: Restafval
+                entity: sensor.ophaalkalender_restafval
+              - name: Pmd
+                entity: sensor.ophaalkalender_pmd
+              - name: Papier en karton
+                entity: sensor.ophaalkalender_papier
+            type: glance
