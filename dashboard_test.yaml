@@ -32,6 +32,6 @@ custom_header:
   shadow: false
 title: Thuis
 views:
-  - !include lovelace_test/views/01-home.yaml
+  - !include lovelace_test/views/01-Test.yaml
   
   

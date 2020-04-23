@@ -22,7 +22,7 @@ custom_header:
     <div id=flipper><div id=flip><div><div>
     Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
     {{states('sensor.greeting')}}</div></div><div><div>
-    Herinnering: Vandaag {{states('sensor.ophaalkalender_vandaag')}} buiten zetten!</div></div><div><div>
+    {{states('sensor.afval')}}</div></div><div><div>
   compact_mode: false
   reverse_tab_direction: true
   reverse_button_direction: true
@@ -37,9 +37,10 @@ views:
   - !include lovelace/views/03-cameras.yaml
   - !include lovelace/views/04-entertainment.yaml
   - !include lovelace/views/05-cinema.yaml
+  - !include lovelace/views/06-automatisaties.yaml
   - !include lovelace/views/13-server.yaml
   - !include lovelace/views/14-network.yaml
-  - !include lovelace/views/15-test.yaml
+  - !include lovelace/views/15-energie.yaml
   - !include lovelace/views/20-persoon1.yaml
   - !include lovelace/views/21-persoon2.yaml
   

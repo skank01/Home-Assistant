@@ -62,13 +62,13 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/cameras
               - type: custom:button-card
-                label: Scenes
+                label: Automatisatie
                 show_label: true
                 size: 40%
-                icon: mdi:clock-outline
+                icon: mdi:home-automation
                 tap_action:
                   action: navigate
-                  navigation_path: /lovelace/scenes
+                  navigation_path: /lovelace/automatisaties
               - type: custom:button-card
                 label: Entertainment
                 show_label: true
@@ -105,14 +105,14 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/network
               - type: custom:button-card
-                label: Testing
+                label: Energie
                 show_label: false
                 size: 40%
-                icon: mdi:test-tube
+                icon: mdi:power-plug
                 tap_action:
                   action: navigate
-                  navigation_path: /lovelace/test
-                name: Testing
+                  navigation_path: /lovelace/energie
+                name: Energie
       - break
       - type: horizontal-stack
         cards:

@@ -46,7 +46,6 @@ Plugins:
 - Entity Attributes Card
 - Harmony Card
 - Mini Graph Card
-- Mini Media Player
 - Weather Card
 - Fold-entity-row
 - Slider-entity-row
