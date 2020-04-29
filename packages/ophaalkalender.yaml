@@ -12,6 +12,7 @@ sensor:
     dutch: 1
     dateformat: '%d-%B'
     dateonly: 0
+    dayofweek: 0
     builtinicons: 1
     upcomingsensor: 1
   - platform: template

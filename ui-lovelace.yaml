@@ -44,4 +44,52 @@ views:
   - !include lovelace/views/20-persoon1.yaml
   - !include lovelace/views/21-persoon2.yaml
   
-  
+button_card_templates:
+  automation:
+    show_label: true
+    show_state: true
+    size: 30%
+    color_type: card
+    styles:
+      card:
+        - font-size: 14px
+        - height: 120px
+        - width: 120px
+      img_cell:
+        - justify-content: start
+        - align-items: start
+        - padding-left: 20px
+        - height: 40px
+      name:
+        - white-space: normal
+        - max-height: 2.4em
+        - justify-self: start
+        - padding-left: 10px
+        - font-weight: bold
+        - text-align: left
+        - align-self: end
+      state:
+        - justify-self: start
+        - padding-left: 10px
+      grid:
+        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-rows: 1fr 1fr min-content 
+    state:
+    - value: 'on'
+      styles:
+        state:
+          - color: 'rgba(0, 0, 0, 1)'
+        icon: 
+          - color: 'rgb(255,140,0)'
+        card: 
+          - background: 'rgb(255,255,255)'
+        name:
+          - color: 'rgba(0, 0, 0, 1)'
+    - value: 'off'
+      styles:
+        state:
+          - color: 'rgba(255, 255, 255, 0.4)'
+        icon:
+          - color: 'rgba(255, 255, 255, 1)'
+        name:
+          - color: 'rgba(255, 255, 255, 0.7)'

@@ -3,69 +3,52 @@ icon: mdi:home-automation
 path: automatisaties
 theme: ios-dark-mode
 panel: true
-cards:
-  - type: "custom:homekit-card"
-    home: false
-    enableColumns: true
-    style: |
-      :host {
-        --tile-background: rgba(0, 0, 0, 0.3);
-        --tile-border-radius: 12px;
-        --tile-width: 100px;
-        --tile-height: 100px;
-        --tile-on-background: rgba(255, 255, 255, 1);
-        --tile-name-text-color: rgba(255, 255, 255, 0.7);
-        --tile-on-name-text-color: rgba(0, 0, 0, 1);
-        --tile-state-text-color: rgba(255, 255, 255, 0.4);
-        --tile-on-state-text-color: rgba(0, 0, 0, 1);
-        --tile-state-changed-text-color: rgb(134, 134, 134);
-        --tile-unavailable-state-text-color: rgba(255, 255, 255, 0,5);
-        --tile-value-text-color: rgba(255, 0, 0, 1);
-        --tile-icon-color: rgba(255, 255, 255, 1);
-        --tile-on-icon-color: rgb(255, 140, 0);
-        --tile-width-mobile: 90px;
-        --tile-height-mobile: 90px;
-      }  
-      .button-inner .icon {
-            width:55px;
-            height:55px;
-          }
-          .button-inner .icon ha-icon {
-            width: 40px;
-            height:40px;
-          }
-    rows:
-      - row: 1    
-        columns:
-          - column: 1
-            tileOnRow: 3
-            entities:
-              - title: Automatisaties Lichten
-                entities:
-                  - entity: automation.lichten_inkom_aan_bij_thuiskomst
-                    icon: mdi:lightbulb
-                  - entity: automation.lichten_inkom_aan_bij_zonsondergang
-                    icon: mdi:lightbulb  
-                  - entity: automation.nachtlampje_kim_aan
-                    icon: mdi:lightbulb 
-                  - entity: automation.nachtlampje_noor_aan
-                    icon: mdi:lightbulb   
-          - column: 2
-            tileOnRow: 3
-            entities:
-              - title: Notificaties
-                entities:
-                  - entity: automation.notificatie_afval
-                    icon: mdi:delete
-          - column: 3
-            tileOnRow: 3
-            entities:
-              - title: Automatisaties Thuiskomst
-                entities:
-                  - entity: automation.welkom_thuis
-                    icon: mdi:home-automation
-                  - entity: automation.zet_muziek_aan_bij_thuiskomst
-                    icon: mdi:music
-    
-    
-    
+cards: 
+  - type: custom:layout-card
+    layout: vertical
+    min_columns: 1
+    max_columns: 3
+    cards:
+      - type: horizontal-stack
+        title: Automatisaties Lichten
+        cards:
+          - type: custom:button-card
+            entity: automation.lichten_inkom_aan_bij_thuiskomst
+            icon: mdi:lightbulb
+            template: automation
+            name: Lichten aan bij thuiskomst
+          - type: custom:button-card
+            entity: automation.lichten_inkom_aan_bij_zonsondergang
+            icon: mdi:lightbulb
+            template: automation
+            name: Lichten aan bij zonsondergang
+          - type: custom:button-card
+            entity: automation.nachtlampje_kim_aan
+            icon: mdi:lightbulb
+            template: automation
+      - type: horizontal-stack
+        cards:   
+          - type: custom:button-card
+            entity: automation.nachtlampje_noor_aan
+            icon: mdi:lightbulb
+            template: automation
+      - break
+      - type: horizontal-stack
+        title: Notificaties
+        cards:
+          - type: custom:button-card
+            entity: automation.notificatie_afval
+            icon: mdi:delete
+            template: automation
+      - break
+      - type: horizontal-stack
+        title: Automatisaties Thuiskomst
+        cards:
+          - type: custom:button-card
+            entity: automation.welkom_thuis
+            icon: mdi:home-automation
+            template: automation         
+          - type: custom:button-card
+            entity: automation.zet_muziek_aan_bij_thuiskomst
+            icon: mdi:music
+            template: automation
