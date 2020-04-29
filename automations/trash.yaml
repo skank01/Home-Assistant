@@ -1,0 +1,38 @@
+##########################
+## Trash
+##########################
+- id: '1586875920509'
+  alias: Notificatie afval
+  description: ''
+  trigger:
+  - at: '20:00:00'
+    platform: time
+  condition:
+    condition: or
+    conditions:
+    - condition: template
+      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'pmd') %}true{% endif %}"
+    - condition: template
+      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'restafval') %}true{% endif %}"
+    - condition: template
+      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'papier') %}true{% endif %}"
+  action:
+  - data:
+      message: Herinnering:Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+    service: notify.mobile_app_nokia_7_plus
+  - data:
+      message: Herinnering:Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+    service: notify.mobile_app_iphone_kim  
+  - data:
+      entity_id: group.media_player
+    service: media_player.turn_on
+  - delay: '00:00:02'
+  - data:
+      entity_id: group.media_player
+      language: nl
+      message: Herinnering, Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+    service: tts.google_translate_say
+  - delay: '00:00:04'
+  - data:
+      entity_id: group.media_player
+    service: media_player.turn_off 

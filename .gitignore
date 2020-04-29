@@ -11,6 +11,7 @@
 !packages/
 !images/*.jpg
 !lovelace/views/
+!automations/
 
 
 # Ignore folders.

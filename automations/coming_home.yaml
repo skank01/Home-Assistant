@@ -1,0 +1,56 @@
+##########################
+## Music automation
+##########################
+- id: '1576243484410'
+  alias: Zet muziek aan bij thuiskomst
+  description: ''
+  trigger:
+  - entity_id: group.family
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: 09:00:00
+    before: '17:00:00'
+    condition: time
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: media_player.woonkamer
+      state: idle
+    - condition: state
+      entity_id: media_player.woonkamer
+      state: paused
+  action:
+  - data:
+      media_content_id: http://icecast-qmusic.cdp.triple-it.nl//Qmusic_be_live_96.mp3
+      media_content_type: music
+      entity_id: media_player.woonkamer
+    service: media_player.play_media
+
+
+##########################
+## Welcome home
+##########################
+- id: '1578158381176'
+  alias: Welkom thuis
+  description: ''
+  trigger:
+  - entity_id: group.family
+    from: not_home
+    platform: state
+    to: home
+  action:
+  - data:
+      entity_id: media_player.woonkamer
+    service: media_player.turn_on
+  - delay: 00:00:02
+  - data:
+      entity_id: media_player.woonkamer
+      language: nl
+      message: Hallo knapperd, welkom thuis!
+    service: tts.google_translate_say
+  - delay: 00:00:04
+  - data:
+      entity_id: media_player.woonkamer
+    service: media_player.turn_off
