@@ -1,0 +1,48 @@
+##########################
+## Vacation mode on
+##########################
+- id: 'Vacation mode: turn on'
+  alias: Vakantiemodus aan
+  initial_state: "on"
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: "home"
+      to: "not_home"
+      for: "24:00:00"
+  condition: []
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.vakantiemodus
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: Goeie reis! Geniet er van! Ik heb alvast vakantiemodus geactiveerd.
+    - service: notify.mobile_app_iphone_kim
+      data:
+        message: Goeie reis! Geniet er van! Ik heb alvast vakantiemodus geactiveerd.
+  
+
+##########################
+## Vacation mode off
+##########################
+- id: 'Vacation mode: turn off'
+  alias: Vakantiemodus uit
+  initial_state: "on"
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: not_home
+      to: home
+  condition:
+    - condition: state
+      entity_id: input_boolean.vakantiemodus
+      state: "on"
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.vakantiemodus
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: Home sweet home. Ik heb de vakantiemodus gedeactiveerd.
+    - service: notify.mobile_app_iphone_kim
+      data:
+        message: Home sweet home. Ik heb de vakantiemodus gedeactiveerd.    

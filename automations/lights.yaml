@@ -84,3 +84,47 @@
       entity_id: light.inkom
     entity_id: light.keuken
     service: light.turn_on
+    
+    
+
+
+########################################
+## Vacation mode light automations
+########################################
+- id: 'Turn on vacation lights upstairs to simulate presence'
+  alias: Vakantie lichten boven willekeurig aan
+  initial_state: on
+  trigger:
+    platform: time
+    at: '21:45:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.vakantiemodus
+      state: 'on'
+  action:
+    - delay: '00:{{ range(01,30) | random | int }}:00'
+    # Toggling random entity state
+    - service: homeassistant.turn_on
+      data_template:
+        entity_id: "{{ state_attr('group.simulation_bovenverdieping','entity_id') | random }}"     
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: Ik heb je simulatielichten boven aangestoken om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.
+
+- id: 'Turn off vacation lights to simulate presence'
+  alias: Vakantie lichten uit
+  initial_state: on
+  trigger:
+    platform: time
+    at: '22:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.vakantiemodus
+      state: 'on'
+  action:
+    - delay: '00:{{ range(01,30) | random | int }}:00'
+    - service: homeassistant.turn_off
+      entity_id: group.simulation_lights_off
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: Ik heb je aanwezigheidssimulatie met lichten gestopt om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.

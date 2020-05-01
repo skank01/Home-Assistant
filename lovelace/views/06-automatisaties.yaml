@@ -23,15 +23,19 @@ cards:
             template: automation
             name: Lichten aan bij zonsondergang
           - type: custom:button-card
-            entity: automation.nachtlampje_kim_aan
-            icon: mdi:lightbulb
-            template: automation
+            entity: input_boolean.vakantiemodus
+            icon: mdi:airplane-takeoff
+            template: automation    
       - type: horizontal-stack
         cards:   
           - type: custom:button-card
             entity: automation.nachtlampje_noor_aan
             icon: mdi:lightbulb
             template: automation
+          - type: custom:button-card
+            entity: automation.nachtlampje_kim_aan
+            icon: mdi:lightbulb
+            template: automation  
       - break
       - type: horizontal-stack
         title: Notificaties

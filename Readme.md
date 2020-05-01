@@ -101,3 +101,4 @@ Inspiration and code was taken from many different sources:
 
 - [Duboisph](https://github.com/duboisph/home-assistant-config)
 - [Hmmbob](https://github.com/hmmbob/HomeAssistantConfig)
+- [Basnijholt](https://github.com/basnijholt/home-assistant-config)

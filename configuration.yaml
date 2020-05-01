@@ -67,3 +67,7 @@ remote:
   - platform: harmony
     name: Harmony Hub
     host: !secret harmony
+
+input_boolean:
+  vakantiemodus:
+    icon: mdi:airplane-takeoff
