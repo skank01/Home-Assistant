@@ -63,13 +63,13 @@ cards:
           - column: 3
             tileOnRow: 3
             entities:
-              - title: Cinema
+              - title: Dressing
                 popup:
                   type: custom:light-popup-card                      
                 entities:
-                  - entity: light.cinema
-                    name: Plafondspots 
-                    icon: mdi:wall-sconce-flat          
+                  - entity: light.dressing
+                    name: Plafondspots
+                    icon: mdi:wall-sconce-flat
       - row: 2    
         columns:
           - column: 1
@@ -91,12 +91,22 @@ cards:
           - column: 2
             tileOnRow: 3
             entities:
-              - title: Dressing
+              - title: Slaapkamer Arne
                 popup:
                   type: custom:light-popup-card                      
                 entities:
-                  - entity: light.dressing
-                    name: Plafondspots
+                  - entity: light.nachtlampje_arne
+                    name: Nachtlampje
+                    icon: mdi:coach-lamp
+          - column: 3
+            tileOnRow: 3
+            entities:
+              - title: Cinema
+                popup:
+                  type: custom:light-popup-card                      
+                entities:
+                  - entity: light.cinema
+                    name: Plafondspots 
                     icon: mdi:wall-sconce-flat
       - row: 3    
         columns:

@@ -1,8 +1,6 @@
 background: var(--background-image)
 custom_header:
   background: 'rgba(155, 155, 155, 0.25)'
-  button_text: none
-  custom_header:
   header_text: >-
     <style>
     #flipper {color:#999;}
@@ -23,12 +21,10 @@ custom_header:
     Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
     {{states('sensor.greeting')}}</div></div><div><div>
     Herinnering: Vandaag {{states('sensor.ophaalkalender_vandaag')}} buiten zetten!</div></div><div><div>
-  compact_mode: false
-  reverse_tab_direction: true
-  reverse_button_direction: true
+  compact_mode: true
+  reverse_tab_direction: false
+  reverse_button_direction: false
   options_hide: true
-  show_tabs:
-   - Home
   shadow: false
 title: Thuis
 views:

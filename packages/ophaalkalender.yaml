@@ -13,7 +13,7 @@ sensor:
     dateformat: '%d-%B'
     dateonly: 0
     dayofweek: 0
-    builtinicons: 1
+    builtinicons: 0
     upcomingsensor: 1
   - platform: template
     sensors:

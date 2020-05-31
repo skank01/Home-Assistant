@@ -24,4 +24,4 @@ sensor:
           {% else %}
             down
           {% endif %} 
-      
+

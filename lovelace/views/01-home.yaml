@@ -13,13 +13,13 @@ cards:
         cards:
           - type: custom:mm2-clock-card
             timeFormat: 24
+            dateFormat: "dddd, D MMMM YYYY"
             displaySeconds: true
             clockBold: false
             displayType: both
             timezone: Europe/Brussels
           - type: custom:weather-card
             entity: weather.thuis
-            name: 'Home'
             current: true
             details: true
             forecast: true
@@ -53,8 +53,8 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/lichten
               - type: custom:button-card
-                label: Security
-                name: Security
+                label: Camera's
+                name: Camera's
                 show_label: false
                 size: 40%
                 icon: mdi:cctv
@@ -62,13 +62,14 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/cameras
               - type: custom:button-card
-                label: Automatisatie
-                show_label: true
+                label: Temperatuur
+                show_label: false
+                name: Temperatuur
                 size: 40%
-                icon: mdi:home-automation
+                icon: mdi:home-thermometer-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /lovelace/automatisaties
+                  navigation_path: /lovelace/temperatuur
               - type: custom:button-card
                 label: Entertainment
                 show_label: true
@@ -80,14 +81,13 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                label: Cinema
-                show_label: false
-                name: Cinema
+                label: Automatisatie
+                show_label: true
                 size: 40%
-                icon: mdi:theater
+                icon: mdi:home-automation
                 tap_action:
                   action: navigate
-                  navigation_path: /lovelace/cinema
+                  navigation_path: /lovelace/automatisaties
               - type: custom:button-card
                 label: Server
                 show_label: true
@@ -119,8 +119,11 @@ cards:
           - entities:
               - name: Restafval
                 entity: sensor.ophaalkalender_restafval
+                image: /local/restafval.png
               - name: Pmd
                 entity: sensor.ophaalkalender_pmd
+                image: /local/pmd.png
               - name: Papier en karton
                 entity: sensor.ophaalkalender_papier
+                image: /local/papierenkarton.png
             type: glance

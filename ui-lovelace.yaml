@@ -1,8 +1,6 @@
 background: var(--background-image)
 custom_header:
   background: 'rgba(155, 155, 155, 0.25)'
-  button_text: none
-  custom_header:
   header_text: >-
     <style>
     #flipper {color:#999;}
@@ -23,12 +21,11 @@ custom_header:
     Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
     {{states('sensor.greeting')}}</div></div><div><div>
     {{states('sensor.afval')}}</div></div><div><div>
-  compact_mode: false
-  reverse_tab_direction: true
-  reverse_button_direction: true
+  compact_mode: true
+  split_mode: true
+  reverse_tab_direction: false
+  reverse_button_direction: false
   options_hide: true
-  show_tabs:
-   - Home
   shadow: false
 title: Thuis
 views:
@@ -36,7 +33,7 @@ views:
   - !include lovelace/views/02-lichten.yaml
   - !include lovelace/views/03-cameras.yaml
   - !include lovelace/views/04-entertainment.yaml
-  - !include lovelace/views/05-cinema.yaml
+  - !include lovelace/views/05-temperatuur.yaml
   - !include lovelace/views/06-automatisaties.yaml
   - !include lovelace/views/13-server.yaml
   - !include lovelace/views/14-network.yaml

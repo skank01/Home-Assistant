@@ -1,0 +1,104 @@
+##############################
+## Entertainment Downstairs
+##############################
+- alias: "Film woonkamer afspelen"
+  trigger:
+  - entity_id: media_player.emby_kodi_woonkamer
+    platform: state
+    from: idle
+    to: playing
+  - entity_id: media_player.emby_kodi_woonkamer
+    platform: state
+    from: paused
+    to: playing  
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: 
+        - light.zithoek
+        - light.inkom
+        - light.eettafel
+        - light.tafellamp
+            
+- alias: "Film woonkamer gepauzeerd"
+  trigger:
+  - entity_id: media_player.emby_kodi_woonkamer
+    platform: state
+    from: playing
+    to: paused
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.movie_livingroom_dim
+    
+- alias: "Film woonkamer gestopt"
+  trigger:
+  - entity_id: media_player.emby_kodi_woonkamer
+    platform: state
+    from: playing
+    to: idle
+  - entity_id: media_player.emby_kodi_woonkamer
+    platform: state
+    from: paused
+    to: idle  
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.movie_livingroom_normal
+    
+    
+##########################
+## Entertainment Cinema
+##########################
+- alias: "Film cinema afspelen"
+  trigger:
+  - entity_id: media_player.emby_kodi_cinema
+    platform: state
+    from: idle
+    to: playing
+  - entity_id: media_player.emby_kodi_cinema
+    platform: state
+    from: paused
+    to: playing
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: 
+        - light.cinema
+        
+- alias: "Film cinema gepauzeerd"
+  trigger:
+  - entity_id: media_player.emby_kodi_cinema
+    platform: state
+    from: playing
+    to: paused
+  condition: []
+  action:
+  - service: scene.turn_on
+    entity_id: scene.movie_cinema_dim
+    
+- alias: "Film cinema gestopt"
+  trigger:
+  - entity_id: media_player.emby_kodi_cinema
+    platform: state
+    from: playing
+    to: idle
+  - entity_id: media_player.emby_kodi_cinema
+    platform: state
+    from: paused
+    to: idle  
+  condition: []
+  action:
+  - service: scene.turn_on
+    entity_id: scene.movie_cinema_normal

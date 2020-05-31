@@ -67,6 +67,31 @@
     service: light.turn_on
 
 
+- id: 'Turn on nightlight'
+  alias: Nachtlampje Arne aan
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:20:00
+  condition:
+  - condition: state
+    entity_id: group.family
+    state: home
+  - condition: time
+    after: 07:15:00
+    before: 07:25:00
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      entity_id: light.nachtlampje_arne
+    service: light.turn_on
+
+
 - id: '1578251418685'
   alias: Lichten inkom en keuken aan bij thuiskomst
   description: ''

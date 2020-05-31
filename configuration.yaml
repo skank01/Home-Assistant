@@ -48,20 +48,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 automation: !include_dir_merge_list automations/
 
-sensor:
-  - platform: unifigateway
-    host: !secret unifi_host
-    site_id: !secret unifi_site
-    username: !secret unifi_username  
-    password: !secret unifi_password
-    monitored_conditions:
-      - www
-      - lan
-      - wan
-      - wlan
-      - vpn
-      - alerts
-      - firmware
+
       
 remote:
   - platform: harmony
@@ -71,3 +58,5 @@ remote:
 input_boolean:
   vakantiemodus:
     icon: mdi:airplane-takeoff
+    
+

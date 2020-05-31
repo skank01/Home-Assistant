@@ -49,24 +49,78 @@ cards:
           y:
             hide: true
       - break
-      - type: vertical-stack
+      - type: custom:stack-in-card
+        title: Speakers
+        mode: vertical
         cards:
-          - type: media-control
+          - type: custom:mini-media-player
             entity: media_player.woonkamer
-          - type: media-control
+            artwork: cover
+            icon: mdi:speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
             entity: media_player.keuken
-          - type: media-control
-            entity: media_player.slaapkamer
-          - type: media-control
-            entity: media_player.noor_mini
-      - break
-      - type: vertical-stack
-        cards:
-          - type: media-control
+            artwork: cover
+            icon: mdi:monitor-speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
             entity: media_player.badkamer
-          - type: media-control
+            artwork: cover
+            icon: mdi:speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
             entity: media_player.bureau
-          - type: media-control
+            artwork: cover
+            icon: mdi:speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.slaapkamer
+            artwork: cover
+            icon: mdi:monitor-speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
             entity: media_player.slaapkamer_arne
-          - type: media-control
-            entity: media_player.slaapkamer_noor
+            artwork: cover 
+            icon: mdi:monitor-speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.noor_mini
+            name: Slaapkamer Noor
+            artwork: cover 
+            icon: mdi:google-home
+            hide:
+              progress: true
+      - break
+      - type: custom:stack-in-card
+        title: Mediaspelers
+        mode: vertical
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.emby_kodi_woonkamer
+            artwork: cover
+            icon: mdi:kodi
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.chromecast_arne
+            artwork: cover
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.chromecast_noor
+            artwork: cover
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.emby_kodi_cinema
+            artwork: cover
+            icon: mdi:kodi
+            hide:
+              progress: true
+         

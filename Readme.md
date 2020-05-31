@@ -35,7 +35,11 @@ Integrations:
 - Unifi Gateway
 - Garmin Connect
 - Afvalbeheer
-- Google Calendar 
+- Google Calendar
+- Emby
+- Emby Latest Media
+- Roomba
+- LG WebOS 
 
 Plugins:
 
@@ -55,6 +59,9 @@ Plugins:
 - Homekit panel card
 - Auto-entities
 - mm2-clock-card
+- Upcoming-media-card
+- Xiaomi-vacuum-card
+- Mini media player
 
 Theme:
 Ios Dark Mode

@@ -29,11 +29,15 @@ cards:
       - type: horizontal-stack
         cards:   
           - type: custom:button-card
+            entity: automation.nachtlampje_kim_aan
+            icon: mdi:lightbulb
+            template: automation
+          - type: custom:button-card
             entity: automation.nachtlampje_noor_aan
             icon: mdi:lightbulb
             template: automation
           - type: custom:button-card
-            entity: automation.nachtlampje_kim_aan
+            entity: automation.nachtlampje_arne_aan
             icon: mdi:lightbulb
             template: automation  
       - break

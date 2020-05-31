@@ -9,145 +9,106 @@ cards:
     min_columns: 1
     max_columns: 3
     cards:
-      - type: custom:vertical-stack-in-card
-        title: Unraid Server
-        cards:
+      - type: custom:stack-in-card
+        mode: vertical
+        cards: 
           - type: horizontal-stack
+            title: Unraid Server
             cards:
-              - type: picture-glance
-                entities:
-                  - entity: sensor.unraid_server
-                image: /local/unraid.png
               - type: vertical-stack
-                cards:  
-                  - type: custom:entity-attributes-card
-                    filter:
-                      include:
-                        - key: binary_sensor.unraid_server.motherboard
-                        - key: binary_sensor.unraid_server.cpu                      
-                        - key: binary_sensor.unraid_server.memory
-                        - key: binary_sensor.unraid_server.arrayStatus
-                        - key: binary_sensor.unraid_server.diskSpace
-                        - key: binary_sensor.unraid_server.arrayProtection                                   
+                cards:
+                  - type: picture-entity
+                    entity: sensor.unraid_server
+                    name: Server
+                    image: /local/unraid.png
+                    style: |
+                      ha-card {
+                        
+                        margin-top: +40px;
+                        margin-left: +20px;
+                      }
                   - type: entities
                     show_header_toggle: false
                     entities:            
-                      - switch.unraid_array                                
-          - type: conditional
-            conditions:
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unavailable"
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unknown"    
-            card:
-                type: custom:bar-card
-                align: split
-                show_icon: true
-                padding: 4px
-                columns: 2
-                card_style: 
-                  border-radius: 5px
-                severity:
-                - value: 50
-                  color: '#3bb3ee'
-                - value: 80
-                  color: '#e7a24a'
-                - value: 100
-                  color: '#ff0000'                        
-                entities:
-                  - entity: sensor.glances_disk_used_percent
-                    title: Disk
-                    max: 100            
-                  - entity: sensor.glances_cpu_used
-                    title: CPU
-                    max: 100             
-          - type: conditional
-            conditions:
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unavailable"
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unknown"    
-            card:
-                type: custom:bar-card
-                align: split
-                show_icon: true
-                padding: 4px
-                columns: 2
-                card_style: 
-                  border-radius: 5px
-                severity:
-                - value: 50
-                  color: '#3bb3ee'
-                - value: 80
-                  color: '#e7a24a'
-                - value: 100
-                  color: '#ff0000'                        
-                entities:
-                  - entity: sensor.glances_swap_used_percent
-                    title: SWAP             
-                    max: 100
-                  - entity: sensor.glances_ram_used_percent
-                    title: RAM
-                    max: 100
-          - type: conditional
-            conditions:
-              - entity: sensor.glances_containers_active
-                state_not: '0'
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unavailable"
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unknown"                
-            card:
-                type: custom:bar-card
-                align: split
-                show_icon: true
-                padding: 4px
-                columns: 2
-                card_style: 
-                  border-radius: 5px
-                entities:
-                  - entity: sensor.glances_containers_ram_used
-                    title: Docker RAM 
-                    max: 10000                
-                  - entity: sensor.glances_containers_cpu_used
-                    title: Docker CPU                   
-          - type: conditional
-            conditions:
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unavailable"
-              - entity: sensor.glances_disk_used_percent
-                state_not: "unknown"    
-            card:
-                type: custom:bar-card
-                align: left
-                title_position: left
-                show_icon: true
-                padding: 4px
-                columns: 1
-                card_style: 
-                  border-radius: 5px
-                severity:
-                - value: 50
-                  color: '#3bb3ee'
-                - value: 80
-                  color: '#e7a24a'
-                - value: 100
-                  color: '#ff0000'                        
-                entities:
-                  - entity: sensor.glances_containers_active 
-                    title: Containers    
-                    max: 40   
-      - break
-      - type: vertical-stack
-        cards:
-          - type: entities
+                      - entity: switch.unraid_array
+                        icon: mdi:harddisk 
+                        name: Array
+              - type: custom:entity-attributes-card
+                heading_name: Attribuut
+                heading_state: Status
+                filter:
+                  include:
+                    - key: binary_sensor.unraid_server.motherboard
+                    - key: binary_sensor.unraid_server.cpu                      
+                    - key: binary_sensor.unraid_server.memory
+                    - key: binary_sensor.unraid_server.arrayStatus
+                    - key: binary_sensor.unraid_server.diskSpace
+                    - key: binary_sensor.unraid_server.arrayProtection  
+          - type: custom:bar-card
+            show_icon: true
+            card_style:
+              border-radius: 5px
+            columns: 2
             entities:
-              - entity: switch.unraid_docker_embyserver
-              - entity: switch.unraid_docker_sabnzbd
-              - entity: switch.unraid_docker_tsmuxer
-              - entity: switch.unraid_docker_glances
-              - entity: switch.unraid_docker_makemkv
-              - entity: switch.unraid_docker_mediainfo
-              - entity: switch.unraid_docker_unraid_api
-            title: Dockers
-            show_header_toggle: false
+              - entity: sensor.glances_cpu_used
+                max: 100
+                name: CPU
+              - entity: sensor.glances_ram_used_percent
+                name: RAM
+                max: 100
+              - entity: sensor.glances_used_percent
+                max: 100
+                name: Disk
+              - entity: sensor.glances_containers_active 
+                name: Containers    
+                max: 30
+              - entity: sensor.glances_containers_ram_used
+                name: Docker RAM 
+                max: 10000                
+              - entity: sensor.glances_containers_cpu_used
+                name: Docker CPU
+            padding: 2px
+            severity:
+            - color: '#3bb3ee'
+              from: 0
+              to: 75
+            - color: '#e7a24a'
+              from: 75
+              to: 90
+            - color: '#ff0000'
+              from: 90
+              to: 100
+          - type: custom:auto-entities
+            filter:
+              include:
+                - entity_id: switch.unraid_docker_*   
+            card:
+              type: custom:fold-entity-row
+              head:
+                type: section
+                label: Docker Control  
+      - break
+      - type: custom:upcoming-media-card
+        entity: sensor.emby_latest_films
+        title: Laatste Films
+        image_style: fanart
+        line1_text: '$release'
+        line2_text: '$genres'
+        line3_text: '$rating - $runtime'
+        line4_text: '$studio'
+      - break
+      - type: custom:stack-in-card
+        mode: vertical
+        title: Now playing in theater
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.emby_kodi_cinema
+            artwork: full-cover
+            background: /local/kodi.png
+            hide:
+              power: true
+              icon: true
+              info: true
+              name: true
+              volume: true
+              controls: true
