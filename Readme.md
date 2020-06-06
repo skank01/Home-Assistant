@@ -62,6 +62,7 @@ Plugins:
 - Upcoming-media-card
 - Xiaomi-vacuum-card
 - Mini media player
+- Check button card
 
 Theme:
 Ios Dark Mode
@@ -82,7 +83,7 @@ Several addons are installed:
 
 ### Gateways ###
 - [Harmony Hub](https://support.myharmony.com/nl-us/hub)
-- [Philips Hue Bridge](https://www2.meethue.com/nl-be/p/hue-bridge/8718696511800)
+- [ConBee II](https://phoscon.de/en/conbee2)
 
 ### Smart Speakers ###
 - [Google Nest Hub Max](https://store.google.com/us/product/google_nest_hub_max?hl=en-US)

@@ -39,4 +39,4 @@
 - url: /hacsfiles/config-template-card/config-template-card.js
   type: module
 - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
-  type: module  
+  type: module

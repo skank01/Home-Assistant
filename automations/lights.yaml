@@ -88,7 +88,7 @@
     - fri
   action:
   - data:
-      entity_id: light.nachtlampje_arne
+      entity_id: switch.nachtlampje_arne
     service: light.turn_on
 
 
@@ -107,7 +107,7 @@
   action:
   - data:
       entity_id: light.inkom
-    entity_id: light.keuken
+    entity_id: switch.keuken
     service: light.turn_on
     
     

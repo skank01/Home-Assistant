@@ -79,10 +79,10 @@ cards:
                 popup:
                   type: custom:light-popup-card
                 entities:
-                  - entity: light.zithoek_2
+                  - entity: light.zithoek
                     name: Zithoek
                     icon: mdi:wall-sconce-flat
-                  - entity: light.dimmable_light_1
+                  - entity: light.eettafel
                     name: Eettafel
                     icon: mdi:ceiling-light
                   - entity: light.kastlamp
@@ -95,7 +95,7 @@ cards:
                 popup:
                   type: custom:light-popup-card                      
                 entities:
-                  - entity: light.nachtlampje_arne
+                  - entity: switch.nachtlampje_arne
                     name: Nachtlampje
                     icon: mdi:coach-lamp
           - column: 3
@@ -117,7 +117,7 @@ cards:
                 popup:
                   type: custom:light-popup-card
                 entities:
-                  - entity: light.keuken_2
+                  - entity: switch.keuken
                     name: Plafondspots
                     icon: mdi:wall-sconce-flat
           - column: 2

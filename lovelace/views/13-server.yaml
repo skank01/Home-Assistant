@@ -78,6 +78,18 @@ cards:
             - color: '#ff0000'
               from: 90
               to: 100
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Operation Control
+            entities:
+              - entity: switch.unraid_array
+                icon: mdi:harddisk 
+                name: Array
+              - switch.unraid_partitycheck
+              - switch.unraid_mover
+              - switch.unraid_reboot
+              - switch.unraid_power_off
           - type: custom:auto-entities
             filter:
               include:
@@ -86,7 +98,7 @@ cards:
               type: custom:fold-entity-row
               head:
                 type: section
-                label: Docker Control  
+                label: Docker Control
       - break
       - type: custom:upcoming-media-card
         entity: sensor.emby_latest_films
