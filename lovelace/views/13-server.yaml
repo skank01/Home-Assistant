@@ -1,7 +1,6 @@
 title: Server
 icon: mdi:nas
 path: server
-theme: ios-dark-mode
 panel: true
 cards: 
   - type: custom:layout-card

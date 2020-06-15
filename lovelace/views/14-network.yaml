@@ -1,7 +1,6 @@
 title: Network
 icon: mdi:server-network
 path: network
-theme: ios-dark-mode
 cards:
   - type: vertical-stack
     cards:

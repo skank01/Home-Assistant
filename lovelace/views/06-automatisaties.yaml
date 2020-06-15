@@ -1,7 +1,6 @@
 title: Automatisaties
 icon: mdi:home-automation
 path: automatisaties
-theme: ios-dark-mode
 panel: true
 cards: 
   - type: custom:layout-card

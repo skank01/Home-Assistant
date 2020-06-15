@@ -1,0 +1,43 @@
+- alias: "Licht thema na zonsopgang"
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: frontend.set_theme
+      data:
+        name: "Google Light Theme"
+
+- alias: "Donker thema na zonsondergang"
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: frontend.set_theme
+      data:
+        name: "Google Dark Theme"
+
+- alias: 'Licht thema na herstart als het licht is'
+  trigger:
+    platform: homeassistant
+    event: start
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    service: frontend.set_theme
+    data:
+      name: "Google Light Theme"
+
+- alias: 'Donker thema na herstart als het donker is'
+  trigger:
+    platform: homeassistant
+    event: start
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  action:
+    service: frontend.set_theme
+    data:
+      name: "Google Dark Theme"

@@ -1,7 +1,6 @@
 title: Entertainment
 icon: mdi:video-vintage
 path: entertainment
-theme: ios-dark-mode
 panel: true
 cards:
   - type: custom:layout-card

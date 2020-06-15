@@ -1,15 +1,17 @@
 # Welcome to my home assistant configuration #
 
-My configuration still is under construction, so is this readme page.
 
 
 ## Frontend ##
 
+Themes used:
+- Google Light Theme (during day)
+- Google Dark Theme (during night)
+
+
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Home.JPG)
 
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Entertainment.JPG)
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Server.JPG)
 
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)
 
@@ -64,8 +66,7 @@ Plugins:
 - Mini media player
 - Check button card
 
-Theme:
-Ios Dark Mode
+
 
 
 ## Devices ##
@@ -102,6 +103,17 @@ Several addons are installed:
 
 Coming
 
+
+## To do ##
+- Make more lights smart
+- Laundry sensors
+- Doorbell
+- Security Cams
+- Mail
+- Dog integration
+- Household page
+- More automations
+- ...
 
 ## Inspiration ##
 

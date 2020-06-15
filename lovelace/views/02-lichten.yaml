@@ -1,7 +1,6 @@
 title: Lichten
 icon: 'mdi:lightbulb-outline'
 path: lichten
-theme: ios-dark-mode
 panel: true
 cards:
   - type: "custom:homekit-card"
@@ -9,19 +8,19 @@ cards:
     enableColumns: true
     style: |
       :host {
-        --tile-background: rgba(0, 0, 0, 0.3);
-        --tile-border-radius: 12px;
+        --tile-background: #DDDDDD;
+        --tile-border-radius: 0px;
         --tile-width: 100px;
         --tile-height: 100px;
-        --tile-on-background: rgba(255, 255, 255, 1);
-        --tile-name-text-color: rgba(255, 255, 255, 0.7);
+        --tile-on-background: #FFFFFF;
+        --tile-name-text-color: rgba(0, 0, 0, 1);
         --tile-on-name-text-color: rgba(0, 0, 0, 1);
-        --tile-state-text-color: rgba(255, 255, 255, 0.4);
+        --tile-state-text-color: rgba(0, 0, 0, 0.4);
         --tile-on-state-text-color: rgba(0, 0, 0, 1);
         --tile-state-changed-text-color: rgb(134, 134, 134);
         --tile-unavailable-state-text-color: rgba(255, 255, 255, 0,5);
         --tile-value-text-color: rgba(255, 0, 0, 1);
-        --tile-icon-color: rgba(255, 255, 255, 1);
+        --tile-icon-color: rgb(255, 255, 255);
         --tile-on-icon-color: rgb(255, 140, 0);
         --tile-width-mobile: 90px;
         --tile-height-mobile: 90px;
@@ -41,43 +40,39 @@ cards:
             tileOnRow: 3
             entities:
               - title: Inkom
-                popup:
-                  type: custom:light-popup-card
                 entities:
                   - entity: light.inkom
                     name: Plafondspots
                     icon: mdi:wall-sconce-flat
+                    slider: true
           - column: 2
             tileOnRow: 3
             entities:
               - title: Slaapkamer
-                popup:
-                  type: custom:light-popup-card                      
                 entities:
                   - entity: light.slaapkamer
                     name: Plafondspots 
                     icon: mdi:wall-sconce-flat
+                    slider: true
                   - entity: light.nachtlampje_kim
                     name: Nachtlampje Kim
                     icon: mdi:coach-lamp
+                    slider: true
           - column: 3
             tileOnRow: 3
             entities:
               - title: Dressing
-                popup:
-                  type: custom:light-popup-card                      
                 entities:
                   - entity: light.dressing
                     name: Plafondspots
                     icon: mdi:wall-sconce-flat
+                    slider: true
       - row: 2    
         columns:
           - column: 1
             tileOnRow: 3
             entities:
               - title: Woonkamer
-                popup:
-                  type: custom:light-popup-card
                 entities:
                   - entity: light.zithoek
                     name: Zithoek
@@ -85,15 +80,15 @@ cards:
                   - entity: light.eettafel
                     name: Eettafel
                     icon: mdi:ceiling-light
+                    slider: true
                   - entity: light.kastlamp
                     name: Kastlamp
                     icon: mdi:coach-lamp
+                    slider: true
           - column: 2
             tileOnRow: 3
             entities:
               - title: Slaapkamer Arne
-                popup:
-                  type: custom:light-popup-card                      
                 entities:
                   - entity: switch.nachtlampje_arne
                     name: Nachtlampje
@@ -102,20 +97,17 @@ cards:
             tileOnRow: 3
             entities:
               - title: Cinema
-                popup:
-                  type: custom:light-popup-card                      
                 entities:
                   - entity: light.cinema
                     name: Plafondspots 
                     icon: mdi:wall-sconce-flat
+                    slider: true
       - row: 3    
         columns:
           - column: 1
             tileOnRow: 3
             entities:
               - title: Keuken
-                popup:
-                  type: custom:light-popup-card
                 entities:
                   - entity: switch.keuken
                     name: Plafondspots
@@ -124,9 +116,8 @@ cards:
             tileOnRow: 3
             entities:
               - title: Slaapkamer Noor
-                popup:
-                  type: custom:light-popup-card                      
                 entities:
                   - entity: light.nachtlampje_noor
                     name: Nachtlampje
                     icon: mdi:coach-lamp
+                    slider: true

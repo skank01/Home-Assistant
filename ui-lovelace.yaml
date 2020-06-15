@@ -1,32 +1,28 @@
 background: var(--background-image)
 custom_header:
-  background: 'rgba(155, 155, 155, 0.25)'
-  header_text: >-
-    <style>
-    #flipper {color:#999;}
-    #flip {height:24px;overflow:hidden;}
-    #flip > div > div {color:#fff;height:24px;margin-bottom:24px;display:inline-block;}
-    #flip div:first-child {animation: show 10s linear infinite;}
-    @keyframes show {
-    0% {margin-top:-144px;}
-    5% {margin-top:-96px;}
-    33% {margin-top:-96px;}
-    38% {margin-top:-48px;}
-    66% {margin-top:-48px;}
-    76% {margin-top:0px;}
-    100% {margin-top:0px;}}
-    #flipper p {position:fixed;color:#999; }
-    </style>
-    <div id=flipper><div id=flip><div><div>
-    Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
-    {{states('sensor.greeting')}}</div></div><div><div>
-    {{states('sensor.afval')}}</div></div><div><div>
+  background: var(--primary-background-color);
+  elements_color: var(--primary-text-color);
+  active_tab_color: var(--state-icon-active-color);
+  tab_indicator_color: var(--primary-text-color);
   compact_mode: true
   split_mode: true
   reverse_tab_direction: false
   reverse_button_direction: false
   options_hide: true
   shadow: false
+  hide_tabs: persoon1, persoon2
+  hidden_tab_redirect: false
+  header_text: >-
+    <style> #flip {height:24px;overflow:hidden;} #flip > div > div
+    {height:24px;margin-bottom:24px;display:inline-block;} #flip div:first-child
+    {animation: show 10s linear infinite;} @keyframes show { 0%
+    {margin-top:-144px;} 5% {margin-top:-96px;} 33% {margin-top:-96px;} 38%
+    {margin-top:-48px;} 66% {margin-top:-48px;} 76% {margin-top:0px;} 100%
+    {margin-top:0px;}} #flipper p {position:fixed;} </style> <div
+    id=flipper><div id=flip><div><div>
+    Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
+    {{states('sensor.greeting')}}</div></div><div><div>
+    {{states('sensor.afval')}}</div></div><div><div>
 title: Thuis
 views:
   - !include lovelace/views/01-home.yaml
@@ -35,6 +31,7 @@ views:
   - !include lovelace/views/04-entertainment.yaml
   - !include lovelace/views/05-temperatuur.yaml
   - !include lovelace/views/06-automatisaties.yaml
+  - !include lovelace/views/07-household.yaml
   - !include lovelace/views/13-server.yaml
   - !include lovelace/views/14-network.yaml
   - !include lovelace/views/15-energie.yaml
@@ -77,16 +74,18 @@ button_card_templates:
         state:
           - color: 'rgba(0, 0, 0, 1)'
         icon: 
-          - color: 'rgb(255,140,0)'
+          - color: 'rgb(255, 140, 0)'
         card: 
-          - background: 'rgb(255,255,255)'
+          - background: 'rgb(255, 255, 255)'
         name:
           - color: 'rgba(0, 0, 0, 1)'
     - value: 'off'
       styles:
         state:
-          - color: 'rgba(255, 255, 255, 0.4)'
+          - color: 'rgba(0, 0, 0, 0.4)'
         icon:
-          - color: 'rgba(255, 255, 255, 1)'
+          - color: 'rgb(255, 255, 255)'
+        card:
+          - background: 'rgb(221, 221, 211)'
         name:
-          - color: 'rgba(255, 255, 255, 0.7)'
+          - color: 'rgba(0, 0, 0, 1)'

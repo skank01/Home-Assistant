@@ -1,6 +1,5 @@
 title: Kim
 path: persoon2
-theme: ios-dark-mode
 panel: true
 cards: 
   - type: custom:layout-card

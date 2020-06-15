@@ -1,7 +1,6 @@
 title: Home
 icon: mdi:home-outline
 path: Home
-theme: ios-dark-mode
 panel: true
 cards: 
   - type: custom:layout-card
@@ -113,6 +112,26 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/energie
                 name: Energie
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                label: Huishouden
+                show_label: true
+                size: 40%
+                icon: mdi:broom
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/household
+              - type: custom:button-card
+                label: Post
+                show_label: true
+                size: 40%
+                icon: mdi:mailbox
+              - type: custom:button-card
+                label: Rolluiken
+                show_label: true
+                size: 40%
+                icon: mdi:window-shutter  
       - break
       - type: horizontal-stack
         cards:
