@@ -1,8 +1,251 @@
 title: Huishouden
 icon: mdi:broom
 path: household
-cards: []
-    
-    
-    
+cards: 
+- type: custom:stack-in-card
+  mode: vertical
+  keep:
+    margin: true
+  title: Huisvuil
+  cards:
+  - type: horizontal-stack
+    cards:
+      - entities:
+          - name: Restafval
+            entity: sensor.ophaalkalender_restafval
+            image: /local/restafval.png
+          - name: Pmd
+            entity: sensor.ophaalkalender_pmd
+            image: /local/pmd.png
+          - name: Papier en karton
+            entity: sensor.ophaalkalender_papier
+            image: /local/papierenkarton.png
+        type: glance
+- type: custom:xiaomi-vacuum-card
+  entity: vacuum.zjef
+  name: Zjef
+  vendor: roomba
+  image: /local/vacuum.png           
+- type: custom:stack-in-card
+  mode: vertical
+  keep:
+    margin: true
+  cards:
+    - type: vertical-stack
+      title: Klusjes
+      cards:
+        - type: custom:check-button-card
+          title: Ramen
+          entity: sensor.ramen
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 2 months
+            color: Orange
+          - value: 3 months
+            color: Red
+        - type: custom:check-button-card
+          title: Badkamer
+          entity: sensor.badkamer
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 30 days
+            color: Orange
+          - value: 60 days
+            color: Red
+    - type: vertical-stack
+      title: Filters
+      cards:
+        - type: custom:check-button-card
+          title: Vijver
+          entity: sensor.vijver
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 30 days
+            color: Orange
+          - value: 90 days
+            color: Red  
+        - type: custom:check-button-card
+          title: Ventilatie
+          entity: sensor.ventilatie
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 6 months
+            color: Orange
+          - value: 9 months
+            color: Red
+        - type: custom:check-button-card
+          title: Dampkap
+          entity: sensor.dampkap
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 6 months
+            color: Orange
+          - value: 9 months
+            color: Red    
+    - type: vertical-stack
+      title: Onderhoud
+      cards:      
+        - type: custom:check-button-card
+          title: Kuga
+          entity: sensor.kuga
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 11 months
+            color: Orange
+          - value: 12 months
+            color: Red
+        - type: custom:check-button-card
+          title: Siesta
+          entity: sensor.siesta
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 11 months
+            color: Orange
+          - value: 12 months
+            color: Red
+        - type: custom:check-button-card
+          title: Ontkalker
+          entity: sensor.ontkalker
+          text:
+            year: jaar
+            years: jaar
+            month: maand
+            months: maanden
+            week: week
+            weeks: weken
+            day: dag
+            days: dagen
+            hour: uur
+            hours: uur
+            minute: minuut
+            minutes: minuten
+            less_than: minder dan
+            more_than: meer dan
+            ago: geleden
+            due_in: over
+            over_by: over met
+          severity:
+          - value: 11 months
+            color: Orange
+          - value: 12 months
+            color: Red
     

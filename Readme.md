@@ -99,6 +99,13 @@ Several addons are installed:
 - [Icasa Zigbee Dimmer](https://www.beaumotica.nl/icasa-iczb-iw11d-ac-dimmer-7061257407014)
 - [Icasa Zigbee Switch](https://www.beaumotica.nl/icasa-iczb-iw11sw-ac-switch-7104389273352)
 
+
+## Ordered
+
+- [4x Aqara door/window sensors](https://www.xiaomiproducts.nl/xiaomi-aqara-deur-en-raam-sensor-104834619.html)
+- [2x Blitzwolf Smart Plugs](https://m.blitzwolf.com/ZigBee-3.0-Smart-Socket-EU-p-518.html)
+
+
 ## Automations ##
 
 Coming

@@ -37,6 +37,7 @@ views:
   - !include lovelace/views/15-energie.yaml
   - !include lovelace/views/20-persoon1.yaml
   - !include lovelace/views/21-persoon2.yaml
+  - !include lovelace/views/25-dog.yaml
   
 button_card_templates:
   automation:
@@ -76,9 +77,9 @@ button_card_templates:
         icon: 
           - color: 'rgb(255, 140, 0)'
         card: 
-          - background: 'rgb(255, 255, 255)'
+          - background: 'rgb(95, 155, 234)'
         name:
-          - color: 'rgba(0, 0, 0, 1)'
+          - color: 'rgba(255, 255, 255, 1)'
     - value: 'off'
       styles:
         state:
