@@ -15,7 +15,12 @@ Themes used:
 
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)
 
+
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Server.JPG)
+
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Lichten.JPG)
+
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Household.JPG)
 
 
 ## Backend ##
@@ -28,6 +33,8 @@ Themes used:
 - [Hass.io Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 - [Check HA Configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config)
 - [Mosquitto Broker](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto)
+- [Deconz](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
+
 
 
 ### HACS (Home Assistant Community Store) ###
@@ -104,6 +111,7 @@ Several addons are installed:
 
 - [4x Aqara door/window sensors](https://www.xiaomiproducts.nl/xiaomi-aqara-deur-en-raam-sensor-104834619.html)
 - [2x Blitzwolf Smart Plugs](https://m.blitzwolf.com/ZigBee-3.0-Smart-Socket-EU-p-518.html)
+- [Unipi Neuron M203](https://www.unipi.technology/unipi-neuron-m203-p97)
 
 
 ## Automations ##
@@ -117,8 +125,6 @@ Coming
 - Doorbell
 - Security Cams
 - Mail
-- Dog integration
-- Household page
 - More automations
 - ...
 

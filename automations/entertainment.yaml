@@ -102,3 +102,17 @@
   action:
   - service: scene.turn_on
     entity_id: scene.movie_cinema_normal
+    
+    
+##########################
+## Crucial restart HA
+##########################    
+- alias: "Restart home assistant crucial for emby"
+  trigger:
+  - entity_id: sensor.unraid_server
+    platform: state
+    from: down
+    to: up
+  condition: []
+  action:
+  - service: homeassistant.restart

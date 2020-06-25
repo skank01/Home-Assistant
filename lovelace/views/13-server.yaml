@@ -28,10 +28,12 @@ cards:
                       }
                   - type: entities
                     show_header_toggle: false
-                    entities:            
-                      - entity: switch.unraid_array
-                        icon: mdi:harddisk 
-                        name: Array
+                    entities:
+                      - type: weblink
+                        name: Server adres
+                        icon: mdi:nas
+                        url: !secret url_unraid
+                  
               - type: custom:entity-attributes-card
                 heading_name: Attribuut
                 heading_state: Status
