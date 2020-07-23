@@ -44,6 +44,72 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                entity: binary_sensor.openclose_5
+                name: Alarm
+                show_label: false
+                size: 40%
+                icon: mdi:shield-off
+                styles:
+                  icon:
+                    - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: binary_sensor.openclose_4
+                icon: 'mdi:door'
+                show_label: true
+                size: 40%
+                state:
+                  - icon: 'mdi:door-open'
+                    styles:
+                      icon: 
+                        - color: var(--sidebar-selected-icon-color)
+                    value: 'on'
+                styles:
+                  icon:
+                    - color: var(--primary-text-color)    
+              - type: custom:button-card
+                entity: binary_sensor.openclose_5
+                icon: 'mdi:garage-variant'
+                show_label: true
+                size: 40%
+                state:
+                  - icon: 'mdi:garage-open-variant'
+                    styles:
+                      icon: 
+                        - color: var(--sidebar-selected-icon-color)
+                    value: 'on'  
+                styles:
+                  icon:
+                    - color: var(--primary-text-color)
+                tap_action:
+                  action: call-service
+                  service: homeassistant.toggle
+                  service_data:
+                    entity_id: cover.garage_door
+              - type: custom:button-card
+                entity: sensor.postbus
+                label: Post
+                show_label: false
+                size: 40%
+                icon: mdi:mailbox
+                state:
+                  - icon: 'mdi:mailbox-up'
+                    styles:
+                      icon: 
+                        - color: var(--sidebar-selected-icon-color)
+                    value: 'open'  
+                styles:
+                  icon:
+                    - color: var(--primary-text-color)
+                tap_action:
+                  action: call-service
+                  service: homeassistant.turn_off
+                  service_data:
+                    entity_id: 
+                      - input_boolean.brievenbus
+                      - input_boolean.pakjesbus    
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
                 show_label: false
                 name: Lichten
                 size: 40%
@@ -70,50 +136,24 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/temperatuur
               - type: custom:button-card
-                label: Entertainment
-                show_label: true
-                size: 40%
-                icon: mdi:video-vintage
-                tap_action:
-                  action: navigate
-                  navigation_path: /lovelace/entertainment    
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                label: Automatisatie
-                show_label: true
-                size: 40%
-                icon: mdi:home-automation
-                tap_action:
-                  action: navigate
-                  navigation_path: /lovelace/automatisaties
-              - type: custom:button-card
-                label: Server
-                show_label: true
-                size: 40%
-                icon: mdi:nas
-                tap_action:
-                  action: navigate
-                  navigation_path: /lovelace/server  
-              - type: custom:button-card
-                label: Network
-                show_label: true
-                size: 40%
-                icon: mdi:server-network
-                tap_action:
-                  action: navigate
-                  navigation_path: /lovelace/network
-              - type: custom:button-card
                 label: Energie
                 show_label: false
                 size: 40%
                 icon: mdi:power-plug
                 tap_action:
                   action: navigate
-                  navigation_path: /lovelace/energie
+                  navigation_path: /lovelace/Energie
                 name: Energie
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                label: Entertainment
+                show_label: true
+                size: 40%
+                icon: mdi:video-vintage
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/entertainment
               - type: custom:button-card
                 label: Rolluiken
                 show_label: true
@@ -135,10 +175,39 @@ cards:
                 tap_action:
                   action: navigate
                   navigation_path: /lovelace/james
+          - type: horizontal-stack
+            cards:
               - type: custom:button-card
-                label: Post
+                label: Server
                 show_label: true
                 size: 40%
-                icon: mdi:mailbox
-              
-              
+                icon: mdi:nas
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/server  
+              - type: custom:button-card
+                label: Network
+                show_label: true
+                size: 40%
+                icon: mdi:server-network
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/network
+              - type: custom:button-card
+                label: Automatisatie
+                show_label: true
+                size: 40%
+                icon: mdi:home-automation
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/automatisaties
+              - type: custom:button-card
+                entity: binary_sensor.openclose_5
+                name: Scenes
+                show_label: false
+                size: 40%
+                icon: mdi:home-assistant
+                styles:
+                  icon:
+                    - color: var(--primary-text-color)
+                

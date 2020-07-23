@@ -23,6 +23,13 @@ sensor:
       temperature: 
         unit_of_measurement: °C
         value_template: "{{ state_attr('weather.thuis', 'temperature') }}"
+  - platform: template
+    sensors:
+      postbus:
+        value_template: >
+          {{ 'open' if is_state('input_boolean.brievenbus', 'on') or is_state('input_boolean.pakjesbus', 'on')
+             else 'closed' }}
+        friendly_name: Post    
 #### SERVER MONITORING #######################################################
   - platform: systemmonitor
     resources:

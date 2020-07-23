@@ -53,6 +53,7 @@ Integrations:
 Plugins:
 
 - Bar Card
+- Battery State Card
 - Button Card
 - Calendar Card
 - Custom Header
@@ -107,11 +108,24 @@ Several addons are installed:
 - [Icasa Zigbee Switch](https://www.beaumotica.nl/icasa-iczb-iw11sw-ac-switch-7104389273352)
 
 
-## Ordered
-
+### Sensors ###
 - [4x Aqara door/window sensors](https://www.xiaomiproducts.nl/xiaomi-aqara-deur-en-raam-sensor-104834619.html)
+
+
+### Plugs ###
 - [2x Blitzwolf Smart Plugs](https://m.blitzwolf.com/ZigBee-3.0-Smart-Socket-EU-p-518.html)
+- [2x Innr SP120 Plugs](https://www.beaumotica.nl/innr-smart-plug-aan-uit-schakelaar-doorsteek-stekker)
+
+
+### Other ###
 - [Unipi Neuron M203](https://www.unipi.technology/unipi-neuron-m203-p97)
+
+
+
+## Ordered ##
+
+Nothing for now
+
 
 
 ## Automations ##

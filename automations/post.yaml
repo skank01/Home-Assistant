@@ -1,0 +1,69 @@
+##########################
+## Post
+##########################
+- id: 'Brievenbus: er is post!'
+  alias: Brievenbus vol
+  trigger:
+    platform: state
+    entity_id: binary_sensor.openclose_6
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.brievenbus
+    state: 'off'
+  action:
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: Jackpot! Er is post!
+    - service: notify.mobile_app_iphone_kim
+      data:
+        message: Jackpot! Er is post!
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.brievenbus
+
+##########################
+## Pakjes
+##########################
+- id: 'Pakjesbus: er is een pakje!'
+  alias: Pakjesbus vol
+  trigger:
+    platform: state
+    entity_id: binary_sensor.openclose_7
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.pakjesbus
+    state: 'off'
+  action:
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: Eureka! Pakje toegekomen!
+    - service: notify.mobile_app_iphone_kim
+      data:
+        message: Eureka! Pakje toegekomen!
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.pakjesbus        
+
+#####################################
+## Reset boolean post&pakjesbus
+#####################################
+- id: 'Reset boolean post&pakjesbus'
+  alias: Bus vol
+  trigger:
+    platform: time
+    at: "00:00:00"
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.brievenbus
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.pakjesbus
+        state: 'on'  
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.brievenbus
+          - input_boolean.pakjesbus

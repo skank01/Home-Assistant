@@ -1,4 +1,19 @@
 title: Energie
 icon: mdi:power-plug
-path: energie
-cards: []
+path: Energie
+cards:
+- type: custom:battery-state-card
+  title: "Batterij niveaus"
+  color_gradient:
+    - "#ff0000" # red
+    - "#ffff00" # yellow
+    - "#00ff00" # green
+  filter:
+          include: # filters for auto-adding
+            - name: entity_id # entities which id ends with "_battery_level"
+              value: "*_battery_level"
+            - name: entity_id # entities which id ends with ".battery_level"
+              value: "*.battery_level"
+  bulk_rename:
+    - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
+      to: "sensor"            
