@@ -134,11 +134,9 @@ Coming
 
 
 ## To do ##
-- Make more lights smart
 - Laundry sensors
 - Doorbell
 - Security Cams
-- Mail
 - More automations
 - ...
 

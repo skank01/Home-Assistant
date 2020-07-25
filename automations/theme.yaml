@@ -1,43 +1,27 @@
-- alias: "Licht thema na zonsopgang"
+##########################
+## Zet thema 
+##########################
+- id: Zet_thema_in_home_assistant
+  alias: "Systeem: Zet thema in Home Assistant na start en stand zon"
+  initial_state: 'on'
   trigger:
-    platform: sun
-    event: sunrise
+    - platform: homeassistant
+      event: start
+    - platform: sun
+      event: sunrise
+    - platform: sun
+      event: sunset
   action:
-    - service: frontend.set_theme
-      data:
-        name: "Google Light Theme"
-
-- alias: "Donker thema na zonsondergang"
-  trigger:
-    platform: sun
-    event: sunset
-  action:
-    - service: frontend.set_theme
-      data:
-        name: "Google Dark Theme"
-
-- alias: 'Licht thema na herstart als het licht is'
-  trigger:
-    platform: homeassistant
-    event: start
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'above_horizon'
-  action:
-    service: frontend.set_theme
-    data:
-      name: "Google Light Theme"
-
-- alias: 'Donker thema na herstart als het donker is'
-  trigger:
-    platform: homeassistant
-    event: start
-  condition:
-    condition: state
-    entity_id: sun.sun
-    state: 'below_horizon'
-  action:
-    service: frontend.set_theme
-    data:
-      name: "Google Dark Theme"
+    - choose:
+      - conditions:
+          - condition: state
+            entity_id: sun.sun
+            state: 'below_horizon'
+        sequence:
+          - service: frontend.set_theme
+            data:
+              name: "Google Dark Theme"
+      default:  
+        - service: frontend.set_theme
+          data:
+            name: "Google Light Theme"

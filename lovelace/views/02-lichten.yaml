@@ -38,87 +38,138 @@ cards:
       - row: 1    
         columns:
           - column: 1
-            tileOnRow: 3
+            tileOnRow: 4
+            entities:
+              - title: Buitenverlichting
+                entities:
+                  - entity: light.licht_voordeur
+                    name: Voordeur
+                    icon: mdi:outdoor-lamp
+                  - entity: light.licht_achterdeur
+                    name: Achterdeur
+                    icon: mdi:outdoor-lamp
+                  - entity: light.tuinverlichting
+                    name: Tuinlicht
+                    icon: mdi:spotlight-beam
+                  - entity: light.vijververlichting
+                    name: Licht Vijver
+                    icon: mdi:led-strip-variant
+          - column: 2
+            tileOnRow: 2
             entities:
               - title: Inkom
                 entities:
                   - entity: light.inkom
-                    name: Plafondspots
-                    icon: mdi:wall-sconce-flat
-                    slider: true
-          - column: 2
-            tileOnRow: 3
-            entities:
-              - title: Slaapkamer
-                entities:
-                  - entity: light.slaapkamer
                     name: Plafondspots 
                     icon: mdi:wall-sconce-flat
                     slider: true
-                  - entity: light.nachtlampje_kim
-                    name: Nachtlampje Kim
+                  - entity: light.inkom_wand
+                    name: Wandlicht
                     icon: mdi:coach-lamp
-                    slider: true
           - column: 3
-            tileOnRow: 3
-            entities:
-              - title: Dressing
-                entities:
-                  - entity: light.dressing
-                    name: Plafondspots
-                    icon: mdi:wall-sconce-flat
-                    slider: true
-      - row: 2    
-        columns:
-          - column: 1
-            tileOnRow: 3
+            tileOnRow: 4
             entities:
               - title: Woonkamer
                 entities:
-                  - entity: light.zithoek
-                    name: Zithoek
-                    icon: mdi:wall-sconce-flat
                   - entity: light.eettafel
                     name: Eettafel
                     icon: mdi:ceiling-light
                     slider: true
-                  - entity: light.kastlamp
-                    name: Kastlamp
-                    icon: mdi:coach-lamp
-                    slider: true
-          - column: 2
-            tileOnRow: 3
-            entities:
-              - title: Slaapkamer Arne
-                entities:
-                  - entity: switch.nachtlampje_arne
-                    name: Nachtlampje
-                    icon: mdi:coach-lamp
-          - column: 3
-            tileOnRow: 3
-            entities:
-              - title: Cinema
-                entities:
-                  - entity: light.cinema
-                    name: Plafondspots 
+                  - entity: light.zithoek
+                    name: Zithoek
                     icon: mdi:wall-sconce-flat
                     slider: true
-      - row: 3    
+                  - entity: light.kastlamp
+                    name: Kastlamp
+                    icon: mdi:floor-lamp
+                    slider: true
+                  - entity: light.tv_wand
+                    name: TV-wand
+                    icon: mdi:led-strip-variant
+      - row: 2    
         columns:
           - column: 1
-            tileOnRow: 3
+            tileOnRow: 2
             entities:
               - title: Keuken
                 entities:
                   - entity: switch.keuken
                     name: Plafondspots
                     icon: mdi:wall-sconce-flat
+                  - entity: light.keuken_wand
+                    name: Wandlicht
+                    icon: mdi:led-strip-variant
           - column: 2
+            tileOnRow: 4
+            entities:
+              - title: Halverlichting
+                entities:
+                  - entity: light.trap_gelijkvloers
+                    name: Trap
+                    icon: mdi:lightbulb-group
+                  - entity: light.trap_verdieping
+                    name: Trap verdieping
+                    icon: mdi:lightbulb-group
+                  - entity: light.hal_plafond
+                    name: Plafondspots
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.hal_wand
+                    name: Wandlicht
+                    icon: mdi:lightbulb-group 
+          - column: 3
             tileOnRow: 3
+            entities:
+              - title: Badkamer
+                entities:
+                  - entity: light.douche
+                    name: Lichten Douche
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.lavabo
+                    name: Lichten Lavabo
+                    icon: mdi:led-strip
+      - row: 3    
+        columns:
+          - column: 1
+            tileOnRow: 3
+            entities:
+              - title: Slaapkamer
+                entities:
+                  - entity: light.slaapkamer_3
+                    name: Plafondspots
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.nachtlampje_kim
+                    name: Nachtlampje
+                    icon: mdi:floor-lamp
+                  - entity: light.dressing
+                    name: Dressing
+                    icon: mdi:wall-sconce-flat
+          - column: 2 
+            tileOnRow: 1
+            entities:
+              - title: Slaapkamer Arne
+                entities:
+                  - entity: switch.nachtlampje_arne
+                    name: Nachtlampje
+                    icon: mdi:floor-lamp
+          - column: 3
+            tileOnRow: 1
             entities:
               - title: Slaapkamer Noor
                 entities:
                   - entity: light.nachtlampje_noor
                     name: Nachtlampje
-                    icon: mdi:coach-lamp
+                    icon: mdi:floor-lamp
+                    slider: true
+          - column: 4
+            tileOnRow: 2
+            entities:
+              - title: Cinema
+                entities:
+                  - entity: light.cinema
+                    name: Spots Zetel
+                    icon: mdi:wall-sconce-flat
+                    slider: true
+                  - entity: light.cinema_scherm
+                    name: Spots Scherm
+                    icon: mdi:wall-sconce-flat-variant
                     slider: true
