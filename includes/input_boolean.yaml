@@ -1,0 +1,11 @@
+vakantiemodus:
+  name: Vakantiemodus actief
+  icon: mdi:airplane-takeoff
+    
+brievenbus:
+  name: Er werd vandaag post geleverd
+  icon: mdi:mailbox-up
+  
+pakjesbus:
+  name: Er werd vandaag een pakje geleverd
+  icon: mdi:mailbox-up

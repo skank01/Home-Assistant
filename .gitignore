@@ -12,7 +12,7 @@
 !images/*.jpg
 !lovelace/views/
 !automations/
-
+!includes/
 
 # Ignore folders.
 .storage

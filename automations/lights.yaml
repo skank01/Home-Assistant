@@ -1,12 +1,46 @@
 ##########################
-## Lights
+## Tuinverlichting
+##########################
+- id: tuinverlichting_aan
+  alias: "Tuinverlichting aan"
+  initial_state: 'on'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:05:00"
+  condition:
+  - condition: state
+    entity_id: group.family
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: light.tuinverlichting
+
+
+##########################
+## Gevelverlichting
+##########################
+- id: gevelverlichting_aan
+  alias: "Gevelverlichting aan"
+  initial_state: 'on'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:05:00"
+  action:
+  - service: homeassistant.turn_on
+    entity_id: light.licht_voordeur    
+
+
+##########################
+## Kastlamp
 ##########################
 - id: '1576093494347'
   alias: Licht kastlamp aan bij zonsondergang
   description: ''
   trigger:
   - event: sunset
-    offset: 00:10:00
+    offset: "-00:05:00"
     platform: sun
   condition:
   - condition: state
@@ -15,7 +49,11 @@
   action:
   - entity_id: light.kastlamp
     service: light.turn_on
-
+    
+    
+##########################
+## Nachtlampjes
+##########################
 
 - id: '1578501356390'
   alias: Nachtlampje Kim aan
@@ -88,9 +126,13 @@
     - fri
   action:
   - data:
-      entity_id: switch.nachtlampje_arne
+      entity_id: light.nachtlampje_arne
     service: light.turn_on
 
+
+##########################
+## Lichten aan bij thuiskomst
+##########################
 
 - id: '1578251418685'
   alias: Lichten inkom en keuken aan bij thuiskomst
@@ -111,10 +153,25 @@
     service: light.turn_on
     
     
-
-
 ########################################
-## Vacation mode light automations
+## Alle lichten uit
+########################################    
+- id: 'Zet alle verlichting uit na duwen op drukknop'
+  alias: Alle verlichting uit
+  trigger:
+    - entity_id: switch.alle_lichten_uit
+      platform: state
+      from: 'off'
+      to: 'on'
+  action: 
+  - data:  
+      entity_id: all
+    service: light.turn_off
+    
+
+    
+########################################
+## Vakantie lichten
 ########################################
 - id: 'Turn on vacation lights upstairs to simulate presence'
   alias: Vakantie lichten boven willekeurig aan

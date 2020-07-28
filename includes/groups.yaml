@@ -1,0 +1,23 @@
+family:
+  name: Family
+  entities:
+    - person.stijn
+    - person.kim
+media_player:
+  name: Media_player
+  entities:
+    - media_player.keuken
+    - media_player.slaapkamer
+    - media_player.noor_mini
+    - media_player.badkamer
+    - media_player.bureau
+simulation_lights_off:
+  name: Vacation_mode_lights
+  entities:
+    - light.inkom
+    - light.nachtlampje_noor
+    - light.licht_voordeur
+simulation_bovenverdieping:
+  name: Vacation_mode_lights_bovenverdieping
+  entities:
+    - light.nachtlampje_noor  

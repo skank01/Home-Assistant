@@ -134,7 +134,7 @@ cards:
             entities:
               - title: Slaapkamer
                 entities:
-                  - entity: light.slaapkamer_3
+                  - entity: light.slaapkamer
                     name: Plafondspots
                     icon: mdi:wall-sconce-flat
                   - entity: light.nachtlampje_kim
@@ -148,7 +148,7 @@ cards:
             entities:
               - title: Slaapkamer Arne
                 entities:
-                  - entity: switch.nachtlampje_arne
+                  - entity: light.nachtlampje_arne
                     name: Nachtlampje
                     icon: mdi:floor-lamp
           - column: 3

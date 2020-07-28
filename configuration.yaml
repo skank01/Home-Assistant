@@ -4,6 +4,7 @@ homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
   
+  
 
 frontend:
   themes: !include_dir_merge_named themes
@@ -55,7 +56,7 @@ light: !include includes/lights.yaml
 switch: !include includes/switches.yaml
 input_boolean: !include includes/input_boolean.yaml
 automation: !include_dir_merge_list automations/
-  
+cloud: !include includes/cloud.yaml  
 
 
 #############################

@@ -1,0 +1,63 @@
+google_actions:
+  filter:
+    include_domains:
+      - light
+      - scene
+      - script
+      - vacuum
+    exclude_domains:
+      - media_player
+      - input_boolean
+      - input_select
+      - switch
+    include_entities:
+      - switch.unraid_reboot
+      - switch.unraid_power_off
+      - switch.droogkast
+      - switch.wasmachine
+    exclude_entities:
+      - light.configuration_tool_1
+      - light.inkom_1
+      - light.inkom_2
+      - light.cinema_1
+      - light.cinema_2
+      - light.cinema_scherm_1
+      - light.cinema_scherm_2
+      - light.dressing_1
+      - light.dressing_2
+  entity_config:  
+    light.licht_voordeur:
+      room: Oprit
+    light.licht_achterdeur:
+      room: Tuin    
+    light.tuinverlichting:
+      room: Tuin
+    light.vijververlichting:
+      room: Tuin
+    light.inkom_wand:
+      room: Inkom
+    light.tv_wand:
+      room: Woonkamer
+    light.keuken_wand:
+      room: Keuken    
+    switch.unraid_power_off:
+      name: Server
+      room: Garage
+    switch.unraid_reboot:
+      name: Herstart Server
+      room: Garage      
+    light.hal_plafond:
+      room: Hal
+    light.hal_wand:
+      room: Hal
+    light.trap_gelijkvloers:
+      room: Hal
+    light.trap_verdieping:
+      room: Hal    
+    light.douche:
+      room: Badkamer
+    light.lavabo:
+      room: Badkamer    
+    light.nachtlampje_Arne:
+      room: Slaapkamer Arne    
+          

@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: "Alle Lichten Uit"
+  unique_id: "alle_lichten_uit"
+  state_topic: "homeassistant/lichten/alle_lichten_uit"
+  command_topic: "homeassistant/lichten/alle_lichten_uit/set"
+  availability_topic: "homeassistant/lichten/alle_lichten_uit/available"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "online"
+  payload_not_available: "offline"
+  qos: 0
+  retain: true  

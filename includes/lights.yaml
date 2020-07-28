@@ -1,0 +1,233 @@
+##########################
+## Buitenverlichting
+##########################
+
+- platform: mqtt
+  schema: template
+  name: "Licht voordeur"
+  unique_id: "licht_voordeur"
+  state_topic: "homeassistant/buiten/licht_voordeur"
+  command_topic: "homeassistant/buiten/licht_voordeur/set"
+  availability_topic: "homeassistant/buiten/licht_voordeur/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_02", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_02", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Licht achterdeur"
+  unique_id: "licht_achterdeur"
+  state_topic: "homeassistant/buiten/licht_achterdeur"
+  command_topic: "homeassistant/buiten/licht_achterdeur/set"
+  availability_topic: "homeassistant/buiten/licht_achterdeur/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_03", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_03", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Tuinverlichting"
+  unique_id: "tuin_verlichting"
+  state_topic: "homeassistant/buiten/tuin_verlichting"
+  command_topic: "homeassistant/buiten/tuin_verlichting/set"
+  availability_topic: "homeassistant/buiten/tuin_verlichting/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_04", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_04", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+  
+- platform: mqtt
+  schema: template
+  name: "Vijververlichting"
+  unique_id: "vijver_verlichting"
+  state_topic: "homeassistant/buiten/vijver_verlichting"
+  command_topic: "homeassistant/buiten/vijver_verlichting/set"
+  availability_topic: "homeassistant/buiten/vijver_verlichting/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_05", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_05", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0   
+
+
+##########################
+## Wandverlichting
+##########################
+
+- platform: mqtt
+  schema: template
+  name: "Inkom Wand"
+  unique_id: "inkom_wand"
+  state_topic: "homeassistant/wand/inkom_wand"
+  command_topic: "homeassistant/wand/inkom_wand/set"
+  availability_topic: "homeassistant/wand/inkom_wand/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_01", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_01", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0 
+  
+- platform: mqtt
+  schema: template
+  name: "TV Wand"
+  unique_id: "tv_wand"
+  state_topic: "homeassistant/wand/tv_wand"
+  command_topic: "homeassistant/wand/tv_wand/set"
+  availability_topic: "homeassistant/wand/tv_wand/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_06", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_06", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0 
+
+- platform: mqtt
+  schema: template
+  name: "Keuken Wand"
+  unique_id: "keuken_wand"
+  state_topic: "homeassistant/wand/keuken_wand"
+  command_topic: "homeassistant/wand/keuken_wand/set"
+  availability_topic: "homeassistant/wand/keuken_wand/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_07", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_07", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0  
+  
+  
+##########################
+## Trapverlichting
+##########################
+  
+- platform: mqtt
+  schema: template
+  name: "Trap Gelijkvloers"
+  unique_id: "trap_gelijkvloers"
+  state_topic: "homeassistant/trap/trap_gelijkvloers"
+  command_topic: "homeassistant/trap/trap_gelijkvloers/set"
+  availability_topic: "homeassistant/trap/trap_gelijkvloers/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_11", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_11", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+  
+- platform: mqtt
+  schema: template
+  name: "Trap Verdieping"
+  unique_id: "trap_verdieping"
+  state_topic: "homeassistant/trap/trap_verdieping"
+  command_topic: "homeassistant/trap/trap_verdieping/set"
+  availability_topic: "homeassistant/trap/trap_verdieping/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_12", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_12", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+  
+  
+##########################
+## Halverlichting
+##########################
+
+- platform: mqtt
+  schema: template
+  name: "Hal Wand"
+  unique_id: "hal_wand"
+  state_topic: "homeassistant/hal/hal_wand"
+  command_topic: "homeassistant/hal/hal_wand/set"
+  availability_topic: "homeassistant/hal/hal_wand/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_13", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_13", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+  
+- platform: mqtt
+  schema: template
+  name: "Hal Plafond"
+  unique_id: "hal_plafond"
+  state_topic: "homeassistant/hal/hal_plafond"
+  command_topic: "homeassistant/hal/hal_plafond/set"
+  availability_topic: "homeassistant/hal/hal_plafond/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_14", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_14", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+
+##########################
+## Badkamer
+##########################
+
+- platform: mqtt
+  schema: template
+  name: "Douche"
+  unique_id: "douche"
+  state_topic: "homeassistant/badkamer/douche"
+  command_topic: "homeassistant/badkamer/douche/set"
+  availability_topic: "homeassistant/badkamer/douche/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_08", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_08", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Lavabo"
+  unique_id: "lavabo"
+  state_topic: "homeassistant/badkamer/lavabo"
+  command_topic: "homeassistant/badkamer/lavabo/set"
+  availability_topic: "homeassistant/badkamer/lavabo/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_09", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_09", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+
+##########################
+## Slaapkamer
+########################## 
+
+- platform: mqtt
+  schema: template
+  name: "Slaapkamer"
+  unique_id: "slaapkamer"
+  state_topic: "homeassistant/slaapkamer/slaapkamer"
+  command_topic: "homeassistant/slaapkamer/slaapkamer/set"
+  availability_topic: "homeassistant/slaapkamer/slaapkamer/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "2_10", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "2_10", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+  
+  
+##########################
+## Plugs-> Lights
+##########################
+
+- platform: switch
+  name: Nachtlampje Arne
+  entity_id: switch.nachtlampje_Arne  
