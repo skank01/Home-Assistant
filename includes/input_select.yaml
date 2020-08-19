@@ -1,0 +1,15 @@
+wasmachine_status:
+  name: Wasmachine status
+  options:
+    - Wasmachine uit
+    - Wasmachine bezig
+    - Wasmachine klaar
+  initial: Wasmachine uit
+
+droogkast_status:
+  name: Droogkast status
+  options:
+    - Droogkast uit
+    - Droogkast bezig
+    - Droogkast klaar
+  initial: Droogkast uit  

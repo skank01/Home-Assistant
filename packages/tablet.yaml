@@ -1,0 +1,49 @@
+sensor:
+- platform: rest
+  name: Tablet Living
+  json_attributes:
+    - isScreenOn
+    - batteryLevel
+    - kioskMode
+    - screenBrightness
+    - motionDetectorState
+    - maintenanceMode
+    - appFreeMemory
+    - appUsedMemory
+    - totalFreeMemory
+    - totalUsedMemory
+    - hostname4
+    - ip4
+    - mac
+    - locationLatitude
+    - locationLongitude
+    - locationAltitude
+    - startUrl
+    - currentPage
+  resource: !secret tablet_info
+  value_template: '{{ value_json.isScreenOn }}'
+  scan_interval: 10
+
+- platform: rest
+  name: Tablet Living Settings
+  json_attributes:
+    - timeToScreenOffV2
+    - screenBrightness
+    - motionSensitivity
+    - motionDection
+    - motionDetectionAcoustic
+    - motionSensitivityAcoustic
+    - screenOffInDarkness
+    - darknessLevel
+  resource: !secret tablet_settings
+  value_template: '{{ value_json.motionSensitivity }}'
+  scan_interval: 10
+  
+- platform: template
+  sensors:
+    living_tablet_battery_level:
+      friendly_name: "Tablet Living Battery"
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('sensor.tablet_living', 'batteryLevel') }}"
+
+  

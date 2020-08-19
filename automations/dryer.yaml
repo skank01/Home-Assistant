@@ -1,0 +1,87 @@
+##########################
+## Droogkast bezig
+##########################
+- id: droogkast bezig
+  alias: Droogkast actief
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.power_droogkast
+    above: 50
+  condition:
+    - condition: state
+      entity_id: sensor.droogkast_status
+      state: Droogkast uit
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: 
+        - input_select.droogkast_status
+        option: Droogkast bezig
+          
+
+
+          
+##########################
+## Droogkast klaar
+##########################
+- id: droogkast_klaar
+  alias: Droogkast naar klaar
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.power_droogkast
+    below: 3
+    for: 
+      minutes: 3
+  condition:
+    - condition: state
+      entity_id: sensor.droogkast_status
+      state: Droogkast bezig
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: 
+        - input_select.droogkast_status
+        option: Droogkast klaar
+ 
+##########################
+## Droogkast uit
+##########################
+- id: droogkast_uit
+  alias: Droogkast naar uit
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.power_droogkast
+    below: 5
+    for: 
+      minutes: 5
+  condition:
+    - condition: state
+      entity_id: sensor.droogkast_status
+      state: Droogkast klaar
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: 
+        - input_select.droogkast_status
+        option: Droogkast uit
+        
+        
+############################
+## Droogkast meldingen
+############################ 
+- id: droogkast_melding
+  alias: Melding dat droogkast klaar is
+  trigger:
+    platform: state
+    entity_id: sensor.droogkast_status
+    to: Droogkast klaar
+    for:
+      seconds: 5
+  condition: []
+  action:
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: De droogkast is klaar!
+    - service: notify.mobile_app_iphone_kim
+      data:
+        message: De droogkast is klaar!

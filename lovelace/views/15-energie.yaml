@@ -1,19 +1,43 @@
 title: Energie
 icon: mdi:power-plug
 path: Energie
-cards:
-- type: custom:battery-state-card
-  title: "Batterij niveaus"
-  color_gradient:
-    - "#ff0000" # red
-    - "#ffff00" # yellow
-    - "#00ff00" # green
-  filter:
-          include: # filters for auto-adding
-            - name: entity_id # entities which id ends with "_battery_level"
-              value: "*_battery_level"
-            - name: entity_id # entities which id ends with ".battery_level"
-              value: "*.battery_level"
-  bulk_rename:
-    - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
-      to: "sensor"            
+panel: true
+cards: 
+  - type: custom:layout-card
+    layout: vertical
+    min_columns: 1
+    max_columns: 3
+    cards:
+      - type: custom:battery-state-card
+        title: "Batterij niveaus"
+        color_gradient:
+          - "#ff0000" # red
+          - "#ffff00" # yellow
+          - "#00ff00" # green
+        filter:
+                include: # filters for auto-adding
+                  - name: entity_id # entities which id ends with "_battery_level"
+                    value: "*_battery_level"
+                  - name: entity_id # entities which id ends with ".battery_level"
+                    value: "*.battery_level"  
+        bulk rename:
+          - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
+            to: "sensor" 
+      - type: entities
+        entities:
+          - input_select.wasmachine_status
+          - input_select.droogkast_status
+      - break
+      - type: vertical-stack
+        cards:
+          - type: history-graph
+            title: Verbruik wasmachine
+            hours_to_show: 3
+            entities:
+              - sensor.power_wasmachine
+          - type: history-graph
+            title: Verbruik droogkast
+            hours_to_show: 5
+            entities:    
+              - sensor.power_droogkast
+            

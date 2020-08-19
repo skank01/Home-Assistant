@@ -21,3 +21,19 @@ simulation_bovenverdieping:
   name: Vacation_mode_lights_bovenverdieping
   entities:
     - light.nachtlampje_noor  
+lights_groundfloor:
+  name: Lichten_gelijkvloers
+  entities:
+    - light.licht_voordeur
+    - light.licht_achterdeur
+    - light.tuinverlichting
+    - light.vijververlichting
+    - light.inkom
+    - light.inkom_wand
+    - light.eettafel
+    - light.zithoek
+    - light.kastlamp
+    - light.tv_wand
+    - light.keuken_wand
+    - switch.keuken
+    

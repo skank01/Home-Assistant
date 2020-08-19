@@ -1,0 +1,28 @@
+welterusten:
+  alias: Slaapwel
+  icon: "mdi:bed"
+  description: 'Slaapwel routine die alles op het gelijkvloers uitzet en de verlichting op het eerste verdiep aanzet.'
+  sequence:
+  - service: remote.turn_on
+    data:
+      entity_id: remote.harmony_hub
+      activity: 'PowerOff'
+  - service: light.turn_off
+    data:
+      entity_id: group.lights_groundfloor
+  - service: light.turn_on
+    data:
+      entity_id: 
+        - light.trap_gelijkvloers
+        - light.hal_wand
+        - light.lavabo
+        - light.nachtlampje_kim
+  - delay: 00:02:00
+  - service: light.turn_off
+    data:
+      entity_id: light.trap_gelijkvloers
+  - delay: 00:05:00
+  - service: light.turn_off
+    data:
+      entity_id: light.hal_wand
+    

@@ -149,8 +149,10 @@
   action:
   - data:
       entity_id: light.inkom
-    entity_id: switch.keuken
     service: light.turn_on
+  - data:
+      entity_id: switch.keuken
+    service: switch.turn_on
     
     
 ########################################

@@ -9,7 +9,8 @@
       entity_id: group.family
       from: "home"
       to: "not_home"
-      for: "24:00:00"
+      for:
+        hours: 24
   condition: []
   action:
     - service: input_boolean.turn_on
@@ -31,8 +32,8 @@
   trigger:
     - platform: state
       entity_id: group.family
-      from: not_home
-      to: home
+      from: "not_home"
+      to: "home"
   condition:
     - condition: state
       entity_id: input_boolean.vakantiemodus

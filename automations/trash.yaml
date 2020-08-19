@@ -11,17 +11,17 @@
     condition: or
     conditions:
     - condition: template
-      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'pmd') %}true{% endif %}"
+      value_template: "{% if is_state('sensor.recycleapp_vandaag', 'pmd') %}true{% endif %}"
     - condition: template
-      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'restafval') %}true{% endif %}"
+      value_template: "{% if is_state('sensor.recycleapp_vandaag', 'restafval') %}true{% endif %}"
     - condition: template
-      value_template: "{% if is_state('sensor.ophaalkalender_vandaag', 'papier') %}true{% endif %}"
+      value_template: "{% if is_state('sensor.recycleapp_vandaag', 'papier') %}true{% endif %}"
   action:
   - data:
-      message: Herinnering:Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+      message: Herinnering:Deze nacht wordt {{states.sensor.recycleapp_vandaag.state}} opgehaald!
     service: notify.mobile_app_nokia_7_plus
   - data:
-      message: Herinnering:Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+      message: Herinnering:Deze nacht wordt {{states.sensor.recycleapp_vandaag.state}} opgehaald!
     service: notify.mobile_app_iphone_kim  
   - data:
       entity_id: group.media_player
@@ -30,7 +30,7 @@
   - data:
       entity_id: group.media_player
       language: nl
-      message: Herinnering, Deze nacht wordt {{states.sensor.ophaalkalender_vandaag.state}} opgehaald!
+      message: Herinnering, Deze nacht wordt {{states.sensor.recycleapp_vandaag.state}} opgehaald!
     service: tts.google_translate_say
   - delay: '00:00:04'
   - data:

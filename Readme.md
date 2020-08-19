@@ -94,6 +94,10 @@ Several addons are installed:
 - [Harmony Hub](https://support.myharmony.com/nl-us/hub)
 - [ConBee II](https://phoscon.de/en/conbee2)
 
+### Tablet ###
+
+- Running [Fully Kiosk Browser](https://www.fully-kiosk.com/) on a samsung galaxy Tab S3 as central point in my living room. Screen comes on when i'm in front of it. It automatically switches off, as soon as i walk away. Powered with [this](https://www.robbshop.nl/scharge-oplader-voor-inbouwdoos-met-usb-c-12w-aansluiting-voor-ipad-pro?sqr=scharge%20usb&) attached to the wall with a  [Vogel mount](https://www.vogels.com/nl-be/c/tms-1010-muurpakket-voor-tablets).
+
 ### Smart Speakers ###
 - [Google Nest Hub Max](https://store.google.com/us/product/google_nest_hub_max?hl=en-US)
 - [Google Nest Hub](https://store.google.com/be/product/google_nest_hub?hl=nl-BE)
@@ -119,12 +123,13 @@ Several addons are installed:
 
 ### Other ###
 - [Unipi Neuron M203](https://www.unipi.technology/unipi-neuron-m203-p97)
+- [Nabu Casa Account](https://www.nabucasa.com/)
 
 
 
 ## Ordered ##
 
-Nothing for now
+- [Unipi Extension xS11](https://www.unipi.technology/unipi-extension-xs11-p336?categoryId=40)
 
 
 
@@ -134,7 +139,8 @@ Coming
 
 
 ## To do ##
-- Laundry sensors
+- Heating
+- Fireplace
 - Doorbell
 - Security Cams
 - More automations

@@ -55,6 +55,7 @@ scene: !include includes/scenes.yaml
 light: !include includes/lights.yaml
 switch: !include includes/switches.yaml
 input_boolean: !include includes/input_boolean.yaml
+input_select: !include includes/input_select.yaml
 automation: !include_dir_merge_list automations/
 cloud: !include includes/cloud.yaml  
 
@@ -66,4 +67,7 @@ remote:
     name: Harmony Hub
     host: !secret harmony
 
-
+rest_command:
+  kiosk_command:
+    url: !secret rest_url_kiosk_command
+python_script:

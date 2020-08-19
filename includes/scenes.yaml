@@ -21,4 +21,4 @@
     light.cinema:
       state: on
       transition: 5
-      brightness_pct: 50        
+      brightness_pct: 50

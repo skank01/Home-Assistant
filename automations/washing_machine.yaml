@@ -1,0 +1,85 @@
+##########################
+## Wasmachine bezig
+##########################
+- id: Wasmachine bezig
+  alias: Wasbeurt bezig
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.power_wasmachine
+    above: 2
+  condition:
+    - condition: state
+      entity_id: sensor.wasmachine_status
+      state: Wasmachine uit
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: 
+        - input_select.wasmachine_status
+        option: Wasmachine bezig 
+
+          
+##########################
+## Wasmachine klaar
+##########################
+- id: wasmachine_klaar
+  alias: Wasbeurt klaar
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.power_wasmachine
+    below: 3
+    for: 
+      minutes: 2
+  condition:
+    - condition: state
+      entity_id: sensor.wasmachine_status
+      state: Wasmachine bezig
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: 
+        - input_select.wasmachine_status
+        option: Wasmachine klaar
+ 
+##########################
+## Wasmachine uit
+##########################
+- id: wasmachine_uit
+  alias: Wasbeurt uit
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.power_wasmachine
+    below: 3
+    for: 
+      minutes: 5
+  condition:
+    - condition: state
+      entity_id: sensor.wasmachine_status
+      state: Wasmachine klaar
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: 
+        - input_select.wasmachine_status
+        option: Wasmachine uit
+        
+        
+############################
+## Wasmachine meldingen
+############################ 
+- id: wasmachine_melding
+  alias: Melding dat wasmachine klaar is
+  trigger:
+    platform: state
+    entity_id: sensor.wasmachine_status
+    to: Wasmachine klaar
+    for:
+      seconds: 5
+  condition: []
+  action:
+    - service: notify.mobile_app_nokia_7_plus
+      data:
+        message: De wasmachine is klaar!
+    - service: notify.mobile_app_iphone_kim
+      data:
+        message: De wasmachine is klaar!

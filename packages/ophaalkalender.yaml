@@ -2,13 +2,14 @@
 
 sensor:
   - platform: afvalbeheer
-    wastecollector: ophaalkalender
+    wastecollector: RecycleApp
     resources:
       - restafval
       - papier
       - pmd
-    postcode: !secret ophaalkalender_postcode
-    streetname: !secret ophaalkalender_streetname
+    postcode: !secret recycleapp_postcode
+    streetnumber: !secret recycleapp_streetnumber
+    streetname: !secret recycleapp_streetname
     dutch: 1
     dateformat: '%d-%B'
     dateonly: 0
@@ -18,14 +19,14 @@ sensor:
   - platform: template
     sensors:
       afval:
-        entity_id: sensor.ophaalkalender_vandaag
+        entity_id: sensor.recycleapp_vandaag
         friendly_name: Afval vandaag
         icon_template: mdi:delete
         value_template: >
-          {% if is_state('sensor.ophaalkalender_vandaag', 'pmd') %}
+          {% if is_state('sensor.recycleapp_vandaag', 'pmd') %}
             Deze avond pmd buiten zetten!
-          {% elif is_state('sensor.ophaalkalender_vandaag', 'restafval') %}
+          {% elif is_state('sensor.recycleapp_vandaag', 'restafval') %}
             Deze avond restafval buiten zetten!
-          {% elif is_state('sensor.ophaalkalender_vandaag', 'papier') %}
+          {% elif is_state('sensor.recycleapp_vandaag', 'papier') %}
             Deze avond papier en karton buiten zetten!
           {% endif %} 
