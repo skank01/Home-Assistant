@@ -82,3 +82,4 @@ sensor:
         icon_template: mdi:map-marker-radius
         value_template: "{{ states.zone | count }}"
       
+    

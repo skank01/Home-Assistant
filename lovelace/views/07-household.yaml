@@ -207,11 +207,11 @@ cards:
                   ago: geleden
                   due_in: over
                   over_by: over met
-                  severity:
-                  - value: 30 days
-                    color: Orange
-                  - value: 60 days
-                    color: Red
+                severity:
+                - value: 30 days
+                  color: Orange
+                - value: 60 days
+                  color: Red
           - type: vertical-stack
             title: Filters
             cards:
@@ -236,7 +236,7 @@ cards:
                   ago: geleden
                   due_in: over
                   over_by: over met
-                  severity:
+                severity:
                   - value: 30 days
                     color: Orange
                   - value: 90 days
@@ -262,11 +262,11 @@ cards:
                   ago: geleden
                   due_in: over
                   over_by: over met
-                  severity:
-                  - value: 6 months
-                    color: Orange
-                  - value: 9 months
-                    color: Red  
+                severity:
+                - value: 6 months
+                  color: Orange
+                - value: 9 months
+                  color: Red  
               - type: custom:check-button-card
                 title: Dampkap
                 entity: sensor.dampkap
@@ -288,11 +288,11 @@ cards:
                   ago: geleden
                   due_in: over
                   over_by: over met
-                  severity:
-                  - value: 6 months
-                    color: Orange
-                  - value: 9 months
-                    color: Red  
+                severity:
+                - value: 6 months
+                  color: Orange
+                - value: 9 months
+                  color: Red  
           - type: vertical-stack
             title: Onderhoud
             cards:      
@@ -317,11 +317,11 @@ cards:
                   ago: geleden
                   due_in: over
                   over_by: over met
-                  severity:
-                  - value: 11 months
-                    color: Orange
-                  - value: 12 months
-                    color: Red
+                severity:
+                - value: 11 months
+                  color: Orange
+                - value: 12 months
+                  color: Red
               - type: custom:check-button-card
                 title: Siesta
                 entity: sensor.siesta
@@ -343,11 +343,37 @@ cards:
                   ago: geleden
                   due_in: over
                   over_by: over met
-                  severity:
-                  - value: 11 months
-                    color: Orange
-                  - value: 12 months
-                    color: Red
+                severity:
+                - value: 11 months
+                  color: Orange
+                - value: 12 months
+                  color: Red
+              - type: custom:check-button-card
+                title: Verwarmingsketel
+                entity: sensor.verwarmingsketel
+                text:
+                  year: jaar
+                  years: jaar
+                  month: maand
+                  months: maanden
+                  week: week
+                  weeks: weken
+                  day: dag
+                  days: dagen
+                  hour: uur
+                  hours: uur
+                  minute: minuut
+                  minutes: minuten
+                  less_than: minder dan
+                  more_than: meer dan
+                  ago: geleden
+                  due_in: over
+                  over_by: over met
+                severity:
+                - value: 20 months
+                  color: Orange
+                - value: 24 months
+                  color: Red
               - type: custom:check-button-card
                 title: Ontkalker
                 entity: sensor.ontkalker
@@ -369,8 +395,8 @@ cards:
                   ago: geleden
                   due_in: over
                   over_by: over met
-                  severity:
-                  - value: 11 months
-                    color: Orange
-                  - value: 12 months
-                    color: Red
+                severity:
+                - value: 11 months
+                  color: Orange
+                - value: 12 months
+                  color: Red

@@ -9,3 +9,6 @@ recorder:
       - sun.sun
       - sensor.last_boot
       - sensor.date
+      
+logger:
+  default: info      

@@ -123,13 +123,14 @@ Several addons are installed:
 
 ### Other ###
 - [Unipi Neuron M203](https://www.unipi.technology/unipi-neuron-m203-p97)
+- [Unipi Extension xS11](https://www.unipi.technology/unipi-extension-xs11-p336?categoryId=40)
 - [Nabu Casa Account](https://www.nabucasa.com/)
 
 
 
 ## Ordered ##
 
-- [Unipi Extension xS11](https://www.unipi.technology/unipi-extension-xs11-p336?categoryId=40)
+- Nothing at the moment
 
 
 

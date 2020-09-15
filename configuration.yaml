@@ -26,7 +26,6 @@ lovelace:
       show_in_sidebar: true
       require_admin: false
       
-
 customizer:
   custom_ui: local
   
@@ -71,3 +70,4 @@ rest_command:
   kiosk_command:
     url: !secret rest_url_kiosk_command
 python_script:
+

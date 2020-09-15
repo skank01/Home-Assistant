@@ -84,7 +84,7 @@ cards:
                   action: call-service
                   service: homeassistant.toggle
                   service_data:
-                    entity_id: cover.garage_door
+                    entity_id: switch.garagepoort
               - type: custom:button-card
                 entity: sensor.postbus
                 label: Post
@@ -202,12 +202,11 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/automatisaties
               - type: custom:button-card
-                entity: binary_sensor.openclose_5
-                name: Scenes
-                show_label: false
+                label: Routines
+                show_label: true
                 size: 40%
                 icon: mdi:home-assistant
-                styles:
-                  icon:
-                    - color: var(--primary-text-color)
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/routines
                 

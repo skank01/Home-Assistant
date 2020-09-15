@@ -170,13 +170,53 @@
       entity_id: all
     service: light.turn_off
     
+    
+########################################
+## Lichtbediening dressing
+########################################    
+- id: 'Zet spots dressing om na duwen op drukknop'
+  alias: Licht dressing om
+  trigger:
+    - entity_id: switch.dressing
+      platform: state
+      to: 'on'
+  action:
+  - data:  
+      entity_id: light.dressing
+    service: light.toggle
+    
+
+########################################
+## Lichtbediening cinema
+########################################    
+- id: 'Zet spots cinema zetel om na duwen op drukknop'
+  alias: Licht cinema zetel om
+  trigger:
+    - entity_id: switch.cinema_zetel
+      platform: state
+      to: 'on'
+  action: 
+  - data:  
+      entity_id: light.cinema
+    service: light.toggle 
+
+- id: 'Zet spots cinema scherm om na duwen op drukknop'
+  alias: Licht cinema scherm om
+  trigger:
+    - entity_id: switch.cinema_scherm
+      platform: state
+      to: 'on'
+  action: 
+  - data:  
+      entity_id: light.cinema_scherm
+    service: light.toggle
 
     
 ########################################
 ## Vakantie lichten
 ########################################
-- id: 'Turn on vacation lights upstairs to simulate presence'
-  alias: Vakantie lichten boven willekeurig aan
+- id: 'Turn on vacation lights to simulate presence'
+  alias: Vakantie lichten willekeurig aan
   initial_state: on
   trigger:
     platform: time
@@ -190,7 +230,7 @@
     # Toggling random entity state
     - service: homeassistant.turn_on
       data_template:
-        entity_id: "{{ state_attr('group.simulation_bovenverdieping','entity_id') | random }}"     
+        entity_id: "{{ state_attr('group.simulation_lights_on','entity_id') | random }}"     
     - service: notify.mobile_app_nokia_7_plus
       data:
         message: Ik heb je simulatielichten boven aangestoken om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.

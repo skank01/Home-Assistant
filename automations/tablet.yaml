@@ -1,0 +1,25 @@
+##########################
+## Tablet
+##########################
+
+# Start opladen wall tablet
+- id: Turn on charger
+  alias: "Turn on wall tablet charger"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.living_tablet_battery_level
+      below: 30
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.tablet
+
+# Stop opladen wall tablet
+- id: Turn off charger
+  alias: "Turn off wall tablet charger"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.living_tablet_battery_level
+      above: 79
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.tablet

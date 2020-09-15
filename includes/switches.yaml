@@ -1,3 +1,46 @@
+##########################
+## Verlichting
+##########################
+
+- platform: mqtt
+  name: "Cinema Zetel"
+  unique_id: "cinema_zetel"
+  state_topic: "homeassistant/cinema/zetel"
+  command_topic: "homeassistant/cinema/zetel/set"
+  availability_topic: "homeassistant/cinema/zetel/available"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "online"
+  payload_not_available: "offline"
+  qos: 0
+  retain: true
+  
+- platform: mqtt
+  name: "Cinema Scherm"
+  unique_id: "cinema_scherm"
+  state_topic: "homeassistant/cinema/scherm"
+  command_topic: "homeassistant/cinema/scherm/set"
+  availability_topic: "homeassistant/cinema/scherm/available"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "online"
+  payload_not_available: "offline"
+  qos: 0
+  retain: true
+
+- platform: mqtt
+  name: "Dressing"
+  unique_id: "dressing"
+  state_topic: "homeassistant/slaapkamer/dressing"
+  command_topic: "homeassistant/slaapkamer/dressing/set"
+  availability_topic: "homeassistant/slaapkamer/dressing/available"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "online"
+  payload_not_available: "offline"
+  qos: 0
+  retain: true  
+
 - platform: mqtt
   name: "Alle Lichten Uit"
   unique_id: "alle_lichten_uit"
@@ -10,3 +53,30 @@
   payload_not_available: "offline"
   qos: 0
   retain: true  
+
+
+##########################
+## Andere
+##########################
+  
+- platform: mqtt
+  name: "Garagepoort"
+  unique_id: "garagepoort"
+  state_topic: "homeassistant/special/garagepoort"
+  command_topic: "homeassistant/special/garagepoort/set"
+  payload_on: '{"circuit": "UART_1_2_01", "dev": "relay", "repeat": "1", "state": "pulse"}'
+  payload_off: '{"circuit": "UART_1_2_01", "dev": "relay", "state": "off"}'
+  qos: 0
+  
+
+- platform: mqtt
+  name: "Tablet"
+  unique_id: "tablet"
+  state_topic: "homeassistant/special/tablet"
+  command_topic: "homeassistant/special/tablet/set"
+  availability_topic: "homeassistant/special/tablet/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  payload_on: '{"state": "on", "circuit": "UART_1_2_09", "dev": "output"}'
+  payload_off: '{"state": "off", "circuit": "UART_1_2_09", "dev": "output"}'
+  qos: 0    

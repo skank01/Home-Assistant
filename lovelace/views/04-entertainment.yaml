@@ -58,6 +58,11 @@ cards:
             icon: mdi:speaker
             hide:
               progress: true
+            shortcuts:
+              buttons:
+                - type: channel
+                  name: StuBru
+                  id: http://icecast.vrtcdn.be/stubru-high.mp3  
           - type: custom:mini-media-player
             entity: media_player.keuken
             artwork: cover
@@ -122,4 +127,9 @@ cards:
             icon: mdi:kodi
             hide:
               progress: true
-         
+          - type: custom:mini-media-player
+            entity: media_player.kodi
+            artwork: cover
+            icon: mdi:kodi
+            hide:
+              progress: true

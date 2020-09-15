@@ -60,4 +60,23 @@ google_actions:
       room: Badkamer    
     light.nachtlampje_Arne:
       room: Slaapkamer Arne    
-          
+    light.slaapkamer_Arne:
+      room: Slaapkamer Arne
+    light.slaapkamer_Noor:
+      room: Slaapkamer Noor
+    light.keukenkast:
+      room: Keuken
+    light.bench:
+      room: Woonkamer
+    light.lavabo_kids:
+      room: Badkamer Kids
+    light.douche_kids:
+      room: Badkamer Kids
+    light.bad:
+      room: Badkamer
+    light.bureau:
+      room: Bureau
+    light.speelkamer:
+      room: Speelkamer
+    light.technische_ruimte:
+      room: Technische Ruimte    

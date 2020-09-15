@@ -23,8 +23,6 @@ custom_header:
     Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
     {{states('sensor.greeting')}}</div></div><div><div>
     {{states('sensor.afval')}}</div></div><div><div>
-    {{states('sensor.wasmachine_status')}}</div></div><div><div>
-    {{states('sensor.droogkast_status')}}</div></div><div><div>
 title: Thuis
 views:
   - !include lovelace/views/01-home.yaml
@@ -34,6 +32,7 @@ views:
   - !include lovelace/views/05-temperatuur.yaml
   - !include lovelace/views/06-automatisaties.yaml
   - !include lovelace/views/07-household.yaml
+  - !include lovelace/views/08-routines.yaml
   - !include lovelace/views/13-server.yaml
   - !include lovelace/views/14-network.yaml
   - !include lovelace/views/15-energie.yaml

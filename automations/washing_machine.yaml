@@ -10,7 +10,7 @@
   condition:
     - condition: state
       entity_id: sensor.wasmachine_status
-      state: Wasmachine uit
+      state: Wasmachine
   action:
     - service: input_select.select_option
       data:
@@ -42,10 +42,10 @@
         option: Wasmachine klaar
  
 ##########################
-## Wasmachine uit
+## Wasmachine standby
 ##########################
-- id: wasmachine_uit
-  alias: Wasbeurt uit
+- id: wasmachine_standby
+  alias: Wasbeurt standby
   trigger:
     platform: numeric_state
     entity_id: sensor.power_wasmachine
@@ -61,7 +61,7 @@
       data:
         entity_id: 
         - input_select.wasmachine_status
-        option: Wasmachine uit
+        option: Wasmachine
         
         
 ############################
@@ -83,3 +83,15 @@
     - service: notify.mobile_app_iphone_kim
       data:
         message: De wasmachine is klaar!
+    - service: tts.google_translate_say
+      entity_id: media_player.keuken
+      data:
+        message: 'De wasmachine is klaar!'
+        language: nl
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wasmachine
+    - delay: 00:00:04
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.keuken

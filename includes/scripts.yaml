@@ -1,3 +1,7 @@
+##############################
+## Goodnight
+##############################
+
 welterusten:
   alias: Slaapwel
   icon: "mdi:bed"
@@ -25,4 +29,105 @@ welterusten:
   - service: light.turn_off
     data:
       entity_id: light.hal_wand
+
     
+##############################
+## Taking a shower
+##############################    
+
+douche:
+  alias: Douche nemen
+  icon: "mdi:shower-head"
+  description: 'Douche routine die het licht aanzet met bijpassende muziek'
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.badkamer
+      source: 'Songs to Sing in the Shower'
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.3
+    entity_id: media_player.badkamer
+  - service: media_player.shuffle_set
+    data:
+      shuffle: true
+    entity_id: media_player.badkamer
+  - condition: state 
+    entity_id: sun.sun
+    state: 'below_horizon'
+  - service: light.turn_on
+    entity_id: light.douche
+
+    
+##############################
+## Taking a bath
+##############################
+
+bad:
+  alias: Bad nemen
+  icon: "mdi:shower"
+  description: 'Bad routine die het licht aanzet met bijpassende muziek'
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.badkamer
+      source: 'SPA Treatment'
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.1
+    entity_id: media_player.badkamer
+  - service: media_player.shuffle_set
+    data:
+      shuffle: true
+    entity_id: media_player.badkamer
+  - condition: state 
+    entity_id: sun.sun
+    state: 'below_horizon'
+  - service: light.turn_on
+    entity_id: light.bad
+    
+    
+##############################
+## Dinner
+##############################
+
+dinner:
+  alias: Etentje met vrienden
+  icon: "mdi:silverware-fork-knife"
+  description: 'Etentje met vrienden die het juiste licht en playlist instelt'
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.woonkamer
+      source: 'Dinner with Friends'
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.3
+    entity_id: media_player.woonkamer
+  - service: media_player.shuffle_set
+    data:
+      shuffle: true
+    entity_id: media_player.woonkamer
+    
+    
+##############################
+## Ironing
+##############################
+
+ironing:
+  alias: Strijken
+  icon: "mdi:tshirt-crew"
+  description: 'Strijken met muziek en licht'
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.bureau
+      source: 'ironing music'
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.3
+    entity_id: media_player.bureau
+  - service: media_player.shuffle_set
+    data:
+      shuffle: true
+    entity_id: media_player.bureau    

@@ -204,6 +204,47 @@
   state_template: '{{ value_json.state }}'
   qos: 0
 
+- platform: mqtt
+  schema: template
+  name: "Bad"
+  unique_id: "bad"
+  state_topic: "homeassistant/badkamer/bad"
+  command_topic: "homeassistant/badkamer/bad/set"
+  availability_topic: "homeassistant/badkamer/bad/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_05", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_05", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Douche Kids"
+  unique_id: "douche_kids"
+  state_topic: "homeassistant/badkamer_kids/douche_kids"
+  command_topic: "homeassistant/badkamer_kids/douche_kids/set"
+  availability_topic: "homeassistant/badkamer_kids/lavabo_kids/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_04", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_04", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Lavabo Kids"
+  unique_id: "lavabo_kids"
+  state_topic: "homeassistant/badkamer_kids/lavabo_kids"
+  command_topic: "homeassistant/badkamer_kids/lavabo_kids/set"
+  availability_topic: "homeassistant/badkamer_kids/lavabo_kids/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_03", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_03", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
 
 ##########################
 ## Slaapkamer
@@ -222,12 +263,118 @@
   command_off_template: '{"state": "off", "circuit": "2_10", "dev": "output"}'
   state_template: '{{ value_json.state }}'
   qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Slaapkamer Noor"
+  unique_id: "slaapkamer_noor"
+  state_topic: "homeassistant/slaapkamer/slaapkamer_noor"
+  command_topic: "homeassistant/slaapkamer/slaapkamer_noor/set"
+  availability_topic: "homeassistant/slaapkamer/slaapkamer_noor/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_10", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_10", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0  
+
+- platform: mqtt
+  schema: template
+  name: "Slaapkamer Arne"
+  unique_id: "slaapkamer_arne"
+  state_topic: "homeassistant/slaapkamer/slaapkamer_arne"
+  command_topic: "homeassistant/slaapkamer/slaapkamer_arne/set"
+  availability_topic: "homeassistant/slaapkamer/slaapkamer_arne/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_11", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_11", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0  
   
+
+##########################
+## Zolder
+##########################
+
+- platform: mqtt
+  schema: template
+  name: "Technische Ruimte"
+  unique_id: "technische_ruimte"
+  state_topic: "homeassistant/zolder/technische_ruimte"
+  command_topic: "homeassistant/zolder/technische_ruimte/set"
+  availability_topic: "homeassistant/zolder/technische_ruimte/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_12", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_12", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Speelkamer"
+  unique_id: "speelkamer"
+  state_topic: "homeassistant/zolder/speelkamer"
+  command_topic: "homeassistant/zolder/speelkamer/set"
+  availability_topic: "homeassistant/zolder/speelkamer/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_13", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_13", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+
+##########################
+## Andere verlichting
+##########################
+
+- platform: mqtt
+  schema: template
+  name: "Bureau"
+  unique_id: "bureau"
+  state_topic: "homeassistant/andere/bureau"
+  command_topic: "homeassistant/andere/bureau/set"
+  availability_topic: "homeassistant/andere/bureau/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_06", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_06", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
+
+- platform: mqtt
+  schema: template
+  name: "Bench"
+  unique_id: "bench"
+  state_topic: "homeassistant/andere/bench"
+  command_topic: "homeassistant/andere/bench/set"
+  availability_topic: "homeassistant/andere/bench/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_07", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_07", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0
   
-##########################
-## Plugs-> Lights
-##########################
+- platform: mqtt
+  schema: template
+  name: "Keukenkast"
+  unique_id: "keukenkast"
+  state_topic: "homeassistant/andere/keukenkast"
+  command_topic: "homeassistant/andere/keukenkast/set"
+  availability_topic: "homeassistant/andere/keukenkast/available"
+  payload_available: "online"
+  payload_not_available: "offline"
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_08", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_08", "dev": "output"}'
+  state_template: '{{ value_json.state }}'
+  qos: 0  
 
 - platform: switch
   name: Nachtlampje Arne
   entity_id: switch.nachtlampje_Arne  
+  
+
+

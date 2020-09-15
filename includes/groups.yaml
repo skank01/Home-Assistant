@@ -11,16 +11,22 @@ media_player:
     - media_player.noor_mini
     - media_player.badkamer
     - media_player.bureau
-simulation_lights_off:
-  name: Vacation_mode_lights
+simulation_lights_on:
+  name: Vacation_mode_lights_on
   entities:
-    - light.inkom
+    - light.inkom_wand
+    - light.slaapkamer
     - light.nachtlampje_noor
-    - light.licht_voordeur
-simulation_bovenverdieping:
-  name: Vacation_mode_lights_bovenverdieping
+    - light.nachtlampje_arne    
+simulation_lights_off:
+  name: Vacation_mode_lights_off
   entities:
-    - light.nachtlampje_noor  
+    - light.licht_voordeur
+    - light.inkom_wand
+    - light.slaapkamer
+    - light.nachtlampje_noor
+    - light.nachtlampje_arne
+    
 lights_groundfloor:
   name: Lichten_gelijkvloers
   entities:
@@ -35,5 +41,6 @@ lights_groundfloor:
     - light.kastlamp
     - light.tv_wand
     - light.keuken_wand
+    - light.bench
     - switch.keuken
     

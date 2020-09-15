@@ -6,11 +6,11 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.power_droogkast
-    above: 50
+    above: 10
   condition:
     - condition: state
       entity_id: sensor.droogkast_status
-      state: Droogkast uit
+      state: Droogkast
   action:
     - service: input_select.select_option
       data:
@@ -44,16 +44,16 @@
         option: Droogkast klaar
  
 ##########################
-## Droogkast uit
+## Droogkast standby
 ##########################
-- id: droogkast_uit
-  alias: Droogkast naar uit
+- id: droogkast_standby
+  alias: Droogkast standby
   trigger:
     platform: numeric_state
     entity_id: sensor.power_droogkast
     below: 5
     for: 
-      minutes: 5
+      minutes: 3
   condition:
     - condition: state
       entity_id: sensor.droogkast_status
@@ -63,7 +63,7 @@
       data:
         entity_id: 
         - input_select.droogkast_status
-        option: Droogkast uit
+        option: Droogkast
         
         
 ############################
@@ -85,3 +85,18 @@
     - service: notify.mobile_app_iphone_kim
       data:
         message: De droogkast is klaar!
+    - service: tts.google_translate_say
+      entity_id: media_player.keuken
+      data:
+        message: 'De droogkast is klaar!'
+        language: nl
+    - service: switch.turn_off
+      data:
+        entity_id: switch.droogkast
+    - delay: 00:00:04
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.keuken
+   
+        
+    
