@@ -172,6 +172,21 @@
     
     
 ########################################
+## Lichtbediening inkom
+########################################    
+- id: 'Zet spots inkom om na duwen op drukknop'
+  alias: Licht inkom om
+  trigger:
+    - entity_id: switch.inkom
+      platform: state
+      to: 'on'
+  action:
+  - data:  
+      entity_id: light.inkom
+    service: light.toggle
+
+
+########################################
 ## Lichtbediening dressing
 ########################################    
 - id: 'Zet spots dressing om na duwen op drukknop'

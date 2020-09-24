@@ -48,7 +48,9 @@ Integrations:
 - Emby
 - Emby Latest Media
 - Roomba
-- LG WebOS 
+- LG WebOS
+- Risco 
+- Browser_mod
 
 Plugins:
 

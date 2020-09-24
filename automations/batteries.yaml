@@ -1,0 +1,22 @@
+- id: Lage batterij waarschuwing
+  alias: System - Low Battery Warning
+  trigger:
+  - entity_id: sensor.low_batteries
+    platform: state
+    for: 00:01:00
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.low_batteries
+      state: '0'
+  - condition: template
+    value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  action:
+  - data:
+      message: '{%- set ns = namespace(message = ''The battery level of the following
+        device(s) are low:\n'') -%}  {%- set ns.message = ns.message +  state_attr(''sensor.low_batteries'',''matched_devices'').split(''|'')
+        | join(''% \n'')  -%} {{ ns.message }}'
+      title: '** Battery Level Warning **'
+    service: notify.mobile_app_nokia_7_plus
+  mode: single

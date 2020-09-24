@@ -42,6 +42,19 @@
   retain: true  
 
 - platform: mqtt
+  name: "Inkom"
+  unique_id: "inkom"
+  state_topic: "homeassistant/inkom/spots"
+  command_topic: "homeassistant/inkom/spots/set"
+  availability_topic: "homeassistant/inkom/spots/available"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "online"
+  payload_not_available: "offline"
+  qos: 0
+  retain: true
+
+- platform: mqtt
   name: "Alle Lichten Uit"
   unique_id: "alle_lichten_uit"
   state_topic: "homeassistant/lichten/alle_lichten_uit"
@@ -77,6 +90,6 @@
   availability_topic: "homeassistant/special/tablet/available"
   payload_available: "online"
   payload_not_available: "offline"
-  payload_on: '{"state": "on", "circuit": "UART_1_2_09", "dev": "output"}'
-  payload_off: '{"state": "off", "circuit": "UART_1_2_09", "dev": "output"}'
+  payload_on: '{"state": "on", "circuit": "UART_1_2_02", "dev": "output"}'
+  payload_off: '{"state": "off", "circuit": "UART_1_2_02", "dev": "output"}'
   qos: 0    

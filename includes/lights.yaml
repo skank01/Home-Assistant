@@ -306,8 +306,8 @@
   availability_topic: "homeassistant/zolder/technische_ruimte/available"
   payload_available: "online"
   payload_not_available: "offline"
-  command_on_template: '{"state": "on", "circuit": "UART_1_2_12", "dev": "output"}'
-  command_off_template: '{"state": "off", "circuit": "UART_1_2_12", "dev": "output"}'
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_08", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_08", "dev": "output"}'
   state_template: '{{ value_json.state }}'
   qos: 0
 
@@ -367,8 +367,8 @@
   availability_topic: "homeassistant/andere/keukenkast/available"
   payload_available: "online"
   payload_not_available: "offline"
-  command_on_template: '{"state": "on", "circuit": "UART_1_2_08", "dev": "output"}'
-  command_off_template: '{"state": "off", "circuit": "UART_1_2_08", "dev": "output"}'
+  command_on_template: '{"state": "on", "circuit": "UART_1_2_12", "dev": "output"}'
+  command_off_template: '{"state": "off", "circuit": "UART_1_2_12", "dev": "output"}'
   state_template: '{{ value_json.state }}'
   qos: 0  
 

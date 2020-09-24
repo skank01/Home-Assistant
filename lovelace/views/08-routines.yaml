@@ -8,21 +8,21 @@ cards:
     enableColumns: true
     style: |
       :host {
-        --tile-background: #5F9BEA;
+        --tile-background: #DDDDDD;
         --tile-icon-size: 40px;
         --tile-border-radius: 10px;
         --tile-width: 100px;
         --tile-height: 100px;
-        --tile-on-background: #DDDDDD;
-        --tile-name-text-color: rgba(255, 255, 255, 1);
-        --tile-on-name-text-color: rgba(0, 0, 0, 1);
+        --tile-on-background: #5F9BEA;
+        --tile-name-text-color: rgba(0, 0, 0, 1);
+        --tile-on-name-text-color: rgba(255, 255, 255, 1);
         --tile-state-text-color: rgba(0, 0, 0, 0.4);
         --tile-on-state-text-color: rgba(0, 0, 0, 1);
         --tile-state-changed-text-color: rgb(134, 134, 134);
         --tile-unavailable-state-text-color: rgba(255, 255, 255, 0,5);
         --tile-value-text-color: rgba(255, 0, 0, 1);
-        --tile-icon-color: rgb(255, 140, 0);
-        --tile-on-icon-color: rgb(255, 255, 255);
+        --tile-icon-color: rgb(255, 255, 255);
+        --tile-on-icon-color: rgb(255, 140, 0);
         --tile-width-mobile: 90px;
         --tile-height-mobile: 90px;
       }  
@@ -33,7 +33,7 @@ cards:
           .button-inner .icon ha-icon {
             width: 40px;
             height:40px;
-          }
+          }  
     rows:
       - row: 1    
         columns:

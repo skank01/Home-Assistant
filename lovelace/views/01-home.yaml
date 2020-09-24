@@ -44,14 +44,33 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                entity: binary_sensor.openclose_5
+                entity: alarm_control_panel.risco
                 name: Alarm
                 show_label: false
                 size: 40%
                 icon: mdi:shield-off
+                state:
+                  - icon: 'mdi:shield-on'
+                    styles:
+                      icon: 
+                        - color: var(--sidebar-selected-icon-color)
+                    value: 'on'
                 styles:
                   icon:
                     - color: var(--primary-text-color)
+                tap_action:
+                  action: call-service
+                  service: browser_mod.popup
+                  service_data:
+                    card:
+                      entity: alarm_control_panel.risco
+                      states:
+                        - arm_home
+                        - arm_away
+                      type: alarm-panel
+                    deviceID:
+                      - this
+                    title: Alarm
               - type: custom:button-card
                 entity: binary_sensor.openclose_4
                 icon: 'mdi:door'

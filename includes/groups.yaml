@@ -42,5 +42,13 @@ lights_groundfloor:
     - light.tv_wand
     - light.keuken_wand
     - light.bench
-    - switch.keuken
     
+battery_level_monitor:
+  name: Battery Level Monitor
+  entities:
+    - sensor.battery_level
+    - sensor.iphone_kim_battery_level
+    - sensor.openclose_4_battery_level
+    - sensor.openclose_5_battery_level
+    - sensor.openclose_6_battery_level
+    - sensor.openclose_7_battery_level

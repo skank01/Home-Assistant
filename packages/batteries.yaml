@@ -1,0 +1,27 @@
+sensor:
+  - platform: template
+    sensors:
+      low_batteries:
+        friendly_name: Low Battery Devices
+        unit_of_measurement: Entities
+        icon_template: "{{ 'mdi:checkbox-marked-circle-outline' if states('sensor.low_batteries')|int == 0 else 'mdi:alert-circle-outline' }}"
+        value_template: >
+            {%- set ns = namespace(counter=0) -%} 
+            {%- set threshold = 10 -%}
+            {%- for item in expand('group.battery_level_monitor') -%}
+            {%- if item.state | int <= threshold -%}
+            {%- set ns.counter = ns.counter + 1 -%}
+            {%- endif -%}
+            {%- endfor -%}
+            {{ ns.counter }}
+        attribute_templates:
+          matched_devices: >
+            {%- set threshold = 10 -%}
+            {%- for item in expand('group.battery_level_monitor') -%}
+            {%- if item.state | int <= threshold -%}
+             - {{ item.name }} - {{ item.state }}|
+            {%- endif -%}
+            {%- endfor -%}
+            
+# When a battery in the group drops below a threshold count them. 
+# It also drops their name and current level in an attribute we use in the notify messages.            
