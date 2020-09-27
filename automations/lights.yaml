@@ -60,7 +60,7 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:00:00
+    at: input_datetime.time_wake_up_kim
   condition:
   - condition: state
     entity_id: group.family
@@ -85,7 +85,7 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:15:00
+    at: input_datetime.time_wake_up_noor
   condition:
   - condition: state
     entity_id: group.family
@@ -110,7 +110,7 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:15:00
+    at: input_datetime.time_wake_up_arne
   condition:
   - condition: state
     entity_id: group.family
@@ -154,7 +154,7 @@
     platform: state
     to: 'off'
     for:
-      minutes: 2
+      seconds: 30
   action:
     service: light.turn_off
     entity_id: light.inkom    
@@ -239,7 +239,7 @@
   initial_state: on
   trigger:
     platform: time
-    at: '21:45:00'
+    at: input_datetime.time_vakantielichten_start
   condition:
     - condition: state
       entity_id: input_boolean.vakantiemodus
@@ -248,7 +248,7 @@
     - delay: '00:{{ range(01,30) | random | int }}:00'
     # Toggling random entity state
     - service: homeassistant.turn_on
-      data_template:
+      data:
         entity_id: "{{ state_attr('group.simulation_lights_on','entity_id') | random }}"     
     - service: notify.mobile_app_nokia_7_plus
       data:
@@ -259,7 +259,7 @@
   initial_state: on
   trigger:
     platform: time
-    at: '22:30:00'
+    at: input_datetime.time_vakantielichten_end
   condition:
     - condition: state
       entity_id: input_boolean.vakantiemodus

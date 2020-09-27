@@ -6,7 +6,7 @@
   initial_state: "on"
   trigger:
     - platform: time
-      at: "20:00:00"
+      at: input_datetime.time_pool_filter
   action:
     - service: switch.turn_on
       entity_id: switch.zwembad
