@@ -54,7 +54,7 @@ cards:
                     styles:
                       icon: 
                         - color: var(--sidebar-selected-icon-color)
-                    value: 'on'
+                    value: 'armed'
                 styles:
                   icon:
                     - color: var(--primary-text-color)

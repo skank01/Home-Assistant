@@ -15,7 +15,6 @@ sensor:
   - platform: template 
     sensors:
       unraid_server:
-        entity_id: device_tracker.unraid_server
         friendly_name: Unraid
         icon_template: mdi:nas
         value_template: >

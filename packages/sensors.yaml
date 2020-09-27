@@ -42,42 +42,34 @@ sensor:
   - platform: template
     sensors:
       count_automations:
-        entity_id: sensor.date
         friendly_name: Automations
         icon_template: mdi:robot
         value_template: "{{ states.automation | count }}"
       count_binary_sensors:
-        entity_id: sensor.date
         friendly_name: Binary Sensors
         icon_template: mdi:contrast-circle
         value_template: "{{ states.binary_sensor | count }}"
       count_device_trackers:
-        entity_id: sensor.date
         friendly_name: Device Trackers
         icon_template: mdi:radar
         value_template: "{{ states.device_tracker | count }}"
       count_lights:
-        entity_id: sensor.date
         friendly_name: Lights
         icon_template: mdi:lightbulb-group
         value_template: "{{ states.light | count }}"
       count_scripts:
-        entity_id: sensor.date
         friendly_name: Scripts
         icon_template: mdi:script-text
         value_template: "{{ states.script | count }}"
       count_sensors:
-        entity_id: sensor.date
         friendly_name: Sensors
         icon_template: mdi:leak
         value_template: "{{ states.sensor | count }}"
       count_switches:
-        entity_id: sensor.date
         friendly_name: Switches
         icon_template: mdi:light-switch
         value_template: "{{ states.switch | count }}"
       count_zones:
-        entity_id: sensor.date
         friendly_name: Zones
         icon_template: mdi:map-marker-radius
         value_template: "{{ states.zone | count }}"

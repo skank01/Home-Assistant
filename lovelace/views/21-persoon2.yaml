@@ -19,7 +19,7 @@ cards:
                   - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.iphone_kim_battery_level') }} %
                   - <ha-icon icon="mdi:battery-charging-30"></ha-icon> {{ states('sensor.iphone_kim_battery_state') }}
                   - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.iphone_kim_connection_type') }}
-          - type: custom:calendar-card
+          - type: calendar
             entities:
               - calendar.calendar_shared  
       - break

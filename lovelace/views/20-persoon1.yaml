@@ -18,7 +18,7 @@ cards:
                   - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.nokia_7_plus') }}
                   - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.battery_level') }} %
                   - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.wifi_connection') }}
-          - type: custom:calendar-card
+          - type: calendar
             entities:
               - calendar.agenda  
       - break

@@ -69,7 +69,6 @@ sensor:
         friendly_name: 'Guests'
         value_template: '{{ states.sensor.unifi_gateway_wlan.attributes.num_guest }}'
       unifi_usg:
-        entity_id: device_tracker.unifi_usg
         friendly_name: Unifi USG
         icon_template: mdi:router-network
         value_template: >
@@ -79,7 +78,6 @@ sensor:
             down
           {% endif %} 
       unifi_switch:
-        entity_id: device_tracker.unifi_switch
         friendly_name: Unifi Switch
         icon_template: mdi:switch
         value_template: >
@@ -89,7 +87,6 @@ sensor:
             down
           {% endif %}  
       unifi_ap_living:
-        entity_id: device_tracker.unifi_ap_living
         friendly_name: AP Living
         icon_template: mdi:access-point-network
         value_template: >
@@ -99,7 +96,6 @@ sensor:
             down
           {% endif %}
       unifi_ap_verdiep_1:
-        entity_id: device_tracker.unifi_ap_verdiep_1
         friendly_name: AP 1e Verdiep
         icon_template: mdi:access-point-network
         value_template: >

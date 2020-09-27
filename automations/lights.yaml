@@ -85,13 +85,13 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:20:00
+    at: 07:15:00
   condition:
   - condition: state
     entity_id: group.family
     state: home
   - condition: time
-    after: 07:15:00
+    after: 07:10:00
     before: 07:25:00
     weekday:
     - mon
@@ -110,13 +110,13 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:20:00
+    at: 07:15:00
   condition:
   - condition: state
     entity_id: group.family
     state: home
   - condition: time
-    after: 07:15:00
+    after: 07:10:00
     before: 07:25:00
     weekday:
     - mon
@@ -131,17 +131,14 @@
 
 
 ##########################
-## Lichten aan bij thuiskomst
+## Lichten inkom
 ##########################
 
-- id: '1578251418685'
-  alias: Lichten inkom en keuken aan bij thuiskomst
-  description: ''
+- alias: Lichten inkom aan bij beweging
   trigger:
-  - entity_id: group.family
-    from: not_home
+  - entity_id: binary_sensor.det_inkom
     platform: state
-    to: home
+    to: 'on'
   condition:
   - condition: state
     entity_id: sun.sun
@@ -150,10 +147,17 @@
   - data:
       entity_id: light.inkom
     service: light.turn_on
-  - data:
-      entity_id: switch.keuken
-    service: switch.turn_on
-    
+ 
+- alias: Lichten inkom uit 2 minuten na laatste beweging 
+  trigger:
+  - entity_id: binary_sensor.det_inkom
+    platform: state
+    to: 'off'
+    for:
+      minutes: 2
+  action:
+    service: light.turn_off
+    entity_id: light.inkom    
     
 ########################################
 ## Alle lichten uit

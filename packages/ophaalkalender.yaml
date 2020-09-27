@@ -19,7 +19,6 @@ sensor:
   - platform: template
     sensors:
       afval:
-        entity_id: sensor.recycleapp_vandaag
         friendly_name: Afval vandaag
         icon_template: mdi:delete
         value_template: >
