@@ -33,48 +33,35 @@ service_data:
             show_header_toggle: false
           - type: horizontal-stack
             cards:
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.unifi_gateway_www_speedtest_ping
+              - type: sensor
+                entity: sensor.unifi_gateway_www_speedtest_ping
                 name: Ping
-                decimals: 0
+                graph: line
                 hours_to_show: 72
-                # line_color: "#3498db"
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.unifi_gateway_www_xput_down
+              - type: sensor
+                entity: sensor.unifi_gateway_www_xput_down
                 name: Download
                 icon: mdi:download-network
-                decimals: 0
+                graph: line
                 hours_to_show: 72
-                # line_color: "#3498db"
-              - type: custom:mini-graph-card
-                entities:
-                  - entity: sensor.unifi_gateway_www_xput_up
+              - type: sensor
+                entity: sensor.unifi_gateway_www_xput_up
                 name: Upload
                 icon: mdi:upload-network
-                decimals: 0
+                graph: line
                 hours_to_show: 72
-                # line_color: "#3498db"
           - type: horizontal-stack
             cards:
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.adguard_dns_queries
+              - type: sensor
+                entity: sensor.adguard_dns_queries
                 name: Dns queries
-                decimals: 0
-                hour24: true
+                graph: line
                 hours_to_show: 72
-                show:
-                  graph: line
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.adguard_dns_queries_blocked_ratio
+              - type: sensor
+                entity: sensor.adguard_dns_queries_blocked_ratio
                 name: Dns queries blocked
-                hour24: true
-                hours_to_show: 72
-                show:
-                  graph: none   
+                graph: line
+                hours_to_show: 72  
           - type: horizontal-stack
             cards:
               - type: custom:button-card

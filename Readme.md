@@ -55,7 +55,6 @@ Plugins:
 - Calendar Card
 - Entity Attributes Card
 - Harmony Card
-- Mini Graph Card
 - Fold-entity-row
 - Slider-entity-row
 - Layout-card
