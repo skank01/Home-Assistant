@@ -18,12 +18,8 @@
   action:
   - service: light.turn_off
     data:
-      entity_id: 
-        - light.zithoek
-        - light.inkom
-        - light.eettafel
-        - light.tafellamp
-            
+      entity_id: group.lights_groundfloor_no_exteriour
+      
 - alias: "Film woonkamer gepauzeerd"
   trigger:
   - entity_id: media_player.emby_kodi_woonkamer

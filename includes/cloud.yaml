@@ -2,14 +2,14 @@ google_actions:
   filter:
     include_domains:
       - light
-      - scene
-      - script
       - vacuum
+      - input_boolean
     exclude_domains:
       - media_player
-      - input_boolean
       - input_select
       - switch
+      - script
+      - scene
     include_entities:
       - switch.unraid_reboot
       - switch.unraid_power_off
@@ -25,6 +25,9 @@ google_actions:
       - light.cinema_scherm_2
       - light.dressing_1
       - light.dressing_2
+      - input_boolean.vakantiemodus
+      - input_boolean.pakjesbus
+      - input_boolean.brievenbus
   entity_config:  
     light.licht_voordeur:
       room: Oprit
@@ -79,4 +82,16 @@ google_actions:
     light.speelkamer:
       room: Speelkamer
     light.technische_ruimte:
-      room: Technische Ruimte    
+      room: Technische Ruimte
+    input_boolean.bad: 
+      room: Badkamer
+    input_boolean.douche:
+      room: Badkamer
+    input_boolean.welterusten:
+      room: Woonkamer
+    input_boolean.strijken:
+      room: Bureau
+    input_boolean.dinner:
+      room: Woonkamer
+    
+    

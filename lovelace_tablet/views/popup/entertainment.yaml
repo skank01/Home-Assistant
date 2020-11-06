@@ -1,12 +1,24 @@
-title: Entertainment
-icon: mdi:video-vintage
-path: entertainment
-panel: true
-cards:
-  - type: custom:layout-card
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Household
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(385px + 385px + 385px);
+        max-width: 90vw;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: custom:layout-card
+    column_num: 3
+    column_width: [385, 385, 385]
     layout: vertical
-    min_columns: 1
-    max_columns: 3
     cards:
       - type: custom:vertical-stack-in-card
         title: Entertainment

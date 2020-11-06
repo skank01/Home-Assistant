@@ -4,23 +4,18 @@
 
 ## Frontend ##
 
+Extreme makeover frontend. Using different dashboard layouts for smartphone/tablet.
+Only one homepage visible and using popups now. Looks far more handsome :)
+
+Usage of notifications added too.
+
 Themes used:
 - Google Light Theme (during day)
 - Google Dark Theme (during night)
 
+New pics coming! 
 
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Home.JPG)
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Entertainment.JPG)
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Network.JPG)
-
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Server.JPG)
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Lichten.JPG)
-
-![](https://github.com/skank01/Home-Assistant/blob/master/images/Lovelace_Household.JPG)
+![](https://github.com/skank01/Home-Assistant/blob/master/images/Tabletview.JPG)
 
 
 ## Backend ##
@@ -58,11 +53,9 @@ Plugins:
 - Battery State Card
 - Button Card
 - Calendar Card
-- Custom Header
 - Entity Attributes Card
 - Harmony Card
 - Mini Graph Card
-- Weather Card
 - Fold-entity-row
 - Slider-entity-row
 - Layout-card
@@ -70,12 +63,17 @@ Plugins:
 - Card-mod
 - Homekit panel card
 - Auto-entities
-- mm2-clock-card
 - Upcoming-media-card
 - Xiaomi-vacuum-card
 - Mini media player
 - Check button card
-
+- Gap ard
+- Swipe card
+- Decluttering card
+- Kiosk mode
+- Stack-in-card
+- Config-template-card
+- Custom-ui
 
 
 
@@ -132,7 +130,7 @@ Several addons are installed:
 
 ## Ordered ##
 
-- Nothing at the moment
+- 3x Blitwolf smart plugs
 
 
 

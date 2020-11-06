@@ -1,9 +1,13 @@
-title: Lichten
-icon: 'mdi:lightbulb-outline'
-path: lichten
-panel: true
-cards:
-  - type: "custom:homekit-card"
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Verlichting
+  hide_header: true
+  deviceID: this
+  command: popup
+  large: true
+  card:
+    type: custom:homekit-card
     home: false
     enableColumns: true
     style: |
@@ -13,7 +17,7 @@ cards:
         --tile-border-radius: 10px;
         --tile-width: 100px;
         --tile-height: 100px;
-        --tile-on-background: #5F9BEA;
+        --tile-on-background: #1A73E8;
         --tile-name-text-color: rgba(0, 0, 0, 1);
         --tile-on-name-text-color: rgba(255, 255, 255, 1);
         --tile-state-text-color: rgba(0, 0, 0, 0.4);

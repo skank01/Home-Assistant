@@ -1,0 +1,229 @@
+# This is the notifications page, you can edit notifications that are
+# shown on the frontend in this file. This works with conditional cards.
+# What this means is that the conditions need to be be met before these
+# cards are shown. When there are more entities/states in a conditional
+# card it will always be an 'AND' condition, it will never be an 'OR'
+# condition. Edit the conditions, entities and notification content to
+# your own likings.
+
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# All Clear
+- type: conditional
+  conditions:
+    - entity: binary_sensor.brand_living
+      state: "off"
+    - entity: binary_sensor.brand_garage
+      state: "off"
+    - entity: binary_sensor.brand_1ste
+      state: "off"
+    - entity: binary_sensor.brand_wasplaats
+      state: "off"
+    - entity: binary_sensor.brand_2de
+      state: "off"  
+    - entity: binary_sensor.brand_techniek
+      state: "off"
+    - entity: binary_sensor.voordeur
+      state: "off"
+    - entity: binary_sensor.garage_poort
+      state: "off"
+    - entity: sensor.wasmachine_status
+      state: "Wasmachine"
+    - entity: sensor.droogkast_status
+      state: "Droogkast"    
+    - entity: binary_sensor.co_techniek
+      state: "off"   
+    - entity: binary_sensor.updater
+      state: "off"       
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Alles is rustig, er zijn geen meldingen
+      - icon: mdi:check-box-outline
+
+# Home Assistant Update
+- type: conditional
+  conditions:
+    - entity: binary_sensor.updater
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Er is een update voor Home Assistant!!
+      - icon: mdi:home-assistant
+
+      
+# CO Triggered
+- type: conditional
+  conditions:
+    - entity: binary_sensor.co_techniek
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: CO gesignaleerd in de technische ruimte!
+      - icon: mdi:smoke-detector
+
+
+# Smoke Detector Triggered
+- type: conditional
+  conditions:
+    - entity: binary_sensor.brand_living
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Rook gesignaleerd in de keuken!
+      - icon: mdi:smoke-detector
+- type: conditional
+  conditions:
+    - entity: binary_sensor.brand_garage
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Rook gesignaleerd in de garage!
+      - icon: mdi:smoke-detector
+- type: conditional
+  conditions:
+    - entity: binary_sensor.brand_1ste
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Rook gesignaleerd op de hal!
+      - icon: mdi:smoke-detector
+- type: conditional
+  conditions:
+    - entity: binary_sensor.brand_wasplaats
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Rook gesignaleerd in de bureau!
+      - icon: mdi:smoke-detector
+- type: conditional
+  conditions:
+    - entity: binary_sensor.brand_2de
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Rook gesignaleerd op de zolder!
+      - icon: mdi:smoke-detector  
+- type: conditional
+  conditions:
+    - entity: binary_sensor.brand_techniek
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Rook gesignaleerd in de technische ruimte!
+      - icon: mdi:smoke-detector      
+
+# Voordeur/garagepoort
+- type: conditional
+  conditions:
+    - entity: binary_sensor.voordeur
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: De voordeur staat open!
+      - icon: mdi:door 
+- type: conditional
+  conditions:
+    - entity: binary_sensor.garage_poort
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: De garagepoort staat open!
+      - icon: mdi:door       
+# Cleaning
+- type: conditional
+  conditions:
+    - entity: sensor.wasmachine_status
+      state: "Wasmachine bezig"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+    - name: De wasmachine is bezig!
+    - icon: mdi:washing-machine
+- type: conditional
+  conditions:
+    - entity: sensor.wasmachine_status
+      state: "Wasmachine klaar"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+    - name: De wasmachine is klaar!
+    - icon: mdi:washing-machine 
+- type: conditional
+  conditions:
+    - entity: sensor.droogkast_status
+      state: "Droogkast klaar"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+    - name: De droogkast is klaar!
+    - icon: mdi:tumble-dryer
+- type: conditional
+  conditions:
+    - entity: sensor.droogkast_status
+      state: "Droogkast klaar"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+    - name: De droogkast is klaar!
+    - icon: mdi:tumble-dryer 
+
+
+# Garbage
+- type: conditional
+  conditions:
+    - entity: sensor.recycleapp_vandaag
+      state: "pmd"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Deze avond pmd buiten zetten!!
+      - icon: mdi:delete
+- type: conditional
+  conditions:
+    - entity: sensor.recycleapp_vandaag
+      state: "papier"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Deze avond papier en karton buiten zetten!!
+      - icon: mdi:delete
+- type: conditional
+  conditions:
+    - entity: sensor.recycleapp_vandaag
+      state: "restafval"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Deze avond restafval buiten zetten!!
+      - icon: mdi:delete      
+    

@@ -1,0 +1,225 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Verlichting
+  hide_header: true
+  deviceID: this
+  command: popup
+  large: true
+  card:
+    type: custom:homekit-card
+    home: false
+    enableColumns: true
+    style: |
+      :host {
+        --tile-background: #DDDDDD;
+        --tile-icon-size: 40px;
+        --tile-border-radius: 10px;
+        --tile-width: 100px;
+        --tile-height: 100px;
+        --tile-on-background: #1A73E8;
+        --tile-name-text-color: rgba(0, 0, 0, 1);
+        --tile-on-name-text-color: rgba(255, 255, 255, 1);
+        --tile-state-text-color: rgba(0, 0, 0, 0.4);
+        --tile-on-state-text-color: rgba(0, 0, 0, 1);
+        --tile-state-changed-text-color: rgb(134, 134, 134);
+        --tile-unavailable-state-text-color: rgba(255, 255, 255, 0,5);
+        --tile-value-text-color: rgba(255, 0, 0, 1);
+        --tile-icon-color: rgb(255, 255, 255);
+        --tile-on-icon-color: rgb(255, 140, 0);
+        --tile-width-mobile: 90px;
+        --tile-height-mobile: 90px;
+      }  
+      .button-inner .icon {
+            width:55px;
+            height:55px;
+          }
+          .button-inner .icon ha-icon {
+            width: 40px;
+            height:40px;
+          }
+    rows:
+      - row: 1    
+        columns:
+          - column: 1
+            tileOnRow: 4
+            entities:
+              - title: Buitenverlichting
+                entities:
+                  - entity: light.licht_voordeur
+                    name: Voordeur
+                    icon: mdi:outdoor-lamp
+                  - entity: light.licht_achterdeur
+                    name: Achterdeur
+                    icon: mdi:outdoor-lamp
+                  - entity: light.tuinverlichting
+                    name: Tuinlicht
+                    icon: mdi:spotlight-beam
+                  - entity: light.vijververlichting
+                    name: Licht Vijver
+                    icon: mdi:led-strip-variant
+          - column: 2
+            tileOnRow: 2
+            entities:
+              - title: Inkom
+                entities:
+                  - entity: light.inkom
+                    name: Plafondspots 
+                    icon: mdi:wall-sconce-flat
+                    slider: true
+                  - entity: light.inkom_wand
+                    name: Wandlicht
+                    icon: mdi:coach-lamp
+          - column: 3
+            tileOnRow: 5
+            entities:
+              - title: Woonkamer
+                entities:
+                  - entity: light.eettafel
+                    name: Eettafel
+                    icon: mdi:ceiling-light
+                    slider: true
+                  - entity: light.zithoek
+                    name: Zithoek
+                    icon: mdi:wall-sconce-flat
+                    slider: true
+                  - entity: light.kastlamp
+                    name: Kastlamp
+                    icon: mdi:floor-lamp
+                    slider: true
+                  - entity: light.tv_wand
+                    name: TV-wand
+                    icon: mdi:led-strip-variant
+                  - entity: light.bench
+                    name: Bench
+                    icon: mdi:wall-sconce-flat 
+          - column: 4
+            tileOnRow: 3
+            entities:
+              - title: Keuken
+                entities:
+                  - entity: switch.keuken
+                    name: Plafondspots
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.keuken_wand
+                    name: Wandlicht
+                    icon: mdi:led-strip-variant
+                  - entity: light.keukenkast
+                    name: Kastverlichting
+                    icon: mdi:led-strip-variant  
+          - column: 5
+            tileOnRow: 4
+            entities:
+              - title: Halverlichting
+                entities:
+                  - entity: light.trap_gelijkvloers
+                    name: Trap
+                    icon: mdi:lightbulb-group
+                  - entity: light.trap_verdieping
+                    name: Trap verdieping
+                    icon: mdi:lightbulb-group
+                  - entity: light.hal_plafond
+                    name: Plafondspots
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.hal_wand
+                    name: Wandlicht
+                    icon: mdi:lightbulb-group
+          - column: 6
+            tileOnRow: 3
+            entities:
+              - title: Badkamer
+                entities:
+                  - entity: light.douche
+                    name: Lichten Douche
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.lavabo
+                    name: Lichten Lavabo
+                    icon: mdi:led-strip
+                  - entity: light.bad
+                    name: Wandlicht Bad
+                    icon: mdi:coach-lamp
+          - column: 7
+            tileOnRow: 2
+            entities:
+              - title: Badkamer Kids
+                entities:
+                  - entity: light.douche_kids
+                    name: Lichten Douche
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.lavabo_kids
+                    name: Lichten Lavabo
+                    icon: mdi:led-strip
+          - column: 8
+            tileOnRow: 1
+            entities:
+              - title: Bureau
+                entities:
+                  - entity: light.bureau
+                    name: Hanglamp
+                    icon: mdi:ceiling-light
+          - column: 9
+            tileOnRow: 3
+            entities:
+              - title: Slaapkamer
+                entities:
+                  - entity: light.slaapkamer
+                    name: Plafondspots
+                    icon: mdi:wall-sconce-flat
+                  - entity: light.nachtlampje_kim
+                    name: Nachtlampje
+                    icon: mdi:floor-lamp
+                  - entity: light.dressing
+                    name: Dressing
+                    icon: mdi:wall-sconce-flat          
+          - column: 10
+            tileOnRow: 2
+            entities:
+              - title: Slaapkamer Arne
+                entities:
+                  - entity: light.slaapkamer_arne
+                    name: Hanglamp
+                    icon: mdi:ceiling-light
+                  - entity: light.nachtlampje_arne
+                    name: Nachtlampje
+                    icon: mdi:floor-lamp
+          - column: 11
+            tileOnRow: 2
+            entities:
+              - title: Slaapkamer Noor
+                entities:
+                  - entity: light.slaapkamer_noor
+                    name: Hanglamp
+                    icon: mdi:ceiling-light
+                  - entity: light.nachtlampje_noor
+                    name: Nachtlampje
+                    icon: mdi:floor-lamp
+                    slider: true
+          - column: 12
+            tileOnRow: 2
+            entities:
+              - title: Cinema
+                entities:
+                  - entity: light.cinema
+                    name: Spots Zetel
+                    icon: mdi:wall-sconce-flat
+                    slider: true
+                  - entity: light.cinema_scherm
+                    name: Spots Scherm
+                    icon: mdi:wall-sconce-flat-variant
+                    slider: true
+          - column: 13
+            tileOnRow: 1
+            entities:
+              - title: Speelkamer
+                entities:
+                  - entity: light.speelkamer
+                    name: Hanglamp
+                    icon: mdi:ceiling-light    
+          - column: 14
+            tileOnRow: 1
+            entities:
+              - title: Technische Ruimte
+                entities:
+                  - entity: light.technische_ruimte
+                    name: Hanglamp
+                    icon: mdi:ceiling-light           

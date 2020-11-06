@@ -1,0 +1,110 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Server
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(385px + 385px + 385px);
+        max-width: 90vw;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: custom:layout-card
+    column_num: 3
+    column_width: [385, 385, 385]
+    layout: vertical
+    cards:
+      - type: custom:stack-in-card
+        mode: vertical
+        title: Unraid Server
+        class: add_header
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - type: weblink
+                name: Server adres
+                icon: mdi:nas
+                url: !secret url_unraid
+          - type: custom:entity-attributes-card
+            heading_name: Attribuut
+            heading_state: Status
+            filter:
+              include:
+                - key: binary_sensor.unraid_server.motherboard
+                - key: binary_sensor.unraid_server.cpu                      
+                - key: binary_sensor.unraid_server.memory
+                - key: binary_sensor.unraid_server.arrayStatus
+                - key: binary_sensor.unraid_server.diskSpace
+                - key: binary_sensor.unraid_server.arrayProtection
+          - type: custom:bar-card
+            width: 55%
+            height: 2em
+            decimal: 0
+            unit_of_measurement: '%'
+            positions: &bar_card_positions
+              icon: outside
+              indicator: 'off'
+              name: outside
+            severity: &bar_card_severity
+              - color: '#303435'
+                from: 0
+                to: 89
+              - color: '#6d2525'
+                from: 90
+                to: 100
+            entity_row: true
+            entities:
+              - entity: sensor.glances_cpu_used
+                max: 100
+                name: CPU
+              - entity: sensor.glances_ram_used_percent
+                name: RAM
+                max: 100
+              - entity: sensor.glances_used_percent
+                max: 100
+                name: Disk
+              - entity: sensor.glances_containers_active 
+                name: Containers    
+                max: 30
+              - entity: sensor.glances_containers_ram_used
+                name: Docker RAM 
+                max: 10000                
+              - entity: sensor.glances_containers_cpu_used
+                name: Docker CPU
+      - break
+      - type: custom:stack-in-card
+        mode: vertical
+        title: Operation Control
+        class: add_header
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: switch.unraid_array
+                icon: mdi:harddisk 
+                name: Array
+              - switch.unraid_partitycheck
+              - switch.unraid_mover
+              - switch.unraid_reboot
+              - switch.unraid_power_off
+      - break
+      - type: custom:stack-in-card
+        mode: vertical
+        title: Docker Control
+        class: add_header
+        cards:
+          - type: custom:auto-entities
+            filter:
+              include:
+                - entity_id: switch.unraid_docker_*   
+            card:
+              type: entities
+              show_header_toggle: false
+              

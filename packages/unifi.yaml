@@ -4,28 +4,28 @@ homeassistant:
     sensor.unifi_usg:
       templates:
         icon_color: >
-          if (state === 'up') return 'rgb(0,255,0)';
-          else return 'rgb(255,0,0)';
+          if (state === 'up') return 'rgb(52,152,219)';
+          else return 'rgb(95,99,104)';
     sensor.unifi_switch:
       templates:
         icon_color: >
-          if (state === 'up') return 'rgb(0,255,0)';
-          else return 'rgb(255,0,0)';
+          if (state === 'up') return 'rgb(52,152,219)';
+          else return 'rgb(95,99,104)';
     sensor.unifi_ap_living:
       templates:
         icon_color: >
-          if (state === 'up') return 'rgb(0,255,0)';
-          else return 'rgb(255,0,0)';
+          if (state === 'up') return 'rgb(52,152,219)';
+          else return 'rgb(95,99,104)';
     sensor.unifi_ap_verdiep_1:
       templates:
         icon_color: >
-          if (state === 'up') return 'rgb(0,255,0)';
-          else return 'rgb(255,0,0)';
+          if (state === 'up') return 'rgb(52,152,219)';
+          else return 'rgb(95,99,104)';
     sensor.unraid_server:
       templates:
         icon_color: >
-          if (state === 'up') return 'rgb(0,255,0)';
-          else return 'rgb(255,0,0)';
+          if (state === 'up') return 'rgb(52,152,219)';
+          else return 'rgb(95,99,104)';
 
 sensor:
   - platform: unifigateway

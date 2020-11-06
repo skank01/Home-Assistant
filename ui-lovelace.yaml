@@ -1,45 +1,44 @@
+decluttering_templates:
+  notification_template:     # This is the name of a template
+    card:
+      type: custom:button-card
+      name: '[[name]]'
+      icon: '[[icon]]'
+      size: 100%
+      show_state: false
+      show_label: false
+      layout: icon_name
+      tap_action: 
+        action: none
+      hold_action: 
+        action: none
+      styles:
+        card:
+          - --ha-card-background: rgba(0,0,0,0.0)
+          - box-shadow: none
+          - height: 45px
+        name:
+          - font-size: 18px
+          - font-family: Helvetica
+          - color: var(--primary-color)
+          - justify-self: start
+          - font-weight: normal
+        grid: 
+          - grid-template-areas: '"i n"'
+          - grid-template-columns: 8% 1fr
+          - grid-template-rows: 1fr
+        icon:
+          - color: var(--primary-color)
+          - padding-bottom: 3px
+
 background: var(--background-image)
-custom_header:
-  background: var(--primary-background-color);
-  elements_color: var(--primary-text-color);
-  active_tab_color: var(--state-icon-active-color);
-  tab_indicator_color: var(--primary-text-color);
-  compact_mode: true
-  split_mode: true
-  reverse_tab_direction: false
-  reverse_button_direction: false
-  options_hide: true
-  shadow: false
-  hide_tabs: persoon1, persoon2
-  hidden_tab_redirect: false
-  header_text: >-
-    <style> #flip {height:24px;overflow:hidden;} #flip > div > div
-    {height:24px;margin-bottom:24px;display:inline-block;} #flip div:first-child
-    {animation: show 10s linear infinite;} @keyframes show { 0%
-    {margin-top:-144px;} 5% {margin-top:-96px;} 33% {margin-top:-96px;} 38%
-    {margin-top:-48px;} 66% {margin-top:-48px;} 76% {margin-top:0px;} 100%
-    {margin-top:0px;}} #flipper p {position:fixed;} </style> <div
-    id=flipper><div id=flip><div><div>
-    Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
-    {{states('sensor.greeting')}}</div></div><div><div>
-    {{states('sensor.afval')}}</div></div><div><div>
 title: Thuis
+kiosk_mode:
+  kiosk: true
 views:
-  - !include lovelace/views/01-home.yaml
-  - !include lovelace/views/02-lichten.yaml
-  - !include lovelace/views/03-cameras.yaml
-  - !include lovelace/views/04-entertainment.yaml
-  - !include lovelace/views/05-temperatuur.yaml
-  - !include lovelace/views/06-automatisaties.yaml
-  - !include lovelace/views/07-household.yaml
-  - !include lovelace/views/08-routines.yaml
-  - !include lovelace/views/13-server.yaml
-  - !include lovelace/views/14-network.yaml
-  - !include lovelace/views/15-energie.yaml
-  - !include lovelace/views/20-persoon1.yaml
-  - !include lovelace/views/21-persoon2.yaml
-  - !include lovelace/views/25-dog.yaml
-  
+  - !include lovelace/views/Home.yaml
+
+
 button_card_templates:
   automation:
     show_label: true

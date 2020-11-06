@@ -25,7 +25,13 @@ lovelace:
       icon: mdi:tools
       show_in_sidebar: true
       require_admin: false
-      
+    lovelace-tablet: # Needs to contain a hyphen (-)
+      mode: yaml
+      filename: dashboard_tablet.yaml
+      title: Tablet
+      icon: mdi:tablet-ipad
+      show_in_sidebar: true
+      require_admin: false  
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret
@@ -54,8 +60,7 @@ input_boolean: !include includes/input_boolean.yaml
 input_select: !include includes/input_select.yaml
 input_datetime: !include includes/input_datetime.yaml
 automation: !include_dir_merge_list automations/
-cloud: !include includes/cloud.yaml  
-
+cloud: !include includes/cloud.yaml
 
 #############################
   

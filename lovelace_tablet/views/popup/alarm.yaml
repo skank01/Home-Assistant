@@ -1,0 +1,22 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Alarm
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(400px);
+        max-width: 90vw;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: alarm-panel
+    entity: alarm_control_panel.risco
+    states:
+      - arm_home
+      - arm_away

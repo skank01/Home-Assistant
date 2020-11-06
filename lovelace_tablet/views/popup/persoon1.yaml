@@ -1,11 +1,24 @@
-title: Stijn
-path: persoon1
-panel: true
-cards: 
-  - type: custom:layout-card
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Persoon1
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(385px + 385px);
+        max-width: 90vw;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: custom:layout-card
+    column_num: 2
+    column_width: [385, 385]
     layout: vertical
-    min_columns: 1
-    max_columns: 3
     cards:
       - type: vertical-stack
         cards:
@@ -19,8 +32,10 @@ cards:
                   - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.battery_level') }} %
                   - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.wifi_connection') }}
           - type: calendar
+            initial_view: listWeek
             entities:
-              - calendar.agenda  
+              - calendar.calendar_stijn 
+              - calendar.calendar_kim
       - break
       - type: horizontal-stack
         cards:
@@ -29,7 +44,6 @@ cards:
             aspect_ratio: 16:9
             entities:
               - person.stijn
-      - break
       - type: custom:vertical-stack-in-card
         cards:
           - entities:

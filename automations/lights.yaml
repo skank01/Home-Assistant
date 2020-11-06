@@ -1,8 +1,8 @@
 ##########################
 ## Tuinverlichting
 ##########################
-- id: tuinverlichting_aan
-  alias: "Tuinverlichting aan"
+- id: turn_on_garden_lights_in_the_evening
+  alias: "Lichten: Tuinverlichting aan 's avonds"
   initial_state: 'on'
   trigger:
     platform: sun
@@ -15,13 +15,50 @@
   action:
   - service: homeassistant.turn_on
     entity_id: light.tuinverlichting
+    
+- id: turn_on_garden_lights_on_movement_in_the_morning
+  alias: "Lichten: Tuinverlichting 's morgens aan op beweging"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.det_living
+    to: "on"
+  condition:
+    - condition: and
+      conditions:
+        - condition: time
+          after: "06:00:00"
+          before: "08:00:00"
+        - condition: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 1
+        - condition: state
+          entity_id: light.tuinverlichting
+          state: "off"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.tuinverlichting   
 
+- id: turn_off_garden_lights_in_the_morning
+  alias: "Lichten: Tuinverlichting 's morgens uit"
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    above: 1
+  condition:
+    - condition: state
+      entity_id: light.tuinverlichting
+      state: "on"
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.tuinverlichting
 
 ##########################
 ## Gevelverlichting
 ##########################
-- id: gevelverlichting_aan
-  alias: "Gevelverlichting aan"
+- id: turn_on_exterior_wall_light
+  alias: "Lichten: Gevelverlichting aan"
   initial_state: 'on'
   trigger:
     platform: sun
@@ -31,12 +68,78 @@
   - service: homeassistant.turn_on
     entity_id: light.licht_voordeur    
 
+##########################
+## Lichten inkom
+##########################
+
+- id: turn_on_spotlights_after_press
+  alias: "Lichten: Licht inkom aan na induwen drukknop"
+  trigger:
+    - entity_id: switch.inkom
+      platform: state
+      to: 'on'
+  action:
+  - data:  
+      entity_id: light.inkom
+    service: light.toggle
+
+- alias: "Lichten: Spots inkom aan bij beweging"
+  trigger:
+  - entity_id: binary_sensor.det_inkom
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - data:
+      entity_id: light.inkom
+    service: light.turn_on
+ 
+- alias: "Lichten: Spots inkom uit 30 seconden na laatste beweging" 
+  trigger:
+  - entity_id: binary_sensor.det_inkom
+    platform: state
+    to: 'off'
+    for:
+      seconds: 30
+  action:
+    service: light.turn_off
+    entity_id: light.inkom    
+
+
+##########################
+## Verlichting eetplaats
+##########################
+- id: turn_on_dining_room_on_movement
+  alias: "Lichten: Eetplaats aan op beweging"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.det_living
+    to: "on"
+  condition:
+    - condition: and
+      conditions:
+        - condition: time
+          after: "06:00:00"
+          before: "08:00:00"
+        - condition: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 1
+        - condition: state
+          entity_id: light.eettafel
+          state: "off"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.eettafel
+
 
 ##########################
 ## Kastlamp
 ##########################
-- id: '1576093494347'
-  alias: Licht kastlamp aan bij zonsondergang
+- alias: "Lichten: Kastlamp aan bij zonsondergang"
   description: ''
   trigger:
   - event: sunset
@@ -50,14 +153,56 @@
   - entity_id: light.kastlamp
     service: light.turn_on
     
+
+########################################
+## Hal
+########################################    
+
+- id: turn_on_stairlights_on_movement
+  alias: "Lichten: Trap aan op beweging"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.det_boven
+    to: "on"
+  condition:
+    - condition: and
+      conditions:
+        - condition: time
+          after: "06:00:00"
+          before: "08:30:00"
+        - condition: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 6
+        - condition: state
+          entity_id: light.trap_gelijkvloers
+          state: "off"  
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.trap_gelijkvloers
+      
+- id: turn_off_stairlights_after_last_movement
+  alias: "Lichten: Trap uit 30 seconden na laatste beweging"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.det_boven
+    to: "off"
+    for:
+      seconds: 30
+  condition:
+    - condition: state
+      entity_id: light.trap_gelijkvloers
+      state: "on"
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.trap_gelijkvloers
+
     
 ##########################
 ## Nachtlampjes
 ##########################
 
-- id: '1578501356390'
-  alias: Nachtlampje Kim aan
-  description: ''
+- alias: "Lichten: Nachtlampje Kim aan"
   trigger:
   - platform: time
     at: input_datetime.time_wake_up_kim
@@ -80,9 +225,7 @@
     service: light.turn_on
 
 
-- id: '1576094288732'
-  alias: Nachtlampje Noor aan
-  description: ''
+- alias: "Lichten: Nachtlampje Noor aan"
   trigger:
   - platform: time
     at: input_datetime.time_wake_up_noor
@@ -105,9 +248,8 @@
     service: light.turn_on
 
 
-- id: 'Turn on nightlight'
-  alias: Nachtlampje Arne aan
-  description: ''
+- id: Turn_on_nightlight
+  alias: "Lichten: Nachtlampje Arne aan"
   trigger:
   - platform: time
     at: input_datetime.time_wake_up_arne
@@ -128,73 +270,13 @@
   - data:
       entity_id: light.nachtlampje_arne
     service: light.turn_on
-
-
-##########################
-## Lichten inkom
-##########################
-
-- alias: Lichten inkom aan bij beweging
-  trigger:
-  - entity_id: binary_sensor.det_inkom
-    platform: state
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  action:
-  - data:
-      entity_id: light.inkom
-    service: light.turn_on
- 
-- alias: Lichten inkom uit 2 minuten na laatste beweging 
-  trigger:
-  - entity_id: binary_sensor.det_inkom
-    platform: state
-    to: 'off'
-    for:
-      seconds: 30
-  action:
-    service: light.turn_off
-    entity_id: light.inkom    
     
-########################################
-## Alle lichten uit
-########################################    
-- id: 'Zet alle verlichting uit na duwen op drukknop'
-  alias: Alle verlichting uit
-  trigger:
-    - entity_id: switch.alle_lichten_uit
-      platform: state
-      from: 'off'
-      to: 'on'
-  action: 
-  - data:  
-      entity_id: all
-    service: light.turn_off
-    
-    
-########################################
-## Lichtbediening inkom
-########################################    
-- id: 'Zet spots inkom om na duwen op drukknop'
-  alias: Licht inkom om
-  trigger:
-    - entity_id: switch.inkom
-      platform: state
-      to: 'on'
-  action:
-  - data:  
-      entity_id: light.inkom
-    service: light.toggle
-
 
 ########################################
-## Lichtbediening dressing
+## Lichten dressing
 ########################################    
 - id: 'Zet spots dressing om na duwen op drukknop'
-  alias: Licht dressing om
+  alias: "Lichten: Licht dressing aan na induwen drukknop"
   trigger:
     - entity_id: switch.dressing
       platform: state
@@ -206,10 +288,10 @@
     
 
 ########################################
-## Lichtbediening cinema
+## Lichten cinema
 ########################################    
-- id: 'Zet spots cinema zetel om na duwen op drukknop'
-  alias: Licht cinema zetel om
+- id: 'Turn_on_cinema_seat_lights_after_press'
+  alias: "Lichten: Licht cinema zetel aan na induwen drukknop"
   trigger:
     - entity_id: switch.cinema_zetel
       platform: state
@@ -219,8 +301,8 @@
       entity_id: light.cinema
     service: light.toggle 
 
-- id: 'Zet spots cinema scherm om na duwen op drukknop'
-  alias: Licht cinema scherm om
+- id: Turn_on_cinema_screen_lights_after_press
+  alias: "Lichten: Licht cinema scherm aan na induwen drukknop"
   trigger:
     - entity_id: switch.cinema_scherm
       platform: state
@@ -230,12 +312,27 @@
       entity_id: light.cinema_scherm
     service: light.toggle
 
+
+########################################
+## Alle lichten uit
+########################################    
+- id: Turn_off_all_lights_after_press
+  alias: "Lichten: Alle verlichting uit"
+  trigger:
+    - entity_id: switch.alle_lichten_uit
+      platform: state
+      from: 'off'
+      to: 'on'
+  action: 
+  - data:  
+      entity_id: all
+    service: light.turn_off
     
 ########################################
 ## Vakantie lichten
 ########################################
 - id: 'Turn on vacation lights to simulate presence'
-  alias: Vakantie lichten willekeurig aan
+  alias: "Lichten: Vakantie lichten willekeurig aan"
   initial_state: on
   trigger:
     platform: time
@@ -255,7 +352,7 @@
         message: Ik heb je simulatielichten boven aangestoken om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.
 
 - id: 'Turn off vacation lights to simulate presence'
-  alias: Vakantie lichten uit
+  alias: "Lichten: Vakantie lichten uit"
   initial_state: on
   trigger:
     platform: time

@@ -42,6 +42,22 @@ lights_groundfloor:
     - light.tv_wand
     - light.keuken_wand
     - light.bench
+    - light.keukenkast
+    - switch.keuken
+    
+lights_groundfloor_no_exteriour:
+  name: Lichten_gelijkvloers_zonder_buitenverlichting
+  entities:
+    - light.inkom
+    - light.inkom_wand
+    - light.eettafel
+    - light.zithoek
+    - light.kastlamp
+    - light.tv_wand
+    - light.keuken_wand
+    - light.bench  
+    - light.keukenkast
+    - switch.keuken    
     
 battery_level_monitor:
   name: Battery Level Monitor

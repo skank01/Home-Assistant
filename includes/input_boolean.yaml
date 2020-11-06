@@ -9,3 +9,23 @@ brievenbus:
 pakjesbus:
   name: Er werd vandaag een pakje geleverd
   icon: mdi:mailbox-up
+
+welterusten:
+  name: Bedtijd
+  icon: mdi:bed
+  
+strijken:
+  name: Start strijken
+  icon: mdi:tshirt-crew
+
+douche:
+  name: Douche nemen
+  icon: mdi:shower-head
+
+bad:
+  name: Bad nemen
+  icon: mdi:shower
+  
+dinner:
+  name: Etentje
+  icon: mdi:silverware-fork-knife

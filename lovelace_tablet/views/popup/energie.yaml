@@ -1,12 +1,25 @@
-title: Energie
-icon: mdi:power-plug
-path: Energie
-panel: true
-cards: 
-  - type: custom:layout-card
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Information
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(400px + 300px);
+        height: calc(600px) ;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: custom:layout-card
+    column_num: 2
+    column_width: [400, 300]
+    column_height: [300]
     layout: vertical
-    min_columns: 1
-    max_columns: 3
     cards:
       - type: custom:battery-state-card
         title: "Batterij niveaus"
@@ -23,10 +36,6 @@ cards:
         bulk rename:
           - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
             to: "sensor" 
-      - type: entities
-        entities:
-          - input_select.wasmachine_status
-          - input_select.droogkast_status
       - break
       - type: vertical-stack
         cards:
@@ -37,7 +46,11 @@ cards:
               - sensor.power_wasmachine
           - type: history-graph
             title: Verbruik droogkast
-            hours_to_show: 5
+            hours_to_show: 3
             entities:    
               - sensor.power_droogkast
-            
+          - type: history-graph
+            title: Verbruik meting
+            hours_to_show: 24
+            entities:    
+              - sensor.power_nachtlampje

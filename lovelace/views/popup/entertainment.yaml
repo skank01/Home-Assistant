@@ -1,0 +1,141 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Household
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(400px);
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: vertical-stack
+    cards:
+      - type: custom:vertical-stack-in-card
+        title: Entertainment
+        cards:  
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - sensor.harmony_hub
+              - entity: switch.tv_kijken
+                name: Tv kijken
+                icon: mdi:television
+              - entity: switch.netflix_kijken
+                name: Netflix
+              - entity: switch.film_kijken
+                name: Film kijken
+                icon: mdi:movie-open-outline
+      - type: custom:harmony-card
+        entity: remote.harmony_hub
+        volume_entity: media_player.woonkamer
+        scale: 1.25
+        activities:
+        - name: Tv kijken
+          device: Orange DVR
+        - name: Netflix kijken
+          device: LG Tv  
+        - name: Film kijken
+          device: Zidoo Mediaspeler
+        buttons:
+          xbox:
+            hide: true
+          back:
+            hide: true
+          a:
+            hide: true
+          b:
+            hide: true
+          x:
+            hide: true
+          y:
+            hide: true
+      - type: custom:stack-in-card
+        title: Speakers
+        mode: vertical
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.woonkamer
+            artwork: cover
+            icon: mdi:speaker
+            hide:
+              progress: true
+            shortcuts:
+              buttons:
+                - type: channel
+                  name: StuBru
+                  id: http://icecast.vrtcdn.be/stubru-high.mp3  
+          - type: custom:mini-media-player
+            entity: media_player.keuken
+            artwork: cover
+            icon: mdi:monitor-speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.badkamer
+            artwork: cover
+            icon: mdi:speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.bureau
+            artwork: cover
+            icon: mdi:speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.slaapkamer
+            artwork: cover
+            icon: mdi:monitor-speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.slaapkamer_arne
+            artwork: cover 
+            icon: mdi:monitor-speaker
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.noor_mini
+            name: Slaapkamer Noor
+            artwork: cover 
+            icon: mdi:google-home
+            hide:
+              progress: true
+      - type: custom:stack-in-card
+        title: Mediaspelers
+        mode: vertical
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.emby_kodi_woonkamer
+            artwork: cover
+            icon: mdi:kodi
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.chromecast_arne
+            artwork: cover
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.chromecast_noor
+            artwork: cover
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.emby_kodi_cinema
+            artwork: cover
+            icon: mdi:kodi
+            hide:
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.kodi
+            artwork: cover
+            icon: mdi:kodi
+            hide:
+              progress: true

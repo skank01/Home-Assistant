@@ -1,0 +1,209 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Sensoren
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(400px);
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  command: popup
+  large: true
+  card:
+    type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        title: Sensoren
+        cards:
+          - type: custom:button-card
+            entity: binary_sensor.det_inkom
+            name: Inkom
+            show_label: false
+            size: 40%
+            icon: mdi:walk
+            state:
+              - icon: 'mdi:motion-sensor'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.det_living
+            name: Woonkamer
+            show_label: false
+            size: 40%
+            icon: mdi:walk
+            state:
+              - icon: 'mdi:motion-sensor'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.det_garage
+            name: Garage
+            show_label: false
+            size: 40%
+            icon: mdi:walk
+            state:
+              - icon: 'mdi:motion-sensor'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.det_boven
+            name: Hal
+            show_label: false
+            size: 40%
+            icon: mdi:walk
+            state:
+              - icon: 'mdi:motion-sensor'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+      - type: horizontal-stack
+        title: Brand Sensoren
+        cards:
+          - type: custom:button-card
+            entity: binary_sensor.brand_living
+            name: Living
+            show_label: false
+            size: 40%
+            icon: mdi:smoke-detector
+            state:
+              - icon: 'mdi:fire-alert'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.brand_garage
+            name: Garage
+            show_label: false
+            size: 40%
+            icon: mdi:smoke-detector
+            state:
+              - icon: 'mdi:fire-alert'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.brand_wasplaats
+            name: Bureau
+            show_label: false
+            size: 40%
+            icon: mdi:smoke-detector
+            state:
+              - icon: 'mdi:fire-alert'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.brand_techniek
+            name: Chauffage
+            show_label: false
+            size: 40%
+            icon: mdi:smoke-detector
+            state:
+              - icon: 'mdi:fire-alert'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+      - type: horizontal-stack
+        title: Deuren
+        cards:
+          - type: custom:button-card
+            entity: binary_sensor.mc_poort
+            name: Garagepoort
+            show_label: false
+            size: 40%
+            icon: mdi:garage-variant
+            state:
+              - icon: 'mdi:garage-open-variant'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.voordeur
+            name: Voordeur
+            show_label: false
+            size: 40%
+            icon: mdi:door
+            state:
+              - icon: 'mdi:door-open'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)          
+          - type: custom:button-card
+            entity: binary_sensor.brand_1ste
+            name: Hal
+            show_label: false
+            size: 40%
+            icon: mdi:smoke-detector
+            state:
+              - icon: 'mdi:fire-alert'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: binary_sensor.brand_2de
+            name: Zolder
+            show_label: false
+            size: 40%
+            icon: mdi:smoke-detector
+            state:
+              - icon: 'mdi:fire-alert'
+                styles:
+                  icon: 
+                    - color: var(--sidebar-selected-icon-color)
+                value: 'on'
+            styles:
+              icon:
+                - color: var(--primary-text-color)    

@@ -1,8 +1,21 @@
-title: James
-path: james
-icon: mdi:dog-side
-cards: 
-  - type: vertical-stack
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Information
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(400px);
+        max-width: 90vw;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: vertical-stack
     cards:
       - type: markdown
         style: |
@@ -13,7 +26,7 @@ cards:
             margin-bottom: 2px;
             font-size: 14px;
             height: 175px;
-            width: 490px;
+            width: 400px;
             background-size: cover;
           {  
         content: >

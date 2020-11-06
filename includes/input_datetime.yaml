@@ -1,7 +1,3 @@
-time_pool_filter:
-  name: Zwembad filter aan
-  has_time: true
-  initial: "20:00"
 time_post_reset:
   name: Reset boolean post
   has_time: true

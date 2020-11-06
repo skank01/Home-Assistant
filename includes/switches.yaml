@@ -81,15 +81,3 @@
   payload_off: '{"circuit": "UART_1_2_01", "dev": "relay", "state": "off"}'
   qos: 0
   
-
-- platform: mqtt
-  name: "Tablet"
-  unique_id: "tablet"
-  state_topic: "homeassistant/special/tablet"
-  command_topic: "homeassistant/special/tablet/set"
-  availability_topic: "homeassistant/special/tablet/available"
-  payload_available: "online"
-  payload_not_available: "offline"
-  payload_on: '{"state": "on", "circuit": "UART_1_2_02", "dev": "output"}'
-  payload_off: '{"state": "off", "circuit": "UART_1_2_02", "dev": "output"}'
-  qos: 0    

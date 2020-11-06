@@ -1,0 +1,51 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Information
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(400px);
+        align: center;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: vertical-stack
+    cards:
+      - type: custom:battery-state-card
+        title: "Batterij niveaus"
+        color_gradient:
+          - "#ff0000" # red
+          - "#ffff00" # yellow
+          - "#00ff00" # green
+        filter:
+                include: # filters for auto-adding
+                  - name: entity_id # entities which id ends with "_battery_level"
+                    value: "*_battery_level"
+                  - name: entity_id # entities which id ends with ".battery_level"
+                    value: "*.battery_level"  
+        bulk rename:
+          - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
+            to: "sensor" 
+      - type: vertical-stack
+        cards:
+          - type: history-graph
+            title: Verbruik wasmachine
+            hours_to_show: 3
+            entities:
+              - sensor.power_wasmachine
+          - type: history-graph
+            title: Verbruik droogkast
+            hours_to_show: 3
+            entities:    
+              - sensor.power_droogkast
+          - type: history-graph
+            title: Verbruik meting
+            hours_to_show: 24
+            entities:    
+              - sensor.power_nachtlampje

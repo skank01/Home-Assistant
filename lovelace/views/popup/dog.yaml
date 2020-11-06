@@ -1,0 +1,133 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Information
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(400px);
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: vertical-stack
+    cards:
+      - type: markdown
+        style: |
+          ha-card {
+            background: url('/local/hond.png');
+            color: rgba(255, 255, 255, 1);
+            border-radius: 10px;
+            margin-bottom: 2px;
+            font-size: 14px;
+            height: 175px;
+            width: 400px;
+            background-size: cover;
+          {  
+        content: >
+            **Naam:** James
+        
+            **Geboorte:** 22 april 2020
+        
+            **Geslacht:** Reu
+        
+            **Ras:** Engelse Cocker Spaniel
+      - type: custom:stack-in-card
+        mode: vertical
+        keep:
+          margin: true
+        cards:
+          - type: custom:check-button-card
+            title: Vaccinaties
+            entity: sensor.vaccinaties
+            text:
+              year: jaar
+              years: jaar
+              month: maand
+              months: maanden
+              week: week
+              weeks: weken
+              day: dag
+              days: dagen
+              hour: uur
+              hours: uur
+              minute: minuut
+              minutes: minuten
+              less_than: minder dan
+              more_than: meer dan
+              ago: geleden
+              due_in: over
+              over_by: over met
+            severity:
+            - value: 2 months
+              color: Orange
+            - value: 3 months
+              color: Red
+          - type: custom:check-button-card
+            title: Ontwormen
+            entity: sensor.ontwormen
+            text:
+              year: jaar
+              years: jaar
+              month: maand
+              months: maanden
+              week: week
+              weeks: weken
+              day: dag
+              days: dagen
+              hour: uur
+              hours: uur
+              minute: minuut
+              minutes: minuten
+              less_than: minder dan
+              more_than: meer dan
+              ago: geleden
+              due_in: over
+              over_by: over met
+            severity:
+            - value: 2 months
+              color: Orange
+            - value: 3 months
+              color: Red
+          - type: custom:check-button-card
+            title: Trimmen
+            entity: sensor.trimmen
+            text:
+              year: jaar
+              years: jaar
+              month: maand
+              months: maanden
+              week: week
+              weeks: weken
+              day: dag
+              days: dagen
+              hour: uur
+              hours: uur
+              minute: minuut
+              minutes: minuten
+              less_than: minder dan
+              more_than: meer dan
+              ago: geleden
+              due_in: over
+              over_by: over met
+            severity:
+            - value: 2 months
+              color: Orange
+            - value: 3 months
+              color: Red   
+      
+      - type: entities
+        title: Dierenarts
+        entities:
+          - type: weblink
+            name: Animo bellen
+            icon: mdi:phone
+            url: tel://+3250334918
+          - type: weblink
+            name: Animo website
+            icon: mdi:earth
+            url: https://www.animodap.be/

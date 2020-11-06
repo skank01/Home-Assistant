@@ -1,0 +1,9 @@
+action: call-service
+service: browser_mod.popup
+service_data:
+  title: Verlichting
+  hide_header: true
+  deviceID: this
+  command: popup
+  large: true
+  card: []

@@ -1,0 +1,39 @@
+decluttering_templates:
+  notification_template:     # This is the name of a template
+    card:
+      type: custom:button-card
+      name: '[[name]]'
+      icon: '[[icon]]'
+      size: 100%
+      show_state: false
+      show_label: false
+      layout: icon_name
+      tap_action: 
+        action: none
+      hold_action: 
+        action: none
+      styles:
+        card:
+          - --ha-card-background: rgba(0,0,0,0.0)
+          - box-shadow: none
+          - height: 45px
+        name:
+          - font-size: 18px
+          - font-family: Helvetica
+          - color: var(--primary-color)
+          - justify-self: start
+          - font-weight: normal
+        grid: 
+          - grid-template-areas: '"i n"'
+          - grid-template-columns: 8% 1fr
+          - grid-template-rows: 1fr
+        icon:
+          - color: var(--primary-color)
+          - padding-bottom: 3px
+
+
+background: var(--background-image)
+title: Thuis
+views:
+  - !include lovelace_tablet/views/Home.yaml
+

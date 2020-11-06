@@ -16,16 +16,4 @@ sensor:
     dayofweek: 0
     builtinicons: 0
     upcomingsensor: 1
-  - platform: template
-    sensors:
-      afval:
-        friendly_name: Afval vandaag
-        icon_template: mdi:delete
-        value_template: >
-          {% if is_state('sensor.recycleapp_vandaag', 'pmd') %}
-            Deze avond pmd buiten zetten!
-          {% elif is_state('sensor.recycleapp_vandaag', 'restafval') %}
-            Deze avond restafval buiten zetten!
-          {% elif is_state('sensor.recycleapp_vandaag', 'papier') %}
-            Deze avond papier en karton buiten zetten!
-          {% endif %} 
+ 

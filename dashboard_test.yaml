@@ -1,31 +1,4 @@
 background: var(--background-image)
-custom_header:
-  background: 'rgba(155, 155, 155, 0.25)'
-  header_text: >-
-    <style>
-    #flipper {color:#999;}
-    #flip {height:24px;overflow:hidden;}
-    #flip > div > div {color:#fff;height:24px;margin-bottom:24px;display:inline-block;}
-    #flip div:first-child {animation: show 10s linear infinite;}
-    @keyframes show {
-    0% {margin-top:-144px;}
-    5% {margin-top:-96px;}
-    33% {margin-top:-96px;}
-    38% {margin-top:-48px;}
-    66% {margin-top:-48px;}
-    76% {margin-top:0px;}
-    100% {margin-top:0px;}}
-    #flipper p {position:fixed;color:#999; }
-    </style>
-    <div id=flipper><div id=flip><div><div>
-    Huidige buitentemperatuur: {{states('sensor.temperature')}}°C</div></div><div><div>
-    {{states('sensor.greeting')}}</div></div><div><div>
-    Herinnering: Vandaag {{states('sensor.ophaalkalender_vandaag')}} buiten zetten!</div></div><div><div>
-  compact_mode: true
-  reverse_tab_direction: false
-  reverse_button_direction: false
-  options_hide: true
-  shadow: false
 title: Thuis
 views:
   - !include lovelace_test/views/01-Test.yaml

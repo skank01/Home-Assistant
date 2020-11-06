@@ -8,9 +8,13 @@
 !.gitignore
 !*.md
 !lovelace/
+!lovelace/views/
+!lovelace/views/popup/
+!lovelace_tablet/
+!lovelace_tablet/views/
+!lovelace_tablet/views/popup/
 !packages/
 !images/*.jpg
-!lovelace/views/
 !automations/
 !includes/
 
@@ -24,12 +28,14 @@ glances/
 downloads/
 themes/
 tts/
+image/
 www/community/
 
 # Discovered devices
 harmony_*.conf
 known_devices.yaml
 google_calendars.yaml
+dashboard_test.yaml
 
 # Ignore Log & DB
 home-assistant.log

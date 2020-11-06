@@ -17,6 +17,7 @@ welterusten:
   - service: light.turn_on
     data:
       entity_id: 
+        - light.bench
         - light.trap_gelijkvloers
         - light.hal_wand
         - light.lavabo
@@ -24,7 +25,9 @@ welterusten:
   - delay: 00:02:00
   - service: light.turn_off
     data:
-      entity_id: light.trap_gelijkvloers
+      entity_id: 
+        - light.bench
+        - light.trap_gelijkvloers
   - delay: 00:05:00
   - service: light.turn_off
     data:
