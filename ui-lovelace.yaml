@@ -34,7 +34,7 @@ decluttering_templates:
 background: var(--background-image)
 title: Thuis
 kiosk_mode:
-  kiosk: true
+  hide_header: true
 views:
   - !include lovelace/views/Home.yaml
 

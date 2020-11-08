@@ -18,7 +18,7 @@
     - service: notify.mobile_app_nokia_7_plus
       data:
         message: Goeie reis! Geniet er van! Ik heb alvast vakantiemodus geactiveerd.
-    - service: notify.mobile_app_iphone_kim
+    - service: notify.mobile_app_oneplus_nord
       data:
         message: Goeie reis! Geniet er van! Ik heb alvast vakantiemodus geactiveerd.
   
@@ -44,6 +44,6 @@
     - service: notify.mobile_app_nokia_7_plus
       data:
         message: Home sweet home. Ik heb de vakantiemodus gedeactiveerd.
-    - service: notify.mobile_app_iphone_kim
+    - service: notify.mobile_app_oneplus_nord
       data:
         message: Home sweet home. Ik heb de vakantiemodus gedeactiveerd.    

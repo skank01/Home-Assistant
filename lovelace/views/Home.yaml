@@ -1,7 +1,6 @@
 title: Home
 icon: mdi:home-outline
 path: Home
-cards:
 type: 'custom:layout-card'
 column_width: 100%
 layout: horizontal

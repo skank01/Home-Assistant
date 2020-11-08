@@ -15,7 +15,7 @@
     - service: notify.mobile_app_nokia_7_plus
       data:
         message: Jackpot! Er is post!
-    - service: notify.mobile_app_iphone_kim
+    - service: notify.mobile_app_oneplus_nord
       data:
         message: Jackpot! Er is post!
     - service: input_boolean.turn_on
@@ -38,7 +38,7 @@
     - service: notify.mobile_app_nokia_7_plus
       data:
         message: Eureka! Pakje toegekomen!
-    - service: notify.mobile_app_iphone_kim
+    - service: notify.mobile_app_oneplus_nord
       data:
         message: Eureka! Pakje toegekomen!
     - service: input_boolean.turn_on

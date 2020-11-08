@@ -22,7 +22,7 @@
     service: notify.mobile_app_nokia_7_plus
   - data:
       message: Herinnering:Deze nacht wordt {{states.sensor.recycleapp_vandaag.state}} opgehaald!
-    service: notify.mobile_app_iphone_kim  
+    service: notify.mobile_app_oneplus_nord
   - data:
       entity_id: group.media_player
     service: media_player.turn_on
