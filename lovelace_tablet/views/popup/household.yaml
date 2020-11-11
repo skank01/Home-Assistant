@@ -175,8 +175,34 @@ service_data:
             title: Klusjes
             cards:
               - type: custom:check-button-card
-                title: Ramen
-                entity: sensor.ramen
+                title: Ramen buiten
+                entity: sensor.ramen_buiten
+                text:
+                  year: jaar
+                  years: jaar
+                  month: maand
+                  months: maanden
+                  week: week
+                  weeks: weken
+                  day: dag
+                  days: dagen
+                  hour: uur
+                  hours: uur
+                  minute: minuut
+                  minutes: minuten
+                  less_than: minder dan
+                  more_than: meer dan
+                  ago: geleden
+                  due_in: over
+                  over_by: over met
+                severity:
+                - value: 2 months
+                  color: Orange
+                - value: 3 months
+                  color: Red
+              - type: custom:check-button-card
+                title: Ramen binnen
+                entity: sensor.ramen_binnen
                 text:
                   year: jaar
                   years: jaar

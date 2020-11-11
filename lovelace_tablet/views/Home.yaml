@@ -1,7 +1,6 @@
 title: Home
 icon: mdi:home-outline
 path: Home
-cards:
 type: 'custom:layout-card'
 column_width: 100%
 layout: horizontal
@@ -38,8 +37,6 @@ cards:
             disableOnInteraction: false
         cards:
           !include ../../includes/notifications.yaml      
-    
-    
   - type: custom:layout-card
     column_width: 150
     layout: horizontal
@@ -50,10 +47,13 @@ cards:
       - type: custom:button-card
         entity: sensor.postbus
         state:
-          - value: "closed"
-            icon: mdi:mailbox
-          - value: "open"
-            icon: mdi:mailbox-up
+        - value: "closed"
+          icon: mdi:mailbox
+        - value: "open"
+          icon: mdi:mailbox-up
+          styles:
+            icon:
+              - color: var(--primary-color)
         style: |
           ha-card {
             height: 128px;
@@ -198,6 +198,7 @@ cards:
             height: 128px;
             text-align: center;
           }
+      
   - type: custom:gap-card
     style: |
       ha-card {

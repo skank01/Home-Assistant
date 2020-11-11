@@ -66,7 +66,7 @@ Plugins:
 - Xiaomi-vacuum-card
 - Mini media player
 - Check button card
-- Gap ard
+- Gap card
 - Swipe card
 - Decluttering card
 - Kiosk mode

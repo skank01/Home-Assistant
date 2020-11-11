@@ -80,10 +80,13 @@ cards:
       - type: custom:button-card
         entity: sensor.postbus
         state:
-          - value: "closed"
-            icon: mdi:mailbox
-          - value: "open"
-            icon: mdi:mailbox-up
+        - value: "closed"
+          icon: mdi:mailbox
+        - value: "open"
+          icon: mdi:mailbox-up
+          styles:
+            icon:
+              - color: var(--primary-color)
         style: |
           ha-card {
             height: 96px;

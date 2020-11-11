@@ -105,4 +105,14 @@ sensor:
         icon_template: mdi:map-marker-radius
         value_template: "{{ states.zone | count }}"
       
-    
+#### MEASURING ##########################################################  
+  - platform: integration
+    source: sensor.power_nachtlampje
+    name: energy_verbruikt
+    unit_prefix: k
+    round: 2
+    method: left
+utility_meter:
+  energy:
+    source: sensor.energy_verbruikt
+    cycle: daily
