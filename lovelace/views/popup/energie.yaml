@@ -17,8 +17,14 @@ service_data:
   card:
     type: custom:vertical-stack-in-card
     cards:
+      - type: markdown
+        content: <font color="#1A73E8" size= "5">Batterij niveaus</font>
+        style: |
+          ha-card {
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
       - type: custom:battery-state-card
-        title: "Batterij niveaus"
         color_gradient:
           - "#ff0000" # red
           - "#ffff00" # yellow
@@ -34,18 +40,36 @@ service_data:
             to: "sensor" 
       - type: vertical-stack
         cards:
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Verbruik wasmachine</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
           - type: history-graph
-            title: Verbruik wasmachine
             hours_to_show: 3
             entities:
               - sensor.power_wasmachine
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Verbruik droogkast</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
           - type: history-graph
-            title: Verbruik droogkast
             hours_to_show: 3
             entities:    
               - sensor.power_droogkast
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Verbruik meting</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
           - type: history-graph
-            title: Verbruik meting
             hours_to_show: 24
             entities:    
               - sensor.power_nachtlampje

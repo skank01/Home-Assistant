@@ -16,10 +16,16 @@ service_data:
   command: popup
   large: true
   card:
-    type: vertical-stack
+    type: custom:vertical-stack-in-card
     cards:
+      - type: markdown
+        content: <font color="#1A73E8" size= "5">Sensoren</font>
+        style: |
+          ha-card {
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
       - type: horizontal-stack
-        title: Sensoren
         cards:
           - type: custom:button-card
             entity: binary_sensor.det_inkom
@@ -81,8 +87,14 @@ service_data:
             styles:
               icon:
                 - color: var(--primary-text-color)
+      - type: markdown
+        content: <font color="#1A73E8" size= "5">Brand Sensoren</font>
+        style: |
+          ha-card {
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
       - type: horizontal-stack
-        title: Brand Sensoren
         cards:
           - type: custom:button-card
             entity: binary_sensor.brand_living
@@ -144,8 +156,14 @@ service_data:
             styles:
               icon:
                 - color: var(--primary-text-color)
+      - type: markdown
+        content: <font color="#1A73E8" size= "5">Deuren</font>
+        style: |
+          ha-card {
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
       - type: horizontal-stack
-        title: Deuren
         cards:
           - type: custom:button-card
             entity: binary_sensor.mc_poort

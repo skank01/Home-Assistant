@@ -21,36 +21,62 @@ service_data:
     column_height: [300]
     layout: vertical
     cards:
-      - type: custom:battery-state-card
-        title: "Batterij niveaus"
-        color_gradient:
-          - "#ff0000" # red
-          - "#ffff00" # yellow
-          - "#00ff00" # green
-        filter:
-                include: # filters for auto-adding
-                  - name: entity_id # entities which id ends with "_battery_level"
-                    value: "*_battery_level"
-                  - name: entity_id # entities which id ends with ".battery_level"
-                    value: "*.battery_level"  
-        bulk rename:
-          - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
-            to: "sensor" 
-      - break
-      - type: custom:vertical-stack-in-card
+      - type: custom:stack-in-card
         cards:
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Batterij niveaus</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
+          - type: custom:battery-state-card
+            color_gradient:
+              - "#ff0000" # red
+              - "#ffff00" # yellow
+              - "#00ff00" # green
+            filter:
+                    include: # filters for auto-adding
+                      - name: entity_id # entities which id ends with "_battery_level"
+                        value: "*_battery_level"
+                      - name: entity_id # entities which id ends with ".battery_level"
+                        value: "*.battery_level"  
+            bulk rename:
+              - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
+                to: "sensor" 
+      - break
+      - type: custom:stack-in-card
+        cards:
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Verbruik wasmachine</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
           - type: history-graph
-            title: Verbruik wasmachine
             hours_to_show: 3
             entities:
               - sensor.power_wasmachine
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Verbruik droogkast</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
           - type: history-graph
-            title: Verbruik droogkast
             hours_to_show: 3
             entities:    
               - sensor.power_droogkast
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Verbruik meting</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
           - type: history-graph
-            title: Verbruik meting
             hours_to_show: 24
             entities:    
               - sensor.power_nachtlampje
