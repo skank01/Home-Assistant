@@ -35,14 +35,19 @@
     - entity: binary_sensor.co_techniek
       state: "off"   
     - entity: binary_sensor.updater
-      state: "off"       
+      state: "off"
+    - entity: input_boolean.brievenbus
+      state: "off"
+    - entity: input_boolean.pakjesbus
+      state: "off"  
+    - entity: alarm_control_panel.risco
+      state: "disarmed"    
   card:
     type: custom:decluttering-card
     template: notification_template
     variables:
       - name: Alles is rustig, er zijn geen meldingen
-      - icon: mdi:check-box-outline
-
+      
 # Home Assistant Update
 - type: conditional
   conditions:
@@ -53,8 +58,7 @@
     template: notification_template
     variables:
       - name: Er is een update voor Home Assistant!!
-      - icon: mdi:home-assistant
-
+      
       
 # CO Triggered
 - type: conditional
@@ -66,8 +70,7 @@
     template: notification_template
     variables:
       - name: CO gesignaleerd in de technische ruimte!
-      - icon: mdi:smoke-detector
-
+      
 
 # Smoke Detector Triggered
 - type: conditional
@@ -79,7 +82,6 @@
     template: notification_template
     variables:
       - name: Rook gesignaleerd in de keuken!
-      - icon: mdi:smoke-detector
 - type: conditional
   conditions:
     - entity: binary_sensor.brand_garage
@@ -89,7 +91,6 @@
     template: notification_template
     variables:
       - name: Rook gesignaleerd in de garage!
-      - icon: mdi:smoke-detector
 - type: conditional
   conditions:
     - entity: binary_sensor.brand_1ste
@@ -99,7 +100,6 @@
     template: notification_template
     variables:
       - name: Rook gesignaleerd op de hal!
-      - icon: mdi:smoke-detector
 - type: conditional
   conditions:
     - entity: binary_sensor.brand_wasplaats
@@ -109,7 +109,6 @@
     template: notification_template
     variables:
       - name: Rook gesignaleerd in de bureau!
-      - icon: mdi:smoke-detector
 - type: conditional
   conditions:
     - entity: binary_sensor.brand_2de
@@ -119,7 +118,6 @@
     template: notification_template
     variables:
       - name: Rook gesignaleerd op de zolder!
-      - icon: mdi:smoke-detector  
 - type: conditional
   conditions:
     - entity: binary_sensor.brand_techniek
@@ -129,7 +127,6 @@
     template: notification_template
     variables:
       - name: Rook gesignaleerd in de technische ruimte!
-      - icon: mdi:smoke-detector      
 
 # Voordeur/garagepoort
 - type: conditional
@@ -141,7 +138,6 @@
     template: notification_template
     variables:
       - name: De voordeur staat open!
-      - icon: mdi:door 
 - type: conditional
   conditions:
     - entity: binary_sensor.garage_poort
@@ -151,7 +147,7 @@
     template: notification_template
     variables:
       - name: De garagepoort staat open!
-      - icon: mdi:door       
+         
 # Cleaning
 - type: conditional
   conditions:
@@ -162,7 +158,6 @@
     template: notification_template
     variables:
     - name: De wasmachine is bezig!
-    - icon: mdi:washing-machine
 - type: conditional
   conditions:
     - entity: sensor.wasmachine_status
@@ -172,7 +167,6 @@
     template: notification_template
     variables:
     - name: De wasmachine is klaar!
-    - icon: mdi:washing-machine 
 - type: conditional
   conditions:
     - entity: sensor.droogkast_status
@@ -182,7 +176,6 @@
     template: notification_template
     variables:
     - name: De droogkast is klaar!
-    - icon: mdi:tumble-dryer
 - type: conditional
   conditions:
     - entity: sensor.droogkast_status
@@ -192,8 +185,46 @@
     template: notification_template
     variables:
     - name: De droogkast is klaar!
-    - icon: mdi:tumble-dryer 
-
+  
+# Post
+- type: conditional
+  conditions:
+    - entity: input_boolean.brievenbus
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Jackpot! Er is post!
+- type: conditional
+  conditions:
+    - entity: input_boolean.pakjesbus
+      state: "on"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Eureka! Pakje toegekomen!
+     
+# Alarm
+- type: conditional
+  conditions:
+    - entity: alarm_control_panel.risco
+      state: "armed_away"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Alarm actief!!
+- type: conditional
+  conditions:
+    - entity: alarm_control_panel.risco
+      state: "armed_home"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Alarm gedeeltelijk actief!!
 
 # Garbage
 - type: conditional
@@ -205,7 +236,6 @@
     template: notification_template
     variables:
       - name: Deze avond pmd buiten zetten!!
-      - icon: mdi:delete
 - type: conditional
   conditions:
     - entity: sensor.recycleapp_vandaag
@@ -215,7 +245,6 @@
     template: notification_template
     variables:
       - name: Deze avond papier en karton buiten zetten!!
-      - icon: mdi:delete
 - type: conditional
   conditions:
     - entity: sensor.recycleapp_vandaag
@@ -225,5 +254,4 @@
     template: notification_template
     variables:
       - name: Deze avond restafval buiten zetten!!
-      - icon: mdi:delete      
-    
+     

@@ -98,7 +98,7 @@ service_data:
             entities:
               - title: Keuken
                 entities:
-                  - entity: switch.keuken
+                  - entity: light.keuken
                     name: Plafondspots
                     icon: mdi:wall-sconce-flat
                   - entity: light.keuken_wand
@@ -179,9 +179,6 @@ service_data:
                   - entity: light.slaapkamer_arne
                     name: Hanglamp
                     icon: mdi:ceiling-light
-                  - entity: light.nachtlampje_arne
-                    name: Nachtlampje
-                    icon: mdi:floor-lamp
           - column: 11
             tileOnRow: 2
             entities:

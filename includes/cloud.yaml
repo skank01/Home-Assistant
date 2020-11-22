@@ -29,6 +29,8 @@ google_actions:
       - input_boolean.pakjesbus
       - input_boolean.brievenbus
   entity_config:  
+    light.kerstverlichting_buxus:
+      room: Oprit
     light.licht_voordeur:
       room: Oprit
     light.licht_achterdeur:
@@ -61,13 +63,13 @@ google_actions:
       room: Badkamer
     light.lavabo:
       room: Badkamer    
-    light.nachtlampje_Arne:
-      room: Slaapkamer Arne    
     light.slaapkamer_Arne:
       room: Slaapkamer Arne
     light.slaapkamer_Noor:
       room: Slaapkamer Noor
     light.keukenkast:
+      room: Keuken
+    light.keuken:
       room: Keuken
     light.bench:
       room: Woonkamer

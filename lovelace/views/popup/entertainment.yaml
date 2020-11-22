@@ -14,10 +14,14 @@ service_data:
         background: none !important;
       }
   card:
-    type: vertical-stack
+    type: custom:vertical-stack-in-card
     cards:
-      - type: custom:vertical-stack-in-card
+      - type: custom:stack-in-card
         title: Entertainment
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:  
           - type: entities
             show_header_toggle: false
@@ -31,111 +35,203 @@ service_data:
               - entity: switch.film_kijken
                 name: Film kijken
                 icon: mdi:movie-open-outline
-      - type: custom:harmony-card
-        entity: remote.harmony_hub
-        volume_entity: media_player.woonkamer
-        scale: 1.25
-        activities:
-        - name: Tv kijken
-          device: Orange DVR
-        - name: Netflix kijken
-          device: LG Tv  
-        - name: Film kijken
-          device: Zidoo Mediaspeler
-        buttons:
-          xbox:
-            hide: true
-          back:
-            hide: true
-          a:
-            hide: true
-          b:
-            hide: true
-          x:
-            hide: true
-          y:
-            hide: true
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }    
+          - type: custom:harmony-card
+            entity: remote.harmony_hub
+            volume_entity: media_player.woonkamer
+            scale: 1.25
+            activities:
+            - name: Tv kijken
+              device: Orange DVR
+            - name: Netflix kijken
+              device: LG Tv  
+            - name: Film kijken
+              device: Zidoo Mediaspeler
+            buttons:
+              xbox:
+                hide: true
+              back:
+                hide: true
+              a:
+                hide: true
+              b:
+                hide: true
+              x:
+                hide: true
+              y:
+                hide: true
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }    
       - type: custom:stack-in-card
-        title: Speakers
-        mode: vertical
+        title: Luidprekers
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
-          - type: custom:mini-media-player
-            entity: media_player.woonkamer
-            artwork: cover
-            icon: mdi:speaker
-            hide:
-              progress: true
-            shortcuts:
-              buttons:
-                - type: channel
-                  name: StuBru
-                  id: http://icecast.vrtcdn.be/stubru-high.mp3  
-          - type: custom:mini-media-player
-            entity: media_player.keuken
-            artwork: cover
-            icon: mdi:monitor-speaker
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.badkamer
-            artwork: cover
-            icon: mdi:speaker
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.bureau
-            artwork: cover
-            icon: mdi:speaker
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.slaapkamer
-            artwork: cover
-            icon: mdi:monitor-speaker
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.slaapkamer_arne
-            artwork: cover 
-            icon: mdi:monitor-speaker
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.noor_mini
-            name: Slaapkamer Noor
-            artwork: cover 
-            icon: mdi:google-home
-            hide:
-              progress: true
+          - type: entities
+            entities:
+              - input_select.radio_station
+              - input_select.spotify_afspeellijst
+              - input_select.chromecast_speakers
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }  
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                show_icon: false
+                name: Activeer radio
+                styles:
+                  card:
+                    - -webkit-box-shadow: 0px 0px 9px 3px var(--primary-text-color)
+                    - box-shadow: 0px 0px 9px 3px var(--primary-text-color)
+                tap_action:
+                  action: call-service
+                  service: script.radio
+              - type: custom:button-card
+                show_icon: false
+                name: Activeer spotify
+                styles:
+                  card:
+                    - border-radius: 10%
+                    - -webkit-box-shadow: 0px 0px 9px 3px var(--primary-text-color)
+                    - box-shadow: 0px 0px 9px 3px var(--primary-text-color)
+                tap_action:
+                  action: call-service
+                  service: script.spotify
+          - type: custom:swipe-card
+            parameters:
+              spaceBetween: 1
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: media_player.keuken
+                    state_not: 'off'
+                card:
+                  type: custom:mini-media-player
+                  entity: media_player.keuken
+                  artwork: full-cover
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
+              - type: conditional
+                conditions:
+                  - entity: media_player.badkamer
+                    state_not: 'off'
+                card:
+                  type: custom:mini-media-player
+                  entity: media_player.badkamer
+                  artwork: full-cover
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
+              - type: conditional
+                conditions:
+                  - entity: media_player.slaapkamer
+                    state_not: 'off'
+                card:
+                  type: custom:mini-media-player
+                  entity: media_player.slaapkamer
+                  artwork: full-cover
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
+              - type: conditional
+                conditions:
+                  - entity: media_player.slaapkamer_arne
+                    state_not: 'off'
+                card:
+                  type: custom:mini-media-player
+                  entity: media_player.slaapkamer_arne
+                  artwork: full-cover
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
+              - type: conditional
+                conditions:
+                  - entity: media_player.noor_mini
+                    state_not: 'off'
+                card:
+                  type: custom:mini-media-player
+                  entity: media_player.noor_mini
+                  artwork: full-cover
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
       - type: custom:stack-in-card
         title: Mediaspelers
-        mode: vertical
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
-          - type: custom:mini-media-player
-            entity: media_player.emby_kodi_woonkamer
-            artwork: cover
-            icon: mdi:kodi
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.chromecast_arne
-            artwork: cover
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.chromecast_noor
-            artwork: cover
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.emby_kodi_cinema
-            artwork: cover
-            icon: mdi:kodi
-            hide:
-              progress: true
-          - type: custom:mini-media-player
-            entity: media_player.kodi
-            artwork: cover
-            icon: mdi:kodi
-            hide:
-              progress: true
+          - type: conditional
+            conditions:
+              - entity: media_player.kodi
+                state_not: 'off'
+              - entity: media_player.kodi
+                state_not: 'unavailable'  
+            card:
+              type: custom:mini-media-player
+              entity: media_player.kodi
+              artwork: full-cover
+              icon: mdi:kodi
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }  
+          - type: conditional
+            conditions:
+              - entity: media_player.chromecast_arne
+                state_not: 'off'
+              - entity: media_player.chromecast_arne
+                state_not: 'unavailable'  
+            card:
+              type: custom:mini-media-player
+              entity: media_player.chromecast_arne
+              artwork: full-cover
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }  
+          - type: conditional
+            conditions:
+              - entity: media_player.chromecast_noor
+                state_not: 'off'
+              - entity: media_player.chromecast_noor
+                state_not: 'unavailable'  
+            card:
+              type: custom:mini-media-player
+              entity: media_player.chromecast_noor
+              artwork: full-cover
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }  
+          - type: conditional
+            conditions:
+              - entity: media_player.emby_kodi_cinema
+                state_not: 'off'
+              - entity: media_player.emby_kodi_cinema
+                state_not: 'unavailable'  
+            card:
+              type: custom:mini-media-player
+              entity: media_player.emby_kodi_cinema
+              artwork: full-cover
+              icon: mdi:kodi
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }  

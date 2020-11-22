@@ -101,22 +101,47 @@ cards:
               - input_boolean.pakjesbus
       - name: Alarm
         type: custom:button-card
-        icon: mdi:shield-off
         tap_action: !include popup/alarm.yaml
+        entity: alarm_control_panel.risco
+        state:
+        - value: "disarmed"
+          icon: mdi:shield-off
+        - value: "armed_away"
+          icon: mdi:shield-check
+          styles:
+            icon:
+              - color: var(--primary-color)
+        - value: "armed_home"
+          icon: mdi:shield-half-full
+          styles:
+            icon:
+              - color: var(--primary-color) 
         style: |
           ha-card {
             height: 96px;
             text-align: center;
           }
-      - name: Security
+      - name: Garagepoort
         type: custom:button-card
-        icon: mdi:cctv
-        tap_action: !include popup/security.yaml
+        entity: binary_sensor.garage_poort
+        state:
+        - value: "on"
+          icon: mdi:garage-open-variant
+        - value: "off"
+          icon: mdi:garage-variant 
+          styles:
+            icon:
+              - color: var(--primary-text-color)
         style: |
           ha-card {
             height: 96px;
             text-align: center;
           }
+        tap_action:
+          action: call-service
+          service: homeassistant.toggle
+          service_data:
+            entity_id: switch.garagepoort 
       - entity: person.stijn
         type: picture-entity
         image: /local/stijn.jpg
@@ -142,27 +167,6 @@ cards:
           ha-card {
             height: 96px !important;
           }
-      - name: Garagepoort
-        type: custom:button-card
-        entity: binary_sensor.garage_poort
-        state:
-        - value: "on"
-          icon: mdi:garage-open-variant
-        - value: "off"
-          icon: mdi:garage-variant 
-          styles:
-            icon:
-              - color: var(--primary-text-color)
-        style: |
-          ha-card {
-            height: 96px;
-            text-align: center;
-          }
-        tap_action:
-          action: call-service
-          service: homeassistant.toggle
-          service_data:
-            entity_id: switch.garagepoort 
       - name: Verlichting
         type: custom:button-card
         icon: mdi:lightbulb-outline
@@ -170,6 +174,15 @@ cards:
         style: |
           ha-card {
             height: 96px;
+          }
+      - name: Security
+        type: custom:button-card
+        icon: mdi:cctv
+        tap_action: !include popup/security.yaml
+        style: |
+          ha-card {
+            height: 96px;
+            text-align: center;
           }
       - name: Entertainment
         type: custom:button-card

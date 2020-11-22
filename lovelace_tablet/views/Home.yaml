@@ -66,14 +66,13 @@ cards:
             entity_id: 
               - input_boolean.brievenbus
               - input_boolean.pakjesbus
-      - name: Alarm
+      - name: Verlichting
         type: custom:button-card
-        icon: mdi:shield-off
-        tap_action: !include popup/alarm.yaml
+        icon: mdi:lightbulb-outline
+        tap_action: !include popup/verlichting.yaml
         style: |
           ha-card {
             height: 128px;
-            text-align: center;
           }
       - entity: person.stijn
         type: picture-entity
@@ -83,14 +82,6 @@ cards:
           ha-card {
             height: 128px !important;
           }
-      - name: Verlichting
-        type: custom:button-card
-        icon: mdi:lightbulb-outline
-        tap_action: !include popup/verlichting.yaml
-        style: |
-          ha-card {
-            height: 128px;
-          }
       - name: Entertainment
         type: custom:button-card
         icon: mdi:television-classic
@@ -99,6 +90,70 @@ cards:
           ha-card {
             height: 128px;
             --paper-item-icon-active-color: #e79118;
+          }
+      - name: Huishouden
+        type: custom:button-card
+        icon: mdi:broom
+        tap_action: !include popup/household.yaml
+        style: |
+          ha-card {
+            height: 128px;
+            text-align: center;
+          }
+      - name: Alarm
+        type: custom:button-card
+        tap_action: !include popup/alarm.yaml
+        entity: alarm_control_panel.risco
+        state:
+        - value: "disarmed"
+          icon: mdi:shield-off
+        - value: "armed_away"
+          icon: mdi:shield-check
+          styles:
+            icon:
+              - color: var(--primary-color)
+        - value: "armed_home"
+          icon: mdi:shield-half-full
+          styles:
+            icon:
+              - color: var(--primary-color) 
+        style: |
+          ha-card {
+            height: 128px;
+            text-align: center;
+          }
+      - name: Security
+        type: custom:button-card
+        icon: mdi:cctv
+        tap_action: !include popup/security.yaml
+        style: |
+          ha-card {
+            height: 128px;
+            text-align: center;
+          }
+      - type: picture-entity
+        entity: person.kim
+        image: /local/kim.jpg
+        tap_action: !include popup/persoon2.yaml
+        style: |
+          ha-card {
+            height: 128px !important;
+          }
+      - name: Server
+        type: custom:button-card
+        icon: mdi:nas
+        tap_action: !include popup/server.yaml
+        style: |
+          ha-card {
+            height: 128px;
+          }
+      - name: Netwerk
+        type: custom:button-card
+        icon: mdi:server-network
+        tap_action: !include popup/network.yaml
+        style: |
+          ha-card {
+            height: 128px;
           }
       - name: Garagepoort
         type: custom:button-card
@@ -120,33 +175,7 @@ cards:
           action: call-service
           service: homeassistant.toggle
           service_data:
-            entity_id: switch.garagepoort              
-      - name: Security
-        type: custom:button-card
-        icon: mdi:cctv
-        tap_action: !include popup/security.yaml
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-      - type: picture-entity
-        entity: person.kim
-        image: /local/kim.jpg
-        tap_action: !include popup/persoon2.yaml
-        style: |
-          ha-card {
-            height: 128px !important;
-          }
-      - name: Huishouden
-        type: custom:button-card
-        icon: mdi:broom
-        tap_action: !include popup/household.yaml
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
+            entity_id: switch.garagepoort 
       - name: Temperatuur
         type: custom:button-card
         icon: mdi:home-thermometer-outline
@@ -155,22 +184,6 @@ cards:
           ha-card {
             height: 128px;
             text-align: center;
-          }
-      - name: Server
-        type: custom:button-card
-        icon: mdi:nas
-        tap_action: !include popup/server.yaml
-        style: |
-          ha-card {
-            height: 128px;
-          }
-      - name: Netwerk
-        type: custom:button-card
-        icon: mdi:server-network
-        tap_action: !include popup/network.yaml
-        style: |
-          ha-card {
-            height: 128px;
           }
       - type: picture-entity
         entity: person.james
@@ -198,7 +211,6 @@ cards:
             height: 128px;
             text-align: center;
           }
-      
   - type: custom:gap-card
     style: |
       ha-card {

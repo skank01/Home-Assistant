@@ -373,8 +373,11 @@
   qos: 0  
 
 - platform: switch
-  name: Nachtlampje Arne
-  entity_id: switch.nachtlampje_Arne  
+  name: Kerstverlichting Buxus
+  entity_id: switch.kerstverlichting_buxus
   
+- platform: switch
+  name: Keuken
+  entity_id: switch.keuken  
 
 

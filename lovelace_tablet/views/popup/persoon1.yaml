@@ -20,7 +20,7 @@ service_data:
     column_width: [385, 385]
     layout: vertical
     cards:
-      - type: vertical-stack
+      - type: custom:vertical-stack-in-card
         cards:
           - type: horizontal-stack
             cards:

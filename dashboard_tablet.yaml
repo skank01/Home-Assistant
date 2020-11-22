@@ -3,7 +3,6 @@ decluttering_templates:
     card:
       type: custom:button-card
       name: '[[name]]'
-      icon: '[[icon]]'
       size: 100%
       show_state: false
       show_label: false
@@ -27,11 +26,7 @@ decluttering_templates:
           - grid-template-areas: '"i n"'
           - grid-template-columns: 8% 1fr
           - grid-template-rows: 1fr
-        icon:
-          - color: var(--primary-color)
-          - padding-bottom: 3px
-
-
+       
 background: var(--background-image)
 title: Thuis
 views:

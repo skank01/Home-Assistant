@@ -37,7 +37,7 @@ service_data:
           - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
             to: "sensor" 
       - break
-      - type: vertical-stack
+      - type: custom:vertical-stack-in-card
         cards:
           - type: history-graph
             title: Verbruik wasmachine

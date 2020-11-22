@@ -1,3 +1,5 @@
+#### Cleaning settings ####
+
 wasmachine_status:
   name: Wasmachine status
   options:
@@ -13,3 +15,34 @@ droogkast_status:
     - Droogkast bezig
     - Droogkast klaar
   initial: Droogkast 
+
+
+#### Audio settings ####  
+
+radio_station:
+  name: 'Kies radiozender:'
+  options:
+    - Studio Brussel
+    - Q-Music
+    - MNM
+    - Radio 2
+    - Klara
+    - Ketnet Radio
+  icon: mdi:radio    
+spotify_afspeellijst:
+  name: 'Kies spotify afspeellijst:'
+  options:
+    - Top 50 België
+    - The Greatest Switch
+  icon: mdi:spotify  
+chromecast_speakers:
+  name: 'Kies Luidspreker:'
+  options:
+    - Keuken
+    - Slaapkamer Ouders
+    - Slaapkamer Arne
+    - Slaapkamer Noor
+    - Badkamer
+    - Overal
+  initial: Keuken
+  icon: mdi:speaker-wireless   

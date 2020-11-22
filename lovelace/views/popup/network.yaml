@@ -14,9 +14,14 @@ service_data:
         background: none !important;
       }
   card:
-    type: vertical-stack
+    type: custom:vertical-stack-in-card
     cards:
-      - type: vertical-stack
+      - type: custom:stack-in-card
+        title: System
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
           - type: entities
             entities:
@@ -29,8 +34,10 @@ service_data:
               - entity: sensor.disk_use_percent
                 title: HDD
                 icon: mdi:harddisk 
-            title: System
-            show_header_toggle: false
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }
           - type: horizontal-stack
             cards:
               - type: sensor
@@ -68,7 +75,12 @@ service_data:
                 entity: switch.adguard_protection
               - type: custom:button-card
                 entity: switch.adguard_parental_control
-      - type: vertical-stack
+      - type: custom:stack-in-card
+        title: Network
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
           - type: entities
             entities:
@@ -82,8 +94,10 @@ service_data:
               - entity: sensor.unifi_gateway_wlan_num_guest
               - entity: sensor.unifi_gateway_wan_cpu
               - entity: sensor.unifi_gateway_wan_mem
-            show_header_toggle: false
-            title: Network
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }
           - type: horizontal-stack
             cards:
               - type: glance
@@ -93,7 +107,16 @@ service_data:
                   - entity: sensor.unifi_ap_living
                   - entity: sensor.unifi_ap_verdiep_1
                 show_state: false  
-      - type: vertical-stack
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }
+      - type: custom:stack-in-card
+        title: Home Assistant Stats
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
           - type: entities 
             entities:
@@ -105,10 +128,21 @@ service_data:
               - entity: sensor.count_scripts
               - entity: sensor.count_zones
               - entity: sensor.count_switches
-            show_header_toggle: false
-            title: Home Assistant Stats
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }  
+      - type: custom:stack-in-card
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
+        title: Server
+        cards:  
           - type: entities
             entities:
               - entity: sensor.unraid_server
-            show_header_toggle: false
-            title: Server  
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }    

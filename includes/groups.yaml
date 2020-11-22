@@ -11,13 +11,21 @@ media_player:
     - media_player.noor_mini
     - media_player.badkamer
     - media_player.bureau
+cast_player:
+  name: Chromecast_player
+  entities:
+    - media_player.keuken
+    - media_player.badkamer
+    - media_player.slaapkamer
+    - media_player.noor_mini
+    - media_player.slaapkamer_arne
 simulation_lights_on:
   name: Vacation_mode_lights_on
   entities:
     - light.inkom_wand
     - light.slaapkamer
     - light.nachtlampje_noor
-    - light.nachtlampje_arne    
+     
 simulation_lights_off:
   name: Vacation_mode_lights_off
   entities:
@@ -25,7 +33,7 @@ simulation_lights_off:
     - light.inkom_wand
     - light.slaapkamer
     - light.nachtlampje_noor
-    - light.nachtlampje_arne
+    
     
 lights_groundfloor:
   name: Lichten_gelijkvloers
@@ -43,7 +51,8 @@ lights_groundfloor:
     - light.keuken_wand
     - light.bench
     - light.keukenkast
-    - switch.keuken
+    - light.keuken
+    - light.kerstverlichting_buxus
     
 lights_groundfloor_no_exteriour:
   name: Lichten_gelijkvloers_zonder_buitenverlichting
@@ -57,13 +66,13 @@ lights_groundfloor_no_exteriour:
     - light.keuken_wand
     - light.bench  
     - light.keukenkast
-    - switch.keuken    
+    - light.keuken    
     
 battery_level_monitor:
   name: Battery Level Monitor
   entities:
     - sensor.battery_level
-    - sensor.iphone_kim_battery_level
+    - sensor.oneplus_battery_level
     - sensor.openclose_4_battery_level
     - sensor.openclose_5_battery_level
     - sensor.openclose_6_battery_level

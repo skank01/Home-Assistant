@@ -134,3 +134,53 @@ ironing:
     data:
       shuffle: true
     entity_id: media_player.bureau    
+    
+    
+##############################
+## Audio casting
+##############################   
+radio:
+  alias: Activeer radio
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: group.cast_player
+        volume_level: '0.35'
+    -  service: media_player.play_media
+       data_template:
+         entity_id: >
+          {% if is_state("input_select.chromecast_speakers", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers", "Badkamer") %} media_player.badkamer
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Ouders") %} media_player.slaapkamer
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Arne") %} media_player.slaapkamer_arne
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.noor_mini
+          {% elif is_state("input_select.chromecast_speakers", "Overal") %} group.cast_player
+          {% endif %}
+         media_content_id: >
+          {% if is_state("input_select.radio_station", "Studio Brussel") %} http://icecast.vrtcdn.be/stubru-high.mp3
+          {% elif is_state("input_select.radio_station", "Q-Music") %} http://icecast-qmusic.cdp.triple-it.nl/Qmusic_be_live_64.aac
+          {% elif is_state("input_select.radio_station", "MNM") %} http://icecast.vrtcdn.be/mnm_hits-high.mp3
+          {% elif is_state("input_select.radio_station", "Radio 2") %} http://icecast.vrtcdn.be/ra2wvl-high.mp3
+          {% elif is_state("input_select.radio_station", "Klara") %} http://icecast.vrtcdn.be/klara-high.mp3
+          {% elif is_state("input_select.radio_station", "Ketnet Radio") %} http://icecast.vrtcdn.be/ketnetradio-high.mp3
+          {% endif %}
+         media_content_type: 'audio/mp4'
+spotify:
+  alias: Activeer Spotify
+  sequence:
+    -  service: spotcast.start
+       data_template:
+         entity_id: >
+          {% if is_state("input_select.chromecast_speakers", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers", "Badkamer") %} media_player.badkamer
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Ouders") %} media_player.slaapkamer
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Arne") %} media_player.slaapkamer_arne
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.noor_mini
+          {% elif is_state("input_select.chromecast_speakers", "Overal") %} group.cast_player
+          {% endif %}
+         uri: >
+          {% if is_state("input_select.spotify_afspeellijst", "Top 50 België") %} spotify:playlist:37i9dQZEVXbJNSeeHswcKB
+          {% elif is_state("input_select.spotify_afspeellijst", "The Greatest Switch") %} spotify:playlist:3dMgR1GWfuSLJeUUvUTZXV
+          {% endif %}
+         random_song: 'true'     
+         shuffle: 'true'         

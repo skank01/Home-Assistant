@@ -247,29 +247,6 @@
       entity_id: light.nachtlampje_noor
     service: light.turn_on
 
-
-- id: Turn_on_nightlight
-  alias: "Lichten: Nachtlampje Arne aan"
-  trigger:
-  - platform: time
-    at: input_datetime.time_wake_up_arne
-  condition:
-  - condition: state
-    entity_id: group.family
-    state: home
-  - condition: time
-    after: 07:10:00
-    before: 07:25:00
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - data:
-      entity_id: light.nachtlampje_arne
-    service: light.turn_on
     
 
 ########################################
@@ -328,6 +305,57 @@
       entity_id: all
     service: light.turn_off
     
+
+########################################
+## Kerstverlichting
+########################################
+   
+- id: turn_on_buxus_christmas_lights_in_the_morning
+  alias: "Lichten: Kerstverlichting buxus 's morgens aan"
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 1
+        - condition: state
+          entity_id: switch.kerstverlichting_buxus
+          state: "off"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.kerstverlichting_buxus  
+
+- id: turn_off_buxus_christmas_lights_in_the_morning
+  alias: "Lichten: Kerstverlichting buxus 's morgens uit"
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    above: 1
+  condition:
+    - condition: state
+      entity_id: switch.kerstverlichting_buxus
+      state: "on"
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.kerstverlichting_buxus   
+
+- id: turn_on_buxus_christmas_lights_at_night
+  alias: "Lichten: Kerstverlichting buxus aan 's avonds"
+  initial_state: 'on'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:05:00"
+  action:
+  - service: homeassistant.turn_on
+    entity_id: switch.kerstverlichting_buxus 
+    
+
 ########################################
 ## Vakantie lichten
 ########################################

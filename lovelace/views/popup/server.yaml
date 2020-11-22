@@ -14,12 +14,16 @@ service_data:
         background: none !important;
       }
   card:
-    type: vertical-stack
+    type: custom:vertical-stack-in-card
     cards:
       - type: custom:stack-in-card
         mode: vertical
         title: Unraid Server
         class: add_header
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
           - type: entities
             show_header_toggle: false
@@ -39,6 +43,10 @@ service_data:
                 - key: binary_sensor.unraid_server.arrayStatus
                 - key: binary_sensor.unraid_server.diskSpace
                 - key: binary_sensor.unraid_server.arrayProtection
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }    
           - type: custom:bar-card
             width: 55%
             height: 2em
@@ -74,10 +82,18 @@ service_data:
                 max: 10000                
               - entity: sensor.glances_containers_cpu_used
                 name: Docker CPU
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }    
       - type: custom:stack-in-card
         mode: vertical
         title: Operation Control
         class: add_header
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
           - type: entities
             show_header_toggle: false
@@ -89,10 +105,18 @@ service_data:
               - switch.unraid_mover
               - switch.unraid_reboot
               - switch.unraid_power_off
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+              }  
       - type: custom:stack-in-card
         mode: vertical
         title: Docker Control
         class: add_header
+        style: |
+          ha-card {
+            --primary-text-color: var(--primary-color)
+          }
         cards:
           - type: custom:auto-entities
             filter:
@@ -101,4 +125,7 @@ service_data:
             card:
               type: entities
               show_header_toggle: false
-              
+              style: |
+                ha-card {
+                  --primary-text-color: var(--sidebar-icon-color)
+                }  

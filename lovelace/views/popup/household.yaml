@@ -14,12 +14,18 @@ service_data:
         background: none !important;
       }
   card:
-    type: vertical-stack
+    type: custom:vertical-stack-in-card
     cards:
       - type: vertical-stack
         cards:
-          - type: horizontal-stack
-            cards:
+          - type: custom:stack-in-card
+            mode: horizontal
+            title: Huisvuil
+            style: |
+              ha-card {
+                --primary-text-color: var(--primary-color)
+              }
+            cards:  
               - entities:
                   - name: Restafval
                     entity: sensor.recycleapp_restafval
@@ -31,7 +37,10 @@ service_data:
                     entity: sensor.recycleapp_papier
                     image: /local/papierenkarton.png
                 type: glance
-                title: Huisvuil     
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }     
           - type: custom:xiaomi-vacuum-card
             entity: vacuum.zjef
             name: Zjef
@@ -161,13 +170,16 @@ service_data:
                       color: rgba(255,255,255,0.8)
                       line-height: 32px
                       padding: 8px 13px    
-      - type: custom:stack-in-card
-        mode: vertical
+      - type: custom:vertical-stack-in-card
         keep:
           margin: true
         cards:
-          - type: vertical-stack
+          - type: custom:stack-in-card
             title: Klusjes
+            style: |
+              ha-card {
+                --primary-text-color: var(--primary-color)
+              }
             cards:
               - type: custom:check-button-card
                 title: Ramen buiten
@@ -195,6 +207,10 @@ service_data:
                   color: Orange
                 - value: 3 months
                   color: Red
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }    
               - type: custom:check-button-card
                 title: Ramen binnen
                 entity: sensor.ramen_binnen
@@ -221,6 +237,10 @@ service_data:
                   color: Orange
                 - value: 3 months
                   color: Red
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
               - type: custom:check-button-card
                 title: Badkamer
                 entity: sensor.badkamer
@@ -247,8 +267,16 @@ service_data:
                   color: Orange
                 - value: 60 days
                   color: Red
-          - type: vertical-stack
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
+          - type: custom:stack-in-card
             title: Filters
+            style: |
+              ha-card {
+                --primary-text-color: var(--primary-color)
+              }
             cards:
               - type: custom:check-button-card
                 title: Vijver
@@ -275,7 +303,11 @@ service_data:
                   - value: 30 days
                     color: Orange
                   - value: 90 days
-                    color: Red  
+                    color: Red 
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }    
               - type: custom:check-button-card
                 title: Ventilatie
                 entity: sensor.ventilatie
@@ -301,7 +333,11 @@ service_data:
                 - value: 6 months
                   color: Orange
                 - value: 9 months
-                  color: Red  
+                  color: Red 
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
               - type: custom:check-button-card
                 title: Dampkap
                 entity: sensor.dampkap
@@ -327,9 +363,17 @@ service_data:
                 - value: 6 months
                   color: Orange
                 - value: 9 months
-                  color: Red  
-          - type: vertical-stack
+                  color: Red 
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }
+          - type: custom:stack-in-card
             title: Onderhoud
+            style: |
+              ha-card {
+                --primary-text-color: var(--primary-color)
+              }
             cards:      
               - type: custom:check-button-card
                 title: Kuga
@@ -357,6 +401,10 @@ service_data:
                   color: Orange
                 - value: 12 months
                   color: Red
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
               - type: custom:check-button-card
                 title: Siesta
                 entity: sensor.siesta
@@ -383,6 +431,10 @@ service_data:
                   color: Orange
                 - value: 12 months
                   color: Red
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
               - type: custom:check-button-card
                 title: Verwarmingsketel
                 entity: sensor.verwarmingsketel
@@ -409,6 +461,10 @@ service_data:
                   color: Orange
                 - value: 24 months
                   color: Red
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
               - type: custom:check-button-card
                 title: Ontkalker
                 entity: sensor.ontkalker
@@ -435,3 +491,7 @@ service_data:
                   color: Orange
                 - value: 12 months
                   color: Red                
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
