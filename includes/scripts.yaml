@@ -134,8 +134,8 @@ ironing:
     data:
       shuffle: true
     entity_id: media_player.bureau    
-    
-    
+
+ 
 ##############################
 ## Audio casting
 ##############################   
@@ -150,10 +150,12 @@ radio:
        data_template:
          entity_id: >
           {% if is_state("input_select.chromecast_speakers", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers", "Woonkamer") %} media_player.woonkamer
+          {% elif is_state("input_select.chromecast_speakers", "Bureau") %} media_player.bureau
           {% elif is_state("input_select.chromecast_speakers", "Badkamer") %} media_player.badkamer
           {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Ouders") %} media_player.slaapkamer
           {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Arne") %} media_player.slaapkamer_arne
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.noor_mini
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.slaapkamer_noor
           {% elif is_state("input_select.chromecast_speakers", "Overal") %} group.cast_player
           {% endif %}
          media_content_id: >
@@ -172,10 +174,12 @@ spotify:
        data_template:
          entity_id: >
           {% if is_state("input_select.chromecast_speakers", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers", "Woonkamer") %} media_player.woonkamer
+          {% elif is_state("input_select.chromecast_speakers", "Bureau") %} media_player.bureau
           {% elif is_state("input_select.chromecast_speakers", "Badkamer") %} media_player.badkamer
           {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Ouders") %} media_player.slaapkamer
           {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Arne") %} media_player.slaapkamer_arne
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.noor_mini
+          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.slaapkamer_noor
           {% elif is_state("input_select.chromecast_speakers", "Overal") %} group.cast_player
           {% endif %}
          uri: >

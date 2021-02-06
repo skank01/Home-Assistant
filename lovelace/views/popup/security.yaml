@@ -16,14 +16,25 @@ service_data:
       }
   card:
     type: custom:layout-card
-    column_num: 3
-    column_width: [385, 385, 385]
+    column_num: 1
+    column_width: [385]
     layout: vertical
     cards:
-      - type: entities
-        title: Home Assistant
-        class: add_header
-        show_header_toggle: false
-        entities:
-          - entity: sensor.siesta
-          - entity: sensor.ramen
+      - type: picture-glance
+        title: Voordeur
+        aspect_ratio: 55%
+        entities: []
+        entity: camera.deurbel
+        name: Deurbel
+        camera_image: camera.deurbel
+        tap_action:
+          action: more-info
+      - type: picture-glance
+        title: Tuin
+        aspect_ratio: 55%
+        entities: []
+        entity: camera.tuin
+        name: Achtertuin
+        camera_image: camera.tuin
+        tap_action:
+          action: more-info    

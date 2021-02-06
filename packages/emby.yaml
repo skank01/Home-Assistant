@@ -3,10 +3,3 @@ media_player:
     host: !secret emby_host
     api_key: !secret emby_api
     
-sensor:
-- platform: emby_upcoming_media
-  api_key: !secret emby_api
-  user_id: !secret emby_user
-  host: !secret emby_host
-  max: 4
-  use_backdrop: true

@@ -25,7 +25,6 @@
 .google.token
 custom_components/
 deps/
-glances/
 downloads/
 themes/
 tts/

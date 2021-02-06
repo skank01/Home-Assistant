@@ -3,18 +3,12 @@ family:
   entities:
     - person.stijn
     - person.kim
-media_player:
-  name: Media_player
-  entities:
-    - media_player.keuken
-    - media_player.slaapkamer
-    - media_player.noor_mini
-    - media_player.badkamer
-    - media_player.bureau
 cast_player:
   name: Chromecast_player
   entities:
+    - media_player.woonkamer
     - media_player.keuken
+    - media_player.bureau
     - media_player.badkamer
     - media_player.slaapkamer
     - media_player.noor_mini

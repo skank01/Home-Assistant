@@ -29,23 +29,42 @@ New pics coming!
 - [Check HA Configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config)
 - [Mosquitto Broker](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto)
 - [Deconz](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
+- [Eufy MQTT Bridge](https://github.com/MaxWinterstein/homeassistant-addons/tree/main/eufy-ha-mqtt-bridge)
+- [Portainer](https://github.com/hassio-addons/addon-portainer)
+- [ioBroker](https://github.com/MaxWinterstein/homeassistant-addons/)
 
+
+### Integrations ###
+- Adguard
+- Phoscon
+- Garmin Connect
+- Google Cast
+- HACS
+- IRobot
+- Kodi
+- Logitech
+- Meteorologisk Institutt
+- Mobile App
+- MQTT
+- Risco
+- Speedtest
+- Spotify
+- Ubiquiti Unifi
+- Eufy Security
+- DSMR Reader
 
 
 ### HACS (Home Assistant Community Store) ###
 
 Integrations: 
 
-- Unifi Gateway
-- Garmin Connect
-- Afvalbeheer
-- Google Calendar
-- Emby
-- Emby Latest Media
-- Roomba
-- LG WebOS
-- Risco 
+- HACS
 - Browser_mod
+- Philips Android TV
+- Start spotify on chromecast
+- Unifi Gateway
+- Afvalbeheer
+
 
 Plugins:
 
@@ -53,7 +72,6 @@ Plugins:
 - Battery State Card
 - Button Card
 - Calendar Card
-- Entity Attributes Card
 - Harmony Card
 - Fold-entity-row
 - Slider-entity-row
@@ -62,7 +80,6 @@ Plugins:
 - Card-mod
 - Homekit panel card
 - Auto-entities
-- Upcoming-media-card
 - Xiaomi-vacuum-card
 - Mini media player
 - Check button card
@@ -86,7 +103,6 @@ Plugins:
 ### System ###
 My system is a [Raspberry Pi 4B+ with 4 gig RAM](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) running [Raspbian](https://www.raspberrypi.org/downloads/raspbian/).
 All data is on a [Samsung Fit Plus 128GB USB flash drive](https://www.samsung.com/us/computing/memory-storage/usb-flash-drives/usb-3-1-flash-drive-fit-plus-128gb-muf-128ab-am/).
-Several addons are installed:
 
 
 ### Gateways ###
@@ -98,10 +114,12 @@ Several addons are installed:
 - Running [Fully Kiosk Browser](https://www.fully-kiosk.com/) on a samsung galaxy Tab S3 as central point in my living room. Screen comes on when i'm in front of it. It automatically switches off, as soon as i walk away. Powered with [this](https://www.robbshop.nl/scharge-oplader-voor-inbouwdoos-met-usb-c-12w-aansluiting-voor-ipad-pro?sqr=scharge%20usb&) attached to the wall with a  [Vogel mount](https://www.vogels.com/nl-be/c/tms-1010-muurpakket-voor-tablets).
 
 ### Smart Speakers ###
-- [Google Nest Hub Max](https://store.google.com/us/product/google_nest_hub_max?hl=en-US)
-- [Google Nest Hub](https://store.google.com/be/product/google_nest_hub?hl=nl-BE)
-- [Google Home Mini](https://store.google.com/be/product/google_nest_mini?hl=nl-BE)
-- [Sonos Play One](https://www.sonos.com/nl-be/shop/one.html)
+- [1x Google Nest Hub Max](https://store.google.com/us/product/google_nest_hub_max?hl=en-US)
+- [4x Google Nest Hub](https://store.google.com/be/product/google_nest_hub?hl=nl-BE)
+- [1x Google Home Mini](https://store.google.com/be/product/google_nest_mini?hl=nl-BE)
+- [1x JBL Link Music](https://be.jbl.com/smart-speaker/LINK+MUSIC.html?dwvar_LINK%20MUSIC_color=Brown-EMEA-Current&cgid=smart-speaker#start=1)
+- [1x JBL Bar 9.1](https://be.jbl.com/soundbars/JBL+BAR+9.1+TWS-.html?dwvar_JBL%20BAR%209.1%20TWS-_color=Black-EMEA-Current&cgid=Soundbars#start=1)
+
 
 ### Lights ###
 - [Philips Hue GU10](https://www2.meethue.com/nl-be/p/hue-white-ambiance-2-pack-gu10/8718699629298)
@@ -116,7 +134,7 @@ Several addons are installed:
 
 
 ### Plugs ###
-- [2x Blitzwolf Smart Plugs](https://m.blitzwolf.com/ZigBee-3.0-Smart-Socket-EU-p-518.html)
+- [5x Blitzwolf Smart Plugs](https://m.blitzwolf.com/ZigBee-3.0-Smart-Socket-EU-p-518.html)
 - [2x Innr SP120 Plugs](https://www.beaumotica.nl/innr-smart-plug-aan-uit-schakelaar-doorsteek-stekker)
 
 
@@ -129,7 +147,7 @@ Several addons are installed:
 
 ## Ordered ##
 
-- 3x Blitwolf smart plugs
+Nothing at the moment
 
 
 

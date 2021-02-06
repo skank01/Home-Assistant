@@ -26,13 +26,12 @@ service_data:
           - type: entities
             show_header_toggle: false
             entities:
-              - sensor.harmony_hub
-              - entity: switch.tv_kijken
+              - entity: switch.harmony_hub_tv_kijken
                 name: Tv kijken
                 icon: mdi:television
-              - entity: switch.netflix_kijken
+              - entity: switch.harmony_hub_netflix_kijken
                 name: Netflix
-              - entity: switch.film_kijken
+              - entity: switch.harmony_hub_film_kijken
                 name: Film kijken
                 icon: mdi:movie-open-outline
             style: |
@@ -50,6 +49,7 @@ service_data:
               device: LG Tv  
             - name: Film kijken
               device: Zidoo Mediaspeler
+            hide_activities: true
             buttons:
               xbox:
                 hide: true
@@ -112,6 +112,18 @@ service_data:
             cards:
               - type: conditional
                 conditions:
+                  - entity: media_player.woonkamer
+                    state_not: 'off'
+                card:
+                  type: custom:mini-media-player
+                  entity: media_player.woonkamer
+                  artwork: full-cover
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  } 
+              - type: conditional
+                conditions:
                   - entity: media_player.keuken
                     state_not: 'off'
                 card:
@@ -122,6 +134,18 @@ service_data:
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
                   }  
+              - type: conditional
+                conditions:
+                  - entity: media_player.bureau
+                    state_not: 'off'
+                card:
+                  type: custom:mini-media-player
+                  entity: media_player.bureau
+                  artwork: full-cover
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }
               - type: conditional
                 conditions:
                   - entity: media_player.badkamer
@@ -160,11 +184,11 @@ service_data:
                   }  
               - type: conditional
                 conditions:
-                  - entity: media_player.noor_mini
+                  - entity: media_player.slaapkamer_noor
                     state_not: 'off'
                 card:
                   type: custom:mini-media-player
-                  entity: media_player.noor_mini
+                  entity: media_player.slaapkamer_noor
                   artwork: full-cover
                 style: |
                   ha-card {

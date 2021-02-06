@@ -38,11 +38,13 @@ spotify_afspeellijst:
 chromecast_speakers:
   name: 'Kies Luidspreker:'
   options:
+    - Woonkamer
     - Keuken
+    - Bureau
+    - Badkamer
     - Slaapkamer Ouders
     - Slaapkamer Arne
     - Slaapkamer Noor
-    - Badkamer
     - Overal
-  initial: Keuken
+  initial: Woonkamer
   icon: mdi:speaker-wireless   

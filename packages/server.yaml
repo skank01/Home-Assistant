@@ -8,9 +8,6 @@ homeassistant:
           if (state === 'up') return 'rgb(52,152,219)';
           else return 'rgb(95,99,104)';
 
-glances:
-  - host: !secret unraid_server
-
 sensor:
   - platform: template 
     sensors:

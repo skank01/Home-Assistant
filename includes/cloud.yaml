@@ -95,5 +95,6 @@ google_actions:
       room: Bureau
     input_boolean.dinner:
       room: Woonkamer
-    
+    input_boolean.cast_keuken:
+      room: Keuken
     

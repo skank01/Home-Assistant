@@ -132,17 +132,4 @@ service_data:
               ha-card {
                 --primary-text-color: var(--sidebar-icon-color)
               }  
-      - type: custom:stack-in-card
-        style: |
-          ha-card {
-            --primary-text-color: var(--primary-color)
-          }
-        title: Server
-        cards:  
-          - type: entities
-            entities:
-              - entity: sensor.unraid_server
-            style: |
-              ha-card {
-                --primary-text-color: var(--sidebar-icon-color)
-              }    
+      

@@ -381,8 +381,8 @@ service_data:
               }
             cards:      
               - type: custom:check-button-card
-                title: Kuga
-                entity: sensor.kuga
+                title: Kuga klein
+                entity: sensor.kuga_klein
                 text:
                   year: jaar
                   years: jaar
@@ -411,8 +411,68 @@ service_data:
                     --primary-text-color: var(--sidebar-icon-color)
                   }  
               - type: custom:check-button-card
-                title: Siesta
-                entity: sensor.siesta
+                title: Kuga groot
+                entity: sensor.kuga_groot
+                text:
+                  year: jaar
+                  years: jaar
+                  month: maand
+                  months: maanden
+                  week: week
+                  weeks: weken
+                  day: dag
+                  days: dagen
+                  hour: uur
+                  hours: uur
+                  minute: minuut
+                  minutes: minuten
+                  less_than: minder dan
+                  more_than: meer dan
+                  ago: geleden
+                  due_in: over
+                  over_by: over met
+                severity:
+                - value: 11 months
+                  color: Orange
+                - value: 12 months
+                  color: Red
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  } 
+              - type: custom:check-button-card
+                title: Siesta klein
+                entity: sensor.siesta_klein
+                text:
+                  year: jaar
+                  years: jaar
+                  month: maand
+                  months: maanden
+                  week: week
+                  weeks: weken
+                  day: dag
+                  days: dagen
+                  hour: uur
+                  hours: uur
+                  minute: minuut
+                  minutes: minuten
+                  less_than: minder dan
+                  more_than: meer dan
+                  ago: geleden
+                  due_in: over
+                  over_by: over met
+                severity:
+                - value: 11 months
+                  color: Orange
+                - value: 12 months
+                  color: Red
+                style: |
+                  ha-card {
+                    --primary-text-color: var(--sidebar-icon-color)
+                  }  
+              - type: custom:check-button-card
+                title: Siesta groot
+                entity: sensor.siesta_groot
                 text:
                   year: jaar
                   years: jaar

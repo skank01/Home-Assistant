@@ -22,7 +22,7 @@ service_data:
     cards:
       - type: custom:stack-in-card
         mode: vertical
-        title: Unraid Server
+        title: Home assistant
         class: add_header
         style: |
           ha-card {
@@ -33,67 +33,37 @@ service_data:
             show_header_toggle: false
             entities:
               - type: weblink
-                name: Server adres
-                icon: mdi:nas
-                url: !secret url_unraid
-          - type: custom:entity-attributes-card
-            heading_name: Attribuut
-            heading_state: Status
-            filter:
-              include:
-                - key: binary_sensor.unraid_server.motherboard
-                - key: binary_sensor.unraid_server.cpu                      
-                - key: binary_sensor.unraid_server.memory
-                - key: binary_sensor.unraid_server.arrayStatus
-                - key: binary_sensor.unraid_server.diskSpace
-                - key: binary_sensor.unraid_server.arrayProtection
-            style: |
-              ha-card {
-                --primary-text-color: var(--sidebar-icon-color)
-              }    
-          - type: custom:bar-card
-            width: 55%
-            height: 2em
-            decimal: 0
-            unit_of_measurement: '%'
-            positions: &bar_card_positions
-              icon: outside
-              indicator: 'off'
-              name: outside
-            severity: &bar_card_severity
-              - color: '#303435'
-                from: 0
-                to: 89
-              - color: '#6d2525'
-                from: 90
-                to: 100
-            entity_row: true
-            entities:
-              - entity: sensor.glances_cpu_used
-                max: 100
-                name: CPU
-              - entity: sensor.glances_ram_used_percent
-                name: RAM
-                max: 100
-              - entity: sensor.glances_used_percent
-                max: 100
-                name: Disk
-              - entity: sensor.glances_containers_active 
-                name: Containers    
-                max: 30
-              - entity: sensor.glances_containers_ram_used
-                name: Docker RAM 
-                max: 10000                
-              - entity: sensor.glances_containers_cpu_used
-                name: Docker CPU
-            style: |
-              ha-card {
-                --primary-text-color: var(--sidebar-icon-color)
-              }    
+                name: Unifi Controller
+                icon: mdi:access-point
+                url: !secret url_unifi_controller
+              - type: weblink
+                name: Dsmr Reader
+                icon: mdi:flash
+                url: !secret url_dsmr
+              - type: weblink
+                name: HACS
+                icon: mdi:home-outline
+                url: !secret url_HACS
+              - type: weblink
+                name: deCONZ
+                icon: mdi:emby
+                url: !secret url_deCONZ
+              - type: weblink
+                name: AdGuard
+                icon: mdi:shield-check-outline
+                url: !secret url_AdGuard
+              - type: weblink
+                name: Google Drive Backup
+                icon: mdi:cloud-upload-outline
+                url: !secret url_google_drive_backup
+              - type: weblink
+                name: ioBroker
+                icon: mdi:iobroker
+                url: !secret url_ioBroker
       - break
       - type: custom:stack-in-card
         mode: vertical
-        title: Operation Control
+        title: Server
         class: add_header
         style: |
           ha-card {
@@ -103,35 +73,74 @@ service_data:
           - type: entities
             show_header_toggle: false
             entities:
-              - entity: switch.unraid_array
-                icon: mdi:harddisk 
-                name: Array
-              - switch.unraid_partitycheck
-              - switch.unraid_mover
-              - switch.unraid_reboot
-              - switch.unraid_power_off
-            style: |
-              ha-card {
-                --primary-text-color: var(--sidebar-icon-color)
-              }  
+              - type: weblink
+                name: Unraid
+                icon: mdi:nas
+                url: !secret url_unraid
+              - type: weblink
+                name: Emby
+                icon: mdi:emby
+                url: !secret url_emby
+              - type: weblink
+                name: Glances
+                icon: mdi:state-machine
+                url: !secret url_glances
+              - type: weblink
+                name: Makemkv
+                icon: mdi:file-video
+                url: !secret url_makemkv 
+              - type: weblink
+                name: Mediainfo
+                icon: mdi:information-variant
+                url: !secret url_mediainfo 
+              - type: weblink
+                name: SABnzbd
+                icon: mdi:download
+                url: !secret url_SABnzbd 
+              - type: weblink
+                name: Tsmuxer
+                icon: mdi:video-switch-outline
+                url: !secret url_tsmuxer
+              - type: weblink
+                name: Unraid api
+                icon: mdi:api
+                url: !secret url_unraid_api 
       - break
       - type: custom:stack-in-card
         mode: vertical
-        title: Docker Control
+        title: Server Control
         class: add_header
         style: |
           ha-card {
             --primary-text-color: var(--primary-color)
           }
         cards:
-          - type: custom:auto-entities
-            filter:
-              include:
-                - entity_id: switch.unraid_docker_*   
-            card:
-              type: entities
-              show_header_toggle: false
-              style: |
-                ha-card {
-                  --primary-text-color: var(--sidebar-icon-color)
-                }
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - sensor.unraid_server
+              - switch.unraid_power_off
+              - switch.unraid_array
+              - switch.unraid_partitycheck
+              - switch.unraid_mover
+              - switch.unraid_reboot
+              
+            style: |
+              ha-card {
+                --primary-text-color: var(--sidebar-icon-color)
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Dockers
+            entities:
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - entity_id: switch.unraid_docker_*   
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  style: |
+                    ha-card {
+                      --primary-text-color: var(--sidebar-icon-color)
+                    }      

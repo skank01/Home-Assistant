@@ -1,4 +1,0 @@
-roomba:
-  - host: !secret roomba_ip
-    blid: !secret roomba_blid
-    password: !secret roomba_password
