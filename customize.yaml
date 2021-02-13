@@ -1,0 +1,23 @@
+sensor.dsmr_day_consumption_electricity1:
+  friendly_name: Electriciteit Dagtarief
+sensor.dsmr_day_consumption_electricity2:
+  friendly_name: Electriciteit Nachttarief
+sensor.dsmr_day_consumption_electricity_merged:
+  friendly_name: Electriciteit Totaal
+sensor.dsmr_day_consumption_gas:
+  friendly_name: Gas
+sensor.dsmr_day_consumption_electricity1_returned:
+  friendly_name: Injectie Dagtarief
+sensor.dsmr_day_consumption_electricity2_returned:
+  friendly_name: Injectie Nachttarief
+sensor.dsmr_day_consumption_electricity_returned_merged:
+  friendly_name: Injectie Totaal
+sensor.dsmr_day_consumption_electricity1_cost:
+  friendly_name: Kosten Dagtarief
+sensor.dsmr_day_consumption_electricity2_cost:
+  friendly_name: Kosten Nachttarief
+sensor.dsmr_day_consumption_electricity_cost_merged: {}
+sensor.dsmr_day_consumption_gas_cost:
+  friendly_name: Kosten Gas
+sensor.dsmr_day_consumption_total_cost:
+  friendly_name: Totale Kost (incl vast)

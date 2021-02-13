@@ -1,0 +1,19 @@
+utility_meter:
+  dagelijks_energie_dagtarief:
+    source: sensor.dsmr_day_consumption_electricity1
+    cycle: daily
+  dagelijks_energie_nachttarief:
+    source: sensor.dsmr_day_consumption_electricity2
+    cycle: daily
+  dagelijks_gas:
+    source: sensor.dsmr_day_consumption_gas
+    cycle: daily
+  maandelijks_energie_dagtarief:
+    source: sensor.dsmr_day_consumption_electricity1
+    cycle: monthly
+  maandelijks_energie_nachttarief:
+    source: sensor.dsmr_day_consumption_electricity2
+    cycle: monthly
+  maandelijks_gas:
+    source: sensor.dsmr_day_consumption_gas
+    cycle: monthly

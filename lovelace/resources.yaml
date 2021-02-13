@@ -44,4 +44,5 @@
   type: module
 - url: /hacsfiles/kiosk-mode/kiosk-mode.js
   type: module  
-   
+- url: /hacsfiles/apexcharts-card/apexcharts-card.js
+  type: module   

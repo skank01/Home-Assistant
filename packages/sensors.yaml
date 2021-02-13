@@ -60,6 +60,26 @@ sensor:
         value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
 
 
+#### ENERGIE MONITORING #######################################################
+  - platform: template
+    sensors:
+      dagelijks_energie:
+        friendly_name: Dagelijks Energie
+        unit_of_measurement: kWh
+        value_template: "{{ states('dagelijks_energie_dagtarief')|float + states('dagelijks_energie_nachttarief')|float }}"
+      maandelijsk_energie:
+        friendly_name: Maandelijks Energie
+        unit_of_measurement: kWh
+        value_template: "{{ states('maandelijks_energie_dagtarief')|float + states('maandelijks_energie_nachttarief')|float }}"
+      huidig_stroomverbruik_watt:
+        friendly_name: "Huidig Stroomverbruik Watt"
+        unit_of_measurement: 'W'
+        value_template: "{{(states('sensor.dsmr_reading_electricity_currently_delivered') | float * 1000) | round(0)}}"
+      huidig_stroomopbrengst_watt:
+        friendly_name: "Huidig Stroomopbrengst Watt"
+        unit_of_measurement: 'W'
+        value_template: "{{(states('sensor.dsmr_reading_electricity_currently_returned') | float * 1000) | round(0)}}"
+
 #### SERVER MONITORING #######################################################
   - platform: systemmonitor
     resources:
