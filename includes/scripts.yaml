@@ -43,18 +43,16 @@ douche:
   icon: "mdi:shower-head"
   description: 'Douche routine die het licht aanzet met bijpassende muziek'
   sequence:
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.badkamer
-      source: 'Songs to Sing in the Shower'
   - service: media_player.volume_set
     data:
       volume_level: 0.3
     entity_id: media_player.badkamer
-  - service: media_player.shuffle_set
+  - service: media_player.select_source
     data:
+      entity_id: media_player.badkamer
+      uri: 'spotify:playlist:37i9dQZF1DWSqmBTGDYngZ' 
+      random_song: true
       shuffle: true
-    entity_id: media_player.badkamer
   - condition: state 
     entity_id: sun.sun
     state: 'below_horizon'
@@ -71,18 +69,16 @@ bad:
   icon: "mdi:shower"
   description: 'Bad routine die het licht aanzet met bijpassende muziek'
   sequence:
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.badkamer
-      source: 'SPA Treatment'
   - service: media_player.volume_set
     data:
       volume_level: 0.1
     entity_id: media_player.badkamer
-  - service: media_player.shuffle_set
+  - service: spotcast.start
     data:
+      entity_id: media_player.badkamer
+      uri: 'spotify:playlist:37i9dQZF1DX4Q2SnB3glnP' 
+      random_song: true
       shuffle: true
-    entity_id: media_player.badkamer
   - condition: state 
     entity_id: sun.sun
     state: 'below_horizon'
@@ -99,18 +95,16 @@ dinner:
   icon: "mdi:silverware-fork-knife"
   description: 'Etentje met vrienden die het juiste licht en playlist instelt'
   sequence:
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.woonkamer
-      source: 'Dinner with Friends'
   - service: media_player.volume_set
     data:
       volume_level: 0.3
     entity_id: media_player.woonkamer
-  - service: media_player.shuffle_set
+  - service: spotcast.start
     data:
+      entity_id: media_player.keuken
+      uri: 'spotify:playlist:37i9dQZF1DX4xuWVBs4FgJ' 
+      random_song: true
       shuffle: true
-    entity_id: media_player.woonkamer
     
     
 ##############################
@@ -122,18 +116,17 @@ ironing:
   icon: "mdi:tshirt-crew"
   description: 'Strijken met muziek en licht'
   sequence:
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.bureau
-      source: 'ironing music'
   - service: media_player.volume_set
     data:
       volume_level: 0.3
     entity_id: media_player.bureau
-  - service: media_player.shuffle_set
+  - service: media_player.select_source
     data:
+      entity_id: media_player.bureau
+      uri: 'spotify:playlist:6I8TafDQMeysc8S0glbwQL' 
+      random_song: true
       shuffle: true
-    entity_id: media_player.bureau    
+  
 
  
 ##############################

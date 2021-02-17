@@ -42,15 +42,15 @@
     to: home
   action:
   - data:
-      entity_id: media_player.woonkamer
+      entity_id: media_player.keuken
     service: media_player.turn_on
   - delay: 00:00:02
   - data:
-      entity_id: media_player.woonkamer
+      entity_id: media_player.keuken
       language: nl
-      message: Hallo knapperd, welkom thuis!
+      message: Welkom thuis, het was saai zonder jou !
     service: tts.google_translate_say
   - delay: 00:00:04
   - data:
-      entity_id: media_player.woonkamer
+      entity_id: media_player.keuken
     service: media_player.turn_off
