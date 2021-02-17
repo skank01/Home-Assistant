@@ -1,0 +1,127 @@
+##########################
+## Fire alarm
+##########################
+- id: 'fire_alarm_on'
+  alias: Brandmelding
+  mode: single
+  trigger:
+  - entity_id:
+      - binary_sensor.brand_living
+      - binary_sensor.brand_garage
+      - binary_sensor.brand_techniek
+      - binary_sensor.brand_wasplaats
+      - binary_sensor.brand_1ste
+      - binary_sensor.brand_2de
+    platform: state
+    from: "off"
+    to: "on"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 4
+  condition: []
+  action:
+    - service: notify.mobile_devices
+      data:
+        title: "Brand gedetecteerd!"
+        message: '{{ trigger.to_state.attributes.friendly_name }}'
+        data:
+          priority: high
+          ttl: 0
+          channel: brand_alarm
+          importance: high
+          persistent: true
+          sticky: true
+          tag: brand_alarm
+    - service: light.turn_on
+      data:  
+        entity_id: all
+- id: 'fire_alarm_off'
+  alias: Brandmelding opgelost
+  mode: single
+  trigger:
+  - entity_id:
+      - binary_sensor.brand_living
+      - binary_sensor.brand_garage
+      - binary_sensor.brand_techniek
+      - binary_sensor.brand_wasplaats
+      - binary_sensor.brand_1ste
+      - binary_sensor.brand_2de
+    platform: state
+    from: "on"
+    to: "off"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 8
+  condition: []
+  action:
+    - service: notify.mobile_devices
+      data:
+        message: Brand onder controle!
+        data:
+          priority: high
+          ttl: 0
+          channel: brand_alarm
+          importance: high
+          tag: brand_alarm   # Tag is required for the persistent notification
+    - service: light.turn_off
+      data:  
+        entity_id: all
+   
+   
+##########################
+## CO alarm
+########################## 
+- id: 'CO-detectie_on'
+  alias: CO-melding
+  mode: single
+  trigger:
+  - entity_id:
+      - binary_sensor.co_techniek
+    platform: state
+    from: "off"
+    to: "on"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 4
+  condition: []
+  action:
+    - service: notify.mobile_devices
+      data:
+        title: "CO gedetecteerd!"
+        message: CO in technische ruimte !!
+        data:
+          priority: high
+          ttl: 0
+          channel: co_alarm
+          importance: high
+          persistent: true
+          sticky: true
+          tag: co_alarm  
+- id: 'CO-detectie_off'
+  alias: CO-melding opgelost
+  mode: single
+  trigger:
+  - entity_id:
+      - binary_sensor.co_techniek
+    platform: state
+    from: "on"
+    to: "off"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 8
+  condition: []
+  action:
+    - service: notify.mobile_devices
+      data:
+        message: Geen CO-melding meer!
+        data:
+          priority: high
+          ttl: 0
+          channel: co_alarm
+          importance: high
+          tag: co_alarm   # Tag is required for the persistent notification
+   
