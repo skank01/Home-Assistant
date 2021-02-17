@@ -21,6 +21,11 @@ homeassistant:
         icon_color: >
           if (state === 'up') return 'rgb(52,152,219)';
           else return 'rgb(95,99,104)';
+    sensor.unifi_ap_slaapkamer:
+      templates:
+        icon_color: >
+          if (state === 'up') return 'rgb(52,152,219)';
+          else return 'rgb(95,99,104)';
     sensor.unraid_server:
       templates:
         icon_color: >
@@ -103,4 +108,13 @@ sensor:
             up
           {% else %}
             down
-          {% endif %}      
+          {% endif %}   
+      unifi_ap_slaapkamer:
+        friendly_name: AP Slaapkamer
+        icon_template: mdi:access-point-network
+        value_template: >
+          {% if is_state('device_tracker.unifi_ap_slaapkamer', 'home') %}
+            up
+          {% else %}
+            down
+          {% endif %}   

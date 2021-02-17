@@ -199,7 +199,6 @@ service_data:
             cache: true
             span:
               end: month
-              offset: '-1hour'
             header:
               show: false
             apex_config:

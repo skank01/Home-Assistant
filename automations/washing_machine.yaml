@@ -77,10 +77,7 @@
       seconds: 5
   condition: []
   action:
-    - service: notify.mobile_app_nokia_7_plus
-      data:
-        message: De wasmachine is klaar!
-    - service: notify.mobile_app_oneplus_nord
+    - service: notify.mobile_devices
       data:
         message: De wasmachine is klaar!
     - service: tts.google_translate_say

@@ -12,10 +12,7 @@
     entity_id: input_boolean.brievenbus
     state: 'off'
   action:
-    - service: notify.mobile_app_nokia_7_plus
-      data:
-        message: Jackpot! Er is post!
-    - service: notify.mobile_app_oneplus_nord
+    - service: notify.mobile_devices
       data:
         message: Jackpot! Er is post!
     - service: input_boolean.turn_on
@@ -35,10 +32,7 @@
     entity_id: input_boolean.pakjesbus
     state: 'off'
   action:
-    - service: notify.mobile_app_nokia_7_plus
-      data:
-        message: Eureka! Pakje toegekomen!
-    - service: notify.mobile_app_oneplus_nord
+    - service: notify.mobile_devices
       data:
         message: Eureka! Pakje toegekomen!
     - service: input_boolean.turn_on

@@ -41,7 +41,13 @@
     - entity: input_boolean.pakjesbus
       state: "off"  
     - entity: alarm_control_panel.risco
-      state: "disarmed"    
+      state: "disarmed"
+    - entity: sensor.unifi_gateway_firmware_upgradable
+      state: "0"
+    - entity: sensor.unifi_gateway_wan
+      state: "OK"  
+    - entity: sensor.unifi_switch
+      state: "up"  
   card:
     type: custom:decluttering-card
     template: notification_template
@@ -59,6 +65,34 @@
     variables:
       - name: Er is een update voor Home Assistant!!
       
+# Unifi 
+- type: conditional
+  conditions:
+    - entity: sensor.unifi_gateway_firmware_upgradable
+      state_not: "0"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Er is een update voor Unifi!!
+- type: conditional
+  conditions:
+    - entity: sensor.unifi_gateway_wan
+      state_not: "OK"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Geen internet verbinding!!
+- type: conditional
+  conditions:
+    - entity: sensor.unifi_switch
+      state_not: "up"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Unifi switch down!!
       
 # CO Triggered
 - type: conditional
@@ -225,6 +259,7 @@
     template: notification_template
     variables:
       - name: Alarm gedeeltelijk actief!!
+     
 
 # Garbage
 - type: conditional

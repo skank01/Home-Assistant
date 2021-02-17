@@ -106,6 +106,7 @@ service_data:
                   - entity: sensor.unifi_switch
                   - entity: sensor.unifi_ap_living
                   - entity: sensor.unifi_ap_verdiep_1
+                  - entity: sensor.unifi_ap_slaapkamer
                 show_state: false  
                 style: |
                   ha-card {

@@ -375,7 +375,7 @@
     - service: homeassistant.turn_on
       data:
         entity_id: "{{ state_attr('group.simulation_lights_on','entity_id') | random }}"     
-    - service: notify.mobile_app_nokia_7_plus
+    - service: notify.mobile_devices
       data:
         message: Ik heb je simulatielichten boven aangestoken om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.
 
@@ -393,6 +393,6 @@
     - delay: '00:{{ range(01,30) | random | int }}:00'
     - service: homeassistant.turn_off
       entity_id: group.simulation_lights_off
-    - service: notify.mobile_app_nokia_7_plus
+    - service: notify.mobile_devices
       data:
         message: Ik heb je aanwezigheidssimulatie met lichten gestopt om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.
