@@ -90,7 +90,7 @@ Plugins:
 - Stack-in-card
 - Config-template-card
 - Custom-ui
-
+- ApexCharts
 
 
 ## Devices ##
