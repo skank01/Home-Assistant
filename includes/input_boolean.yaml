@@ -29,3 +29,7 @@ bad:
 dinner:
   name: Etentje
   icon: mdi:silverware-fork-knife
+  
+verlichting:
+  name: ochtendverlichting
+  icon: mdi:light  

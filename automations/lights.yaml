@@ -131,9 +131,15 @@
         - condition: state
           entity_id: light.eettafel
           state: "off"
+        - condition: state
+          entity_id: input_boolean.verlichting
+          state: "off"
   action:
     - service: homeassistant.turn_on
-      entity_id: light.eettafel
+      entity_id: 
+        - light.eettafel
+        - input_boolean.verlichting
+      
 
 
 ##########################
@@ -396,3 +402,25 @@
     - service: notify.mobile_devices
       data:
         message: Ik heb je aanwezigheidssimulatie met lichten gestopt om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.
+        
+        
+########################################
+## Reset boolean verlichting
+########################################
+
+- id: turn_off_boolean_lights
+  alias: "Lichten: Boolean verlichting uit"
+  initial_state: 'off'
+  trigger:
+    platform: time
+    at: "09:30:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.verlichting
+    state: "on"
+  action:
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.verlichting
+
+
+        

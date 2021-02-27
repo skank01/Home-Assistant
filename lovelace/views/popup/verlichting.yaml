@@ -4,7 +4,6 @@ browser_mod:
   title: Verlichting
   hide_header: true
   deviceID: this
-  command: popup
   large: true
   card:
     type: custom:homekit-card

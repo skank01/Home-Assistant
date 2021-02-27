@@ -168,6 +168,7 @@ Coming
 
 Inspiration and code was taken from many different sources:
 
+- [Troetelbeer](https://github.com/ddhatablet/hass-config)
 - [Duboisph](https://github.com/duboisph/home-assistant-config)
 - [Hmmbob](https://github.com/hmmbob/HomeAssistantConfig)
 - [Basnijholt](https://github.com/basnijholt/home-assistant-config)
