@@ -1,254 +1,246 @@
 title: Home
 icon: mdi:home-outline
 path: Home
-type: 'custom:layout-card'
-column_width: 100%
-layout: horizontal
-max_columns: 5
 cards:
   - type: custom:gap-card
-  - type: 'custom:layout-card'
-    layout: vertical
-    max_columns: 1
-    max_height: 128
-    max_width: 900
-    cards:
-      - type: markdown
-        content: |
-          <font size=6>{{ states('sensor.greeting') }}</font>
-        style: |
-          ha-card {
-            margin-top: 5px;
-            background-color: rgba(0, 0, 0, 0);
-            font-size: 100%;
-            -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-             box-shadow: none;
-             text-align: center;
-           }
-           h1, h3 {
-             font-weight: 400 !important;
-           }
-      - type: custom:swipe-card
-        parameters:
-          allowTouchMove: true
-          grabCursor: true
-          autoplay:
-            disableOnInteraction: false
-        cards:
-          !include ../../includes/notifications.yaml      
-  - type: custom:layout-card
-    column_width: 150
-    layout: horizontal
-    max_columns: 5
-    max_height: 128
-    max_width: 150
-    cards: 
-      - type: custom:button-card
-        entity: sensor.postbus
-        state:
-        - value: "closed"
-          icon: mdi:mailbox
-        - value: "open"
-          icon: mdi:mailbox-up
-          styles:
-            icon:
-              - color: var(--primary-color)
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-        tap_action:
-          action: call-service
-          service: homeassistant.turn_off
-          service_data:
-            entity_id: 
-              - input_boolean.brievenbus
-              - input_boolean.pakjesbus
-      - name: Verlichting
-        type: custom:button-card
-        icon: mdi:lightbulb-outline
-        tap_action: !include popup/verlichting.yaml
-        style: |
-          ha-card {
-            height: 128px;
-          }
-      - entity: person.stijn
-        type: picture-entity
-        image: /local/stijn.jpg
-        tap_action: !include popup/persoon1.yaml
-        style: |
-          ha-card {
-            height: 128px !important;
-          }
-      - name: Entertainment
-        type: custom:button-card
-        icon: mdi:television-classic
-        tap_action: !include popup/entertainment.yaml
-        style: |
-          ha-card {
-            height: 128px;
-            --paper-item-icon-active-color: #e79118;
-          }
-      - name: Huishouden
-        type: custom:button-card
-        icon: mdi:broom
-        tap_action: !include popup/household.yaml
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-      - name: Alarm
-        type: custom:button-card
-        tap_action: !include popup/alarm.yaml
-        entity: alarm_control_panel.risco
-        state:
-        - value: "disarmed"
-          icon: mdi:shield-off
-        - value: "armed_away"
-          icon: mdi:shield-check
-          styles:
-            icon:
-              - color: var(--primary-color)
-        - value: "armed_home"
-          icon: mdi:shield-half-full
-          styles:
-            icon:
-              - color: var(--primary-color) 
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-      - name: Security
-        type: custom:button-card
-        icon: mdi:cctv
-        tap_action: !include popup/security.yaml
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-      - type: picture-entity
-        entity: person.kim
-        image: /local/kim.jpg
-        tap_action: !include popup/persoon2.yaml
-        style: |
-          ha-card {
-            height: 128px !important;
-          }
-      - name: Server
-        type: custom:button-card
-        icon: mdi:nas
-        tap_action: !include popup/server.yaml
-        style: |
-          ha-card {
-            height: 128px;
-          }
-      - name: Netwerk
-        type: custom:button-card
-        icon: mdi:server-network
-        tap_action: !include popup/network.yaml
-        style: |
-          ha-card {
-            height: 128px;
-          }
-      - name: Garagepoort
-        type: custom:button-card
-        entity: binary_sensor.garage_poort
-        state:
-        - value: "on"
-          icon: mdi:garage-open-variant
-        - value: "off"
-          icon: mdi:garage-variant 
-          styles:
-            icon:
-              - color: var(--primary-text-color)
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-        tap_action:
-          action: call-service
-          service: homeassistant.toggle
-          service_data:
-            entity_id: switch.garagepoort 
-      - name: Temperatuur
-        type: custom:button-card
-        icon: mdi:home-thermometer-outline
-        tap_action: !include popup/temperatuur.yaml
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-      - type: picture-entity
-        entity: person.james
-        image: /local/hond.jpg
-        show_state: false
-        tap_action: !include popup/dog.yaml
-        style: |
-          ha-card {
-            height: 128px !important;
-          }
-      - name: Energie
-        type: custom:button-card
-        icon: mdi:power-plug
-        tap_action: !include popup/energie.yaml
-        style: |
-          ha-card {
-            height: 128px;
-          }
-      - name: Sensoren
-        type: custom:button-card
-        icon: mdi:leak
-        tap_action: !include popup/sensoren.yaml
-        style: |
-          ha-card {
-            height: 128px;
-            text-align: center;
-          }
-  - type: custom:gap-card
+  - type: markdown
+    content: |
+      <font size=6>{{ states('sensor.greeting') }}</font>
     style: |
       ha-card {
-        height: 5px;
-      }
-  - type: 'custom:layout-card'
-    layout: horizontal
-    max_columns: 3
-    max_height: 128
-    max_width: 310
+        margin-top: 5px;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 100%;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+         box-shadow: none;
+         text-align: center;
+       }
+       h1, h3 {
+         font-weight: 400 !important;
+       }
+  - type: custom:swipe-card
+    parameters:
+      allowTouchMove: true
+      grabCursor: true
+      autoplay:
+        disableOnInteraction: false
     cards:
-      - type: markdown
-        content: |
-          <font size=5>{{ states.sensor.time.state }}</font>
-          <font size=5>{{ states.sensor.date_long.state }}</font>
-        style: |
-          ha-card {
-            margin-top: 30px;
-            background-color: rgba(0, 0, 0, 0);
-            font-size: 100%;
-            -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-             box-shadow: none;
-             text-align: left;
-           }
-           h1, h3 {
-             font-weight: 400 !important;
-           }
+      !include ../../includes/notifications.yaml      
+  
+  - type: custom:layout-card
+    layout_type: vertical
+    layout_options:
+      max_cols: 5
+      width: 900
+    cards: 
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: sensor.postbus
+            state:
+            - value: "closed"
+              icon: mdi:mailbox
+            - value: "open"
+              icon: mdi:mailbox-up
+              styles:
+                icon:
+                  - color: var(--primary-color)
+            style: |
+              ha-card {
+                height: 128px;
+
+                text-align: center;
+              }
+            tap_action:
+              action: call-service
+              service: homeassistant.turn_off
+              service_data:
+                entity_id: 
+                  - input_boolean.brievenbus
+                  - input_boolean.pakjesbus
+          - name: Verlichting
+            type: custom:button-card
+            icon: mdi:lightbulb-outline
+            tap_action: !include popup/verlichting.yaml
+            style: |
+              ha-card {
+                height: 128px;
+              }
+          - entity: person.stijn
+            type: picture-entity
+            image: /local/stijn.jpg
+            tap_action: !include popup/persoon1.yaml
+            style: |
+              ha-card {
+                height: 128px !important;
+              }
+          - name: Entertainment
+            type: custom:button-card
+            icon: mdi:television-classic
+            tap_action: !include popup/entertainment.yaml
+            style: |
+              ha-card {
+                height: 128px;
+                --paper-item-icon-active-color: #e79118;
+              }
+          - name: Huishouden
+            type: custom:button-card
+            icon: mdi:broom
+            tap_action: !include popup/household.yaml
+            style: |
+              ha-card {
+                height: 128px;
+                text-align: center;
+              }
+      - type: horizontal-stack
+        cards:
+          - name: Alarm
+            type: custom:button-card
+            tap_action: !include popup/alarm.yaml
+            entity: alarm_control_panel.risco
+            state:
+            - value: "disarmed"
+              icon: mdi:shield-off
+            - value: "armed_away"
+              icon: mdi:shield-check
+              styles:
+                icon:
+                  - color: var(--primary-color)
+            - value: "armed_home"
+              icon: mdi:shield-half-full
+              styles:
+                icon:
+                  - color: var(--primary-color) 
+            style: |
+              ha-card {
+                height: 128px;
+                text-align: center;
+              }
+          - name: Security
+            type: custom:button-card
+            icon: mdi:cctv
+            tap_action: !include popup/security.yaml
+            style: |
+              ha-card {
+                height: 128px;
+                text-align: center;
+              }
+          - type: picture-entity
+            entity: person.kim
+            image: /local/kim.jpg
+            tap_action: !include popup/persoon2.yaml
+            style: |
+              ha-card {
+                height: 128px !important;
+              }
+          - name: Server
+            type: custom:button-card
+            icon: mdi:nas
+            tap_action: !include popup/server.yaml
+            style: |
+              ha-card {
+                height: 128px;
+              }
+          - name: Netwerk
+            type: custom:button-card
+            icon: mdi:server-network
+            tap_action: !include popup/network.yaml
+            style: |
+              ha-card {
+                height: 128px;
+              }
+      - type: horizontal-stack
+        cards:
+          - name: Garagepoort
+            type: custom:button-card
+            entity: binary_sensor.garage_poort
+            state:
+            - value: "on"
+              icon: mdi:garage-open-variant
+            - value: "off"
+              icon: mdi:garage-variant 
+              styles:
+                icon:
+                  - color: var(--primary-text-color)
+            style: |
+              ha-card {
+                height: 128px;
+                text-align: center;
+              }
+            tap_action:
+              action: call-service
+              service: homeassistant.toggle
+              service_data:
+                entity_id: switch.garagepoort 
+          - name: Temperatuur
+            type: custom:button-card
+            icon: mdi:home-thermometer-outline
+            tap_action: !include popup/temperatuur.yaml
+            style: |
+              ha-card {
+                height: 128px;
+                text-align: center;
+              }
+          - type: picture-entity
+            entity: person.james
+            image: /local/hond.jpg
+            show_state: false
+            tap_action: !include popup/dog.yaml
+            style: |
+              ha-card {
+                height: 128px !important;
+              }
+          - name: Energie
+            type: custom:button-card
+            icon: mdi:power-plug
+            tap_action: !include popup/energie.yaml
+            style: |
+              ha-card {
+                height: 128px;
+              }
+          - name: Sensoren
+            type: custom:button-card
+            icon: mdi:leak
+            tap_action: !include popup/sensoren.yaml
+            style: |
+              ha-card {
+                height: 128px;
+                text-align: center;
+              }
       - type: custom:gap-card
-      - type: weather-forecast
-        name: Weer
-        entity: weather.thuis
-        show_forecast: false
         style: |
           ha-card {
-            margin-top: 30px;
-            background-color: transparent !important;
-            box-shadow: none !important;
-          }        
+            height: 5px;
+          }
+      - type: horizontal-stack
+        cards:
+          - type: markdown
+            content: |
+              <font size=5>{{ states.sensor.time.state }}</font>
+              <font size=5>{{ states.sensor.date_long.state }}</font>
+            style: |
+              ha-card {
+                margin-top: 30px;
+                background-color: rgba(0, 0, 0, 0);
+                font-size: 100%;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                 box-shadow: none;
+                 text-align: left;
+               }
+               h1, h3 {
+                 font-weight: 400 !important;
+               }
+          - type: weather-forecast
+            name: Weer
+            entity: weather.thuis
+            show_forecast: false
+            style: |
+              ha-card {
+                margin-top: 10px;
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }        
+            
         
-    

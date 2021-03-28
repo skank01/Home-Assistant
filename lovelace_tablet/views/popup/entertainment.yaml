@@ -7,7 +7,7 @@ browser_mod:
   style:
     .: |
       :host .content {
-        width: calc(385px + 385px + 385px);
+        width: calc(385px + 385px + 385px + 385px);
         max-width: 90vw;
       }
     $: |
@@ -16,9 +16,10 @@ browser_mod:
       }
   card:
     type: custom:layout-card
-    column_num: 3
-    column_width: [385, 385, 385]
-    layout: vertical
+    layout_type: vertical
+    layout_options:
+      column_num: 4
+      width: 385
     cards:
       - type: custom:vertical-stack-in-card
         title: Entertainment
@@ -71,7 +72,7 @@ browser_mod:
               ha-card {
                 --primary-text-color: var(--secondary-text-color)
               }    
-      - break
+      - type: custom:layout-break
       - type: custom:vertical-stack-in-card
         title: Luidprekers
         style: |
@@ -199,7 +200,7 @@ browser_mod:
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
                   }  
-      - break
+      - type: custom:layout-break
       - type: custom:stack-in-card
         title: Mediaspelers
         style: |

@@ -1,10 +1,10 @@
 title: Home
 icon: mdi:home-outline
 path: Home
-type: 'custom:layout-card'
-column_width: 100%
-layout: horizontal
-max_columns: 3
+type: custom:layout-card
+layout_type: vertical
+layout_options:
+  max_cols: 3
 cards:
   - type: custom:stack-in-card
     mode: horizontal
@@ -40,11 +40,10 @@ cards:
              box-shadow: none;
              text-align: right;
            }
-  - type: 'custom:layout-card'
-    layout: vertical
-    max_columns: 3
-    max_height: 96
-    max_width: 400
+  - type: custom:layout-card
+    layout_type: vertical
+    layout_options:
+    max_cols: 3
     cards:
       - type: markdown
         content: |
@@ -70,12 +69,7 @@ cards:
             disableOnInteraction: false
         cards:
           !include ../../includes/notifications.yaml      
-  - type: custom:layout-card
-    column_width: 96
-    layout: horizontal
-    max_columns: 3
-    max_height: 96
-    max_width: 130
+  - type: horizontal-stack
     cards:
       - type: custom:button-card
         entity: sensor.postbus
@@ -142,6 +136,8 @@ cards:
           service: homeassistant.toggle
           service_data:
             entity_id: switch.garagepoort 
+  - type: horizontal-stack
+    cards:  
       - entity: person.stijn
         type: picture-entity
         image: /local/stijn.jpg
@@ -167,6 +163,8 @@ cards:
           ha-card {
             height: 96px !important;
           }
+  - type: horizontal-stack
+    cards:    
       - name: Verlichting
         type: custom:button-card
         icon: mdi:lightbulb-outline
@@ -193,6 +191,8 @@ cards:
             height: 96px;
             --paper-item-icon-active-color: #e79118;
           }
+  - type: horizontal-stack
+    cards:   
       - name: Huishouden
         type: custom:button-card
         icon: mdi:broom
@@ -219,6 +219,8 @@ cards:
           ha-card {
             height: 96px;
           }
+  - type: horizontal-stack
+    cards:    
       - name: Netwerk
         type: custom:button-card
         icon: mdi:server-network

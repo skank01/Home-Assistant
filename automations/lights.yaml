@@ -35,9 +35,14 @@
         - condition: state
           entity_id: light.tuinverlichting
           state: "off"
+        - condition: state
+          entity_id: input_boolean.verlichting_tuin
+          state: "off"  
   action:
     - service: homeassistant.turn_on
-      entity_id: light.tuinverlichting   
+      entity_id: 
+        - light.tuinverlichting  
+        - input_boolean.verlichting_tuin
 
 - id: turn_off_garden_lights_in_the_morning
   alias: "Lichten: Tuinverlichting 's morgens uit"
@@ -132,13 +137,13 @@
           entity_id: light.eettafel
           state: "off"
         - condition: state
-          entity_id: input_boolean.verlichting
+          entity_id: input_boolean.verlichting_eettafel
           state: "off"
   action:
     - service: homeassistant.turn_on
       entity_id: 
         - light.eettafel
-        - input_boolean.verlichting
+        - input_boolean.verlichting_eettafel
       
 
 
@@ -410,17 +415,15 @@
 
 - id: turn_off_boolean_lights
   alias: "Lichten: Boolean verlichting uit"
-  initial_state: 'off'
+  initial_state: 'true'
   trigger:
     platform: time
     at: "09:30:00"
-  condition:
-  - condition: state
-    entity_id: input_boolean.verlichting
-    state: "on"
   action:
   - service: homeassistant.turn_off
-    entity_id: input_boolean.verlichting
+    entity_id: 
+      - input_boolean.verlichting_eettafel
+      - input_boolean.verlichting_tuin
 
 
         

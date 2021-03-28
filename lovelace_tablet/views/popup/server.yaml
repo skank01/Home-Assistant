@@ -16,9 +16,10 @@ browser_mod:
       }
   card:
     type: custom:layout-card
-    column_num: 3
-    column_width: [385, 385, 385]
-    layout: vertical
+    layout_type: vertical
+    layout_options:
+      column_num: 3
+      column_width: 385
     cards:
       - type: custom:stack-in-card
         mode: vertical
@@ -60,7 +61,7 @@ browser_mod:
                 name: ioBroker
                 icon: mdi:iobroker
                 url: !secret url_ioBroker
-      - break
+      - type: custom:layout-break
       - type: custom:stack-in-card
         mode: vertical
         title: Server
@@ -105,7 +106,7 @@ browser_mod:
                 name: Unraid api
                 icon: mdi:api
                 url: !secret url_unraid_api 
-      - break
+      - type: custom:layout-break
       - type: custom:stack-in-card
         mode: vertical
         title: Server Control

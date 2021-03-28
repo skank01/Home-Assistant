@@ -7,7 +7,7 @@ browser_mod:
   style:
     .: |
       :host .content {
-        width: calc(385px + 385px);
+        width: calc(450px + 450px);
         max-width: 90vw;
       }
     $: |
@@ -16,9 +16,10 @@ browser_mod:
       }
   card:
     type: custom:layout-card
-    column_num: 3
-    column_width: [385, 385]
-    layout: vertical
+    layout_type: vertical
+    layout_options:
+      column_num: 3
+      column_width: 450
     cards:
       - type: custom:vertical-stack-in-card
         cards:
@@ -174,7 +175,7 @@ browser_mod:
                       color: rgba(255,255,255,0.8)
                       line-height: 32px
                       padding: 8px 13px    
-      - break
+      - type: custom:layout-break
       - type: custom:vertical-stack-in-card
         keep:
           margin: true

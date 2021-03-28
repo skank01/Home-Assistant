@@ -13,7 +13,6 @@ browser_mod:
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
         background: none !important;
       }
-  command: popup
   large: true
   card:
     type: custom:vertical-stack-in-card

@@ -1,5 +1,29 @@
 sensor:
   - platform: dsmr_reader
+  - platform: mqtt
+    name: "Stroom dagtarief per maand"
+    state_topic: "dsmr/current-month/electricity1"
+    unit_of_measurement: 'kWh'
+  - platform: mqtt
+    name: "Stroom nachttarief per maand"
+    state_topic: "dsmr/current-month/electricity2"
+    unit_of_measurement: 'kWh'
+  - platform: mqtt
+    name: "Gas per maand"
+    state_topic: "dsmr/current-month/gas"
+    unit_of_measurement: 'm³'
+  - platform: mqtt
+    name: "Stroom dagtarief per jaar"
+    state_topic: "dsmr/current-year/electricity1"
+    unit_of_measurement: 'kWh'
+  - platform: mqtt
+    name: "Stroom nachttarief per jaar"
+    state_topic: "dsmr/current-year/electricity2"
+    unit_of_measurement: 'kWh'
+  - platform: mqtt
+    name: "Gas per jaar"
+    state_topic: "dsmr/current-year/gas"
+    unit_of_measurement: 'm³'
   - platform: time_date
     display_options:
       - time

@@ -16,9 +16,10 @@ browser_mod:
       }
   card:
     type: custom:layout-card
-    column_num: 3
-    column_width: [385, 385, 385]
-    layout: vertical
+    layout_type: vertical
+    layout_options:
+      column_num: 3
+      column_width: 385
     cards:
       - type: custom:stack-in-card
         title: System
@@ -79,7 +80,7 @@ browser_mod:
                 entity: switch.adguard_protection
               - type: custom:button-card
                 entity: switch.adguard_parental_control
-      - break
+      - type: custom:layout-break
       - type: custom:stack-in-card
         style: |
           ha-card {
@@ -117,7 +118,7 @@ browser_mod:
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
                   }  
-      - break
+      - type: custom:layout-break
       - type: custom:stack-in-card
         title: Home Assistant Stats
         style: |

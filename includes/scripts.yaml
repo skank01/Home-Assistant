@@ -101,7 +101,7 @@ dinner:
     entity_id: media_player.woonkamer
   - service: spotcast.start
     data:
-      entity_id: media_player.keuken
+      entity_id: media_player.woonkamer
       uri: 'spotify:playlist:37i9dQZF1DX4xuWVBs4FgJ' 
       random_song: true
       shuffle: true

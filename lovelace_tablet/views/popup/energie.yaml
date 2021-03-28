@@ -16,10 +16,10 @@ browser_mod:
       }
   card:
     type: custom:layout-card
-    column_num: 3
-    column_width: [400, 400, 400]
-    column_height: [300]
-    layout: vertical
+    layout_type: vertical
+    layout_options:
+      column_num: 3
+      column_width: 385
     cards:
       - type: custom:stack-in-card
         cards:
@@ -72,7 +72,7 @@ browser_mod:
                   blue: 0
                   yellow: 2000
                   red: 3000    
-      - break
+      - type: custom:layout-break
       - type: custom:vertical-stack-in-card
         cards:    
           - type: markdown
@@ -113,7 +113,7 @@ browser_mod:
               - sensor.dsmr_day_consumption_electricity2_cost
               - sensor.dsmr_day_consumption_gas_cost
               - sensor.dsmr_day_consumption_total_cost
-      - break
+      - type: custom:layout-break
       - type: custom:vertical-stack-in-card
         cards:
           - type: markdown

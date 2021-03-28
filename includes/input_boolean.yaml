@@ -30,6 +30,10 @@ dinner:
   name: Etentje
   icon: mdi:silverware-fork-knife
   
-verlichting:
-  name: ochtendverlichting
-  icon: mdi:light  
+verlichting_eettafel:
+  name: Ochtendverlichting eettafel
+  icon: mdi:light 
+
+verlichting_tuin:
+  name: Ochtendverlichting tuin
+  icon: mdi:light   
