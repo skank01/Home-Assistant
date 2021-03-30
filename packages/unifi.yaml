@@ -35,6 +35,7 @@ homeassistant:
 sensor:
   - platform: unifigateway
     host: !secret unifi_host
+    port: !secret unifi_port
     site_id: !secret unifi_site
     username: !secret unifi_username  
     password: !secret unifi_password

@@ -233,14 +233,14 @@ browser_mod:
                     - 90
                     - 100
             series:
-              - entity: sensor.maandelijks_energie_dagtarief
+              - entity: sensor.stroom_dagtarief_per_maand
                 type: column
                 name: Stroom dagtarief
                 float_precision: 2
                 group_by:
                   func: max
                   duration: 31d
-              - entity: sensor.maandelijks_energie_nachttarief
+              - entity: sensor.stroom_nachttarief_per_maand
                 name: Stroom nachttarief
                 float_precision: 2
                 type: column
@@ -248,7 +248,7 @@ browser_mod:
                   func: max
                   duration: 31d
               - color: 'rgb(128,128,128)'
-                entity: sensor.maandelijks_gas
+                entity: sensor.gas_per_maand
                 type: column
                 name: Gas
                 float_precision: 2

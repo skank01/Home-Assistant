@@ -30,7 +30,9 @@ New pics coming!
 - [Mosquitto Broker](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto)
 - [Deconz](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
 - [Eufy MQTT Bridge](https://github.com/MaxWinterstein/homeassistant-addons/tree/main/eufy-ha-mqtt-bridge)
-- [Portainer](https://github.com/hassio-addons/addon-portainer)
+- [TimescaleDB](https://github.com/Expaso/hassos-addon-timescaledb)
+- [DSMR Reader](https://github.com/sanderdw/hassio-addons)
+- [pgAdmin 4](https://github.com/Expaso/hassos-addon-pgadmin4)
 - [ioBroker](https://github.com/MaxWinterstein/homeassistant-addons/)
 
 
