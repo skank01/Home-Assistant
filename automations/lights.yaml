@@ -381,7 +381,7 @@
       entity_id: input_boolean.vakantiemodus
       state: 'on'
   action:
-    - delay: '00:{{ range(01,30) | random | int }}:00'
+    - delay: '00:{{ range(1,30) | random | int }}:00'
     # Toggling random entity state
     - service: homeassistant.turn_on
       data:
@@ -401,7 +401,7 @@
       entity_id: input_boolean.vakantiemodus
       state: 'on'
   action:
-    - delay: '00:{{ range(01,30) | random | int }}:00'
+    - delay: '00:{{ range(1,30) | random | int }}:00'
     - service: homeassistant.turn_off
       entity_id: group.simulation_lights_off
     - service: notify.mobile_devices

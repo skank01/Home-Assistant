@@ -21,3 +21,11 @@ sensor.dsmr_day_consumption_gas_cost:
   friendly_name: Kosten Gas
 sensor.dsmr_day_consumption_total_cost:
   friendly_name: Totale Kost (incl vast)
+sensor.dsmr_current_month_electricity1:
+  friendly_name: Verbruik huidige maand dagtarief
+sensor.dsmr_current_month_electricity2:
+  friendly_name: Verbruik huidige maand nachttarief
+sensor.dsmr_current_month_gas:
+  friendly_name: Verbruik huidige maand gas
+sensor.dsmr_current_month_fixed_cost:
+  friendly_name: Vaste kost huidige maand

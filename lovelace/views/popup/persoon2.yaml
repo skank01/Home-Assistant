@@ -25,7 +25,7 @@ browser_mod:
               - type: markdown
                 content: |
                   - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.oneplus_nord') }}
-                  - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.oneplus_batterijniveau') }} %
+                  - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.oneplus_battery_level') }} %
                   - <ha-icon icon="mdi:battery-charging-30"></ha-icon> {{ states('binary_sensor.oneplus_is_aan_het_opladen') }}
                   - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.oneplus_verbinding') }}
           - type: calendar

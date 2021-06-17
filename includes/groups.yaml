@@ -71,3 +71,10 @@ battery_level_monitor:
     - sensor.openclose_5_battery_level
     - sensor.openclose_6_battery_level
     - sensor.openclose_7_battery_level
+    
+#entities to show up on garmin    
+garmin:
+  name: garmin
+  entities:
+    - switch.garagepoort
+    - light.kastlamp

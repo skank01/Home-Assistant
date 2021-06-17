@@ -1,29 +1,5 @@
 sensor:
   - platform: dsmr_reader
-  - platform: mqtt
-    name: "Stroom dagtarief per maand"
-    state_topic: "dsmr/current-month/electricity1"
-    unit_of_measurement: 'kWh'
-  - platform: mqtt
-    name: "Stroom nachttarief per maand"
-    state_topic: "dsmr/current-month/electricity2"
-    unit_of_measurement: 'kWh'
-  - platform: mqtt
-    name: "Gas per maand"
-    state_topic: "dsmr/current-month/gas"
-    unit_of_measurement: 'm³'
-  - platform: mqtt
-    name: "Stroom dagtarief per jaar"
-    state_topic: "dsmr/current-year/electricity1"
-    unit_of_measurement: 'kWh'
-  - platform: mqtt
-    name: "Stroom nachttarief per jaar"
-    state_topic: "dsmr/current-year/electricity2"
-    unit_of_measurement: 'kWh'
-  - platform: mqtt
-    name: "Gas per jaar"
-    state_topic: "dsmr/current-year/gas"
-    unit_of_measurement: 'm³'
   - platform: time_date
     display_options:
       - time
@@ -34,21 +10,18 @@ sensor:
       date_long: 
         friendly_name: 'Datum'
         value_template: >
-          {% set months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "July", "Augustus", "September", "Oktober", "November", "December"] %}
-          {% set month = months[now().strftime('%m') | int -1] %}  
-          {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
-        icon_template: mdi:calendar-clock    
-  - platform: template
-    sensors:
+          {% set month = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "July", "Augustus", "September", "Oktober", "November", "December"][now().month-1] %}
+          {{ now().day }} {{ month }} {{ now().year }}
+        icon_template: mdi:calendar-clock
       date_short: 
         friendly_name: 'Datum Kort'
         value_template: >
-          {% set months = ["Jan", "Feb", "Maa", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"] %}
-          {% set month = months[now().strftime('%m') | int -1] %}  
-          {{ now().strftime('%d') + ' ' + month + ' '+ now().strftime('%Y') }}
-        icon_template: mdi:calendar-clock          
-  - platform: template
-    sensors:
+          {% set d = states('sensor.date_long').split() %}
+          {{ d[0] }} {{ d[1][:3] }} {{ d[2] }}
+        icon_template: mdi:calendar-clock 
+      temperature: 
+        unit_of_measurement: °C
+        value_template: "{{ state_attr('weather.thuis', 'temperature') }}"        
       greeting:
         value_template: >
           {% set state = states('sensor.time') %}
@@ -61,25 +34,15 @@ sensor:
           {% else %}
             Goeieavond !
           {% endif %}    
-  - platform: template
-    sensors: 
-      temperature: 
-        unit_of_measurement: °C
-        value_template: "{{ state_attr('weather.thuis', 'temperature') }}"
-  - platform: template
-    sensors:
       postbus:
         value_template: >
           {{ 'open' if is_state('input_boolean.brievenbus', 'on') or is_state('input_boolean.pakjesbus', 'on')
              else 'closed' }}
         friendly_name: Post    
-  - platform: template
-    sensors:
       solar_angle:
         friendly_name: "Stand zon"
         unit_of_measurement: 'graden'
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-
       sunrise:
         value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
 

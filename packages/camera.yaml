@@ -1,4 +1,0 @@
-camera:
-  - platform: generic
-    name: Eufy Deurbel
-    still_image_url: !secret camera_still_image

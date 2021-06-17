@@ -14,27 +14,5 @@ browser_mod:
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
         background: none !important;
       }
-  card:
-    type: custom:layout-card
-    column_num: 1
-    column_width: [385]
-    layout: vertical
-    cards:
-      - type: picture-glance
-        title: Voordeur
-        aspect_ratio: 55%
-        entities: []
-        entity: camera.deurbel
-        name: Deurbel
-        camera_image: camera.deurbel
-        tap_action:
-          action: more-info
-      - type: picture-glance
-        title: Tuin
-        aspect_ratio: 55%
-        entities: []
-        entity: camera.tuin
-        name: Achtertuin
-        camera_image: camera.tuin
-        tap_action:
-          action: more-info    
+  card: []
+   

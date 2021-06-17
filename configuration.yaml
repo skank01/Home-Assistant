@@ -8,7 +8,12 @@ homeassistant:
       trusted_networks:
         - 192.168.107.0/24
         - 192.168.99.0/24
-       
+    - type: homeassistant    
+  auth_mfa_modules:
+    - type: totp
+      name: Authenticator app
+    - type: notify
+      message: "Access token: {}"     
 frontend:
   themes: !include_dir_merge_named themes
   
@@ -43,10 +48,7 @@ spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
 
-hacs:
-  token: !secret hacs_token
-  appdaemon: true
-  
+
 
 # Text to speech
 tts:
