@@ -1,6 +1,0 @@
-background: var(--background-image)
-title: Thuis
-views:
-  - !include lovelace_test/views/01-Test.yaml
-  
-

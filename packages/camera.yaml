@@ -1,0 +1,4 @@
+camera:
+  - platform: generic
+    name: Voordeur
+    still_image_url: !secret image_url_deurbel_snapshot  

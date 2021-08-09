@@ -2,7 +2,7 @@ sensor:
 - platform: rest
   name: Tablet Living
   json_attributes:
-    - isScreenOn
+    - screenOn
     - batteryLevel
     - kioskMode
     - screenBrightness
@@ -21,7 +21,7 @@ sensor:
     - startUrl
     - currentPage
   resource: !secret tablet_info
-  value_template: '{{ value_json.isScreenOn }}'
+  value_template: '{{ value_json.screenOn }}'
   scan_interval: 10
 
 - platform: rest

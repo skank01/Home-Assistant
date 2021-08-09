@@ -29,6 +29,8 @@ decluttering_templates:
        
 background: var(--background-image)
 title: Thuis
+kiosk_mode:
+  hide_header: true
 views:
-  - !include lovelace_tablet/views/Home.yaml
+  - !include lovelace_smartphone/views/Home.yaml
 

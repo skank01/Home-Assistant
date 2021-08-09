@@ -24,11 +24,13 @@
       entity_id: group.media_player
     service: media_player.turn_on
   - delay: '00:00:02'
-  - data:
+  - service: tts.cloud_say
+    data:
       entity_id: group.media_player
-      language: nl
       message: Herinnering, Deze nacht wordt {{states.sensor.recycleapp_vandaag.state}} opgehaald!
-    service: tts.google_translate_say
+      language: nl-NL
+      options:
+        gender: male
   - delay: '00:00:04'
   - data:
       entity_id: group.media_player

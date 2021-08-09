@@ -7,13 +7,13 @@
 Extreme makeover frontend. Using different dashboard layouts for smartphone/tablet.
 Only one homepage visible and using popups now. Looks far more handsome :)
 
-Usage of notifications added too.
+
 
 Themes used:
 - Google Light Theme (during day)
 - Google Dark Theme (during night)
 
-New pics coming! 
+ 
 
 ![](https://github.com/skank01/Home-Assistant/blob/master/images/Tabletview.JPG)
 
@@ -29,17 +29,15 @@ New pics coming!
 - [Check HA Configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config)
 - [Mosquitto Broker](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto)
 - [Deconz](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
-- [Eufy MQTT Bridge](https://github.com/MaxWinterstein/homeassistant-addons/tree/main/eufy-ha-mqtt-bridge)
 - [TimescaleDB](https://github.com/Expaso/hassos-addon-timescaledb)
 - [DSMR Reader](https://github.com/sanderdw/hassio-addons)
 - [pgAdmin 4](https://github.com/Expaso/hassos-addon-pgadmin4)
-- [ioBroker](https://github.com/MaxWinterstein/homeassistant-addons/)
-
+- [Eufy Security Addon](https://github.com/bropat/eufy-security-ws/tree/master/docker)
+- [RTSP Simple Server Addon](http://192.168.99.3:8123/hassio)
 
 ### Integrations ###
 - Adguard
 - Phoscon
-- Garmin Connect
 - Google Cast
 - HACS
 - IRobot
@@ -52,8 +50,9 @@ New pics coming!
 - Speedtest
 - Spotify
 - Ubiquiti Unifi
-- Eufy Security
 - DSMR Reader
+- CO2 Signal
+- Eufy Security
 
 
 ### HACS (Home Assistant Community Store) ###
@@ -85,7 +84,6 @@ Plugins:
 - Xiaomi-vacuum-card
 - Mini media player
 - Check button card
-- Gap card
 - Swipe card
 - Decluttering card
 - Kiosk mode
@@ -93,6 +91,7 @@ Plugins:
 - Config-template-card
 - Custom-ui
 - ApexCharts
+- More-info-card
 
 
 ## Devices ##
@@ -104,7 +103,7 @@ Plugins:
 
 ### System ###
 My system is a [Raspberry Pi 4B+ with 4 gig RAM](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) running [Raspbian](https://www.raspberrypi.org/downloads/raspbian/).
-All data is on a [Samsung Fit Plus 128GB USB flash drive](https://www.samsung.com/us/computing/memory-storage/usb-flash-drives/usb-3-1-flash-drive-fit-plus-128gb-muf-128ab-am/).
+All data is on a SSD.
 
 
 ### Gateways ###
@@ -149,7 +148,7 @@ All data is on a [Samsung Fit Plus 128GB USB flash drive](https://www.samsung.co
 
 ## Ordered ##
 
-Nothing at the moment
+- [1 x Shelly EM to monitor solarpanels](https://shelly.cloud/products/shelly-em-smart-home-automation-device/)
 
 
 
@@ -158,13 +157,7 @@ Nothing at the moment
 Coming
 
 
-## To do ##
-- Heating
-- Fireplace
-- Doorbell
-- Security Cams
-- More automations
-- ...
+
 
 ## Inspiration ##
 

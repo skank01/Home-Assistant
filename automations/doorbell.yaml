@@ -1,0 +1,149 @@
+##########################
+## Iemand aan de voordeur
+##########################
+
+- id: 'Deurbel_gedrukt'
+  alias: Deurbel gedrukt
+  description: 'Verwittiging iemand aan de voordeur'
+  trigger:
+    - entity_id: binary_sensor.deurbel_ringing_sensor
+      platform: state
+      to: 'True'
+  action:
+    - choose:
+        - conditions:
+            - condition: time
+              after: "09:00:00"
+              before: "22:00:00"
+          sequence:  
+            - service: tts.cloud_say
+              data:
+                entity_id: 
+                  - media_player.keuken
+                  - media_player.slaapkamer_arne
+                  - media_player.slaapkamer_noor
+                  - media_player.slaapkamer
+                  - media_player.bureau
+                message: "Er staat iemand aan de voordeur!"
+                language: nl-NL
+                options:
+                  gender: male
+            - delay: "00:00:08"
+            - service: camera.snapshot
+              data_template:
+                entity_id: camera.deurbel
+                filename: "www/tmp/deurbel_snapshot.jpg"
+            - delay: '00:00:01'
+            - service: media_player.play_media
+              data:
+                entity_id: 
+                  - media_player.keuken
+                  - media_player.slaapkamer_arne
+                  - media_player.slaapkamer_noor
+                  - media_player.slaapkamer
+                  - media_player.bureau
+                media_content_type: "image/jpg"
+                media_content_id: !secret image_url_deurbel_snapshot
+            - service: rest_command.kiosk_command
+              data:
+                cmd: screenOn
+            - service: browser_mod.popup
+              data:
+                large: true
+                auto_close: true
+                card:
+                  type: custom:more-info-card
+                  entity: camera.voordeur
+            - delay: "00:02:00"
+            - service: media_player.turn_off
+              entity_id: 
+                - media_player.keuken
+                - media_player.slaapkamer_arne
+                - media_player.slaapkamer_noor
+                - media_player.slaapkamer
+                - media_player.bureau
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: time
+                  after: "07:00:00"
+                  before: "09:00:00"
+                - condition: time
+                  after: "22:00:00"
+                  before: "23:00:00"
+          sequence:  
+            - service: tts.cloud_say
+              data:
+                entity_id: 
+                  - media_player.keuken
+                  - media_player.slaapkamer
+                message: "Er staat iemand aan de voordeur!"
+                language: nl-NL
+                options:
+                  gender: male
+            - delay: "00:00:08"
+            - service: camera.snapshot
+              data_template:
+                entity_id: camera.deurbel
+                filename: "www/tmp/deurbel_snapshot.jpg"
+            - delay: '00:00:01'
+            - service: media_player.play_media
+              data:
+                entity_id: 
+                  - media_player.keuken
+                  - media_player.slaapkamer
+                media_content_type: "image/jpg"
+                media_content_id: !secret image_url_deurbel_snapshot
+            - service: rest_command.kiosk_command
+              data:
+                cmd: screenOn
+            - service: browser_mod.popup
+              data:
+                large: true
+                auto_close: true
+                card:
+                  type: custom:more-info-card
+                  entity: camera.voordeur
+            - delay: "00:02:00"
+            - service: media_player.turn_off
+              entity_id: 
+                - media_player.keuken
+                - media_player.slaapkamer
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: time
+                  after: "00:01:00"
+                  before: "07:00:00"
+                - condition: time
+                  after: "23:00:00"
+                  before: "00:00:00"
+          sequence:  
+            - delay: "00:00:08"
+            - service: camera.snapshot
+              data_template:
+                entity_id: camera.deurbel
+                filename: "www/tmp/deurbel_snapshot.jpg"
+            - delay: '00:00:01'
+            - service: media_player.play_media
+              data:
+                entity_id: 
+                  - media_player.keuken
+                  - media_player.slaapkamer
+                media_content_type: "image/jpg"
+                media_content_id: !secret image_url_deurbel_snapshot
+            - service: rest_command.kiosk_command
+              data:
+                cmd: screenOn
+            - service: browser_mod.popup
+              data:
+                large: true
+                auto_close: true
+                card:
+                  type: custom:more-info-card
+                  entity: camera.voordeur
+            - delay: "00:02:00"
+            - service: media_player.turn_off
+              entity_id: 
+                - media_player.keuken
+                - media_player.slaapkamer         

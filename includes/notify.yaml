@@ -4,13 +4,6 @@
 - platform: group
   name: mobile_devices
   services:
-    - service: mobile_app_nokia_7_plus
+    - service: mobile_app_smartphone_stijn
     - service: mobile_app_oneplus_nord
 
-#############################
-## Notify Google TTS        #
-#############################
-- platform: tts
-  name: tts_keuken
-  tts_service: tts.google_translate_say
-  media_player: media_player.keuken

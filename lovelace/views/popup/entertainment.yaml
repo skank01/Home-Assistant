@@ -7,16 +7,21 @@ browser_mod:
   style:
     .: |
       :host .content {
-        width: calc(400px);
+        width: calc(385px + 385px + 385px + 385px);
+        max-width: 90vw;
       }
     $: |
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
         background: none !important;
       }
   card:
-    type: custom:vertical-stack-in-card
+    type: custom:layout-card
+    layout_type: vertical
+    layout_options:
+      column_num: 4
+      width: 385
     cards:
-      - type: custom:stack-in-card
+      - type: custom:vertical-stack-in-card
         title: Entertainment
         style: |
           ha-card {
@@ -36,7 +41,7 @@ browser_mod:
                 icon: mdi:movie-open-outline
             style: |
               ha-card {
-                --primary-text-color: var(--sidebar-icon-color)
+                --primary-text-color: var(--secondary-text-color)
               }    
           - type: custom:harmony-card
             entity: remote.harmony_hub
@@ -65,9 +70,10 @@ browser_mod:
                 hide: true
             style: |
               ha-card {
-                --primary-text-color: var(--sidebar-icon-color)
+                --primary-text-color: var(--secondary-text-color)
               }    
-      - type: custom:stack-in-card
+      - type: custom:layout-break
+      - type: custom:vertical-stack-in-card
         title: Luidprekers
         style: |
           ha-card {
@@ -81,7 +87,7 @@ browser_mod:
               - input_select.chromecast_speakers
             style: |
               ha-card {
-                --primary-text-color: var(--sidebar-icon-color)
+                --primary-text-color: var(--secondary-text-color)
               }  
           - type: horizontal-stack
             cards:
@@ -133,7 +139,7 @@ browser_mod:
                 style: |
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
-                  }  
+                  }   
               - type: conditional
                 conditions:
                   - entity: media_player.bureau
@@ -145,7 +151,7 @@ browser_mod:
                 style: |
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
-                  }
+                  } 
               - type: conditional
                 conditions:
                   - entity: media_player.badkamer
@@ -194,6 +200,7 @@ browser_mod:
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
                   }  
+      - type: custom:layout-break
       - type: custom:stack-in-card
         title: Mediaspelers
         style: |

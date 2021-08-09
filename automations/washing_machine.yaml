@@ -80,11 +80,13 @@
     - service: notify.mobile_devices
       data:
         message: De wasmachine is klaar!
-    - service: tts.google_translate_say
-      entity_id: media_player.keuken
+    - service: tts.cloud_say
       data:
-        message: 'De wasmachine is klaar!'
-        language: nl
+        entity_id: media_player.keuken
+        message: "De wasmachine is klaar!"
+        language: nl-NL
+        options:
+          gender: male
     - service: switch.turn_off
       data:
         entity_id: switch.wasmachine

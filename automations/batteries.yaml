@@ -18,5 +18,5 @@
         device(s) are low:\n'') -%}  {%- set ns.message = ns.message +  state_attr(''sensor.low_batteries'',''matched_devices'').split(''|'')
         | join(''% \n'')  -%} {{ ns.message }}'
       title: '** Battery Level Warning **'
-    service: notify.mobile_app_nokia_7_plus
+    service: notify.mobile_app_smartphone_stijn
   mode: single

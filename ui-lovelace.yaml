@@ -34,7 +34,6 @@ kiosk_mode:
 views:
   - !include lovelace/views/Home.yaml
 
-
 button_card_templates:
   automation:
     show_label: true

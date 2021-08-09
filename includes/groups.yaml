@@ -13,6 +13,7 @@ cast_player:
     - media_player.slaapkamer
     - media_player.noor_mini
     - media_player.slaapkamer_arne
+
 simulation_lights_on:
   name: Vacation_mode_lights_on
   entities:

@@ -15,6 +15,13 @@
     - service: notify.mobile_devices
       data:
         message: Jackpot! Er is post!
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.keuken
+        message: "Er is post toegekomen!"
+        language: nl-NL
+        options:
+          gender: male
     - service: input_boolean.turn_on
       entity_id: input_boolean.brievenbus
 
@@ -35,6 +42,13 @@
     - service: notify.mobile_devices
       data:
         message: Eureka! Pakje toegekomen!
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.keuken
+        message: "Er is een pakje toegekomen!"
+        language: nl-NL
+        options:
+          gender: male
     - service: input_boolean.turn_on
       entity_id: input_boolean.pakjesbus        
 

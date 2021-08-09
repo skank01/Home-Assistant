@@ -7,14 +7,19 @@ browser_mod:
   style:
     .: |
       :host .content {
-        width: calc(400px);
+        width: calc(385px + 385px + 385px);
+        max-width: 90vw;
       }
     $: |
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
         background: none !important;
       }
   card:
-    type: custom:vertical-stack-in-card
+    type: custom:layout-card
+    layout_type: vertical
+    layout_options:
+      column_num: 3
+      column_width: 385
     cards:
       - type: custom:stack-in-card
         title: System
@@ -37,7 +42,7 @@ browser_mod:
             style: |
               ha-card {
                 --primary-text-color: var(--sidebar-icon-color)
-              }
+              }    
           - type: horizontal-stack
             cards:
               - type: sensor
@@ -68,19 +73,20 @@ browser_mod:
                 entity: sensor.adguard_dns_queries_blocked_ratio
                 name: Dns queries blocked
                 graph: line
-                hours_to_show: 72  
+                hours_to_show: 72
           - type: horizontal-stack
             cards:
               - type: custom:button-card
                 entity: switch.adguard_protection
               - type: custom:button-card
                 entity: switch.adguard_parental_control
+      - type: custom:layout-break
       - type: custom:stack-in-card
-        title: Network
         style: |
           ha-card {
             --primary-text-color: var(--primary-color)
           }
+        title: Network
         cards:
           - type: entities
             entities:
@@ -97,7 +103,7 @@ browser_mod:
             style: |
               ha-card {
                 --primary-text-color: var(--sidebar-icon-color)
-              }
+              }   
           - type: horizontal-stack
             cards:
               - type: glance
@@ -111,7 +117,8 @@ browser_mod:
                 style: |
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
-                  }
+                  }  
+      - type: custom:layout-break
       - type: custom:stack-in-card
         title: Home Assistant Stats
         style: |

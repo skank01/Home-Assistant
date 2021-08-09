@@ -1,13 +1,13 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: Alarm
   hide_header: true
   deviceID: this
   style:
     .: |
       :host .content {
         width: calc(400px);
+        max-width: 90vw;
       }
     $: |
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {

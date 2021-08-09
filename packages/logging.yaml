@@ -11,4 +11,6 @@ recorder:
       - sensor.date
       
 logger:
-  default: info      
+  default: info
+  logs:
+    custom_components.eufy_security: debug

@@ -36,13 +36,13 @@
   type: module
 - url: /hacsfiles/custom-ui/custom-ui.js
   type: module
-- url: /hacsfiles/lovelace-gap-card/gap-card.js
-  type: module
 - url: /hacsfiles/swipe-card/swipe-card.js
+  type: module
+- url: /hacsfiles/lovelace-more-info-card/more-info-card.js
   type: module  
 - url: /hacsfiles/decluttering-card/decluttering-card.js
   type: module
 - url: /hacsfiles/kiosk-mode/kiosk-mode.js
   type: module  
 - url: /hacsfiles/apexcharts-card/apexcharts-card.js
-  type: module   
+  type: module
