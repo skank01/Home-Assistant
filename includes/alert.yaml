@@ -1,0 +1,25 @@
+#############################
+## Garagepoort alert       #
+#############################
+garage_poort:
+  name: "Melding garagepoort open"
+  title: "Melding:"
+  message: "De garagepoort staat nog open !"
+  entity_id: binary_sensor.garage_poort
+  state: "on"
+  repeat: 5
+  can_acknowledge: false
+  skip_first: true
+  notifiers:
+    - mobile_devices
+  data:
+    tag: garage_poort_alert
+    ttl: 0
+    channel: meldingen 
+    priority: high
+    ledColor: "blue" 
+    actions:
+      - title: "Sluit garagepoort"
+        action: "sluit_garagepoort"
+        
+        

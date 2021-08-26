@@ -71,6 +71,7 @@ input_datetime: !include includes/input_datetime.yaml
 automation: !include_dir_merge_list automations/
 cloud: !include includes/cloud.yaml
 notify: !include includes/notify.yaml
+alert: !include includes/alert.yaml
 
 #############################
 ffmpeg:

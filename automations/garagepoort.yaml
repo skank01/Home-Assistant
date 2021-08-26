@@ -1,0 +1,16 @@
+##########################
+## Sluit garagepoort
+##########################
+- id: 'Sluit garagepoort wanneer open'
+  alias: Sluit garagepoort
+  trigger:
+    - platform: event
+      id: sluit_garagepoort
+      event_type: mobile_app_notification_action
+      event_data:
+        action: "sluit_garagepoort"
+  condition: []
+  action:
+    - service: switch.toggle
+      entity_id: switch.garagepoort
+    
