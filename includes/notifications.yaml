@@ -290,3 +290,49 @@
     variables:
       - name: Deze avond restafval buiten zetten!!
      
+# Birthdays
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_stijn_s_verjaardag
+      state: '0'
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Gelukkige verjaardag Stijn!! 
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_kim_s_verjaardag
+      state: '0'
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Gelukkige verjaardag Kim!!     
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_arne_s_verjaardag
+      state: '0'
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Gelukkige verjaardag Arne!! 
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_noor_s_verjaardag
+      state: '0'
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Gelukkige verjaardag Noor!!    
+- type: conditional
+  conditions:
+    - entity: sensor.anniversary_huwelijksverjaardag
+      state: '0'
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: Proficiat Stijn en Kim met jullie huwelijksverjaardag!!!       

@@ -7,7 +7,7 @@ browser_mod:
   style:
     .: |
       :host .content {
-        width: calc(385px + 385px);
+        width: calc(385px + 385px + 385px);
         max-width: 90vw;
       }
     $: |
@@ -16,8 +16,8 @@ browser_mod:
       }
   card:
     type: custom:layout-card
-    column_num: 2
-    column_width: [385, 385]
+    column_num: 3
+    column_width: [385, 385, 385]
     layout: vertical
     cards:
       - type: custom:vertical-stack-in-card
@@ -43,4 +43,24 @@ browser_mod:
             entities:
               - calendar.calendar_stijn 
               - calendar.calendar_kim
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: "Verjaardagen"
+        filter:
+          include:
+            - entity_id: sensor.anniversary*
+              options:
+                type: 'custom:multiple-entity-row'
+                entity: this.entity_id
+                entities:
+                  - attribute: current_years
+                    name: Leeftijd
+                    unit: jaar
+        sort:
+          method: state
+          numeric: true
+          count: 3
+
+      
       

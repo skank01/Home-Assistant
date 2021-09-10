@@ -29,3 +29,15 @@ sensor.dsmr_current_month_gas:
   friendly_name: Verbruik huidige maand gas
 sensor.dsmr_current_month_fixed_cost:
   friendly_name: Vaste kost huidige maand
+sensor.dsmr_reading_electricity_delivered_1:
+  friendly_name: Dagtarief verbruik
+sensor.dsmr_reading_electricity_delivered_2:
+  friendly_name: Nachttarief verbruik
+sensor.dsmr_reading_electricity_delivered_1_cost:
+  friendly_name: Dagtarief verbruik kost
+sensor.dsmr_reading_electricity_delivered_2_cost:
+  friendly_name: Nachttarief verbruik kost
+sensor.dsmr_reading_electricity_returned_1:
+  friendly_name: Dagtarief opbrengst
+sensor.dsmr_reading_electricity_returned_2:
+  friendly_name: Nachttarief opbrengst

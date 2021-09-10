@@ -1,0 +1,17 @@
+anniversaries:
+  sensors: 
+  - name: Stijn's verjaardag
+    date: !secret verjaardag_stijn
+    unit_of_measurement: dagen
+  - name: Kim's verjaardag
+    date: !secret verjaardag_kim
+    unit_of_measurement: dagen
+  - name: Arne's verjaardag
+    date: !secret verjaardag_arne 
+    unit_of_measurement: dagen
+  - name: Noor's verjaardag
+    date: !secret verjaardag_noor
+    unit_of_measurement: dagen
+  - name: Huwelijksverjaardag
+    date: !secret verjaardag_huwelijk
+    unit_of_measurement: dagen  

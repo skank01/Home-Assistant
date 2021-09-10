@@ -36,6 +36,7 @@ Themes used:
 - [RTSP Simple Server Addon](http://192.168.99.3:8123/hassio)
 
 ### Integrations ###
+- Anniversaries
 - Adguard
 - Phoscon
 - Google Cast
@@ -92,6 +93,7 @@ Plugins:
 - Custom-ui
 - ApexCharts
 - More-info-card
+- Multiple-entity-row
 
 
 ## Devices ##
@@ -143,12 +145,12 @@ All data is on a SSD.
 - [Unipi Neuron M203](https://www.unipi.technology/unipi-neuron-m203-p97)
 - [Unipi Extension xS11](https://www.unipi.technology/unipi-extension-xs11-p336?categoryId=40)
 - [Nabu Casa Account](https://www.nabucasa.com/)
-
+- [1 x Shelly EM to monitor solarpanels](https://shelly.cloud/products/shelly-em-smart-home-automation-device/)
 
 
 ## Ordered ##
 
-- [1 x Shelly EM to monitor solarpanels](https://shelly.cloud/products/shelly-em-smart-home-automation-device/)
+Nothing at the moment
 
 
 
@@ -167,3 +169,4 @@ Inspiration and code was taken from many different sources:
 - [Duboisph](https://github.com/duboisph/home-assistant-config)
 - [Hmmbob](https://github.com/hmmbob/HomeAssistantConfig)
 - [Basnijholt](https://github.com/basnijholt/home-assistant-config)
+- [Pinkywafer](https://github.com/pinkywafer/Home-Assistant_Config)

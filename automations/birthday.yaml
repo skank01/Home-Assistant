@@ -1,0 +1,154 @@
+##########################
+## Verjaardag Stijn
+##########################
+- id: 'Verjaardag Stijn'
+  alias: Verjaardag Stijn
+  trigger:
+    platform: time
+    at: "08:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.anniversary_stijn_s_verjaardag
+      state: '0'
+  action:
+    - service: notify.mobile_app_smartphone_stijn
+      data:
+        message: "Gelukkige verjaardag Stijn! Alles voor jou vandaag!"
+        data:
+          tag: verjaardag
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.keuken
+    - delay: 00:00:02
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.keuken
+        message: "Gelukkige verjaardag Stijn !"
+        language: nl-NL
+        options:
+          gender: male
+    - delay: 00:00:02
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.keuken
+
+##########################
+## Verjaardag Kim
+##########################
+- id: 'Verjaardag Kim'
+  alias: Verjaardag Kim
+  trigger:
+    platform: time
+    at: "08:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.anniversary_kim_s_verjaardag
+      state: '0'
+  action:
+    - service: notify.mobile_app_oneplus_nord
+      data:
+        message: "Gelukkige verjaardag Kim! Laat je maar goed verwennen!"
+        data:
+          tag: verjaardag
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.keuken
+    - delay: 00:00:02
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.keuken
+        message: "Gelukkige verjaardag Kim!"
+        language: nl-NL
+        options:
+          gender: male
+    - delay: 00:00:02
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.keuken  
+        
+##########################
+## Verjaardag Arne
+##########################
+- id: 'Verjaardag Arne'
+  alias: Verjaardag Arne
+  trigger:
+    platform: time
+    at: "09:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.anniversary_arne_s_verjaardag
+      state: '0'
+  action:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.keuken
+    - delay: 00:00:02
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.keuken
+        message: "Gelukkige verjaardag Arne! Maak er een leuke dag van!"
+        language: nl-NL
+        options:
+          gender: male
+    - delay: 00:00:02
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.keuken  
+
+##########################
+## Verjaardag Noor
+##########################
+- id: 'Verjaardag Noor'
+  alias: Verjaardag Noor
+  trigger:
+    platform: time
+    at: "09:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.anniversary_noor_s_verjaardag
+      state: '0'
+  action:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.keuken
+    - delay: 00:00:02
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.keuken
+        message: "Gelukkige verjaardag Noor! Geniet van jouw dagje!"
+        language: nl-NL
+        options:
+          gender: male
+    - delay: 00:00:02
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.keuken
+
+##########################
+## Verjaardag Huwelijk
+##########################
+- id: 'Verjaardag Huwelijk'
+  alias: Verjaardag Huwelijk
+  trigger:
+    platform: time
+    at: "08:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.anniversary_huwelijksverjaardag
+      state: '0'
+  action:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.keuken
+    - delay: 00:00:02
+    - service: tts.cloud_say
+      data:
+        entity_id: media_player.keuken
+        message: "Proficiat Stijn en Kim met jullie huwelijksverjaardag!"
+        language: nl-NL
+        options:
+          gender: male
+    - delay: 00:00:02
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.keuken        

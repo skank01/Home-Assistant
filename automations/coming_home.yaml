@@ -52,7 +52,7 @@
       language: nl-NL
       options:
         gender: male
-  - delay: 00:00:04
+  - delay: 00:00:02
   - data:
       entity_id: media_player.keuken
     service: media_player.turn_off

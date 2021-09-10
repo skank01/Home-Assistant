@@ -39,14 +39,6 @@ panel_iframe:
     title: "DSMR Reader"
     url: !secret url_dsmr
     icon: mdi:flash
-  unraid:
-    title: "Unraid"
-    url: !secret url_unraid
-    icon: mdi:nas
-  unifi_controller:
-    title: "Unifi"
-    url: !secret url_unifi_controller    
-    icon: mdi:access-point
     
 google:
   client_id: !secret google_id
