@@ -209,56 +209,6 @@
     entity_id: light.trap_gelijkvloers
 
     
-##########################
-## Nachtlampjes
-##########################
-
-- alias: "Lichten: Nachtlampje Kim aan"
-  trigger:
-  - platform: time
-    at: input_datetime.time_wake_up_kim
-  condition:
-  - condition: state
-    entity_id: group.family
-    state: home
-  - condition: time
-    after: 06:55:00
-    before: 07:10:00
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - data:
-      entity_id: light.nachtlampje_kim
-    service: light.turn_on
-
-
-- alias: "Lichten: Nachtlampje Noor aan"
-  trigger:
-  - platform: time
-    at: input_datetime.time_wake_up_noor
-  condition:
-  - condition: state
-    entity_id: group.family
-    state: home
-  - condition: time
-    after: 07:10:00
-    before: 07:25:00
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - data:
-      entity_id: light.nachtlampje_noor
-    service: light.turn_on
-
-    
 
 ########################################
 ## Lichten dressing

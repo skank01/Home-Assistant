@@ -186,10 +186,6 @@ browser_mod:
                   - entity: light.slaapkamer_noor
                     name: Hanglamp
                     icon: mdi:ceiling-light
-                  - entity: light.nachtlampje_noor
-                    name: Nachtlampje
-                    icon: mdi:floor-lamp
-                    slider: true
           - column: 12
             tileOnRow: 2
             entities:

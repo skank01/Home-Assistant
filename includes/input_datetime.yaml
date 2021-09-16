@@ -6,14 +6,6 @@ time_notificatie_afval:
   name: Notificatie afval
   has_time: true
   initial: "20:00"
-time_wake_up_kim:
-  name: Nachtlampje aan kim
-  has_time: true
-  initial: "07:00" 
-time_wake_up_noor:
-  name: Nachtlampje aan noor
-  has_time: true
-  initial: "07:15" 
 time_vakantielichten_start:
   name: Vakantielichten start
   has_time: true

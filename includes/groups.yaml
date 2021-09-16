@@ -11,25 +11,23 @@ cast_player:
     - media_player.bureau
     - media_player.badkamer
     - media_player.slaapkamer
-    - media_player.noor_mini
+    - media_player.woonkamer_mini
     - media_player.slaapkamer_arne
+    - media_player.slaapkamer_noor
 
 simulation_lights_on:
   name: Vacation_mode_lights_on
   entities:
     - light.inkom_wand
     - light.slaapkamer
-    - light.nachtlampje_noor
-     
+
 simulation_lights_off:
   name: Vacation_mode_lights_off
   entities:
     - light.licht_voordeur
     - light.inkom_wand
     - light.slaapkamer
-    - light.nachtlampje_noor
-    
-    
+        
 lights_groundfloor:
   name: Lichten_gelijkvloers
   entities:

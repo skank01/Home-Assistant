@@ -1,0 +1,106 @@
+##########################
+## Google Home alarms
+##########################
+
+- id: 'Google Home alarm Kim'
+  alias: 'GH Alarm trigger Kim'
+  trigger:
+  - platform: time
+    at: sensor.wekker_kim_alarms
+  condition: []
+  action:
+  #Do you actions / sripts
+  - entity_id: light.nachtlampje_kim
+    service: light.turn_on
+  - delay: 00:00:03
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.slaapkamer
+      message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
+      language: nl-NL
+      options:
+        gender: male
+  - delay: 00:00:03
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.wekker_kim
+  - entity_id: light.lavabo
+    service: light.turn_on
+    data:
+      brightness_pct: 100
+      transition: 120
+  mode: single  
+  
+- id: 'Google Home alarm Stijn'
+  alias: 'GH Alarm trigger Stijn'
+  trigger:
+  - platform: time
+    at: sensor.slaapkamer_alarms
+  condition: []
+  action:
+  #Do you actions / sripts
+  - delay: 00:00:04
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.slaapkamer
+      message: "Goeiemorgen ! Tijd om rustig op te staan."
+      language: nl-NL
+      options:
+        gender: male
+  - delay: 00:00:03
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.slaapkamer
+  - entity_id: light.lavabo
+    service: light.turn_on    
+  mode: single
+
+- id: 'Google Home alarm Arne'
+  alias: 'GH Alarm trigger Arne'
+  trigger:
+  - platform: time
+    at: sensor.slaapkamer_arne_alarms
+  condition: []
+  action:
+  #Do you actions / sripts
+  - delay: 00:00:03
+  - entity_id: light.slaapkamer_arne
+    service: light.turn_on
+  - delay: 00:00:03
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.slaapkamer_arne
+      message: "Goeiemorgen De Bruyne! Tijd om rustig op te staan."
+      language: nl-NL
+      options:
+        gender: male
+  - delay: 00:00:03
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.slaapkamer_arne
+  mode: single   
+  
+- id: 'Google Home alarm Noor'
+  alias: 'GH Alarm trigger Noor'
+  trigger:
+  - platform: time
+    at: sensor.slaapkamer_noor_alarms
+  condition: []
+  action:
+  #Do you actions / sripts
+  - delay: 00:00:03
+  - entity_id: light.slaapkamer_noor
+    service: light.turn_on
+  - delay: 00:00:03
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.slaapkamer_noor
+      message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
+      language: nl-NL
+      options:
+        gender: male
+  - delay: 00:00:03
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.slaapkamer_noor 
+  mode: single  
