@@ -1,0 +1,35 @@
+##########################
+## Camera 
+##########################
+- id: 'Stopping tuin camera'
+  alias: Stop streaming camera tuin
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: camera.tuin
+    to: "Streaming - rtsp"
+    for:
+      minutes: 2
+      seconds: 50
+  condition: []
+  action:
+  - data:
+      entity_id: camera.tuin
+    service: eufy_security.stop_rtsp
+    
+- id: 'Stopping deurbel camera'
+  alias: Stop streaming camera deurbel
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: camera.deurbel
+    to: "Streaming - p2p"
+    for:
+      minutes: 2
+      seconds: 50
+  condition: []
+  action:
+  - data:
+      entity_id: camera.deurbel
+    service: eufy_security.stop_livestream
+  

@@ -36,6 +36,7 @@ browser_mod:
                 icon: mdi:television
               - entity: switch.harmony_hub_netflix_kijken
                 name: Netflix
+                icon: mdi:netflix
               - entity: switch.harmony_hub_film_kijken
                 name: Film kijken
                 icon: mdi:movie-open-outline

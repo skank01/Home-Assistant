@@ -38,3 +38,4 @@ browser_mod:
         camera_image: camera.tuin
         tap_action:
           action: more-info    
+      

@@ -33,7 +33,13 @@ lovelace:
       icon: mdi:cellphone
       show_in_sidebar: true
       require_admin: false
-
+    lovelace-kids: # Needs to contain a hyphen (-)
+      mode: yaml
+      filename: dashboard_kids.yaml
+      title: Kids
+      icon: mdi:human-male-boy
+      show_in_sidebar: true
+      require_admin: false
 panel_iframe:
   dsmr:
     title: "DSMR Reader"
