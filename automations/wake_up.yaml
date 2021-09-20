@@ -12,6 +12,9 @@
   #Do you actions / sripts
   - entity_id: light.nachtlampje_kim
     service: light.turn_on
+    data:
+      brightness_pct: 80
+      transition: 200
   - delay: 00:00:03
   - service: tts.cloud_say
     data:
@@ -23,12 +26,9 @@
   - delay: 00:00:03
   - service: media_player.turn_off
     data:
-      entity_id: media_player.wekker_kim
+      entity_id: media_player.slaapkamer
   - entity_id: light.lavabo
     service: light.turn_on
-    data:
-      brightness_pct: 100
-      transition: 120
   mode: single  
   
 - id: 'Google Home alarm Stijn'

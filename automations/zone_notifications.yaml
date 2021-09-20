@@ -1,0 +1,57 @@
+- alias: Zone Notification
+  trigger:
+  - platform: zone
+    entity_id:
+    - person.stijn  
+    - person.kim
+    - person.arne
+    - person.noor
+    zone: zone.thuis
+    event: enter
+  - platform: zone
+    entity_id:
+    - person.stijn
+    - person.kim
+    - person.arne
+    - person.noor
+    zone: zone.thuis
+    event: leave
+  - platform: zone
+    entity_id:
+    - person.arne
+    - person.noor
+    zone: zone.school
+    event: enter
+  - platform: zone
+    entity_id:
+    - person.arne
+    - person.noor
+    zone: zone.school
+    event: leave
+  - platform: zone
+    entity_id:
+    - person.stijn
+    zone: zone.stijns_werk
+    event: enter
+  - platform: zone
+    entity_id:
+    - person.stijn
+    zone: zone.stijns_werk
+    event: leave
+  - platform: zone
+    entity_id:
+    - person.kim
+    zone: zone.kims_werk
+    event: enter
+  - platform: zone
+    entity_id:
+    - person.kim
+    zone: zone.kims_werk
+    event: leave  
+  action:
+  - service: notify.mobile_devices
+    data:
+      message: "{% if trigger.event == \"leave\" %}\n  {{ trigger.from_state.attributes.friendly_name\
+        \ }} left {{ trigger.zone.attributes.friendly_name }}\n{% else %}\n  {{ trigger.from_state.attributes.friendly_name\
+        \ }} arrived {{ trigger.zone.attributes.friendly_name }}\n{% endif %}\n"
+  mode: queued

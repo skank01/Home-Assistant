@@ -1,0 +1,28 @@
+##########################
+## Vijver
+##########################
+- id: 'Turn off UV'
+  alias: Turn off UV-lamp in the evening
+  trigger:
+    platform: time
+    at: "21:55:00"
+  condition:
+  - condition: state
+    entity_id: switch.uv_lamp_vijver
+    state: "on"
+  action:
+  - service: homeassistant.turn_off
+    entity_id: switch.uv_lamp_vijver
+    
+- id: 'Turn on UV'
+  alias: Turn on UV-lamp in the morning
+  trigger:
+    platform: time
+    at: "09:00:00"
+  condition:
+  - condition: state
+    entity_id: switch.uv_lamp_vijver
+    state: "off"
+  action:
+  - service: homeassistant.turn_on
+    entity_id: switch.uv_lamp_vijver
