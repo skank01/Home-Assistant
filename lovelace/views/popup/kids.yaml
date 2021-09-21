@@ -1,0 +1,169 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Persoon1
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(385px + 385px + 385px);
+        max-width: 90vw;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  card:
+    type: custom:layout-card
+    column_num: 3
+    column_width: [385, 385, 385]
+    layout: vertical
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: picture
+            image: /local/arne.jpg
+          - type: markdown
+            content: |
+              - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.smartphone_arne_2') }}
+              - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.smartphone_arne_battery_level') }} %
+              - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.smartphone_arne_wifi_connection') }}
+          - type: map
+            default_zoom: 14
+            aspect_ratio: 16:9
+            entities:
+              - person.arne
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: picture
+            image: /local/hond.png
+          - type: markdown
+            style: |
+              ha-card {
+                color: rgba(0, 0, 0, 1);
+                border-radius: 10px;
+                margin-bottom: 2px;
+                font-size: 14px;
+                height: 175px;
+                width: 400px;
+                background-size: cover;
+              {  
+            content: >
+                **Naam:** James
+            
+                **Geboorte:** 22 april 2020
+            
+                **Geslacht:** Reu
+            
+                **Ras:** Engelse Cocker Spaniel
+          - type: custom:stack-in-card
+            mode: vertical
+            keep:
+              margin: true
+            cards:
+              - type: custom:check-button-card
+                title: Vaccinaties
+                entity: sensor.vaccinaties
+                text:
+                  year: jaar
+                  years: jaar
+                  month: maand
+                  months: maanden
+                  week: week
+                  weeks: weken
+                  day: dag
+                  days: dagen
+                  hour: uur
+                  hours: uur
+                  minute: minuut
+                  minutes: minuten
+                  less_than: minder dan
+                  more_than: meer dan
+                  ago: geleden
+                  due_in: over
+                  over_by: over met
+                severity:
+                - value: 2 months
+                  color: Orange
+                - value: 3 months
+                  color: Red
+              - type: custom:check-button-card
+                title: Ontwormen
+                entity: sensor.ontwormen
+                text:
+                  year: jaar
+                  years: jaar
+                  month: maand
+                  months: maanden
+                  week: week
+                  weeks: weken
+                  day: dag
+                  days: dagen
+                  hour: uur
+                  hours: uur
+                  minute: minuut
+                  minutes: minuten
+                  less_than: minder dan
+                  more_than: meer dan
+                  ago: geleden
+                  due_in: over
+                  over_by: over met
+                severity:
+                - value: 2 months
+                  color: Orange
+                - value: 3 months
+                  color: Red
+              - type: custom:check-button-card
+                title: Trimmen
+                entity: sensor.trimmen
+                text:
+                  year: jaar
+                  years: jaar
+                  month: maand
+                  months: maanden
+                  week: week
+                  weeks: weken
+                  day: dag
+                  days: dagen
+                  hour: uur
+                  hours: uur
+                  minute: minuut
+                  minutes: minuten
+                  less_than: minder dan
+                  more_than: meer dan
+                  ago: geleden
+                  due_in: over
+                  over_by: over met
+                severity:
+                - value: 2 months
+                  color: Orange
+                - value: 3 months
+                  color: Red   
+          - type: entities
+            title: Dierenarts
+            entities:
+              - type: weblink
+                name: Animo bellen
+                icon: mdi:phone
+                url: tel://+3250334918
+              - type: weblink
+                name: Animo website
+                icon: mdi:earth
+                url: https://www.animodap.be/
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: picture
+            image: /local/noor.jpg
+          - type: markdown
+            content: |
+              - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.smartphone_noor_2') }}
+              - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.smartphone_noor_battery_level') }} %
+              - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.smartphone_noor_wifi_connection') }}
+          - type: map
+            default_zoom: 14
+            aspect_ratio: 16:9
+            entities:
+              - person.noor
+      
+      

@@ -182,11 +182,10 @@ cards:
                 height: 128px;
                 text-align: center;
               }
-          - type: picture-entity
-            entity: person.james
-            image: /local/hond.jpg
-            show_state: false
-            tap_action: !include popup/dog.yaml
+          - name: Kids
+            type: custom:button-card
+            icon: mdi:human-male-boy
+            tap_action: !include popup/kids.yaml
             style: |
               ha-card {
                 height: 128px !important;
