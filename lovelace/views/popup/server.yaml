@@ -33,6 +33,7 @@ browser_mod:
           - type: entities
             show_header_toggle: false
             entities:
+              - script.restart_home_assistant
               - type: weblink
                 name: Unifi Controller
                 icon: mdi:access-point

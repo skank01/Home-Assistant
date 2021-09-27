@@ -80,17 +80,15 @@
     - service: notify.mobile_devices
       data:
         message: De wasmachine is klaar!
-    - service: tts.cloud_say
+    - service: script.turn_on 
+      target:
+        entity_id: script.google_home_say
       data:
-        entity_id: media_player.keuken
-        message: "De wasmachine is klaar!"
-        language: nl-NL
-        options:
-          gender: male
+        variables:
+          tts_message: "De wasmachine is klaar!"
+          tts_target: media_player.keuken
+          tts_volume: 0.65
+          restore_volume_all: True
     - service: switch.turn_off
       data:
         entity_id: switch.wasmachine
-    - delay: 00:00:04
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.keuken

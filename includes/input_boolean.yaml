@@ -37,3 +37,7 @@ verlichting_eettafel:
 verlichting_tuin:
   name: Ochtendverlichting tuin
   icon: mdi:light   
+
+maintenance_mode:
+  name: Maintenance mode
+  icon: mdi:restart

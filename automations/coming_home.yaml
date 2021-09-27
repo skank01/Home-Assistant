@@ -41,18 +41,12 @@
     platform: state
     to: home
   action:
-  - data:
-      entity_id: media_player.keuken
-    service: media_player.turn_on
-  - delay: 00:00:02
-  - service: tts.cloud_say
+  - service: script.turn_on 
+    target:
+      entity_id: script.google_home_say
     data:
-      entity_id: media_player.keuken
-      message: "Welkom thuis, het was saai zonder jou !"
-      language: nl-NL
-      options:
-        gender: male
-  - delay: 00:00:02
-  - data:
-      entity_id: media_player.keuken
-    service: media_player.turn_off
+      variables:
+        tts_message: "Welkom thuis, het was saai zonder jou !"
+        tts_target: media_player.keuken
+        tts_volume: 0.65
+        restore_volume_all: True

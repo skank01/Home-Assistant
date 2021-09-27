@@ -111,4 +111,4 @@
     to: up
   condition: []
   action:
-  - service: homeassistant.restart
+  - service: script.restart_home_assistant

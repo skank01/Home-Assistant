@@ -15,20 +15,22 @@
     data:
       brightness_pct: 80
       transition: 200
-  - delay: 00:00:03
-  - service: tts.cloud_say
+  - delay: 00:00:10
+  - service: script.turn_on 
+    target:
+      entity_id: script.google_home_say
     data:
-      entity_id: media_player.slaapkamer
-      message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
-      language: nl-NL
-      options:
-        gender: male
-  - delay: 00:00:03
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.slaapkamer
+      variables:
+        tts_message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
+        tts_target: media_player.slaapkamer
+        tts_volume: 0.20
+        restore_volume_all: True
+  - delay: 00:01:00
   - entity_id: light.lavabo
     service: light.turn_on
+  - delay: 00:02:00
+  - entity_id: light.nachtlampje_kim
+    service: light.turn_off 
   mode: single  
   
 - id: 'Google Home alarm Stijn'
@@ -39,18 +41,17 @@
   condition: []
   action:
   #Do you actions / sripts
-  - delay: 00:00:04
-  - service: tts.cloud_say
+  - delay: 00:00:10
+  - service: script.turn_on 
+    target:
+      entity_id: script.google_home_say
     data:
-      entity_id: media_player.slaapkamer
-      message: "Goeiemorgen ! Tijd om rustig op te staan."
-      language: nl-NL
-      options:
-        gender: male
-  - delay: 00:00:03
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.slaapkamer
+      variables:
+        tts_message: "Goeiemorgen ! Tijd om rustig op te staan."
+        tts_target: media_player.slaapkamer
+        tts_volume: 0.20
+        restore_volume_all: True
+  - delay: 00:01:00
   - entity_id: light.lavabo
     service: light.turn_on    
   mode: single
@@ -63,21 +64,19 @@
   condition: []
   action:
   #Do you actions / sripts
-  - delay: 00:00:03
+  - delay: 00:00:10
   - entity_id: light.slaapkamer_arne
     service: light.turn_on
   - delay: 00:00:03
-  - service: tts.cloud_say
+  - service: script.turn_on 
+    target:
+      entity_id: script.google_home_say
     data:
-      entity_id: media_player.slaapkamer_arne
-      message: "Goeiemorgen De Bruyne! Tijd om rustig op te staan."
-      language: nl-NL
-      options:
-        gender: male
-  - delay: 00:00:03
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.slaapkamer_arne
+      variables:
+        tts_message: "Goeiemorgen De Bruyne! Tijd om rustig op te staan."
+        tts_target: media_player.slaapkamer_arne
+        tts_volume: 0.20
+        restore_volume_all: True
   mode: single   
   
 - id: 'Google Home alarm Noor'
@@ -88,19 +87,17 @@
   condition: []
   action:
   #Do you actions / sripts
-  - delay: 00:00:03
+  - delay: 00:00:10
   - entity_id: light.slaapkamer_noor
     service: light.turn_on
   - delay: 00:00:03
-  - service: tts.cloud_say
+  - service: script.turn_on 
+    target:
+      entity_id: script.google_home_say
     data:
-      entity_id: media_player.slaapkamer_noor
-      message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
-      language: nl-NL
-      options:
-        gender: male
-  - delay: 00:00:03
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.slaapkamer_noor 
+      variables:
+        tts_message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
+        tts_target: media_player.slaapkamer_noor
+        tts_volume: 0.20
+        restore_volume_all: True
   mode: single  

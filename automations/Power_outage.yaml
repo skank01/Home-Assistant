@@ -1,0 +1,30 @@
+##########################
+## Power outage
+##########################
+- id: 'HA restart - switch off lights'
+  alias: HA boot - turn off all lights
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - choose:
+        - alias: "If shutdown unwanted"
+          conditions:
+            - condition: state
+              entity_id: input_boolean.maintenance_mode
+              state: 'off'
+          sequence:    
+            - delay: '00:00:01'
+            - service: light.turn_off
+              entity_id: all
+            - service: notify.mobile_devices
+              data:
+                message: Server onverwachts herstart! Stroomstoring?  
+        - alias: "If shutdown for maintenance"
+          conditions:
+            - condition: state
+              entity_id: input_boolean.maintenance_mode
+              state: 'on'
+          sequence: 
+            - service: input_boolean.turn_off
+              entity_id: input_boolean.maintenance_mode
