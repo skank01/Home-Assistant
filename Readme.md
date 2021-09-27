@@ -1,4 +1,4 @@
-# Welcome to my home assistant configuration #
+tion# Welcome to my home assistant configuration #
 
 
 
@@ -150,7 +150,7 @@ All data is on a SSD.
 
 ## Ordered ##
 
-Nothing at the moment
+- [3x Hue Motion Sensors](https://www.philips-hue.com/nl-be/p/hue-bewegingssensor/8718696743171)
 
 
 
