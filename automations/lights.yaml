@@ -98,9 +98,8 @@
     entity_id: sun.sun
     state: below_horizon
   action:
-  - data:
-      entity_id: light.inkom
-    service: light.turn_on
+  - service: light.turn_on
+    entity_id: light.inkom
  
 - alias: "Lichten: Spots inkom uit 30 seconden na laatste beweging" 
   trigger:
@@ -147,24 +146,104 @@
       
 
 
-##########################
-## Kastlamp
-##########################
-- alias: "Lichten: Kastlamp aan bij zonsondergang"
+######################################
+## Lichten aan bij te weinig licht
+######################################
+- alias: "Lichten: Kastlamp en keukenwand aan bij te weinig licht"
   description: ''
   trigger:
-  - event: sunset
-    offset: "-00:05:00"
-    platform: sun
+  - platform: numeric_state
+    entity_id: sensor.lightlevel_keuken
+    below: 20
   condition:
   - condition: state
     entity_id: group.family
     state: home
   action:
-  - entity_id: light.kastlamp
-    service: light.turn_on
+  - service: light.turn_on
+    entity_id: 
+      - light.kastlamp
+      - light.keuken_wand
+
+
+########################################
+## Keuken
+########################################
+
+- id: turn_on_kitchen_lights_when_its_dark
+  alias: "Lichten: Keuken aan bij beweging wanneer het donker is"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.presence_keuken
+      from: "off"
+      to: "on"
+  condition:
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.lightlevel_keuken
+          below: 20
+        - condition: state
+          entity_id: binary_sensor.presence_keuken
+          state: "on"
+        - condition: state
+          entity_id: light.keuken
+          state: "off"  
+  action:
+    - service: light.turn_on
+      entity_id: light.keuken
     
 
+########################################
+## Badkamer ouders
+########################################
+
+- id: turn_on_bathroom_lights_when_its_dark
+  alias: "Lichten: Badkamer ouders aan bij beweging wanneer het donker is"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.presence_badkamer_ouders
+      from: "off"
+      to: "on"
+  condition:
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.lightlevel_badkamer_ouders
+          below: 30
+        - condition: state
+          entity_id: light.lavabo
+          state: "off"  
+  action:
+    - service: light.turn_on
+      entity_id: light.lavabo
+     
+- id: turn_off_bathroom_lights_when_no_movement
+  alias: "Lichten: Badkamer ouders uit als er geen beweging is"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.presence_badkamer_ouders
+      to: "off"
+      for: "00:03:00"
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: light.lavabo
+          state: "on"
+        - condition: state
+          entity_id: light.bad
+          state: "on"
+        - condition: state
+          entity_id: light.douche
+          state: "on"  
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.lavabo
+        - light.bad
+        - light.douche
+          
 ########################################
 ## Hal
 ########################################    
@@ -193,13 +272,13 @@
       entity_id: light.trap_gelijkvloers
       
 - id: turn_off_stairlights_after_last_movement
-  alias: "Lichten: Trap uit 30 seconden na laatste beweging"
+  alias: "Lichten: Trap uit 50 seconden na laatste beweging"
   trigger:
     platform: state
     entity_id: binary_sensor.det_boven
     to: "off"
     for:
-      seconds: 30
+      seconds: 50
   condition:
     - condition: state
       entity_id: light.trap_gelijkvloers
@@ -220,9 +299,8 @@
       platform: state
       to: 'on'
   action:
-  - data:  
-      entity_id: light.dressing
-    service: light.toggle
+  - service: light.toggle
+    entity_id: light.dressing
     
 
 ########################################
@@ -235,9 +313,8 @@
       platform: state
       to: 'on'
   action: 
-  - data:  
-      entity_id: light.cinema
-    service: light.toggle 
+  - service: light.toggle 
+    entity_id: light.cinema
 
 - id: Turn_on_cinema_screen_lights_after_press
   alias: "Lichten: Licht cinema scherm aan na induwen drukknop"
@@ -246,9 +323,8 @@
       platform: state
       to: 'on'
   action: 
-  - data:  
-      entity_id: light.cinema_scherm
-    service: light.toggle
+  - service: light.toggle
+    entity_id: light.cinema_scherm
 
 
 ########################################
@@ -262,9 +338,8 @@
       from: 'off'
       to: 'on'
   action: 
-  - data:  
-      entity_id: all
-    service: light.turn_off
+  - service: light.turn_off
+    entity_id: all
     
 
 ########################################

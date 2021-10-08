@@ -10,25 +10,17 @@ pakjesbus:
   name: Er werd vandaag een pakje geleverd
   icon: mdi:mailbox-up
 
-welterusten:
-  name: Bedtijd
-  icon: mdi:bed
+tv_kijken:
+  name: TV kijken
+  icon: mdi:television
   
-strijken:
-  name: Start strijken
-  icon: mdi:tshirt-crew
-
-douche:
-  name: Douche nemen
-  icon: mdi:shower-head
-
-bad:
-  name: Bad nemen
-  icon: mdi:shower
+netflix_kijken:
+  name: Netflix kijken
+  icon: mdi:netflix
   
-dinner:
-  name: Etentje
-  icon: mdi:silverware-fork-knife
+film_kijken:
+  name: Film kijken
+  icon: mdi:movie-open-outline
   
 verlichting_eettafel:
   name: Ochtendverlichting eettafel
@@ -41,3 +33,47 @@ verlichting_tuin:
 maintenance_mode:
   name: Maintenance mode
   icon: mdi:restart
+  
+tts_volume:
+  name: Volume aanpassen?
+  icon: mdi:volume-high  
+  
+keuken:
+  name: Keuken
+  icon: mdi:food-turkey
+
+slaapkamer:
+  name: Slaapkamer Ouders
+  icon: mdi:bed
+
+slaapkamer_arne:
+  name: Slaapkamer Arne
+  icon: mdi:bed
+
+slaapkamer_noor:
+  name: Slaapkamer Noor
+  icon: mdi:bed
+
+badkamer:
+  name: Badkamer Ouders
+  icon: mdi:shower
+  
+bureau:
+  name: Bureau
+  icon: mdi:desk
+  
+restore_volume_all:
+  name: Herstel volume niet spelend?
+  icon: mdi:volume-high 
+  
+gelijkvloers_groep:
+  name: Gelijkvloers (groep)
+  icon: mdi:home-floor-0
+
+1ste_verdiep_groep:
+  name: 1ste verdiep (groep)
+  icon: mdi:home-floor-1
+  
+volledig_huis_groep:  
+  name: Volledig huis (groep)
+  icon: mdi:home

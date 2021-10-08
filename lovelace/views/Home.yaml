@@ -198,10 +198,10 @@ cards:
               ha-card {
                 height: 128px;
               }
-          - name: Sensoren
+          - name: Broadcast
             type: custom:button-card
-            icon: mdi:leak
-            tap_action: !include popup/sensoren.yaml
+            icon: mdi:bullhorn
+            tap_action: !include popup/broadcast.yaml
             style: |
               ha-card {
                 height: 128px;

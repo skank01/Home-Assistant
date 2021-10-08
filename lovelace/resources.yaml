@@ -13,8 +13,6 @@
 - type: module
   url: /hacsfiles/entity-attributes-card/entity-attributes-card.js
 - type: module
-  url: /hacsfiles/harmony-card/harmony-card.js
-- type: module
   url: /hacsfiles/lovelace-card-mod/card-mod.js
 - type: module 
   url: /hacsfiles/lovelace-auto-entities/auto-entities.js

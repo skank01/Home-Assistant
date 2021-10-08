@@ -1,0 +1,57 @@
+sensor:
+- platform: rest
+  name: Vijver Seneye
+  json_attributes:
+    - status
+    - exps
+  value_template: '{{ value_json.status.disconnected }}'  
+  resource: !secret vijver_resource
+  username: !secret vijver_user
+  password: !secret vijver_paswoord
+  scan_interval: 60
+
+template:
+  - sensor:
+    - name: Vijver Temperatuur
+      state: "{{ (state_attr('sensor.vijver_seneye', 'exps').temperature.curr|default(0)) }}"
+      availability: "{{ not is_state('sensor.vijver_seneye', 'unavailable') }}"
+      attributes:
+        trend: "{{ state_attr('sensor.vijver_seneye', 'exps').temperature.trend|default('unknown') }}"
+        critical_in: "{{ state_attr('sensor.vijver_seneye', 'exps').temperature.critical_in|default('unknown') }}"
+        avg: "{{ state_attr('sensor.vijver_seneye', 'exps').temperature.avg|default('unknown') }}"
+        status: "{{ state_attr('sensor.vijver_seneye', 'exps').temperature.status|default('unknown') }}"
+        advises: "{{ state_attr('sensor.vijver_seneye', 'exps').temperature.advises|default('unknown') }}"
+    - name: Vijver Ph
+      state: "{{ (state_attr('sensor.vijver_seneye', 'exps').ph.curr|default(0)) }}"
+      availability: "{{ not is_state('sensor.vijver_seneye', 'unavailable') }}"
+      attributes:
+        trend: "{{ state_attr('sensor.vijver_seneye', 'exps').ph.trend|default('unknown') }}"
+        critical_in: "{{ state_attr('sensor.vijver_seneye', 'exps').ph.critical_in|default('unknown') }}"
+        avg: "{{ state_attr('sensor.vijver_seneye', 'exps').ph.avg|default('unknown') }}"
+        status: "{{ state_attr('sensor.vijver_seneye', 'exps').ph.status|default('unknown') }}"
+        advises: "{{ state_attr('sensor.vijver_seneye', 'exps').ph.advises|default('unknown') }}"
+    - name: Vijver NH3
+      state: "{{ (state_attr('sensor.vijver_seneye', 'exps').nh3.curr|default(0)) }}"
+      availability: "{{ not is_state('sensor.vijver_seneye', 'unavailable') }}"
+      attributes:
+        trend: "{{ state_attr('sensor.vijver_seneye', 'exps').nh3.trend|default('unknown') }}"
+        critical_in: "{{ state_attr('sensor.vijver_seneye', 'exps').nh3.critical_in|default('unknown') }}"
+        avg: "{{ state_attr('sensor.vijver_seneye', 'exps').nh3.avg|default('unknown') }}"
+        status: "{{ state_attr('sensor.vijver_seneye', 'exps').nh3.status|default('unknown') }}"
+        advises: "{{ state_attr('sensor.vijver_seneye', 'exps').nh3.advises|default('unknown') }}"
+    - name: Vijver Zuurstof
+      state: "{{ (state_attr('sensor.vijver_seneye', 'exps').o2.curr|default(0)) }}"
+      availability: "{{ not is_state('sensor.vijver_seneye', 'unavailable') }}"
+      attributes:
+        max_value: "{{ state_attr('sensor.vijver_seneye', 'exps').o2.max_value|default('unknown') }}"
+        status: "{{ state_attr('sensor.vijver_seneye', 'exps').o2.status|default('unknown') }}"
+        advises: "{{ state_attr('sensor.vijver_seneye', 'exps').o2.advises|default('unknown') }}" 
+    - name: Vijver Licht
+      state: "{{ (state_attr('sensor.vijver_seneye', 'exps').light.curr|default(0)) }}"
+      availability: "{{ not is_state('sensor.vijver_seneye', 'unavailable') }}"
+      attributes:
+        trend: "{{ state_attr('sensor.vijver_seneye', 'exps').light.trend|default('unknown') }}"
+        critical_in: "{{ state_attr('sensor.vijver_seneye', 'exps').light.critical_in|default('unknown') }}"
+        avg: "{{ state_attr('sensor.vijver_seneye', 'exps').light.avg|default('unknown') }}"
+        status: "{{ state_attr('sensor.vijver_seneye', 'exps').light.status|default('unknown') }}"
+        advises: "{{ state_attr('sensor.vijver_seneye', 'exps').light.advises|default('unknown') }}"        

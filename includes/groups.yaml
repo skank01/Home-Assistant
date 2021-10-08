@@ -1,3 +1,22 @@
+tts_google_home:
+  name: Google home TTS speakers
+  entities:
+    - input_boolean.keuken
+    - input_boolean.slaapkamer
+    - input_boolean.slaapkamer_arne
+    - input_boolean.slaapkamer_noor
+    - input_boolean.badkamer
+    - input_boolean.bureau
+    - input_boolean.gelijkvloers_groep
+    - input_boolean.1ste_verdiep_groep
+    - input_boolean.volledig_huis_groep
+
+tv_kijken:
+  entities:
+    - input_boolean.tv_kijken
+    - input_boolean.film_kijken
+    - input_boolean.netflix_kijken
+
 family:
   name: Family
   entities:

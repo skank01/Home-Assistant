@@ -17,6 +17,15 @@ droogkast_status:
   initial: Droogkast 
 
 
+#### TV switching ####  
+tv_modus:
+  name: TV input source
+  options:
+    - Tv Kijken
+    - Netflix Kijken
+    - Film Kijken
+    - Uit
+
 #### Audio settings ####  
 
 radio_station:

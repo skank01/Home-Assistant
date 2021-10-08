@@ -1,28 +1,47 @@
 ##########################
 ## Vijver
 ##########################
-- id: 'Turn off UV'
-  alias: Turn off UV-lamp in the evening
-  trigger:
-    platform: time
-    at: "21:55:00"
-  condition:
-  - condition: state
-    entity_id: switch.uv_lamp_vijver
-    state: "on"
-  action:
-  - service: homeassistant.turn_off
-    entity_id: switch.uv_lamp_vijver
     
-- id: 'Turn on UV'
-  alias: Turn on UV-lamp in the morning
-  trigger:
-    platform: time
-    at: "09:00:00"
-  condition:
-  - condition: state
-    entity_id: switch.uv_lamp_vijver
-    state: "off"
-  action:
-  - service: homeassistant.turn_on
-    entity_id: switch.uv_lamp_vijver
+alias: Automatically turn on/off UV-lamp during the day/night
+trigger:
+  - platform: time
+    at: '2:00'
+  - platform: time
+    at: '6:00'
+  - platform: time
+    at: '10:00'
+  - platform: time
+    at: '21:55'
+  - platform: homeassistant
+    event: start
+action:
+  - choose:
+      - conditions:
+          - condition: '{{ now().month in [4, 5, 9, 10] }}'
+          - condition: time
+            after: '21:55'
+        sequence:
+          - service: switch.turn_off
+            entity_id: switch.uv_lamp_vijver
+      - conditions:
+          - condition: '{{ now().month in [4, 5, 9, 10] }}'
+          - condition: time
+            after: '10:00'
+        sequence:
+          - service: switch.turn_on
+            entity_id: switch.uv_lamp_vijver
+      - conditions:
+          - condition: '{{ now().month in [6, 7, 8] }}'
+          - condition: time
+            after: '6:00'
+        sequence:
+          - service: switch.turn_on
+            entity_id: switch.uv_lamp_vijver
+      - conditions:
+          - condition: '{{ now().month in [6, 7, 8] }}'
+          - condition: time
+            after: '2:00'
+        sequence:
+          - service: switch.turn_off
+            entity_id: switch.uv_lamp_vijver
+mode: single      

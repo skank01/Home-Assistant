@@ -12,6 +12,61 @@ restart_home_assistant:
 
 
 ##############################
+## TV aanzetten
+##############################
+tv_aanzetten:
+  alias: Activiteiten TV
+  icon: "mdi:television"
+  mode: restart
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: media_player.living_tv
+              state: "off"
+          sequence:
+            - service: media_player.turn_on
+              entity_id: media_player.living_tv
+            - delay: 00:00:15
+    - choose:
+        - conditions: "{{ actie == 'tv' }}"
+          sequence:
+            - service: media_player.select_source
+              target:
+                entity_id: media_player.living_tv
+              data:
+                source: TV VLAANDEREN
+            - service: media_player.turn_off
+              entity_id: media_player.shield_tv 
+        - conditions: "{{ actie == 'netflix' }}"
+          sequence:
+            - service: media_player.select_source
+              target:
+                entity_id: media_player.living_tv
+              data:
+                source: Netflix
+            - service: media_player.turn_off
+              entity_id: media_player.shield_tv 
+        - conditions: "{{ actie == 'film' }}"
+          sequence:
+            - service: media_player.select_source
+              target:
+                entity_id: media_player.living_tv
+              data:
+                source: HDMI2
+            - service: media_player.turn_on
+              entity_id: media_player.shield_tv 
+        - conditions: "{{ actie == 'uit' }}"
+          sequence:
+            - service: media_player.turn_off
+              entity_id: 
+                - media_player.shield_tv 
+                - media_player.living_tv
+                
+                
+      
+
+##############################
 ## Goodnight
 ##############################
 
@@ -20,10 +75,11 @@ welterusten:
   icon: "mdi:bed"
   description: 'Slaapwel routine die alles op het gelijkvloers uitzet en de verlichting op het eerste verdiep aanzet.'
   sequence:
-  - service: remote.turn_on
+  - service: input_select.select_option
+    target:
+      entity_id: input_select.tv_modus
     data:
-      entity_id: remote.harmony_hub
-      activity: 'PowerOff'
+      option: "Uit"
   - service: light.turn_off
     data:
       entity_id: group.lights_groundfloor
@@ -247,6 +303,12 @@ google_home_say:
           step: 5
           mode: slider
           unit_of_measurement: "%"
+    speaker_group_split:
+      description: "Set to True to split Google Home speaker groups in separate entities when sending the TTS"
+      example: true
+      required: false
+      selector:
+        boolean:
   variables:
     players_screen:
       - media_player.keuken
@@ -262,6 +324,8 @@ google_home_say:
     speaker_groups: []
     primary_spotcast: "stijn_moke"
     silent_mp3: "media-source://media_source/local/2-seconds-of-silence.mp3"
+    default_volume_restore: True
+    default_group_split: True
   sequence:
     - alias: "Convert input to lists if not provided as such"
       variables:
@@ -271,7 +335,13 @@ google_home_say:
           {% set tts_target_group =  tts_list | select('in', speaker_group_list) | list %}
           {% set tts_target_single = tts_list | reject('in', speaker_group_list) | list %}
           {% set tts_target_ha_group = (tts_target_group | join(',') | replace('media_player', 'group')).split(',') | list %}
-          {{ expand(tts_target_ha_group) | map(attribute='entity_id') | list + tts_target_single | unique | list }}
+          {% set tts_group_entities = expand(tts_target_ha_group) | map(attribute='entity_id') | list %}
+          {% set single_not_in_group = tts_target_single | reject('in', tts_group_entities) | list %}
+          {% if (speaker_group_split is not defined and default_group_split) or speaker_group_split  %}
+            {{ tts_group_entities + single_not_in_group }}
+          {% else %}
+            {{ tts_target_group + single_not_in_group }}
+          {% endif %}
         players_screen_list: >
           {{ 
             players_screen.replace(' ' , '').split(',') 
@@ -374,7 +444,7 @@ google_home_say:
     - variables:
         volume_restore_required: >
           {{
-            restore_volume_all if restore_volume_all is defined else False
+            restore_volume_all if restore_volume_all is defined else default_volume_restore
             and tts_target_not_playing | count > 0
             and tts_volume is defined
           }}
@@ -415,7 +485,7 @@ google_home_say:
         message: "{{ tts_message }}"
         language: nl-NL
         options:
-          gender: male
+          gender: male  
     - alias: "Short delay if required"
       choose:
       - conditions:
@@ -515,13 +585,12 @@ google_home_say:
                               extra:
                                 title: "{{ media_artist_list[repeat.index -1] if not media_artist_list[repeat.index -1] == 'no artist' else media_title_list[repeat.index -1] }}"
                                 thumb: "{{ media_picture_list[repeat.index -1] }}"
+    - alias: "TTS sent to non playing devices?"
+      condition: template
+      value_template: "{{ tts_target_not_playing | count > 0 }}"
     - alias: "Set volume non playing entites back if required"
       choose:
-        - conditions: >
-            {{ 
-              volume_restore_required 
-              or volume_non_playing is defined
-            }}
+        - conditions: "{{ volume_non_playing is defined or volume_restore_required }}"
           sequence:
             - alias: "Resume players"
               repeat:
@@ -554,4 +623,69 @@ google_home_say:
                     service: media_player.turn_on
                     target:
                       entity_id: "{{ screen_not_playing | select('in', players_screen_list) | list }}"
-    
+
+
+
+############################################################ 
+## Script to send messages using Lovelace dashboard
+############################################################    
+
+google_say_dashboard:
+  alias: "TTS Lovelace Dashboard"
+  description: Script to send messages using Lovelace dashboard
+  icon: mdi:cast-audio
+  mode: single
+  sequence:
+    - alias: "Change volume while casting?"
+      choose:
+        - conditions:
+            - alias: "Input boolean on?"
+              condition: state
+              entity_id: input_boolean.tts_volume
+              state: "on"
+          sequence:
+            - service: script.turn_on
+              target:
+                entity_id: script.google_home_say
+              data:
+                variables:
+                  tts_message: "{{ states('input_text.tts_message') }}"
+                  tts_volume: "{{ states('input_number.tts_volume') | float / 100 | round(2) }}"
+                  tts_target: >
+                    {{ 
+                        expand('group.tts_google_home') 
+                            | selectattr('state', 'eq', 'on') 
+                            | map(attribute='entity_id') 
+                            | list
+                            | replace('input_boolean', 'media_player')
+                    }}
+                  restore_volume_all: "{{ is_state('input_boolean.restore_volume_all', 'on') }}"
+                  volume_non_playing: "{{ states('input_number.volume_non_playing') | float / 100 | round(2) }}"
+      default:
+        - service: script.turn_on
+          target:
+            entity_id: script.google_home_say
+          data:
+            variables:
+              tts_message: "{{ states('input_text.tts_message') }}"
+              tts_target: >
+                {{ 
+                    expand('group.tts_google_home') 
+                        | selectattr('state', 'eq', 'on') 
+                        | map(attribute='entity_id') 
+                        | list
+                        | replace('input_boolean', 'media_player')
+                }}
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.tts_volume
+      data:
+        value: 25
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.tts_message
+      data:
+        value: ""
+    - service: homeassistant.turn_off
+      target:
+        entity_id: group.tts_google_home

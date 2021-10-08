@@ -74,7 +74,6 @@ Plugins:
 - Battery State Card
 - Button Card
 - Calendar Card
-- Harmony Card
 - Fold-entity-row
 - Slider-entity-row
 - Layout-card

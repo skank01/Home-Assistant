@@ -1,0 +1,31 @@
+- platform: group
+  name: gelijkvloers groep
+  unique_id: Groep mediaspelers op gelijkvloers
+  entities:
+    - media_player.woonkamer_mini
+    - media_player.keuken
+- platform: group
+  name: 1ste verdiep groep
+  unique_id: Groep mediaspelers op 1ste verdiep
+  entities:
+    - media_player.slaapkamer
+    - media_player.slaapkamer_arne
+    - media_player.slaapkamer_noor
+    - media_player.bureau
+    - media_player.badkamer
+  
+- platform: group
+  name: volledig huis groep
+  unique_id: Groep mediaspelers in het volledige huis
+  entities:
+    - media_player.woonkamer_mini
+    - media_player.keuken
+    - media_player.slaapkamer
+    - media_player.slaapkamer_arne
+    - media_player.slaapkamer_noor
+    - media_player.bureau
+    - media_player.badkamer
+    
+- platform: androidtv
+  name: Shield TV
+  host: !secret shield

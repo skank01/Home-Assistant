@@ -23,7 +23,6 @@
           tts_message: "Er is post toegekomen!"
           tts_target: media_player.keuken
           tts_volume: 0.65
-          restore_volume_all: True
     - service: input_boolean.turn_on
       entity_id: input_boolean.brievenbus
 
@@ -52,7 +51,6 @@
           tts_message: "Er is een pakje toegekomen!"
           tts_target: media_player.keuken
           tts_volume: 0.65
-          restore_volume_all: True
     - service: input_boolean.turn_on
       entity_id: input_boolean.pakjesbus        
 

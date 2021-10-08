@@ -1,0 +1,129 @@
+##########################
+## TV aanzetten
+##########################
+
+- id: TV aanzetten volgens input
+  alias: TV Automatisatie
+  mode: single
+  max_exceeded: silent
+  trigger:
+    - platform: state
+      entity_id: input_boolean.tv_kijken
+      to: "on"
+      id: tv
+    - platform: state
+      entity_id: input_select.tv_modus
+      to: "Tv Kijken"
+      id: tv
+    - platform: state
+      entity_id: input_boolean.netflix_kijken
+      to: "on"
+      id: netflix
+    - platform: state
+      entity_id: input_select.tv_modus
+      to: "Netflix Kijken"
+      id: netflix
+    - platform: state
+      entity_id: input_boolean.film_kijken
+      to: "on"
+      id: film
+    - platform: state
+      entity_id: input_select.tv_modus
+      to: "Film Kijken"
+      id: film
+    - platform: state
+      entity_id: group.tv_kijken
+      to: "off"
+      id: uit
+    - platform: state
+      entity_id: input_select.tv_modus
+      to: "Uit"
+      id: uit    
+  action:
+    - alias: "choose alias (name)"
+      choose:
+      - conditions: "{{ trigger.id == 'tv' }}"
+        sequence:
+          - alias: "Juiste input_boolean aan"
+            service: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.tv_kijken
+          - alias: "Andere input booleans uit"
+            service: input_boolean.turn_off
+            target:
+              entity_id: 
+                - input_boolean.netflix_kijken
+                - input_boolean.film_kijken
+          - alias: "Input select op juiste optie"
+            service: input_select.select_option
+            target:
+              entity_id: input_select.tv_modus
+            data:
+              option: "Tv Kijken"
+          - alias: "Script starten"
+            service: script.tv_aanzetten
+            data:
+              actie: tv
+      - conditions: "{{ trigger.id == 'netflix' }}"
+        sequence:
+          - alias: "Juiste input_boolean aan"
+            service: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.netflix_kijken
+          - alias: "Andere input booleans uit"
+            service: input_boolean.turn_off
+            target:
+              entity_id: 
+                - input_boolean.tv_kijken
+                - input_boolean.film_kijken
+          - alias: "Input select op juiste optie"
+            service: input_select.select_option
+            target:
+              entity_id: input_select.tv_modus
+            data:
+              option: "Netflix Kijken"
+          - alias: "Script starten"
+            service: script.tv_aanzetten
+            data:
+              actie: netflix
+      - conditions: "{{ trigger.id == 'film' }}"
+        sequence:
+          - alias: "Juiste input_boolean aan"
+            service: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.film_kijken
+          - alias: "Andere input booleans uit"
+            service: input_boolean.turn_off
+            target:
+              entity_id: 
+                - input_boolean.tv_kijken
+                - input_boolean.netflix_kijken
+          - alias: "Input select op juiste optie"
+            service: input_select.select_option
+            target:
+              entity_id: input_select.tv_modus
+            data:
+              option: "Film Kijken"
+          - alias: "Script starten"
+            service: script.tv_aanzetten
+            data:
+              actie: film
+      - conditions: "{{ trigger.id == 'uit' }}"
+        sequence:
+          - alias: "Input select op juiste optie"
+            service: input_select.select_option
+            target:
+              entity_id: input_select.tv_modus
+            data:
+              option: "Uit"
+          - alias: "Alle input booleans uit"
+            service: input_boolean.turn_off
+            target:
+              entity_id: 
+                - input_boolean.netflix_kijken
+                - input_boolean.tv_kijken
+                - input_boolean.film_kijken
+          - alias: "Script starten"
+            service: script.tv_aanzetten
+            data:
+              actie: uit

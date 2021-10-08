@@ -24,8 +24,7 @@
           tts_message: "Gelukkige verjaardag Stijn !"
           tts_target: media_player.keuken
           tts_volume: 0.65
-          restore_volume_all: True
-    
+              
 
 ##########################
 ## Verjaardag Kim
@@ -53,8 +52,7 @@
           tts_message: "Gelukkige verjaardag Kim !"
           tts_target: media_player.keuken
           tts_volume: 0.65
-          restore_volume_all: True
-    
+             
         
 ##########################
 ## Verjaardag Arne
@@ -82,8 +80,7 @@
           tts_message: "Gelukkige verjaardag Arne! Maak er een leuke dag van!"
           tts_target: media_player.keuken
           tts_volume: 0.65
-          restore_volume_all: True
-     
+          
 
 ##########################
 ## Verjaardag Noor
@@ -111,8 +108,7 @@
           tts_message: "Gelukkige verjaardag Noor! Geniet van jouw dagje!"
           tts_target: media_player.keuken
           tts_volume: 0.65
-          restore_volume_all: True
-    
+          
 
 ##########################
 ## Verjaardag Huwelijk
@@ -135,4 +131,4 @@
           tts_message: "Proficiat Stijn en Kim met jullie huwelijksverjaardag!"
           tts_target: media_player.keuken
           tts_volume: 0.65
-          restore_volume_all: True
+        

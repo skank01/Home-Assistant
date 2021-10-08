@@ -28,51 +28,48 @@ browser_mod:
             --primary-text-color: var(--primary-color)
           }
         cards:  
-          - type: entities
-            show_header_toggle: false
-            entities:
-              - entity: switch.harmony_hub_tv_kijken
-                name: Tv kijken
-                icon: mdi:television
-              - entity: switch.harmony_hub_netflix_kijken
-                name: Netflix
-                icon: mdi:netflix
-              - entity: switch.harmony_hub_film_kijken
-                name: Film kijken
-                icon: mdi:movie-open-outline
-            style: |
-              ha-card {
-                --primary-text-color: var(--secondary-text-color)
-              }    
-          - type: custom:harmony-card
-            entity: remote.harmony_hub
-            volume_entity: media_player.woonkamer
-            scale: 1.25
-            activities:
-            - name: Tv kijken
-              device: Orange DVR
-            - name: Netflix kijken
-              device: LG Tv  
-            - name: Film kijken
-              device: Zidoo Mediaspeler
-            hide_activities: true
-            buttons:
-              xbox:
-                hide: true
-              back:
-                hide: true
-              a:
-                hide: true
-              b:
-                hide: true
-              x:
-                hide: true
-              y:
-                hide: true
-            style: |
-              ha-card {
-                --primary-text-color: var(--secondary-text-color)
-              }    
+          - type: custom:mini-media-player
+            entity: media_player.living_tv
+            name: TV
+            icon: mdi:television
+            artwork: cover
+            source: full
+            info: scroll
+            volume_stateless: true
+            hide:
+              icon: true
+              volume: false
+              prev: true
+              next: true
+              power: true
+            shortcuts:
+              columns: 4
+              column_height: 60
+              buttons:    
+                - cover: /local/tvvlaanderen.png
+                  type: service
+                  id: input_select.select_option
+                  data:
+                    entity_id: input_select.tv_modus
+                    option: "Tv Kijken"
+                - cover: /local/netflix_button.png
+                  type: service
+                  id: input_select.select_option
+                  data:
+                    entity_id: input_select.tv_modus
+                    option: "Netflix Kijken"
+                - cover: /local/kodi.png
+                  type: service
+                  id: input_select.select_option
+                  data:
+                    entity_id: input_select.tv_modus
+                    option: "Film Kijken" 
+                - icon: mdi:power
+                  type: service
+                  id: input_select.select_option
+                  data:
+                    entity_id: input_select.tv_modus
+                    option: "Uit"    
       - type: custom:layout-break
       - type: custom:vertical-stack-in-card
         title: Luidprekers

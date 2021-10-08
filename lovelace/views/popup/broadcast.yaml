@@ -1,0 +1,72 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Broadcast
+  hide_header: true
+  deviceID: this
+  style:
+    .: |
+      :host .content {
+        width: calc(500px);
+        max-width: 500px;
+      }
+    $: |
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: none !important;
+      }
+  large: true
+  card:
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: markdown
+        content: <font color="#1A73E8" size= "5">Google Broadcast</font>
+        style: |
+          ha-card {
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
+      - type: entities
+        entities:
+          - entity: input_text.tts_message
+          - entity: input_boolean.tts_volume
+      - type: conditional
+        conditions:
+        - entity: input_boolean.tts_volume
+          state_not: "off"
+        card:
+          type: entities
+          entities:
+            - entity: input_number.tts_volume
+            - entity: input_boolean.restore_volume_all
+      - type: conditional
+        conditions:
+        - entity: input_boolean.restore_volume_all
+          state: "off"
+        - entity: input_boolean.tts_volume
+          state_not: "off"
+        card:
+          type: entities
+          entities:
+            - entity: input_number.volume_non_playing
+      - type: markdown
+        content: <font color="#1A73E8" size= "5">Stuur naar:</font>
+        style: |
+          ha-card {
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
+      - type: entities
+        entities:
+          - entity: input_boolean.volledig_huis_groep
+          - entity: input_boolean.1ste_verdiep_groep
+          - entity: input_boolean.gelijkvloers_groep
+          - entity: input_boolean.keuken
+          - entity: input_boolean.slaapkamer
+          - entity: input_boolean.slaapkamer_arne
+          - entity: input_boolean.slaapkamer_noor
+          - entity: input_boolean.bureau
+          - entity: input_boolean.badkamer
+      - type: entities
+        entities:
+          - entity: script.google_say_dashboard
+            name: Stuur bericht

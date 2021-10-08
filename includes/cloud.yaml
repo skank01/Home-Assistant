@@ -3,14 +3,17 @@ google_actions:
     include_domains:
       - light
       - vacuum
-      - input_boolean
+      - script
     exclude_domains:
       - media_player
       - input_select
       - switch
-      - script
       - scene
+      - input_boolean
     include_entities:
+      - input_boolean.film_kijken
+      - input_boolean.tv_kijken
+      - input_boolean.netflix_kijken
       - switch.unraid_reboot
       - switch.unraid_power_off
       - switch.droogkast
@@ -25,9 +28,12 @@ google_actions:
       - light.cinema_scherm_2
       - light.dressing_1
       - light.dressing_2
-      - input_boolean.vakantiemodus
-      - input_boolean.pakjesbus
-      - input_boolean.brievenbus
+      - script.google_home_say
+      - script.google_say_dashboard
+      - script.radio
+      - script.spotify
+      - script.tv_aanzetten
+      - script.restart_home_assistant
   entity_config:  
     light.kerstverlichting_buxus:
       room: Oprit
@@ -85,15 +91,9 @@ google_actions:
       room: Speelkamer
     light.technische_ruimte:
       room: Technische Ruimte
-    input_boolean.bad: 
-      room: Badkamer
-    input_boolean.douche:
-      room: Badkamer
-    input_boolean.welterusten:
+    input_boolean.film_kijken:
       room: Woonkamer
-    input_boolean.strijken:
-      room: Bureau
-    input_boolean.dinner:
+    input_boolean.netflix_kijken:
+      room: Woonkamer  
+    input_boolean.tv_kijken:
       room: Woonkamer
-    
-    

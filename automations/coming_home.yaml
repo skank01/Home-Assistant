@@ -49,4 +49,4 @@
         tts_message: "Welkom thuis, het was saai zonder jou !"
         tts_target: media_player.keuken
         tts_volume: 0.65
-        restore_volume_all: True
+      

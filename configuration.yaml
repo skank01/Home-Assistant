@@ -14,13 +14,8 @@ homeassistant:
       name: Authenticator app
     - type: notify
       message: "Access token: {}"     
-frontend:
-  themes: !include_dir_merge_named themes
-  
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
 
+  
 lovelace:
   mode: yaml
   resources: !include lovelace/resources.yaml
@@ -40,6 +35,33 @@ lovelace:
       icon: mdi:human-male-boy
       show_in_sidebar: true
       require_admin: false
+
+
+############################
+## Includes
+############################
+
+group: !include includes/groups.yaml
+script: !include includes/scripts.yaml
+scene: !include includes/scenes.yaml
+light: !include includes/lights.yaml
+switch: !include includes/switches.yaml
+input_boolean: !include includes/input_boolean.yaml
+input_select: !include includes/input_select.yaml
+input_text: !include includes/input_text.yaml
+input_number: !include includes/input_number.yaml
+input_datetime: !include includes/input_datetime.yaml
+media_player: !include includes/media_players.yaml
+automation: !include_dir_merge_list automations/
+cloud: !include includes/cloud.yaml
+notify: !include includes/notify.yaml
+alert: !include includes/alert.yaml
+
+#############################
+
+frontend:
+  themes: !include_dir_merge_named themes
+
 panel_iframe:
   dsmr:
     title: "DSMR Reader"
@@ -53,34 +75,23 @@ google:
 spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
-
-############################
-## Includes
-############################
-
-group: !include includes/groups.yaml
-script: !include includes/scripts.yaml
-scene: !include includes/scenes.yaml
-light: !include includes/lights.yaml
-switch: !include includes/switches.yaml
-input_boolean: !include includes/input_boolean.yaml
-input_select: !include includes/input_select.yaml
-input_datetime: !include includes/input_datetime.yaml
-automation: !include_dir_merge_list automations/
-cloud: !include includes/cloud.yaml
-notify: !include includes/notify.yaml
-alert: !include includes/alert.yaml
-
-#############################
-ffmpeg:
   
 rest_command:
   kiosk_command:
     url: !secret rest_url_kiosk_command
-python_script:
 
 browser_mod:
   prefix: "browser_"
   devices:
     41b5a475-fe0bd9fc:
       name: tablet
+  disable:
+    - light
+    - media_player
+  
+python_script:
+
+ffmpeg:
+
+wake_on_lan: # enables `wake_on_lan` integration
+  

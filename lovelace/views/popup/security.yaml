@@ -7,8 +7,8 @@ browser_mod:
   style:
     .: |
       :host .content {
-        width: calc(385px + 385px + 385px);
-        max-width: 90vw;
+        width: calc(400px + 400px + 400px);
+        height: calc(800px) ;
       }
     $: |
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
@@ -16,26 +16,84 @@ browser_mod:
       }
   card:
     type: custom:layout-card
-    column_num: 1
-    column_width: [385]
-    layout: vertical
+    layout_type: vertical
+    layout_options:
+      column_num: 3
+      column_width: 385
     cards:
-      - type: picture-glance
-        title: Voordeur
-        aspect_ratio: 55%
-        entities: []
-        entity: camera.deurbel
-        name: Deurbel
-        camera_image: camera.deurbel
-        tap_action:
-          action: more-info
-      - type: picture-glance
-        title: Tuin
-        aspect_ratio: 55%
-        entities: []
-        entity: camera.tuin
-        name: Achtertuin
-        camera_image: camera.tuin
-        tap_action:
-          action: more-info    
-      
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Camera's</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
+          - type: picture-glance
+            title: Voordeur
+            aspect_ratio: 55%
+            entities: []
+            entity: camera.deurbel
+            name: Deurbel
+            camera_image: camera.deurbel
+            tap_action:
+              action: more-info
+          - type: picture-glance
+            title: Tuin
+            aspect_ratio: 55%
+            entities: []
+            entity: camera.tuin
+            name: Achtertuin
+            camera_image: camera.tuin
+            tap_action:
+              action: more-info    
+      - type: custom:layout-break
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">Gelijkvloers</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
+          - type: entities
+            entities:  
+              - binary_sensor.deurbel_motion_sensor
+              - binary_sensor.det_inkom
+              - binary_sensor.det_living
+              - binary_sensor.presence_keuken
+              - binary_sensor.det_garage
+              - binary_sensor.voordeur
+              - binary_sensor.garage_poort
+              - binary_sensor.brand_living
+              - binary_sensor.brand_garage
+              - binary_sensor.tuin_motion_sensor
+      - type: custom:layout-break
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">1ste verdiep</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }   
+          - type: entities
+            entities:
+              - binary_sensor.det_boven
+              - binary_sensor.presence_badkamer_ouders
+              - binary_sensor.brand_1ste
+              - binary_sensor.brand_wasplaats
+          - type: markdown
+            content: <font color="#1A73E8" size= "5">2de verdiep</font>
+            style: |
+              ha-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }        
+          - type: entities
+            entities:    
+              - binary_sensor.brand_techniek
+              - binary_sensor.brand_2de

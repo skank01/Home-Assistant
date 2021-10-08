@@ -1,3 +1,15 @@
 webostv:
   host: !secret lgtv
   name: Living TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data: 
+      mac: !secret mac_tv
+      broadcast_address: !secret broadcast_tv
+  customize:
+    sources:
+      - TV VLAANDEREN
+      - Netflix
+      - HDMI1
+      - HDMI2
+      - HDMI3

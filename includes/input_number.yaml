@@ -1,0 +1,13 @@
+tts_volume:
+  name: Volume voor TTS bericht
+  initial: 50
+  min: 0
+  max: 100
+  step: 5
+  
+volume_non_playing:
+  name: Volume voor niet spelende apparaten
+  initial: 50
+  min: 0
+  max: 100
+  step: 5

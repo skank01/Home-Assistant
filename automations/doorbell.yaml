@@ -29,7 +29,6 @@
                     - media_player.slaapkamer
                     - media_player.bureau
                   tts_volume: 0.65
-                  restore_volume_all: True
             - delay: "00:00:08"
             - service: camera.snapshot
               data_template:
@@ -84,7 +83,6 @@
                     - media_player.keuken
                     - media_player.slaapkamer
                   tts_volume: 0.45
-                  restore_volume_all: True
             - delay: "00:00:08"
             - service: camera.snapshot
               data_template:

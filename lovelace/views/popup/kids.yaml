@@ -7,8 +7,8 @@ browser_mod:
   style:
     .: |
       :host .content {
-        width: calc(385px + 385px + 385px);
-        max-width: 90vw;
+        width: calc(300px + 300px + 300px);
+        
       }
     $: |
       .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
@@ -17,7 +17,7 @@ browser_mod:
   card:
     type: custom:layout-card
     column_num: 3
-    column_width: [385, 385, 385]
+    column_width: [300, 300, 300]
     layout: vertical
     cards:
       - type: custom:vertical-stack-in-card

@@ -81,3 +81,4 @@
   payload_off: '{"circuit": "UART_1_2_01", "dev": "relay", "state": "off"}'
   qos: 0
   
+  

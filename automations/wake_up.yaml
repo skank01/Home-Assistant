@@ -23,11 +23,7 @@
       variables:
         tts_message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
         tts_target: media_player.slaapkamer
-        tts_volume: 0.20
-        restore_volume_all: True
-  - delay: 00:01:00
-  - entity_id: light.lavabo
-    service: light.turn_on
+        tts_volume: 0.10
   - delay: 00:02:00
   - entity_id: light.nachtlampje_kim
     service: light.turn_off 
@@ -49,11 +45,7 @@
       variables:
         tts_message: "Goeiemorgen ! Tijd om rustig op te staan."
         tts_target: media_player.slaapkamer
-        tts_volume: 0.20
-        restore_volume_all: True
-  - delay: 00:01:00
-  - entity_id: light.lavabo
-    service: light.turn_on    
+        tts_volume: 0.10
   mode: single
 
 - id: 'Google Home alarm Arne'
@@ -75,8 +67,7 @@
       variables:
         tts_message: "Goeiemorgen De Bruyne! Tijd om rustig op te staan."
         tts_target: media_player.slaapkamer_arne
-        tts_volume: 0.20
-        restore_volume_all: True
+        tts_volume: 0.10
   mode: single   
   
 - id: 'Google Home alarm Noor'
@@ -98,6 +89,5 @@
       variables:
         tts_message: "Goeiemorgen Doornroosje! Tijd om rustig op te staan."
         tts_target: media_player.slaapkamer_noor
-        tts_volume: 0.20
-        restore_volume_all: True
+        tts_volume: 0.10
   mode: single  
