@@ -84,7 +84,10 @@ battery_level_monitor:
   name: Battery Level Monitor
   entities:
     - sensor.battery_level
-    - sensor.oneplus_battery_level
+    - sensor.smartphone_kim_battery_level
+    - sensor.smartphone_stijn_battery_level
+    - sensor.smartphone_arne_battery_level
+    - sensor.smartphone_noor_battery_level
     - sensor.openclose_4_battery_level
     - sensor.openclose_5_battery_level
     - sensor.openclose_6_battery_level

@@ -28,10 +28,9 @@ browser_mod:
                 image: /local/kim.jpg
               - type: markdown
                 content: |
-                  - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.oneplus_nord') }}
-                  - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.oneplus_batterijniveau') }} %
-                  - <ha-icon icon="mdi:battery-charging-30"></ha-icon> {{ states('binary_sensor.oneplus_is_aan_het_opladen') }}
-                  - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.oneplus_verbinding') }}
+                  - <ha-icon icon="mdi:account"></ha-icon> {{ states('device_tracker.smartphone_kim_2') }}
+                  - <ha-icon icon="mdi:battery-30"></ha-icon> {{ states('sensor.smartphone_kim_battery_level') }} %
+                  - <ha-icon icon="mdi:wifi-strength-2"></ha-icon> {{ states('sensor.smartphone_kim_wifi_connection') }}
           - type: map
             default_zoom: 14
             aspect_ratio: 16:9

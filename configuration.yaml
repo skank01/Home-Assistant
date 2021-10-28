@@ -1,5 +1,9 @@
 default_config:
 
+http:
+  use_x_forwarded_for: true
+  trusted_proxies: !secret http_trusted_proxies
+
 homeassistant:
   packages: !include_dir_named packages
   customize: !include customize.yaml
@@ -53,11 +57,18 @@ input_number: !include includes/input_number.yaml
 input_datetime: !include includes/input_datetime.yaml
 media_player: !include includes/media_players.yaml
 automation: !include_dir_merge_list automations/
-cloud: !include includes/cloud.yaml
 notify: !include includes/notify.yaml
 alert: !include includes/alert.yaml
+google_assistant: !include includes/google_assistant_integration.yaml
 
 #############################
+
+tts:
+  - platform: google_cloud
+    key_file: !secret google_cloud_tts
+    language: nl-NL
+    gender: male
+    voice: nl-BE-Wavenet-B
 
 frontend:
   themes: !include_dir_merge_named themes

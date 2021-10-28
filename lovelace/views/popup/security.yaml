@@ -30,24 +30,72 @@ browser_mod:
                 background-color: transparent !important;
                 box-shadow: none !important;
               }
-          - type: picture-glance
-            title: Voordeur
-            aspect_ratio: 55%
-            entities: []
-            entity: camera.deurbel
-            name: Deurbel
-            camera_image: camera.deurbel
-            tap_action:
-              action: more-info
-          - type: picture-glance
-            title: Tuin
-            aspect_ratio: 55%
-            entities: []
-            entity: camera.tuin
-            name: Achtertuin
-            camera_image: camera.tuin
-            tap_action:
-              action: more-info    
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.deurbel_streaming_sensor
+                state: 'False'
+            card:
+              type: picture-entity
+              entity: camera.deurbel
+              tap_action:
+                action: call-service
+                service: camera.turn_on
+                target:
+                  entity_id: camera.deurbel
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.deurbel_streaming_sensor
+                state: 'True'
+            card:
+              type: custom:webrtc-camera
+              entity: camera.deurbel
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.deurbel_streaming_sensor
+                state: 'True'
+            card:
+              type: button
+              tap_action:
+                action: call-service
+                service: script.stop_stream
+              icon: mdi:cctv-off
+              show_state: false
+              show_name: true
+              icon_height: 20px
+              name: STOP CAMERA
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tuin_streaming_sensor
+                state: 'False'
+            card:
+              type: picture-entity
+              entity: camera.tuin
+              tap_action:
+                action: call-service
+                service: camera.turn_on
+                target:
+                  entity_id: camera.tuin
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tuin_streaming_sensor
+                state: 'True'
+            card:
+              type: custom:webrtc-camera
+              entity: camera.tuin
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tuin_streaming_sensor
+                state: 'True'
+            card:
+              type: button
+              tap_action:
+                action: call-service
+                service: script.stop_stream
+              icon: mdi:cctv-off
+              show_state: false
+              show_name: true
+              icon_height: 20px
+              name: STOP CAMERA    
       - type: custom:layout-break
       - type: custom:vertical-stack-in-card
         cards:

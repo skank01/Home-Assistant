@@ -1,0 +1,123 @@
+project_id: !secret google_assistant_project_id
+service_account:
+  private_key: !secret google_assistant_key
+  client_email: !secret google_assistant_email
+report_state: true
+exposed_domains:
+  - light
+  - script
+  - vacuum
+entity_config:  
+    light.configuration_tool_1:
+      expose: false
+    light.inkom_1:
+      expose: false
+    light.inkom_2:
+      expose: false
+    light.cinema_1:
+      expose: false
+    light.cinema_2:
+      expose: false
+    light.cinema_scherm_1:
+      expose: false
+    light.cinema_scherm_2:
+      expose: false
+    light.dressing_1:
+      expose: false
+    light.dressing_2:
+      expose: false
+    script.google_home_say:
+      expose: false
+    script.google_say_dashboard:
+      expose: false
+    script.radio:
+      expose: false
+    script.spotify:
+      expose: false
+    sript.tv_aanzetten:
+      expose: false
+    script.restart_home_assistant:
+      expose: false
+    input_boolean.film_kijken:
+      expose: true
+      room: Woonkamer
+    input_boolean.tv_kijken:
+      expose: true
+      room: Woonkamer
+    input_boolean.netflix_kijken:
+      expose: true
+      room: Woonkamer
+    switch.unraid_reboot:
+      expose: true
+    switch.unraid_power_off:
+      expose: true
+    switch.droogkast:
+      expose: true
+      room: Bureau
+    switch.wasmachine:
+      expose: true
+      room: Bureau
+    light.kerstverlichting_buxus:
+      room: Oprit
+    light.licht_voordeur:
+      room: Oprit
+    light.licht_achterdeur:
+      room: Tuin    
+    light.tuinverlichting:
+      room: Tuin
+    light.vijververlichting:
+      room: Tuin
+    light.inkom_wand:
+      room: Inkom
+    light.tv_wand:
+      room: Woonkamer
+    light.keuken_wand:
+      room: Keuken    
+    switch.unraid_power_off:
+      name: Server
+      room: Garage
+    switch.unraid_reboot:
+      name: Herstart Server
+      room: Garage      
+    light.hal_plafond:
+      room: Hal
+    light.hal_wand:
+      room: Hal
+    light.trap_gelijkvloers:
+      room: Hal
+    light.trap_verdieping:
+      room: Hal    
+    light.douche:
+      room: Badkamer
+    light.lavabo:
+      room: Badkamer   
+    light.slaapkamer:
+      room: Slaapkamer
+    light.slaapkamer_Arne:
+      room: Slaapkamer Arne
+    light.slaapkamer_Noor:
+      room: Slaapkamer Noor
+    light.keukenkast:
+      room: Keuken
+    light.keuken:
+      room: Keuken
+    light.bench:
+      room: Woonkamer
+    light.lavabo_kids:
+      room: Badkamer Kids
+    light.douche_kids:
+      room: Badkamer Kids
+    light.bad:
+      room: Badkamer
+    light.bureau:
+      room: Bureau
+    light.speelkamer:
+      room: Speelkamer
+    light.technische_ruimte:
+      room: Technische Ruimte
+    input_boolean.film_kijken:
+      room: Woonkamer
+    input_boolean.netflix_kijken:
+      room: Woonkamer  
+    input_boolean.tv_kijken:
+      room: Woonkamer

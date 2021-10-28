@@ -39,7 +39,7 @@
       entity_id: sensor.anniversary_kim_s_verjaardag
       state: '0'
   action:
-    - service: notify.mobile_app_oneplus_nord
+    - service: notify.mobile_app_smartphone_kim
       data:
         message: "Gelukkige verjaardag Kim! Laat je maar goed verwennen!"
         data:

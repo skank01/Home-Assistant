@@ -561,3 +561,58 @@ browser_mod:
                   ha-card {
                     --primary-text-color: var(--sidebar-icon-color)
                   }  
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: markdown
+            style: |
+              ha-card {
+                background: url('/local/vijver.jpg');
+                color: rgba(255, 255, 255, 1);
+                border-radius: 10px;
+                margin-bottom: 2px;
+                font-size: 14px;
+                height: 400px;
+                width: 450px;
+                background-size: cover;
+              {  
+            content: >
+                **Mijn Vijver**
+                
+                **Temperatuur:** {{ (state_attr('sensor.vijver_seneye', 'exps').temperature.curr|default(0)) }}°C 
+
+                **Ph:** {{ (state_attr('sensor.vijver_seneye', 'exps').ph.curr|default(0)) }}
+                
+                **NH3:** {{ (state_attr('sensor.vijver_seneye', 'exps').nh3.curr|default(0)) }}
+                
+          - type: entities
+            entities:
+              - switch.uv_lamp_vijver 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:apexcharts-card'
+                graph_span: 7d
+                update_interval: 5m
+                cache: true
+                span:
+                  end: day
+                  offset: '-1sec'
+                header:
+                  show: false
+                series:
+                  - entity: sensor.vijver_ph
+                    type: column
+                    name:  Ph
+              - type: 'custom:apexcharts-card'
+                graph_span: 7d
+                update_interval: 5m
+                cache: true
+                span:
+                  end: day
+                  offset: '-1sec'
+                header:
+                  show: false
+                series:
+                  - entity: sensor.vijver_nh3
+                    type: column
+                    name:  Nh3
+              

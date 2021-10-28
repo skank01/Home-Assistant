@@ -1,23 +1,8 @@
 ##########################
 ## Tuinverlichting
 ##########################
-- id: turn_on_garden_lights_in_the_evening
-  alias: "Lichten: Tuinverlichting aan 's avonds"
-  initial_state: 'on'
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:05:00"
-  condition:
-  - condition: state
-    entity_id: group.family
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: light.tuinverlichting
-    
-- id: turn_on_garden_lights_on_movement_in_the_morning
-  alias: "Lichten: Tuinverlichting 's morgens aan op beweging"
+- id: turn_on_exterior_lights_on_movement_in_the_morning
+  alias: "Lichten: Buitenverlichting 's morgens aan op beweging"
   trigger:
     platform: state
     entity_id: binary_sensor.det_living
@@ -43,27 +28,41 @@
       entity_id: 
         - light.tuinverlichting  
         - input_boolean.verlichting_tuin
+        - light.licht_voordeur
 
-- id: turn_off_garden_lights_in_the_morning
-  alias: "Lichten: Tuinverlichting 's morgens uit"
+
+- id: turn_off_exterior_lights_in_the_morning
+  alias: "Lichten: Buitenverlichting 's morgens uit"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     above: 1
-  condition:
-    - condition: state
-      entity_id: light.tuinverlichting
-      state: "on"
   action:
     - service: homeassistant.turn_off
-      entity_id: light.tuinverlichting
+      entity_id: 
+        - light.tuinverlichting
+        - light.licht_voordeur
 
-##########################
-## Gevelverlichting
-##########################
+
+- id: turn_on_garden_lights_in_the_evening
+  alias: "Lichten: Tuinverlichting aan 's avonds"
+  initial_state: 'on'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:05:00"
+  condition:
+  - condition: state
+    entity_id: group.family
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: light.tuinverlichting
+    
+
 - id: turn_on_exterior_wall_light
-  alias: "Lichten: Gevelverlichting aan"
+  alias: "Lichten: Gevelverlichting voordeur aan in de avond"
   initial_state: 'on'
   trigger:
     platform: sun
@@ -154,7 +153,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.lightlevel_keuken
-    below: 20
+    below: 18
   condition:
   - condition: state
     entity_id: group.family
@@ -165,6 +164,26 @@
       - light.kastlamp
       - light.keuken_wand
 
+- alias: "Lichten: Kastlamp en keukenwand uit bij genoeg licht"
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.lightlevel_keuken
+    above: 35
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: light.kastlamp
+          state: "on"
+        - condition: state
+          entity_id: light.keuken_wand
+          state: "on" 
+  action:
+  - service: light.turn_off
+    entity_id: 
+      - light.kastlamp
+      - light.keuken_wand
 
 ########################################
 ## Keuken

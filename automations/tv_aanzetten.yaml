@@ -4,7 +4,7 @@
 
 - id: TV aanzetten volgens input
   alias: TV Automatisatie
-  mode: single
+  mode: restart
   max_exceeded: silent
   trigger:
     - platform: state

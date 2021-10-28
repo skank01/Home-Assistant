@@ -133,7 +133,7 @@ All data is on a SSD.
 
 ### Sensors ###
 - [4x Aqara door/window sensors](https://www.xiaomiproducts.nl/xiaomi-aqara-deur-en-raam-sensor-104834619.html)
-
+- [3x Hue Motion Sensors](https://www.philips-hue.com/nl-be/p/hue-bewegingssensor/8718696743171)
 
 ### Plugs ###
 - [5x Blitzwolf Smart Plugs](https://m.blitzwolf.com/ZigBee-3.0-Smart-Socket-EU-p-518.html)
@@ -149,7 +149,7 @@ All data is on a SSD.
 
 ## Ordered ##
 
-- [3x Hue Motion Sensors](https://www.philips-hue.com/nl-be/p/hue-bewegingssensor/8718696743171)
+- [1x 0-10V Zigbee Dimmer](https://nl.aliexpress.com/item/10000015907761.html?spm=a2g0s.9042311.0.0.5e474c4dpS99hs)
 
 
 
