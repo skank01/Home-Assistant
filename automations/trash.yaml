@@ -19,6 +19,9 @@
   action:
   - data:
       message: Herinnering:Deze nacht wordt {{ states('sensor.recycleapp_vandaag') }} opgehaald!
+      data:
+        priority: high
+        ttl: 0
     service: notify.mobile_devices
   - service: script.turn_on 
     target:

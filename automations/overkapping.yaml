@@ -1,0 +1,11 @@
+##########################
+## Restart gateway
+##########################
+- id: 'Overkapping reboot gateway'
+  alias: KLF reboot bij HA stop event
+  description: Herstart the KLF200 gateway om een SSL Handshake issue te voorkomen
+  trigger:
+    - platform: homeassistant
+      event: shutdown
+  action:
+    - service: velux.reboot_gateway

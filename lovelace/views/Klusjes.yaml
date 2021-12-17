@@ -1,0 +1,385 @@
+path: Klusjes
+icon: mdi:checkbox-marked-circle-plus-outline
+type: custom:vertical-layout
+cards:
+  - type: vertical-stack
+    title: Klusjes
+    cards:
+      - type: custom:check-button-card
+        title: Ramen buiten
+        color: rgb(70, 68, 70)
+        entity: sensor.ramen_buiten
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 2 months
+          color: Orange
+        - value: 3 months
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }    
+      - type: custom:check-button-card
+        title: Ramen binnen
+        entity: sensor.ramen_binnen
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 2 months
+          color: Orange
+        - value: 3 months
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+      - type: custom:check-button-card
+        title: Badkamer
+        entity: sensor.badkamer
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 30 days
+          color: Orange
+        - value: 60 days
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+  - type: vertical-stack
+    title: Filters
+    cards:    
+      - type: custom:check-button-card
+        title: Vijver
+        entity: sensor.vijver
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+          - value: 30 days
+            color: Orange
+          - value: 90 days
+            color: Red 
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }    
+      - type: custom:check-button-card
+        title: Ventilatie
+        entity: sensor.ventilatie
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 6 months
+          color: Orange
+        - value: 9 months
+          color: Red 
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+      - type: custom:check-button-card
+        title: Dampkap
+        entity: sensor.dampkap
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 6 months
+          color: Orange
+        - value: 9 months
+          color: Red 
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }
+  - type: vertical-stack
+    title: Onderhoud
+    cards:
+      - type: custom:check-button-card
+        title: Kuga klein
+        entity: sensor.kuga_klein
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 11 months
+          color: Orange
+        - value: 12 months
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+      - type: custom:check-button-card
+        title: Kuga groot
+        entity: sensor.kuga_groot
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 11 months
+          color: Orange
+        - value: 12 months
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          } 
+      - type: custom:check-button-card
+        title: Siesta klein
+        entity: sensor.siesta_klein
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 11 months
+          color: Orange
+        - value: 12 months
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+      - type: custom:check-button-card
+        title: Siesta groot
+        entity: sensor.siesta_groot
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 11 months
+          color: Orange
+        - value: 12 months
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+      - type: custom:check-button-card
+        title: Verwarmingsketel
+        entity: sensor.verwarmingsketel
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 20 months
+          color: Orange
+        - value: 24 months
+          color: Red
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+      - type: custom:check-button-card
+        title: Ontkalker
+        entity: sensor.ontkalker
+        color: rgb(70, 68, 70)
+        text:
+          year: jaar
+          years: jaar
+          month: maand
+          months: maanden
+          week: week
+          weeks: weken
+          day: dag
+          days: dagen
+          hour: uur
+          hours: uur
+          minute: minuut
+          minutes: minuten
+          less_than: minder dan
+          more_than: meer dan
+          ago: geleden
+          due_in: over
+          over_by: over met
+        severity:
+        - value: 11 months
+          color: Orange
+        - value: 12 months
+          color: Red                
+        style: |
+          ha-card {
+            --primary-text-color: var(--sidebar-icon-color)
+          }  
+  

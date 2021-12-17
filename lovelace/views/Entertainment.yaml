@@ -1,0 +1,365 @@
+path: Entertainment
+icon: mdi:play-box
+type: custom:vertical-layout
+cards:
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        title: TV
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card    
+                entity: input_boolean.tv_kijken
+                name: TV Kijken
+                icon: mdi:television-classic
+                size: 40px
+                state:
+                  - value: "on"
+                    styles:
+                      icon:
+                        - color: rgb(247, 217, 89)
+                      card:
+                        - color: white
+                        - background-color: rgb(70, 68, 70)
+                  - value: "off"
+                    styles:
+                      icon:
+                        - color: rgb(70, 68, 70)
+                      card:
+                        - color: rgb(70, 68, 70)
+                        - background-color: white  
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 15px
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-bottom: 25px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px
+              - type: custom:button-card    
+                entity: input_boolean.netflix_kijken
+                name: Netflix
+                icon: mdi:netflix
+                size: 40px
+                state:
+                  - value: "on"
+                    styles:
+                      icon:
+                        - color: rgb(247, 217, 89)
+                      card:
+                        - color: white
+                        - background-color: rgb(70, 68, 70)
+                  - value: "off"
+                    styles:
+                      icon:
+                        - color: rgb(70, 68, 70)
+                      card:
+                        - color: rgb(70, 68, 70)
+                        - background-color: white  
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 15px
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-bottom: 25px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px 
+              - type: custom:button-card    
+                entity: input_boolean.film_kijken
+                name: Film
+                icon: mdi:movie-open-outline
+                size: 40px
+                state:
+                  - value: "on"
+                    styles:
+                      icon:
+                        - color: rgb(247, 217, 89)
+                      card:
+                        - color: white
+                        - background-color: rgb(70, 68, 70)
+                  - value: "off"
+                    styles:
+                      icon:
+                        - color: rgb(70, 68, 70)
+                      card:
+                        - color: rgb(70, 68, 70)
+                        - background-color: white  
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 15px
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-bottom: 25px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px 
+          - type: custom:button-card    
+            entity: input_boolean.media_kijken_uit
+            name: Power off
+            icon: mdi:power
+            size: 40px
+            state:
+              - value: "on"
+                styles:
+                  icon:
+                    - color: rgb(247, 217, 89)
+                  card:
+                    - color: white
+                    - background-color: rgb(70, 68, 70)
+              - value: "off"
+                styles:
+                  icon:
+                    - color: rgb(70, 68, 70)
+                  card:
+                    - color: rgb(70, 68, 70)
+                    - background-color: white    
+            styles:
+                card:
+                  - width: 377px
+                  - height: 120px
+                  - font-size: 15px
+                name:
+                  - justify-self: start
+                  - padding-left: 10px
+                  - font-weight: bold
+                  - padding-bottom: 25px
+                img_cell:
+                  - justify-content: start
+                  - padding-left: 25px
+                icon:
+                  - justify-self: start  
+                  - padding-top: 10px            
+      - type: horizontal-stack
+        title: Spotify
+        cards:
+          - type: custom:button-card    
+            tap_action: 
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.spotify_start_stijn
+            name: Stijn
+            icon: mdi:spotify
+            size: 40px
+            styles:
+                card:
+                  - width: 120px
+                  - height: 120px
+                  - font-size: 15px
+                name:
+                  - justify-self: start
+                  - padding-left: 10px
+                  - font-weight: bold
+                  - padding-bottom: 25px
+                img_cell:
+                  - justify-content: start
+                  - padding-left: 25px
+                icon:
+                  - justify-self: start  
+                  - padding-top: 10px
+          - type: entities
+            entities:
+              - input_select.chromecast_speakers_stijn  
+      - type: conditional
+        conditions:
+          - entity: media_player.spotify_stijn
+            state: 'playing'
+        card:
+          type: media-control
+          entity: media_player.spotify_stijn
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card    
+            tap_action: 
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.spotify_start_arne
+            name: Arne
+            icon: mdi:spotify
+            size: 40px
+            styles:
+                card:
+                  - width: 120px
+                  - height: 120px
+                  - font-size: 15px
+                name:
+                  - justify-self: start
+                  - padding-left: 10px
+                  - font-weight: bold
+                  - padding-bottom: 25px
+                img_cell:
+                  - justify-content: start
+                  - padding-left: 25px
+                icon:
+                  - justify-self: start  
+                  - padding-top: 10px
+          - type: entities
+            entities:
+              - input_select.chromecast_speakers_arne  
+      - type: conditional
+        conditions:
+          - entity: media_player.spotify_arne
+            state: 'playing'
+        card:
+          type: media-control
+          entity: media_player.spotify_arne
+  - type: custom:layout-break
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        title: Radio
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card    
+                name: Radio
+                icon: mdi:radio
+                size: 40px
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 15px
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-bottom: 25px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px   
+              - type: entities
+                entities:
+                  - entity: input_select.radio_station   
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                entities:
+                  - entity: input_select.chromecast_speakers_radio
+              - type: custom:button-card    
+                name: Activeer
+                size: 40px
+                tap_action: 
+                  action: call-service
+                  service: script.turn_on
+                  service_data:
+                    entity_id: script.radio
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 20px
+                    name:
+                      - justify-self: center
+                      - padding-left: 5px
+                      - font-weight: bold
+                      - padding-bottom: 5px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px        
+      - type: horizontal-stack
+        title: Spotify
+        cards:
+          - type: custom:button-card    
+            tap_action: 
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.spotify_start_kim
+            name: Kim
+            icon: mdi:spotify
+            size: 40px
+            styles:
+                card:
+                  - width: 120px
+                  - height: 120px
+                  - font-size: 15px
+                name:
+                  - justify-self: start
+                  - padding-left: 10px
+                  - font-weight: bold
+                  - padding-bottom: 25px
+                img_cell:
+                  - justify-content: start
+                  - padding-left: 25px
+                icon:
+                  - justify-self: start  
+                  - padding-top: 10px
+          - type: entities
+            entities:
+              - input_select.chromecast_speakers_kim  
+      - type: conditional
+        conditions:
+          - entity: media_player.spotify_kim
+            state: 'playing'
+        card:
+          type: media-control
+          entity: media_player.spotify_kim
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card    
+            tap_action: 
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.spotify_start_noor
+            name: Noor
+            icon: mdi:spotify
+            size: 40px
+            styles:
+                card:
+                  - width: 120px
+                  - height: 120px
+                  - font-size: 15px
+                name:
+                  - justify-self: start
+                  - padding-left: 10px
+                  - font-weight: bold
+                  - padding-bottom: 25px
+                img_cell:
+                  - justify-content: start
+                  - padding-left: 25px
+                icon:
+                  - justify-self: start  
+                  - padding-top: 10px
+          - type: entities
+            entities:
+              - input_select.chromecast_speakers_noor 
+      - type: conditional
+        conditions:
+          - entity: media_player.spotify_noor
+            state: 'playing'
+        card:
+          type: media-control
+          entity: media_player.spotify_noor   

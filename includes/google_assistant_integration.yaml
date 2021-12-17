@@ -38,19 +38,6 @@ entity_config:
       expose: false
     script.restart_home_assistant:
       expose: false
-    input_boolean.film_kijken:
-      expose: true
-      room: Woonkamer
-    input_boolean.tv_kijken:
-      expose: true
-      room: Woonkamer
-    input_boolean.netflix_kijken:
-      expose: true
-      room: Woonkamer
-    switch.unraid_reboot:
-      expose: true
-    switch.unraid_power_off:
-      expose: true
     switch.droogkast:
       expose: true
       room: Bureau
@@ -74,9 +61,11 @@ entity_config:
     light.keuken_wand:
       room: Keuken    
     switch.unraid_power_off:
+      expose: true
       name: Server
       room: Garage
     switch.unraid_reboot:
+      expose: true
       name: Herstart Server
       room: Garage      
     light.hal_plafond:
@@ -116,8 +105,11 @@ entity_config:
     light.technische_ruimte:
       room: Technische Ruimte
     input_boolean.film_kijken:
+      expose: true
       room: Woonkamer
     input_boolean.netflix_kijken:
+      expose: true
       room: Woonkamer  
     input_boolean.tv_kijken:
+      expose: true
       room: Woonkamer

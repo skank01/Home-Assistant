@@ -1,9 +1,13 @@
+background: var(--background-image)
+kiosk_mode:
+  hide_menubutton: true
+  hide_overflow: false
 decluttering_templates:
   notification_template:     # This is the name of a template
     card:
       type: custom:button-card
       name: '[[name]]'
-      size: 100%
+      size: 50%
       show_state: false
       show_label: false
       layout: icon_name
@@ -15,22 +19,22 @@ decluttering_templates:
         card:
           - --ha-card-background: rgba(0,0,0,0.0)
           - box-shadow: none
-          - height: 45px
+          - height: 10px
         name:
           - font-size: 18px
           - font-family: Helvetica
-          - color: var(--primary-color)
           - justify-self: start
           - font-weight: normal
         grid: 
           - grid-template-areas: '"i n"'
-          - grid-template-columns: 8% 1fr
+          - grid-template-columns: 2% 1fr
           - grid-template-rows: 1fr
-       
-background: var(--background-image)
-title: Thuis
-kiosk_mode:
-  hide_header: true
 views:
   - !include lovelace_smartphone/views/Home.yaml
-
+  - !include lovelace_smartphone/views/Lichten.yaml
+  - !include lovelace_smartphone/views/Beveiliging.yaml
+  - !include lovelace_smartphone/views/Entertainment.yaml
+  - !include lovelace_smartphone/views/Huishouden.yaml
+  - !include lovelace_smartphone/views/Klusjes.yaml
+  - !include lovelace_smartphone/views/Systeem.yaml
+  - !include lovelace_smartphone/views/Omroep.yaml

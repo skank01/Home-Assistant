@@ -21,6 +21,9 @@
           entity_id: light.tuinverlichting
           state: "off"
         - condition: state
+          entity_id: input_boolean.kerstmodus
+          state: "off"
+        - condition: state
           entity_id: input_boolean.verlichting_tuin
           state: "off"  
   action:
@@ -38,6 +41,10 @@
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     above: 1
+  condition:
+  - condition: state
+    entity_id: input_boolean.kerstmodus
+    state: "off"
   action:
     - service: homeassistant.turn_off
       entity_id: 
@@ -53,9 +60,14 @@
     event: sunset
     offset: "-00:05:00"
   condition:
-  - condition: state
-    entity_id: group.family
-    state: home
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: group.family
+          state: home
+        - condition: state
+          entity_id: input_boolean.kerstmodus
+          state: "off"  
   action:
   - service: homeassistant.turn_on
     entity_id: light.tuinverlichting
@@ -68,6 +80,10 @@
     platform: sun
     event: sunset
     offset: "-00:05:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.kerstmodus
+    state: "off"
   action:
   - service: homeassistant.turn_on
     entity_id: light.licht_voordeur    
@@ -365,27 +381,34 @@
 ## Kerstverlichting
 ########################################
    
-- id: turn_on_buxus_christmas_lights_in_the_morning
-  alias: "Lichten: Kerstverlichting buxus 's morgens aan"
+- id: turn_on_christmas_lights_in_the_morning
+  alias: "Lichten: Kerstverlichting 's morgens aan"
   trigger:
-    platform: time
-    at: "07:00:00"
+    platform: state
+    entity_id: binary_sensor.det_living
+    to: "on"
   condition:
     - condition: and
       conditions:
+        - condition: time
+          after: "06:00:00"
+          before: "08:00:00"
         - condition: numeric_state
           entity_id: sun.sun
           attribute: elevation
           below: 1
         - condition: state
-          entity_id: switch.kerstverlichting_buxus
-          state: "off"
+          entity_id: input_boolean.kerstmodus
+          state: "on"  
   action:
     - service: homeassistant.turn_on
-      entity_id: switch.kerstverlichting_buxus  
+      entity_id: 
+        - switch.terras
+        - switch.kerstverlichting_buxus
+        - light.licht_voordeur
 
-- id: turn_off_buxus_christmas_lights_in_the_morning
-  alias: "Lichten: Kerstverlichting buxus 's morgens uit"
+- id: turn_off_christmas_lights_in_the_morning
+  alias: "Lichten: Kerstverlichting 's morgens uit"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
@@ -393,22 +416,51 @@
     above: 1
   condition:
     - condition: state
-      entity_id: switch.kerstverlichting_buxus
-      state: "on"
+      entity_id: input_boolean.kerstmodus
+      state: "on"  
   action:
     - service: homeassistant.turn_off
-      entity_id: switch.kerstverlichting_buxus   
+      entity_id: 
+        - switch.terras
+        - switch.kerstverlichting_buxus
+        - light.licht_voordeur
 
-- id: turn_on_buxus_christmas_lights_at_night
-  alias: "Lichten: Kerstverlichting buxus aan 's avonds"
+- id: turn_on_garden_christmas_lights_at_night
+  alias: "Lichten: Kerstverlichting tuin aan 's avonds"
   initial_state: 'on'
   trigger:
     platform: sun
     event: sunset
     offset: "-00:05:00"
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: group.family
+          state: home
+        - condition: state
+          entity_id: input_boolean.kerstmodus
+          state: "on"  
   action:
   - service: homeassistant.turn_on
-    entity_id: switch.kerstverlichting_buxus 
+    entity_id: switch.terras
+    
+- id: turn_on_exterior_christmas_light_at_night
+  alias: "Lichten: Kerstverlichting voordeur aan 's avonds"
+  initial_state: 'on'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:05:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.kerstmodus
+    state: "on"
+  action:
+  - service: homeassistant.turn_on
+    entity_id: 
+      - light.licht_voordeur
+      - switch.kerstverlichting_buxus
     
 
 ########################################
@@ -433,6 +485,9 @@
     - service: notify.mobile_devices
       data:
         message: Ik heb je simulatielichten boven aangestoken om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.
+        data:
+          priority: high
+          ttl: 0
 
 - id: 'Turn off vacation lights to simulate presence'
   alias: "Lichten: Vakantie lichten uit"
@@ -451,6 +506,9 @@
     - service: notify.mobile_devices
       data:
         message: Ik heb je aanwezigheidssimulatie met lichten gestopt om {{ now().strftime('%H') }}:{{now().strftime('%M') }}.
+        data:
+          priority: high
+          ttl: 0
         
         
 ########################################

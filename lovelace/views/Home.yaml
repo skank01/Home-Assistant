@@ -1,245 +1,294 @@
-title: Home
-icon: mdi:home-outline
 path: Home
+icon: mdi:home-outline
+type: custom:vertical-layout
 cards:
-  - type: custom:gap-card
-  - type: markdown
-    content: |
-      <font size=6>{{ states('sensor.greeting') }}</font>
-    style: |
-      ha-card {
-        margin-top: 5px;
-        background-color: rgba(0, 0, 0, 0);
-        font-size: 100%;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-         box-shadow: none;
-         text-align: center;
-       }
-       h1, h3 {
-         font-weight: 400 !important;
-       }
-  - type: custom:swipe-card
-    parameters:
-      allowTouchMove: true
-      grabCursor: true
-      autoplay:
-        disableOnInteraction: false
+  - type: vertical-stack
     cards:
-      !include ../../includes/notifications.yaml      
-  
-  - type: custom:layout-card
-    layout_type: vertical
-    layout_options:
-      max_cols: 5
-      width: 900
-    cards: 
-      - type: horizontal-stack
+      - type: vertical-stack
+        title: Weersverwachting
         cards:
-          - type: custom:button-card
-            entity: sensor.postbus
-            state:
-            - value: "closed"
-              icon: mdi:mailbox
-            - value: "open"
-              icon: mdi:mailbox-up
-              styles:
-                icon:
-                  - color: var(--primary-color)
-            style: |
-              ha-card {
-                height: 128px;
-
-                text-align: center;
-              }
-            tap_action:
-              action: call-service
-              service: homeassistant.turn_off
-              service_data:
-                entity_id: 
-                  - input_boolean.brievenbus
-                  - input_boolean.pakjesbus
-          - name: Verlichting
-            type: custom:button-card
-            icon: mdi:lightbulb-outline
-            tap_action: !include popup/verlichting.yaml
-            style: |
-              ha-card {
-                height: 128px;
-              }
-          - entity: person.stijn
-            type: picture-entity
-            image: /local/stijn.jpg
-            tap_action: !include popup/persoon1.yaml
-            style: |
-              ha-card {
-                height: 128px !important;
-              }
-          - name: Entertainment
-            type: custom:button-card
-            icon: mdi:television-classic
-            tap_action: !include popup/entertainment.yaml
-            style: |
-              ha-card {
-                height: 128px;
-                --paper-item-icon-active-color: #e79118;
-              }
-          - name: Huishouden
-            type: custom:button-card
-            icon: mdi:broom
-            tap_action: !include popup/household.yaml
-            style: |
-              ha-card {
-                height: 128px;
-                text-align: center;
-              }
-      - type: horizontal-stack
-        cards:
-          - name: Alarm
-            type: custom:button-card
-            tap_action: !include popup/alarm.yaml
-            entity: alarm_control_panel.risco
-            state:
-            - value: "disarmed"
-              icon: mdi:shield-off
-            - value: "armed_away"
-              icon: mdi:shield-check
-              styles:
-                icon:
-                  - color: var(--primary-color)
-            - value: "armed_home"
-              icon: mdi:shield-half-full
-              styles:
-                icon:
-                  - color: var(--primary-color) 
-            style: |
-              ha-card {
-                height: 128px;
-                text-align: center;
-              }
-          - name: Security
-            type: custom:button-card
-            icon: mdi:cctv
-            tap_action: !include popup/security.yaml
-            style: |
-              ha-card {
-                height: 128px;
-                text-align: center;
-              }
-          - type: picture-entity
-            entity: person.kim
-            image: /local/kim.jpg
-            tap_action: !include popup/persoon2.yaml
-            style: |
-              ha-card {
-                height: 128px !important;
-              }
-          - name: Server
-            type: custom:button-card
-            icon: mdi:nas
-            tap_action: !include popup/server.yaml
-            style: |
-              ha-card {
-                height: 128px;
-              }
-          - name: Netwerk
-            type: custom:button-card
-            icon: mdi:server-network
-            tap_action: !include popup/network.yaml
-            style: |
-              ha-card {
-                height: 128px;
-              }
-      - type: horizontal-stack
-        cards:
-          - name: Garagepoort
-            type: custom:button-card
-            entity: binary_sensor.garage_poort
-            state:
-            - value: "on"
-              icon: mdi:garage-open-variant
-            - value: "off"
-              icon: mdi:garage-variant 
-              styles:
-                icon:
-                  - color: var(--primary-text-color)
-            style: |
-              ha-card {
-                height: 128px;
-                text-align: center;
-              }
-            tap_action:
-              action: call-service
-              service: homeassistant.toggle
-              service_data:
-                entity_id: switch.garagepoort 
-          - name: Temperatuur
-            type: custom:button-card
-            icon: mdi:home-thermometer-outline
-            tap_action: !include popup/temperatuur.yaml
-            style: |
-              ha-card {
-                height: 128px;
-                text-align: center;
-              }
-          - name: Kids
-            type: custom:button-card
-            icon: mdi:human-male-boy
-            tap_action: !include popup/kids.yaml
-            style: |
-              ha-card {
-                height: 128px !important;
-              }
-          - name: Energie
-            type: custom:button-card
-            icon: mdi:power-plug
-            tap_action: !include popup/energie.yaml
-            style: |
-              ha-card {
-                height: 128px;
-              }
-          - name: Broadcast
-            type: custom:button-card
-            icon: mdi:bullhorn
-            tap_action: !include popup/broadcast.yaml
-            style: |
-              ha-card {
-                height: 128px;
-                text-align: center;
-              }
-      - type: custom:gap-card
-        style: |
-          ha-card {
-            height: 5px;
-          }
-      - type: horizontal-stack
-        cards:
-          - type: markdown
-            content: |
-              <font size=5>{{ states('sensor.time') }}</font>
-              <font size=5>{{ states('sensor.date_long') }}</font>
-            style: |
-              ha-card {
-                margin-top: 30px;
-                background-color: rgba(0, 0, 0, 0);
-                font-size: 100%;
-                -webkit-box-shadow: none;
-                -moz-box-shadow: none;
-                 box-shadow: none;
-                 text-align: left;
-               }
-               h1, h3 {
-                 font-weight: 400 !important;
-               }
           - type: weather-forecast
-            name: Weer
             entity: weather.thuis
-            show_forecast: false
-            style: |
-              ha-card {
-                margin-top: 10px;
-                background-color: transparent !important;
-                box-shadow: none !important;
-              }        
-            
-        
+      - type: vertical-stack
+        title: Familie
+        cards: 
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card    
+                entity: person.stijn
+                show_icon: false
+                show_state: true
+                size: 40px
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - background: 'url(/local/stijn.jpg)'
+                      - background-size: cover
+                      - font-size: 15px
+                      
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-top: 85px
+                      - color: white
+                    state:
+                      - color: white
+                      - justify-self: start
+                      - padding-left: 10px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 5px
+              - type: custom:button-card    
+                entity: person.kim
+                show_icon: false
+                show_state: true
+                size: 40px
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - background: 'url(/local/kim.jpg)'
+                      - background-size: cover
+                      - font-size: 15px
+                      
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-top: 85px
+                      - color: white
+                    state:
+                      - color: white
+                      - justify-self: start
+                      - padding-left: 10px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 5px     
+              - type: custom:button-card    
+                entity: person.james
+                show_icon: false
+                show_state: false
+                size: 40px
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - background: 'url(/local/james.jpg)'
+                      - background-size: cover
+                      - font-size: 15px
+                      
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-top: 50px
+                      - color: white
+                    state:
+                      - color: white
+                      - justify-self: start
+                      - padding-left: 10px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 5px
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card    
+                entity: person.arne
+                show_icon: false
+                show_state: true
+                size: 40px
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - background: 'url(/local/arne.jpg)'
+                      - background-size: cover
+                      - font-size: 15px
+                      
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-top: 85px
+                      - color: white
+                    state:
+                      - color: white
+                      - justify-self: start
+                      - padding-left: 10px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 5px
+              - type: custom:button-card    
+                entity: person.noor
+                show_icon: false
+                show_state: true
+                size: 40px
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - background: 'url(/local/noor.jpg)'
+                      - background-size: cover
+                      - font-size: 15px
+                      
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-top: 85px
+                      - color: white
+                    state:
+                      - color: white
+                      - justify-self: start
+                      - padding-left: 10px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 5px
+  - type: custom:layout-break
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        title: Agenda
+        cards:
+          - type: horizontal-stack
+            cards:  
+              - type: custom:atomic-calendar-revive
+                entities:
+                  - entity: calendar.gezin
+                maxDaysToShow: 5
+      - type: custom:gap-card
+      - type: vertical-stack
+        title: Huis
+        cards:     
+          - type: horizontal-stack
+            cards: 
+              - type: custom:button-card    
+                entity: sensor.postbus
+                show_icon: true
+                show_state: false
+                size: 40px
+                tap_action: 
+                  action: call-service
+                  service: homeassistant.turn_off
+                  service_data:
+                    entity_id: 
+                      - input_boolean.brievenbus
+                      - input_boolean.pakjesbus
+                state:
+                  - value: "open"
+                    icon: mdi:mailbox-up
+                    styles:
+                      icon:
+                        - color: rgb(247, 217, 89)
+                      card:
+                        - color: white
+                        - background-color: rgb(70, 68, 70)
+                  - value: "closed"
+                    icon: mdi:mailbox
+                    styles:
+                      icon:
+                        - color: rgb(70, 68, 70)
+                      card:
+                        - color: rgb(70, 68, 70)
+                        - background-color: white 
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 15px
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-bottom: 25px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px
+              - type: custom:button-card    
+                entity: binary_sensor.garage_poort
+                show_icon: true
+                show_state: false
+                size: 40px
+                tap_action:
+                  action: call-service
+                  service: homeassistant.toggle
+                  service_data:
+                    entity_id: switch.garagepoort 
+                state:
+                  - value: "on"
+                    icon: mdi:garage-open-variant
+                    styles:
+                      icon:
+                        - color: rgb(247, 217, 89)
+                      card:
+                        - color: white
+                        - background-color: rgb(70, 68, 70)
+                  - value: "off"
+                    icon: mdi:garage-variant 
+                    styles:
+                      icon:
+                        - color: rgb(70, 68, 70)
+                      card:
+                        - color: rgb(70, 68, 70)
+                        - background-color: white 
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 15px
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-bottom: 25px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px         
+              - type: custom:button-card    
+                name: Omroep
+                show_icon: true
+                show_state: false
+                size: 40px
+                icon: mdi:bullhorn
+                tap_action: 
+                  action: navigate
+                  navigation_path: "/lovelace/Omroep"
+                styles:
+                    card:
+                      - width: 120px
+                      - height: 120px
+                      - font-size: 15px
+                    name:
+                      - justify-self: start
+                      - padding-left: 10px
+                      - font-weight: bold
+                      - padding-bottom: 25px
+                    img_cell:
+                      - justify-content: start
+                      - padding-left: 25px
+                    icon:
+                      - justify-self: start  
+                      - padding-top: 10px                 

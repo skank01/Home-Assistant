@@ -1,87 +1,99 @@
-decluttering_templates:
-  notification_template:     # This is the name of a template
-    card:
-      type: custom:button-card
-      name: '[[name]]'
-      size: 100%
-      show_state: false
-      show_label: false
-      layout: icon_name
-      tap_action: 
-        action: none
-      hold_action: 
-        action: none
-      styles:
-        card:
-          - --ha-card-background: rgba(0,0,0,0.0)
-          - box-shadow: none
-          - height: 45px
-        name:
-          - font-size: 18px
-          - font-family: Helvetica
-          - color: var(--primary-color)
-          - justify-self: start
-          - font-weight: normal
-        grid: 
-          - grid-template-areas: '"i n"'
-          - grid-template-columns: 8% 1fr
-          - grid-template-rows: 1fr
-        
 background: var(--background-image)
-title: Thuis
-kiosk_mode:
-  hide_header: true
+sidebar:
+  title: ""
+  digitalClock: true
+  date: true
+  hideTopMenu: true
+  hideHassSidebar: false
+  showTopMenuOnMobile: true
+  style: |
+    :host {
+        --sidebar-background: #464446;
+        --sidebar-text-color: rgb(255, 255, 255);
+     }
+    .sidebarMenu {
+         margin: 5px 0;
+         padding: 5px 0;
+     }
+    .digitalClock {
+
+        padding-left: 0px;
+        # padding-bottom: 7px;
+        padding-top: 10px
+     }
+     h1.digitalClock {
+        font-size: 50px;
+        line-height: 65px;
+     }
+     .date {
+         text-align: center;
+     }
+     h1 {
+          text-align:center;
+      }
+# width in percentage (dont add the %)
+  width:
+    mobile: 0
+    tablet: 22
+    desktop: 17.5
+  breakpoints:
+    mobile: 768
+    tablet: 1024
+  template: |
+    <li>
+      {% if now().hour  < 5 %} Goede nacht {{'\U0001F634'}}
+      {% elif now().hour < 12 %} Goedemorgen {{'\u2615\uFE0F'}}
+      {% elif now().hour < 18 %} Goedenmiddag {{'\U0001F44B\U0001F3FB'}}
+      {% else %} Goedenavond {{'\U0001F44B\U0001F3FB'}}{% endif %}
+    </li>
+    {% if is_state('input_boolean.brievenbus','on') %} <li>Jackpot! Er is post!</li> {% endif %}
+    {% if is_state('input_boolean.pakjesbus','on') %} <li>Eureka! Pakje toegekomen!</li> {% endif %}
+    {% if states('sensor.current_lights_on') | float > 0 %} <li>{{states('sensor.current_lights_on')}} lampen aan</li> {% endif %}
+    {% if states('sensor.current_media_players_on') | float > 0 %} <li>{{states('sensor.current_media_players_on')}} speakers aan</li> {% endif %}
+    {% if states('sensor.unifi_gateway_firmware_upgradable') | float > 0 %} <li>Er is een update voor Unifi!!</li> {% endif %}
+    {% if is_state('sensor.binary_sensor.voordeur','on') %} <li>De voordeur staat open!</li> {% endif %}
+    {% if is_state('sensor.binary_sensor.garage_poort','on') %} <li>De garagepoort staat open!</li> {% endif %}
+    {% if is_state('sensor.binary_sensor.wasmachine_status','Wasmachine bezig') %} <li>De wasmachine is bezig!</li> {% endif %}
+    {% if is_state('sensor.binary_sensor.wasmachine_status','Wasmachine klaar') %} <li>De wasmachine is klaar!</li> {% endif %}
+    {% if is_state('sensor.binary_sensor.droogkast_status','Droogkast bezig') %} <li>De wasmachine is bezig!</li> {% endif %}
+    {% if is_state('sensor.binary_sensor.droogkast_status','Droogkast klaar') %} <li>De droogkast is klaar!</li> {% endif %}
+    {% if is_state('sensor.recycleapp_vandaag','pmd') %} <li>Deze avond pmd buiten zetten!!</li> {% endif %}
+    {% if is_state('sensor.recycleapp_vandaag','papier') %} <li>Deze avond papier en karton buiten zetten!!</li> {% endif %}
+    {% if is_state('sensor.recycleapp_vandaag','restafval') %} <li>Deze avond restafval buiten zetten!!</li> {% endif %}
+    {% if is_state('binary_sensor.updater','on') %} <li>Er is een update voor Home Assistant!!</li> {% endif %}
+  sidebarMenu:
+    - action: navigate
+      navigation_path: "/lovelace/Home"
+      name: "Home"
+      active: true
+    - action: navigate
+      navigation_path: "/lovelace/Lichten"
+      name: "Lichten"
+    - action: navigate
+      navigation_path: "/lovelace/Beveiliging"
+      name: "Beveiliging"
+    - action: navigate
+      navigation_path: "/lovelace/Entertainment"
+      name: "Entertainment" 
+    - action: navigate
+      navigation_path: "/lovelace/Huishouden"
+      name: "Huishouden"
+    - action: navigate
+      navigation_path: "/lovelace/Klusjes"
+      name: "Klusjes"
+    - action: navigate
+      navigation_path: "/lovelace/Energie"
+      name: "Energie"
+    - action: navigate
+      navigation_path: "/lovelace/Systeem"
+      name: "Systeem"
 views:
   - !include lovelace/views/Home.yaml
-
-button_card_templates:
-  automation:
-    show_label: true
-    show_state: true
-    size: 30%
-    color_type: card
-    styles:
-      card:
-        - font-size: 14px
-        - height: 120px
-        - width: 120px
-      img_cell:
-        - justify-content: start
-        - align-items: start
-        - padding-left: 20px
-        - height: 40px
-      name:
-        - white-space: normal
-        - max-height: 2.4em
-        - justify-self: start
-        - padding-left: 10px
-        - font-weight: bold
-        - text-align: left
-        - align-self: end
-      state:
-        - justify-self: start
-        - padding-left: 10px
-      grid:
-        - grid-template-areas: '"i" "n" "s"'
-        - grid-template-rows: 1fr 1fr min-content 
-    state:
-    - value: 'on'
-      styles:
-        state:
-          - color: 'rgba(0, 0, 0, 1)'
-        icon: 
-          - color: 'rgb(255, 140, 0)'
-        card: 
-          - background: 'rgb(95, 155, 234)'
-        name:
-          - color: 'rgba(255, 255, 255, 1)'
-    - value: 'off'
-      styles:
-        state:
-          - color: 'rgba(0, 0, 0, 0.4)'
-        icon:
-          - color: 'rgb(255, 255, 255)'
-        card:
-          - background: 'rgb(221, 221, 211)'
-        name:
-          - color: 'rgba(0, 0, 0, 1)'
+  - !include lovelace/views/Lichten.yaml
+  - !include lovelace/views/Beveiliging.yaml
+  - !include lovelace/views/Entertainment.yaml
+  - !include lovelace/views/Huishouden.yaml
+  - !include lovelace/views/Klusjes.yaml
+  - !include lovelace/views/Systeem.yaml
+  - !include lovelace/views/Omroep.yaml
+  - !include lovelace/views/Energie.yaml

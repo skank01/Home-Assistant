@@ -1,3 +1,7 @@
+kerstmodus:
+  name: Kerstvakantie
+  icon: mdi:pine-tree
+
 vakantiemodus:
   name: Vakantiemodus actief
   icon: mdi:airplane-takeoff
@@ -21,6 +25,10 @@ netflix_kijken:
 film_kijken:
   name: Film kijken
   icon: mdi:movie-open-outline
+  
+media_kijken_uit:
+  name: Power off
+  icon: mdi:power
   
 verlichting_eettafel:
   name: Ochtendverlichting eettafel

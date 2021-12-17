@@ -55,4 +55,7 @@
       message: "{% if trigger.event == \"leave\" %}\n  {{ trigger.from_state.attributes.friendly_name\
         \ }} left {{ trigger.zone.attributes.friendly_name }}\n{% else %}\n  {{ trigger.from_state.attributes.friendly_name\
         \ }} arrived {{ trigger.zone.attributes.friendly_name }}\n{% endif %}\n"
+      data:
+        priority: high
+        ttl: 0
   mode: queued

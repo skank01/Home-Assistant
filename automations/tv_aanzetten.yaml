@@ -4,126 +4,140 @@
 
 - id: TV aanzetten volgens input
   alias: TV Automatisatie
-  mode: restart
+  mode: single
   max_exceeded: silent
   trigger:
     - platform: state
+      entity_id: media_player.living_tv
+      to: "off"
+      for: "00:00:03"
+      id: remote_uit
+    - platform: state
+      entity_id: media_player.living_tv
+      attribute: source
+      to: "TV VLAANDEREN"
+      for: "00:00:03"
+      id: remote_tv
+    - platform: state
+      entity_id: media_player.living_tv
+      attribute: source
+      to: "Netflix"
+      for: "00:00:03"
+      id: remote_netflix
+    - platform: state
+      entity_id: media_player.living_tv
+      attribute: source
+      to: "HDMI2"
+      for: "00:00:03"
+      id: remote_film 
+    - platform: state
       entity_id: input_boolean.tv_kijken
       to: "on"
-      id: tv
-    - platform: state
-      entity_id: input_select.tv_modus
-      to: "Tv Kijken"
       id: tv
     - platform: state
       entity_id: input_boolean.netflix_kijken
       to: "on"
       id: netflix
     - platform: state
-      entity_id: input_select.tv_modus
-      to: "Netflix Kijken"
-      id: netflix
-    - platform: state
       entity_id: input_boolean.film_kijken
       to: "on"
       id: film
     - platform: state
-      entity_id: input_select.tv_modus
-      to: "Film Kijken"
-      id: film
+      entity_id: input_boolean.media_kijken_uit
+      to: "on"
+      id: uit 
     - platform: state
-      entity_id: group.tv_kijken
+      entity_id: 
+        - input_boolean.tv_kijken
+        - input_boolean.netflix_kijken
+        - input_boolean.film_kijken
       to: "off"
       id: uit
-    - platform: state
-      entity_id: input_select.tv_modus
-      to: "Uit"
-      id: uit    
+  variables:
+    info:
+      uit:
+        boolean: input_boolean.media_kijken_uit
+      film:
+        boolean: input_boolean.film_kijken
+        source: "HDMI2"
+      netflix:
+        boolean: input_boolean.netflix_kijken
+        source: "Netflix"
+      tv:
+        boolean: input_boolean.tv_kijken
+        source: "TV VLAANDEREN"
   action:
-    - alias: "choose alias (name)"
+    - alias: "Lijst van input_booleans maken op basis van info hierboven"
+      variables:
+        boolean_list: >
+          {% set ns = namespace(booleans = []) %}
+          {% for key in info %}
+            {% set ns.booleans = ns.booleans + [ info[key].boolean ] %}
+          {% endfor %}
+          {{ ns.booleans }}
+    - alias: "Check of input_booleans aangepast moeten worden"
       choose:
-      - conditions: "{{ trigger.id == 'tv' }}"
-        sequence:
-          - alias: "Juiste input_boolean aan"
-            service: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.tv_kijken
-          - alias: "Andere input booleans uit"
-            service: input_boolean.turn_off
-            target:
-              entity_id: 
-                - input_boolean.netflix_kijken
-                - input_boolean.film_kijken
-          - alias: "Input select op juiste optie"
-            service: input_select.select_option
-            target:
-              entity_id: input_select.tv_modus
-            data:
-              option: "Tv Kijken"
-          - alias: "Script starten"
-            service: script.tv_aanzetten
-            data:
-              actie: tv
-      - conditions: "{{ trigger.id == 'netflix' }}"
-        sequence:
-          - alias: "Juiste input_boolean aan"
-            service: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.netflix_kijken
-          - alias: "Andere input booleans uit"
-            service: input_boolean.turn_off
-            target:
-              entity_id: 
-                - input_boolean.tv_kijken
-                - input_boolean.film_kijken
-          - alias: "Input select op juiste optie"
-            service: input_select.select_option
-            target:
-              entity_id: input_select.tv_modus
-            data:
-              option: "Netflix Kijken"
-          - alias: "Script starten"
-            service: script.tv_aanzetten
-            data:
-              actie: netflix
-      - conditions: "{{ trigger.id == 'film' }}"
-        sequence:
-          - alias: "Juiste input_boolean aan"
-            service: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.film_kijken
-          - alias: "Andere input booleans uit"
-            service: input_boolean.turn_off
-            target:
-              entity_id: 
-                - input_boolean.tv_kijken
-                - input_boolean.netflix_kijken
-          - alias: "Input select op juiste optie"
-            service: input_select.select_option
-            target:
-              entity_id: input_select.tv_modus
-            data:
-              option: "Film Kijken"
-          - alias: "Script starten"
-            service: script.tv_aanzetten
-            data:
-              actie: film
-      - conditions: "{{ trigger.id == 'uit' }}"
-        sequence:
-          - alias: "Input select op juiste optie"
-            service: input_select.select_option
-            target:
-              entity_id: input_select.tv_modus
-            data:
-              option: "Uit"
-          - alias: "Alle input booleans uit"
-            service: input_boolean.turn_off
-            target:
-              entity_id: 
-                - input_boolean.netflix_kijken
-                - input_boolean.tv_kijken
-                - input_boolean.film_kijken
-          - alias: "Script starten"
-            service: script.tv_aanzetten
-            data:
-              actie: uit
+        - conditions: >
+            {{ 
+              expand(boolean_list) | selectattr('state', 'eq', 'on') | list | count != 1 
+              or is_state(info[trigger.id | replace('remote_', '')].boolean, 'off')
+            }}
+          sequence:
+            - alias: "Alle input_booleans uit"
+              service: input_boolean.turn_off
+              target:
+                entity_id: "{{ boolean_list }}"
+            - alias: "Juiste input_boolean aan"
+              service: input_boolean.turn_on
+              target:
+                entity_id: "{{ info[trigger.id | replace('remote_', '')].boolean }}"
+    - alias: "Alleen uitvoeren bij wijziging van boolean"
+      condition: template
+      value_template: "{{ not 'remote' in trigger.id }}"
+    - alias: "Uit of aan"
+      choose:
+        - conditions: "{{ triger.id == 'uit' }}"
+          sequence:
+            - alias: "Staat de TV al uit?"
+              choose:
+                - conditions:
+                    - condition: not
+                      conditions:
+                        - alias: "TV uit"
+                          condition: state
+                          entity_id: media_player.living_tv
+                          state: "off"
+                  sequence:
+                    - alias: "Script starten"
+                      service: script.turn_on
+                      target: 
+                        entity_id: script.tv_aanzetten
+                      data:
+                        variables:
+                          actie: "{{ trigger.id }}"
+      default:
+        - alias: "Staat de TV al op juiste source"
+          choose:
+            - conditions:
+              - condition: or
+                conditions:
+                  - alias: "TV uit"
+                    condition: state
+                    entity_id: media_player.living_tv
+                    state: "off"
+                  - condition: not
+                    conditions:
+                      - alias: "TV op juiste source"
+                        condition: state
+                        entity_id: media_player.living_tv
+                        attribute: source
+                        state: "{{ info[trigger.id].source }}"
+              sequence:
+                - alias: "Script starten"
+                  service: script.turn_on
+                  target:
+                    entity_id: script.tv_aanzetten
+                  data:
+                    variables:
+                      actie: "{{ trigger.id }}"
+    - delay: 1

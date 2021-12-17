@@ -380,4 +380,8 @@
   name: Keuken
   entity_id: switch.keuken  
 
-
+- platform: group
+  name: Overkapping
+  entities:
+    - light.overkapping_ledstrip_1
+    - light.overkapping_ledstrip_2

@@ -54,6 +54,7 @@ Themes used:
 - DSMR Reader
 - CO2 Signal
 - Eufy Security
+- Velux
 
 
 ### HACS (Home Assistant Community Store) ###
@@ -93,7 +94,7 @@ Plugins:
 - ApexCharts
 - More-info-card
 - Multiple-entity-row
-
+- Shutter Card
 
 ## Devices ##
 
@@ -108,8 +109,8 @@ All data is on a SSD.
 
 
 ### Gateways ###
-- [Harmony Hub](https://support.myharmony.com/nl-us/hub)
 - [ConBee II](https://phoscon.de/en/conbee2)
+- [Velux KLF200](https://www.velux.be/nl-be/producten/smart-home/integra-accessoires?consent=preferences,statistics,marketing&ref-original=https%3A%2F%2Fwww.google.com%2F)
 
 ### Tablet ###
 
@@ -129,6 +130,8 @@ All data is on a SSD.
 - [Philips Hue E27](https://www2.meethue.com/nl-be/p/hue-white-1-pack-e27/8718696785317)
 - [Icasa Zigbee Dimmer](https://www.beaumotica.nl/icasa-iczb-iw11d-ac-dimmer-7061257407014)
 - [Icasa Zigbee Switch](https://www.beaumotica.nl/icasa-iczb-iw11sw-ac-switch-7104389273352)
+- [1x 0-10V Zigbee Dimmer](https://nl.aliexpress.com/item/10000015907761.html?spm=a2g0s.9042311.0.0.5e474c4dpS99hs)
+
 
 
 ### Sensors ###
@@ -149,7 +152,6 @@ All data is on a SSD.
 
 ## Ordered ##
 
-- [1x 0-10V Zigbee Dimmer](https://nl.aliexpress.com/item/10000015907761.html?spm=a2g0s.9042311.0.0.5e474c4dpS99hs)
 
 
 

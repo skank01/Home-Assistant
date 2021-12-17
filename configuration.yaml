@@ -25,21 +25,13 @@ lovelace:
   resources: !include lovelace/resources.yaml
    # Add more dashboards
   dashboards:
-    lovelace-tablet: # Needs to contain a hyphen (-)
+    lovelace-smartphone: # Needs to contain a hyphen (-)
       mode: yaml
       filename: dashboard_smartphone.yaml
       title: Smartphone
       icon: mdi:cellphone
       show_in_sidebar: true
       require_admin: false
-    lovelace-kids: # Needs to contain a hyphen (-)
-      mode: yaml
-      filename: dashboard_kids.yaml
-      title: Kids
-      icon: mdi:human-male-boy
-      show_in_sidebar: true
-      require_admin: false
-
 
 ############################
 ## Includes
@@ -66,27 +58,17 @@ google_assistant: !include includes/google_assistant_integration.yaml
 tts:
   - platform: google_cloud
     key_file: !secret google_cloud_tts
-    language: nl-NL
+    language: nl-BE
     gender: male
     voice: nl-BE-Wavenet-B
 
 frontend:
   themes: !include_dir_merge_named themes
-
-panel_iframe:
-  dsmr:
-    title: "DSMR Reader"
-    url: !secret url_dsmr
-    icon: mdi:flash
-    
+   
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret
-
-spotcast:
-  sp_dc: !secret sp_dc
-  sp_key: !secret sp_key
-  
+ 
 rest_command:
   kiosk_command:
     url: !secret rest_url_kiosk_command

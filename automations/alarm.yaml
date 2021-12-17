@@ -15,10 +15,6 @@
     platform: state
     from: "off"
     to: "on"
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 4
   condition: []
   action:
     - service: notify.mobile_devices
@@ -65,9 +61,6 @@
           channel: brand_alarm
           importance: high
           tag: brand_alarm   # Tag is required for the persistent notification
-    - service: light.turn_off
-      data:  
-        entity_id: all
    
    
 ##########################

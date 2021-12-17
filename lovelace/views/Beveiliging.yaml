@@ -1,0 +1,90 @@
+path: Beveiliging
+icon: mdi:cctv
+type: custom:horizontal-layout
+cards:
+  - type: vertical-stack 
+    title: Alarm
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: alarm-panel
+            entity: alarm_control_panel.risco
+            states:
+              - arm_home
+              - arm_away
+  - type: vertical-stack 
+    title: Camera's
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.deurbel_streaming_sensor
+                state: 'False'
+            card:
+              type: picture-entity
+              entity: camera.deurbel
+              tap_action:
+                action: call-service
+                service: eufy_security.start_p2p_livestream
+                service_data:
+                  entity_id: camera.deurbel
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.deurbel_streaming_sensor
+                state: 'True'
+            card:
+              type: custom:webrtc-camera
+              entity: camera.deurbel
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.deurbel_streaming_sensor
+                state: 'True'
+            card:
+              type: button
+              tap_action:
+                action: call-service
+                service: eufy_security.stop_p2p_livestream
+                service_data:
+                  entity_id: camera.deurbel
+              icon: mdi:cctv-off
+              show_state: false
+              show_name: true
+              icon_height: 20px
+              name: STOP CAMERA
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tuin_streaming_sensor
+                state: 'False'
+            card:
+              type: picture-entity
+              entity: camera.tuin
+              tap_action:
+                action: call-service
+                service: eufy_security.start_rtsp_livestream
+                service_data:
+                  entity_id: camera.tuin
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tuin_streaming_sensor
+                state: 'True'
+            card:
+              type: custom:webrtc-camera
+              entity: camera.tuin
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tuin_streaming_sensor
+                state: 'True'
+            card:
+              type: button
+              tap_action:
+                action: call-service
+                service: eufy_security.stop_rtsp_livestream
+                service_data:
+                  entity_id: camera.tuin
+              icon: mdi:cctv-off
+              show_state: false
+              show_name: true
+              icon_height: 20px
+              name: STOP CAMERA    
+      

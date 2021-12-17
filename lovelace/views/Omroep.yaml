@@ -1,0 +1,52 @@
+path: Omroep
+icon: mdi:bullhorn
+type: custom:horizontal-layout
+cards:
+  - type: vertical-stack
+    title: Google Broadcast
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
+            entities:
+              - entity: input_text.tts_message
+              - entity: input_boolean.tts_volume
+          - type: conditional
+            conditions:
+            - entity: input_boolean.tts_volume
+              state_not: "off"
+            card:
+              type: entities
+              entities:
+                - entity: input_number.tts_volume
+                - entity: input_boolean.restore_volume_all
+          - type: conditional
+            conditions:
+            - entity: input_boolean.restore_volume_all
+              state: "off"
+            - entity: input_boolean.tts_volume
+              state_not: "off"
+            card:
+              type: entities
+              entities:
+                - entity: input_number.volume_non_playing
+  - type: vertical-stack
+    title: Stuur naar
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:    
+          - type: entities
+            entities:
+              - entity: input_boolean.volledig_huis_groep
+              - entity: input_boolean.1ste_verdiep_groep
+              - entity: input_boolean.gelijkvloers_groep
+              - entity: input_boolean.keuken
+              - entity: input_boolean.slaapkamer
+              - entity: input_boolean.slaapkamer_arne
+              - entity: input_boolean.slaapkamer_noor
+              - entity: input_boolean.bureau
+              - entity: input_boolean.badkamer
+          - type: entities
+            entities:
+              - entity: script.google_say_dashboard
+                name: Stuur bericht

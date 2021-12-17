@@ -44,7 +44,7 @@ spotify_afspeellijst:
     - Top 50 België
     - The Greatest Switch
   icon: mdi:spotify  
-chromecast_speakers:
+chromecast_speakers_stijn:
   name: 'Kies Luidspreker:'
   options:
     - Woonkamer
@@ -57,3 +57,55 @@ chromecast_speakers:
     - Overal
   initial: Woonkamer
   icon: mdi:speaker-wireless   
+chromecast_speakers_kim:
+  name: 'Kies Luidspreker:'
+  options:
+    - Woonkamer
+    - Keuken
+    - Bureau
+    - Badkamer
+    - Slaapkamer Ouders
+    - Slaapkamer Arne
+    - Slaapkamer Noor
+    - Overal
+  initial: Woonkamer
+  icon: mdi:speaker-wireless   
+chromecast_speakers_arne:
+  name: 'Kies Luidspreker:'
+  options:
+    - Woonkamer
+    - Keuken
+    - Bureau
+    - Badkamer
+    - Slaapkamer Ouders
+    - Slaapkamer Arne
+    - Slaapkamer Noor
+    - Overal
+  initial: Slaapkamer Arne
+  icon: mdi:speaker-wireless  
+chromecast_speakers_noor:
+  name: 'Kies Luidspreker:'
+  options:
+    - Woonkamer
+    - Keuken
+    - Bureau
+    - Badkamer
+    - Slaapkamer Ouders
+    - Slaapkamer Arne
+    - Slaapkamer Noor
+    - Overal
+  initial: Slaapkamer Noor
+  icon: mdi:speaker-wireless  
+chromecast_speakers_radio:
+  name: 'Kies Luidspreker:'
+  options:
+    - Woonkamer
+    - Keuken
+    - Bureau
+    - Badkamer
+    - Slaapkamer Ouders
+    - Slaapkamer Arne
+    - Slaapkamer Noor
+    - Overal
+  initial: Woonkamer
+  icon: mdi:speaker-wireless    

@@ -1,0 +1,7 @@
+path: Energie
+icon: mdi:lightning-bolt
+type: custom:grid-layout
+panel: true
+cards:
+  - type: iframe
+    url: http://192.168.99.3:8123/energy

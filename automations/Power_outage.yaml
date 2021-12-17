@@ -19,7 +19,10 @@
               entity_id: all
             - service: notify.mobile_devices
               data:
-                message: Server onverwachts herstart! Stroomstoring?  
+                message: Server onverwachts herstart! Stroomstoring? 
+                data:
+                  priority: high
+                  ttl: 0
         - alias: "If shutdown for maintenance"
           conditions:
             - condition: state

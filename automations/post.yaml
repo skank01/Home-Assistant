@@ -15,6 +15,9 @@
     - service: notify.mobile_devices
       data:
         message: Jackpot! Er is post!
+        data:
+          priority: high
+          ttl: 0
     - service: script.turn_on 
       target:
         entity_id: script.google_home_say
@@ -43,6 +46,9 @@
     - service: notify.mobile_devices
       data:
         message: Eureka! Pakje toegekomen!
+        data:
+          priority: high
+          ttl: 0
     - service: script.turn_on 
       target:
         entity_id: script.google_home_say

@@ -80,6 +80,9 @@
     - service: notify.mobile_devices
       data:
         message: De wasmachine is klaar!
+        data:
+          priority: high
+          ttl: 0
     - service: script.turn_on 
       target:
         entity_id: script.google_home_say

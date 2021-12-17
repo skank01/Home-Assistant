@@ -18,7 +18,9 @@
     - service: notify.mobile_devices
       data:
         message: Goeie reis! Geniet er van! Ik heb alvast vakantiemodus geactiveerd.
-   
+        data:
+          priority: high
+          ttl: 0
 
 ##########################
 ## Vacation mode off
@@ -41,3 +43,6 @@
     - service: notify.mobile_devices
       data:
         message: Home sweet home. Ik heb de vakantiemodus gedeactiveerd.
+        data:
+          priority: high
+          ttl: 0

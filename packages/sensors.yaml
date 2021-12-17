@@ -78,36 +78,58 @@ sensor:
 #### COUNT ENTITIES ##########################################################
   - platform: template
     sensors:
-      count_automations:
-        friendly_name: Automations
-        icon_template: mdi:robot
-        value_template: "{{ states.automation | count }}"
-      count_binary_sensors:
-        friendly_name: Binary Sensors
-        icon_template: mdi:contrast-circle
-        value_template: "{{ states.binary_sensor | count }}"
-      count_device_trackers:
-        friendly_name: Device Trackers
-        icon_template: mdi:radar
-        value_template: "{{ states.device_tracker | count }}"
-      count_lights:
-        friendly_name: Lights
-        icon_template: mdi:lightbulb-group
-        value_template: "{{ states.light | count }}"
-      count_scripts:
-        friendly_name: Scripts
-        icon_template: mdi:script-text
-        value_template: "{{ states.script | count }}"
-      count_sensors:
-        friendly_name: Sensors
-        icon_template: mdi:leak
-        value_template: "{{ states.sensor | count }}"
-      count_switches:
-        friendly_name: Switches
-        icon_template: mdi:light-switch
-        value_template: "{{ states.switch | count }}"
-      count_zones:
-        friendly_name: Zones
-        icon_template: mdi:map-marker-radius
-        value_template: "{{ states.zone | count }}"
-      
+      current_media_players_on:
+        friendly_name: Aantal mediaspelers aan
+        unit_of_measurement: 'on'
+        value_template: >
+          {% set media_players = [
+            states.media_player.woonkamer,
+            states.media_player.woonkamer_mini,
+            states.media_player.keuken,
+            states.media_player.badkamer,
+            states.media_player.bureau,
+            states.media_player.slaapkamer,
+            states.media_player.slaapkamer_arne,
+            states.media_player.slaapkamer_noor,
+            ] %}
+          {{ media_players | selectattr('state','eq','playing') | list | count }}  
+      current_lights_on:
+        friendly_name: Aantal lampen aan
+        unit_of_measurement: 'on'
+        value_template: >
+          {% set lights = [
+            states.light.tuinverlichting,
+            states.light.licht_voordeur,
+            states.light.licht_achterdeur,
+            states.light.vijververlichting,
+            states.light.inkom,
+            states.light.inkom_wand,
+            states.light.eettafel,
+            states.light.zithoek,
+            states.light.kastlamp,
+            states.light.tv_wand,
+            states.light.bench,
+            states.light.keuken,
+            states.light.keuken_wand,
+            states.light.keukenkast,
+            states.light.trap_gelijkvloers,
+            states.light.trap_verdieping,
+            states.light.hal_plafond,
+            states.light.hal_wand,
+            states.light.douche,
+            states.light.lavabo,
+            states.light.bad,
+            states.light.douche_kids,
+            states.light.lavabo_kids,
+            states.light.bureau,
+            states.light.slaapkamer,
+            states.light.nachtlampje_kim,
+            states.light.dressing,
+            states.light.slaapkamer_arne,
+            states.light.slaapkamer_noor,
+            states.light.cinema,
+            states.light.cinema_scherm,
+            states.light.speelkamer,
+            states.light.technische_ruimte,
+            ] %}
+          {{ lights | selectattr('state','eq','on') | list | count }}

@@ -15,6 +15,8 @@
       data:
         message: "Gelukkige verjaardag Stijn! Alles voor jou vandaag!"
         data:
+          priority: high
+          ttl: 0
           tag: verjaardag
     - service: script.turn_on 
       target:
@@ -43,6 +45,8 @@
       data:
         message: "Gelukkige verjaardag Kim! Laat je maar goed verwennen!"
         data:
+          priority: high
+          ttl: 0
           tag: verjaardag
     - service: script.turn_on 
       target:
@@ -71,6 +75,8 @@
       data:
         message: "Gelukkige verjaardag Arne! Het is jouw dag vandaag!"
         data:
+          priority: high
+          ttl: 0
           tag: verjaardag
     - service: script.turn_on 
       target:
@@ -99,6 +105,8 @@
       data:
         message: "Gelukkige verjaardag Noor! Laat je maar extra verwennen!"
         data:
+          priority: high
+          ttl: 0
           tag: verjaardag
     - service: script.turn_on 
       target:

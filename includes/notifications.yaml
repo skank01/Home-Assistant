@@ -12,6 +12,10 @@
 # All Clear
 - type: conditional
   conditions:
+    - entity: sensor.current_lights_on
+      state: "0"
+    - entity: sensor.current_media_players_on
+      state: "0"  
     - entity: binary_sensor.brand_living
       state: "off"
     - entity: binary_sensor.brand_garage
@@ -53,7 +57,27 @@
     template: notification_template
     variables:
       - name: Alles is rustig, er zijn geen meldingen
-      
+
+# Counts
+- type: conditional
+  conditions:
+    - entity: sensor.current_lights_on
+      state_not: "0"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name:  lampen aan
+- type: conditional
+  conditions:
+    - entity: sensor.current_media_players_on
+      state_not: "0"
+  card:
+    type: custom:decluttering-card
+    template: notification_template
+    variables:
+      - name: speakers aan
+
 # Home Assistant Update
 - type: conditional
   conditions:

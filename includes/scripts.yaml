@@ -12,37 +12,6 @@ restart_home_assistant:
 
 
 ##############################
-## Eufy cams
-##############################
-stop_stream:
-  alias: Eufy stop stream
-  icon: "mdi:cctv-off"
-  mode: single
-  sequence:            
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.deurbel_streaming_sensor
-              state: 'True'
-          sequence:    
-            - service: eufy_security.stop_livestream
-              target:
-                entity_id: camera.deurbel
-            - service: homeassistant.reload_config_entry
-              entity_id: camera.deurbel
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.tuin_streaming_sensor
-              state: 'True'   
-          sequence:    
-            - service: eufy_security.stop_rtsp
-              target:
-                entity_id: camera.tuin
-            - service: homeassistant.reload_config_entry
-              entity_id: camera.tuin
-              
-
-##############################
 ## TV aanzetten
 ##############################
 tv_aanzetten:
@@ -114,6 +83,9 @@ welterusten:
   - service: light.turn_off
     data:
       entity_id: group.lights_groundfloor
+  - service: switch.turn_off
+    data:
+      entity_id: switch.terras
   - service: light.turn_on
     data:
       entity_id: 
@@ -242,14 +214,14 @@ radio:
     -  service: media_player.play_media
        data_template:
          entity_id: >
-          {% if is_state("input_select.chromecast_speakers", "Keuken") %} media_player.keuken
-          {% elif is_state("input_select.chromecast_speakers", "Woonkamer") %} media_player.woonkamer
-          {% elif is_state("input_select.chromecast_speakers", "Bureau") %} media_player.bureau
-          {% elif is_state("input_select.chromecast_speakers", "Badkamer") %} media_player.badkamer
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Ouders") %} media_player.slaapkamer
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Arne") %} media_player.slaapkamer_arne
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.slaapkamer_noor
-          {% elif is_state("input_select.chromecast_speakers", "Overal") %} group.cast_player
+          {% if is_state("input_select.chromecast_speakers_radio", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers_radio", "Woonkamer") %} media_player.woonkamer
+          {% elif is_state("input_select.chromecast_speakers_radio", "Bureau") %} media_player.bureau
+          {% elif is_state("input_select.chromecast_speakers_radio", "Badkamer") %} media_player.badkamer
+          {% elif is_state("input_select.chromecast_speakers_radio", "Slaapkamer Ouders") %} media_player.slaapkamer
+          {% elif is_state("input_select.chromecast_speakers_radio", "Slaapkamer Arne") %} media_player.slaapkamer_arne
+          {% elif is_state("input_select.chromecast_speakers_radio", "Slaapkamer Noor") %} media_player.slaapkamer_noor
+          {% elif is_state("input_select.chromecast_speakers_radio", "Overal") %} group.cast_player
           {% endif %}
          media_content_id: >
           {% if is_state("input_select.radio_station", "Studio Brussel") %} http://icecast.vrtcdn.be/stubru-high.mp3
@@ -260,28 +232,86 @@ radio:
           {% elif is_state("input_select.radio_station", "Ketnet Radio") %} http://icecast.vrtcdn.be/ketnetradio-high.mp3
           {% endif %}
          media_content_type: 'audio/mp4'
-spotify:
-  alias: Activeer Spotify
-  sequence:
-    -  service: spotcast.start
-       data_template:
-         entity_id: >
-          {% if is_state("input_select.chromecast_speakers", "Keuken") %} media_player.keuken
-          {% elif is_state("input_select.chromecast_speakers", "Woonkamer") %} media_player.woonkamer
-          {% elif is_state("input_select.chromecast_speakers", "Bureau") %} media_player.bureau
-          {% elif is_state("input_select.chromecast_speakers", "Badkamer") %} media_player.badkamer
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Ouders") %} media_player.slaapkamer
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Arne") %} media_player.slaapkamer_arne
-          {% elif is_state("input_select.chromecast_speakers", "Slaapkamer Noor") %} media_player.slaapkamer_noor
-          {% elif is_state("input_select.chromecast_speakers", "Overal") %} group.cast_player
-          {% endif %}
-         uri: >
-          {% if is_state("input_select.spotify_afspeellijst", "Top 50 België") %} spotify:playlist:37i9dQZEVXbJNSeeHswcKB
-          {% elif is_state("input_select.spotify_afspeellijst", "The Greatest Switch") %} spotify:playlist:3dMgR1GWfuSLJeUUvUTZXV
-          {% endif %}
-         random_song: 'true'     
-         shuffle: 'true'     
 
+spotify_start_stijn:
+  alias: 'Spotify Stijn: afspelen'
+  sequence:
+    - service: spotcast.start
+      data:
+        force_playback: true
+        entity_id: >
+          {% if is_state("input_select.chromecast_speakers_stijn", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers_stijn", "Woonkamer") %} media_player.woonkamer
+          {% elif is_state("input_select.chromecast_speakers_stijn", "Bureau") %} media_player.bureau
+          {% elif is_state("input_select.chromecast_speakers_stijn", "Badkamer") %} media_player.badkamer
+          {% elif is_state("input_select.chromecast_speakers_stijn", "Slaapkamer Ouders") %} media_player.slaapkamer
+          {% elif is_state("input_select.chromecast_speakers_stijn", "Slaapkamer Arne") %} media_player.slaapkamer_arne
+          {% elif is_state("input_select.chromecast_speakers_stijn", "Slaapkamer Noor") %} media_player.slaapkamer_noor
+          {% elif is_state("input_select.chromecast_speakers_stijn", "Overal") %} group.cast_player
+          {% endif %}
+  mode: single
+  icon: mdi:spotify
+  
+spotify_start_kim:
+  alias: 'Spotify Kim: afspelen'
+  sequence:
+    - service: spotcast.start
+      data:
+        force_playback: true
+        entity_id: >
+          {% if is_state("input_select.chromecast_speakers_kim", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers_kim", "Woonkamer") %} media_player.woonkamer
+          {% elif is_state("input_select.chromecast_speakers_kim", "Bureau") %} media_player.bureau
+          {% elif is_state("input_select.chromecast_speakers_kim", "Badkamer") %} media_player.badkamer
+          {% elif is_state("input_select.chromecast_speakers_kim", "Slaapkamer Ouders") %} media_player.slaapkamer
+          {% elif is_state("input_select.chromecast_speakers_kim", "Slaapkamer Arne") %} media_player.slaapkamer_arne
+          {% elif is_state("input_select.chromecast_speakers_kim", "Slaapkamer Noor") %} media_player.slaapkamer_noor
+          {% elif is_state("input_select.chromecast_speakers_kim", "Overal") %} group.cast_player
+          {% endif %}
+        account: kim  
+  mode: single
+  icon: mdi:spotify 
+  
+spotify_start_arne:
+  alias: 'Spotify Arne: afspelen'
+  sequence:
+    - service: spotcast.start
+      data:
+        force_playback: true
+        entity_id: >
+          {% if is_state("input_select.chromecast_speakers_arne", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers_arne", "Woonkamer") %} media_player.woonkamer
+          {% elif is_state("input_select.chromecast_speakers_arne", "Bureau") %} media_player.bureau
+          {% elif is_state("input_select.chromecast_speakers_arne", "Badkamer") %} media_player.badkamer
+          {% elif is_state("input_select.chromecast_speakers_arne", "Slaapkamer Ouders") %} media_player.slaapkamer
+          {% elif is_state("input_select.chromecast_speakers_arne", "Slaapkamer Arne") %} media_player.slaapkamer_arne
+          {% elif is_state("input_select.chromecast_speakers_arne", "Slaapkamer Noor") %} media_player.slaapkamer_noor
+          {% elif is_state("input_select.chromecast_speakers_arne", "Overal") %} group.cast_player
+          {% endif %}
+        account: arne  
+  mode: single
+  icon: mdi:spotify  
+  
+spotify_start_noor:
+  alias: 'Spotify Noor: afspelen'
+  sequence:
+    - service: spotcast.start
+      data:
+        force_playback: true
+        entity_id: >
+          {% if is_state("input_select.chromecast_speakers_noor", "Keuken") %} media_player.keuken
+          {% elif is_state("input_select.chromecast_speakers_noor", "Woonkamer") %} media_player.woonkamer
+          {% elif is_state("input_select.chromecast_speakers_noor", "Bureau") %} media_player.bureau
+          {% elif is_state("input_select.chromecast_speakers_noor", "Badkamer") %} media_player.badkamer
+          {% elif is_state("input_select.chromecast_speakers_noor", "Slaapkamer Ouders") %} media_player.slaapkamer
+          {% elif is_state("input_select.chromecast_speakers_noor", "Slaapkamer Arne") %} media_player.slaapkamer_arne
+          {% elif is_state("input_select.chromecast_speakers_noor", "Slaapkamer Noor") %} media_player.slaapkamer_noor
+          {% elif is_state("input_select.chromecast_speakers_noor", "Overal") %} group.cast_player
+          {% endif %}
+        account: noor  
+  mode: single
+  icon: mdi:spotify  
+  
 
 ###########################################################################################################
 ## Script to resume radio/spotify after TTS on Google home speakers (version 27 aug 2021) thx to TheFes

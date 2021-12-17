@@ -1,0 +1,436 @@
+path: Systeem
+icon: mdi:cog-outline
+type: custom:grid-layout
+panel: true
+cards:
+  - type: custom:homekit-card
+    home: false
+    enableColumns: true
+    style: |
+      :host {
+        --tile-background: rgb(255, 255, 255);
+        --tile-icon-size: 40px;
+        --tile-border-radius: 10px;
+        --tile-width: 100px;
+        --tile-height: 100px;
+        --tile-on-background: #464446;
+        --tile-name-text-color: #464446;
+        --tile-on-name-text-color: rgba(255, 255, 255, 1);
+        --tile-state-text-color: rgba(0, 0, 0, 0.4);
+        --tile-on-state-text-color: rgba(255, 0, 0, 1);
+        --tile-state-changed-text-color: rgb(134, 134, 134);
+        --tile-unavailable-state-text-color: rgba(255, 255, 255, 0,5);
+        --tile-value-text-color: rgba(255, 0, 0, 1);
+        --tile-icon-color: #464446;
+        --tile-on-icon-color: rgb(247, 217, 89);
+      }  
+    rows:
+      - row: 1    
+        columns:
+          - column: 1
+            tileOnRow: 3
+            entities:
+              - title: Systeem
+                entities:
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:restart
+                      tap_action: 
+                        action: call-service
+                        service: script.turn_on
+                        service_data:
+                          entity_id: script.restart_home_assistant
+                      show_state: false
+                      name: Restart HA
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start  
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:cog-outline
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/config/dashboard"
+                      show_state: true
+                      name: Instellingen
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start  
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:home-assistant
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/hassio/dashboard"
+                      show_state: true
+                      name: Supervisor
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start  
+                          - padding-top: 10px
+                  - entity: sensor.processor_use
+                    name: CPU Load
+                    icon: mdi:chip
+                  - entity: sensor.memory_use_percent
+                    name: Memory Usage
+                    icon: mdi:memory
+                  - entity: sensor.disk_use_percent
+                    name: HDD Usage
+                    icon: mdi:harddisk 
+          - column: 2
+            tileOnRow: 2
+            entities:
+              - title: Netwerk
+                entities:
+                  - entity: sensor.unifi_gateway_www_xput_down
+                    name: Download
+                    icon: mdi:download-network
+                  - entity: sensor.unifi_gateway_www_xput_up
+                    name: Upload
+                    icon: mdi:upload-network
+                  - entity: sensor.unifi_gateway_www_speedtest_ping
+                    name: Ping
+                    icon: mdi:speedometer-slow
+                  - entity: sensor.adguard_dns_queries_blocked_ratio
+                    name: Adguard Blocked
+                    icon: mdi:close-octagon-outline
+      - row: 2   
+        columns:
+          - column: 1
+            tileOnRow: 3
+            entities:
+              - title: Apps  
+                entities:
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:access-point
+                      tap_action: 
+                        action: url
+                        url_path: !secret url_unifi_controller
+                      show_state: true
+                      name: Unifi Controller
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:leaf-circle-outline
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/dsmr"
+                      show_state: true
+                      name: DSMR Reader
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:zigbee
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/core_deconz/dashboard"
+                      show_state: true
+                      name: deCONZ
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:shield-check-outline
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/a0d7b954_adguard/dashboard"
+                      show_state: true
+                      name: AdGuard
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start 
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:cloud-upload-outline
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/hassio/ingress/cebe7a76_hassio_google_drive_backup"
+                      show_state: true
+                      name: Drive Backup
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start  
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:store
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/hacs/entry"
+                      show_state: true
+                      name: HACS
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start   
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:console
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/a0d7b954_ssh/dashboard"
+                      show_state: true
+                      name: Terminal
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start 
+                          - padding-top: 10px
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:hammer-screwdriver
+                      tap_action: 
+                        action: navigate
+                        navigation_path: "/developer-tools/state"
+                      show_state: true
+                      name: Developer Tools
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - font-weight: bold
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start  
+                          - padding-top: 10px
+          - column: 2
+            tileOnRow: 2
+            entities:
+              - title: Server
+                entities:
+                  - entity: sensor.unraid_server
+                    name: Server
+                    icon: mdi:nas
+                    offStates: down
+                  - card: custom:button-card
+                    noPadding: true
+                    cardOptions:
+                      icon: mdi:nas
+                      tap_action: 
+                        action: url
+                        url_path: !secret url_unraid
+                      show_state: true
+                      name: Server UI
+                      size: 40px
+                      styles:
+                        card:
+                          - width: 120px
+                          - height: 120px
+                          - font-size: 15px
+                        name:
+                          - justify-self: start
+                          - padding-left: 10px
+                          - padding-bottom: 25px
+                        img_cell:
+                          - justify-content: start
+                          - padding-left: 25px
+                        icon:
+                          - justify-self: start 
+                          - padding-top: 10px
+                  - card: gauge
+                    noPadding: true
+                    cardOptions:     
+                      entity: sensor.huidig_stroomverbruik_watt
+                      max: 5000
+                      name: Verbruik electriciteit
+                      severity:
+                        blue: 0
+                        yellow: 2000
+                        red: 3000
+                  - card: gauge
+                    noPadding: true
+                    cardOptions: 
+                      entity: sensor.huidig_stroomopbrengst_watt
+                      max: 4000
+                      name: Teruggave electriciteit
+                      severity:
+                        blue: 0
+                        yellow: 2000
+                        red: 3000   
+      - row: 3   
+        columns:
+          - column: 1
+            tileOnRow: 3
+            entities:            
+              - title: Batterijen
+                entities:    
+                  - card: custom:battery-state-card
+                    noPadding: true
+                    higher: true
+                    higherSize: 3
+                    wider: true
+                    widerSize: 3
+                    cardOptions: 
+                      color_gradient:
+                        - "#ff0000" # red
+                        - "#ffff00" # yellow
+                        - "#00ff00" # green
+                      filter:
+                              include: # filters for auto-adding
+                                - name: entity_id # entities which id ends with "_battery_level"
+                                  value: "*_battery_level"
+                                - name: entity_id # entities which id ends with ".battery_level"
+                                  value: "*.battery_level"  
+                      bulk rename:
+                        - from: "Battery Level" # simple string replace (note: "to" is not required if you want to remove string)
+                          to: "sensor" 

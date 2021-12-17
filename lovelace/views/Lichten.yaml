@@ -1,47 +1,35 @@
-action: fire-dom-event
-browser_mod:
-  title: Verlichting
-  hide_header: true
-  deviceID: this
-  command: popup
-  large: true
-  card:
-    type: custom:homekit-card
+path: Lichten
+icon: mdi:lightbulb-group-outline
+type: custom:grid-layout
+panel: true
+cards:
+  - type: custom:homekit-card
     home: false
     enableColumns: true
     style: |
       :host {
-        --tile-background: #DDDDDD;
+        --tile-background: rgb(255, 255, 255);
         --tile-icon-size: 40px;
         --tile-border-radius: 10px;
         --tile-width: 100px;
         --tile-height: 100px;
-        --tile-on-background: #1A73E8;
-        --tile-name-text-color: rgba(0, 0, 0, 1);
+        --tile-on-background: #464446;
+        --tile-name-text-color: #464446;
         --tile-on-name-text-color: rgba(255, 255, 255, 1);
         --tile-state-text-color: rgba(0, 0, 0, 0.4);
         --tile-on-state-text-color: rgba(0, 0, 0, 1);
         --tile-state-changed-text-color: rgb(134, 134, 134);
         --tile-unavailable-state-text-color: rgba(255, 255, 255, 0,5);
         --tile-value-text-color: rgba(255, 0, 0, 1);
-        --tile-icon-color: rgb(255, 255, 255);
-        --tile-on-icon-color: rgb(255, 140, 0);
-        --tile-width-mobile: 90px;
-        --tile-height-mobile: 90px;
+        --tile-icon-color: #464446;
+        --tile-on-icon-color: rgb(247, 217, 89);
       }  
-      .button-inner .icon {
-            width:55px;
-            height:55px;
-          }
-          .button-inner .icon ha-icon {
-            width: 40px;
-            height:40px;
-          }
+      
     rows:
       - row: 1    
         columns:
           - column: 1
-            tileOnRow: 4
+            tileOnRow: 5
             entities:
               - title: Buitenverlichting
                 entities:
@@ -57,6 +45,9 @@ browser_mod:
                   - entity: light.vijververlichting
                     name: Licht Vijver
                     icon: mdi:led-strip-variant
+                  - entity: switch.terras
+                    name: Stekker Terras
+                    icon: mdi:power-plug
           - column: 2
             tileOnRow: 2
             entities:
