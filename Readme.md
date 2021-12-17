@@ -1,15 +1,15 @@
-tion# Welcome to my home assistant configuration #
+# Welcome to my home assistant configuration #
 
 
 
 ## Frontend ##
 
 Extreme makeover frontend. Using different dashboard layouts for smartphone/tablet.
-Only one homepage visible and using popups now. Looks far more handsome :)
+Fully based on sidebar and homekit panel card. Looks far more handsome :)
 
 
 
-Themes used:
+Themes used (slightly adjusted):
 - Google Light Theme (during day)
 - Google Dark Theme (during night)
 
@@ -22,10 +22,10 @@ Themes used:
 
 ### Addons ###
 - [Samba Share](https://github.com/home-assistant/hassio-addons/tree/master/samba)
-- [SSH Server](https://github.com/home-assistant/hassio-addons/tree/master/ssh)
-- [Unifi Controller](https://github.com/hassio-addons/addon-unifi)
+- [SSH & Web Terminal](https://github.com/home-assistant/hassio-addons/tree/master/ssh)
+- [Unifi Network Application](https://github.com/hassio-addons/addon-unifi)
 - [AdGuard Home](https://github.com/hassio-addons/addon-adguard-home)
-- [Hass.io Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
+- [Home Assistant Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 - [Check HA Configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config)
 - [Mosquitto Broker](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto)
 - [Deconz](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
@@ -34,27 +34,30 @@ Themes used:
 - [pgAdmin 4](https://github.com/Expaso/hassos-addon-pgadmin4)
 - [Eufy Security Addon](https://github.com/bropat/eufy-security-ws/tree/master/docker)
 - [RTSP Simple Server Addon](http://192.168.99.3:8123/hassio)
+- [Duck DNS](https://github.com/home-assistant/addons/tree/master/duckdns)
+- [NGINX HA SSL proxy](https://github.com/home-assistant/addons/tree/master/nginx_proxy)
 
 ### Integrations ###
-- Anniversaries
 - Adguard
-- Phoscon
+- Browser_mod
+- CO2 Signal
+- DeCONZ
+- Eufy Security
 - Google Cast
+- Google Home
 - HACS
-- IRobot
+- Supervisor
+- Roomba
 - Kodi
-- Logitech
 - Meteorologisk Institutt
 - Mobile App
 - MQTT
 - Risco
+- Shelly
 - Speedtest
 - Spotify
-- Ubiquiti Unifi
-- DSMR Reader
-- CO2 Signal
-- Eufy Security
-- Velux
+- Unifi Network
+- WebRTC Camera
 
 
 ### HACS (Home Assistant Community Store) ###
@@ -62,27 +65,25 @@ Themes used:
 Integrations: 
 
 - HACS
-- Browser_mod
-- Philips Android TV
-- Start spotify on chromecast
-- Unifi Gateway
+- Anniversaries
+- WebRTC Camera
+- Google Home
+- Browser Mod
 - Afvalbeheer
+- Spotcast
+- Unifi Gateway
+- Eufy Security
 
 
 Plugins:
 
-- Bar Card
 - Battery State Card
 - Button Card
-- Calendar Card
-- Fold-entity-row
-- Slider-entity-row
+- Atomic Calendar Revive
 - Layout-card
 - Vertical-stack-in-card
 - Card-mod
 - Homekit panel card
-- Auto-entities
-- Xiaomi-vacuum-card
 - Mini media player
 - Check button card
 - Swipe card
@@ -95,6 +96,10 @@ Plugins:
 - More-info-card
 - Multiple-entity-row
 - Shutter Card
+- Text Element
+- Weather Card
+- Media player popup card
+- Sidebar card
 
 ## Devices ##
 
@@ -141,18 +146,18 @@ All data is on a SSD.
 ### Plugs ###
 - [5x Blitzwolf Smart Plugs](https://m.blitzwolf.com/ZigBee-3.0-Smart-Socket-EU-p-518.html)
 - [2x Innr SP120 Plugs](https://www.beaumotica.nl/innr-smart-plug-aan-uit-schakelaar-doorsteek-stekker)
+- [1x Silvercrest outdoor smart socket](https://evergreenproductinfo.com/2021/09/28/silvercrest-garden-spike-with-2-zigbee-smart-home-socketsfunctions-control-with-lidl-home-appwireless-connection-protocol-zigbee-3-0-output-16-a-230-v-3680-w-max/)
 
 
 ### Other ###
 - [Unipi Neuron M203](https://www.unipi.technology/unipi-neuron-m203-p97)
 - [Unipi Extension xS11](https://www.unipi.technology/unipi-extension-xs11-p336?categoryId=40)
-- [Nabu Casa Account](https://www.nabucasa.com/)
 - [1 x Shelly EM to monitor solarpanels](https://shelly.cloud/products/shelly-em-smart-home-automation-device/)
 
 
 ## Ordered ##
 
-
+Nothing
 
 
 ## Automations ##
