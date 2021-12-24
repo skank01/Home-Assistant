@@ -1,0 +1,67 @@
+##########################
+## Haard aanzetten
+##########################
+
+- id: Haard aanzetten 
+  alias: Haard aan 
+  trigger:
+  - platform: state
+    entity_id: input_boolean.haard
+    from: 'off'
+    to: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.haard
+      brightness_pct: 30
+    
+- id: Haard uitzetten 
+  alias: Haard uit
+  trigger:
+  - platform: state
+    entity_id: input_boolean.haard
+    from: 'on'
+    to: 'off'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.haard
+      brightness_pct: 0 
+      
+- id: Haard eco 
+  alias: Haard eco modus
+  trigger:
+  - platform: state
+    entity_id: input_boolean.haard_eco
+    from: 'off'
+    to: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.haard
+      brightness_pct: 95
+
+- id: Haard eco uit
+  alias: Haard eco modus uit
+  trigger:
+  - platform: state
+    entity_id: input_boolean.haard_eco
+    from: 'on'
+    to: 'off'
+  action:
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.haard_vlamhoogte
+      value: 3
+  
+- id: Vlamhoogte change
+  alias: Vlamhoogte aanpassen
+  trigger:
+  - platform: state
+    entity_id: input_number.haard_vlamhoogte
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.haard
+    data:
+      brightness_pct: "{{ states('input_number.haard_vlamhoogte') | int * 10 }}"      

@@ -11,3 +11,10 @@ volume_non_playing:
   min: 0
   max: 100
   step: 5
+  
+haard_vlamhoogte:
+  name: Vlamhoogte
+  initial: 3
+  min: 3
+  max: 9
+  step: 1  

@@ -215,6 +215,19 @@ cards:
         icon:
           - justify-self: start  
           - padding-top: 10px
+  - type: custom:stack-in-card
+    cards:
+      - type: thermostat
+        entity: climate.haard
+      - type: entities
+        entities:
+          - type: conditional
+            conditions:
+              - entity: input_boolean.haard_eco
+                state: "off"
+            row:
+              entity: input_number.haard_vlamhoogte 
+          - entity: input_boolean.haard_eco
   - type: entities
     entities: 
       - type: button

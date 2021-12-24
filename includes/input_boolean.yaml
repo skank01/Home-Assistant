@@ -1,3 +1,11 @@
+haard:
+  name: Haard
+  icon: mdi:fire
+  
+haard_eco:
+  name: Eco vlammen 
+  icon: mdi:leaf
+  
 kerstmodus:
   name: Kerstvakantie
   icon: mdi:pine-tree
