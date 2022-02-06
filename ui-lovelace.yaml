@@ -4,7 +4,7 @@ sidebar:
   digitalClock: true
   date: true
   hideTopMenu: true
-  hideHassSidebar: false
+  hideHassSidebar: true
   showTopMenuOnMobile: true
   style: |
     :host {

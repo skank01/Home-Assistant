@@ -3,33 +3,21 @@
 ##########################
 
 - id: Haard aanzetten 
-  alias: Haard aan 
+  alias: "Haard: aanzetten" 
   trigger:
   - platform: state
-    entity_id: input_boolean.haard
+    entity_id: light.haard
     from: 'off'
     to: 'on'
   action:
-  - service: light.turn_on
+  - service: input_number.set_value
     data:
-      entity_id: light.haard
-      brightness_pct: 30
+      entity_id: input_number.haard_vlamhoogte
+      value: 1
     
-- id: Haard uitzetten 
-  alias: Haard uit
-  trigger:
-  - platform: state
-    entity_id: input_boolean.haard
-    from: 'on'
-    to: 'off'
-  action:
-  - service: light.turn_off
-    data:
-      entity_id: light.haard
-      brightness_pct: 0 
       
 - id: Haard eco 
-  alias: Haard eco modus
+  alias: "Haard: eco modus aan"
   trigger:
   - platform: state
     entity_id: input_boolean.haard_eco
@@ -39,10 +27,10 @@
   - service: light.turn_on
     data:
       entity_id: light.haard
-      brightness_pct: 95
+      brightness_pct: 100
 
 - id: Haard eco uit
-  alias: Haard eco modus uit
+  alias: "Haard: eco modus uit"
   trigger:
   - platform: state
     entity_id: input_boolean.haard_eco
@@ -50,18 +38,26 @@
     to: 'off'
   action:
   - service: input_number.set_value
-    data_template:
+    data:
       entity_id: input_number.haard_vlamhoogte
-      value: 3
+      value: 1
   
 - id: Vlamhoogte change
-  alias: Vlamhoogte aanpassen
+  alias: "Haard: vlamhoogte aanpassen"
   trigger:
   - platform: state
     entity_id: input_number.haard_vlamhoogte
+  variables:
+    conversion:
+      i1: 49
+      i2: 58
+      i3: 67
+      i4: 75
+      i5: 81
+      i6: 88
   action:
   - service: light.turn_on
     target:
       entity_id: light.haard
     data:
-      brightness_pct: "{{ states('input_number.haard_vlamhoogte') | int * 10 }}"      
+      brightness_pct: "{{ conversion['i' ~ states('input_number.haard_vlamhoogte') | int] }}"      

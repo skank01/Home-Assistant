@@ -10,7 +10,7 @@ cards:
           - type: weather-forecast
             entity: weather.thuis
       - type: vertical-stack
-        title: Familie
+        title: Familie & Huis
         cards: 
           - type: horizontal-stack
             cards:
@@ -161,24 +161,8 @@ cards:
                     icon:
                       - justify-self: start  
                       - padding-top: 5px
-  - type: custom:layout-break
-  - type: vertical-stack
-    cards:
-      - type: vertical-stack
-        title: Agenda
-        cards:
           - type: horizontal-stack
-            cards:  
-              - type: custom:atomic-calendar-revive
-                entities:
-                  - entity: calendar.gezin
-                maxDaysToShow: 5
-      - type: custom:gap-card
-      - type: vertical-stack
-        title: Huis
-        cards:     
-          - type: horizontal-stack
-            cards: 
+            cards:
               - type: custom:button-card    
                 entity: sensor.postbus
                 show_icon: true
@@ -281,14 +265,42 @@ cards:
                       - width: 120px
                       - height: 120px
                       - font-size: 15px
+                      - background-color: white 
                     name:
                       - justify-self: start
                       - padding-left: 10px
                       - font-weight: bold
                       - padding-bottom: 25px
+                      - color: rgb(70, 68, 70)
                     img_cell:
                       - justify-content: start
                       - padding-left: 25px
                     icon:
                       - justify-self: start  
-                      - padding-top: 10px                 
+                      - padding-top: 10px  
+                      - color: rgb(70, 68, 70)
+  - type: custom:layout-break
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        title: Nieuws
+        cards:
+          - type: custom:list-card
+            entity: sensor.nieuwsblad
+            feed_attribute: entries
+            row_limit: 4
+            columns:
+              - title: HLN
+                field: title
+                add_link: link
+      - type: vertical-stack
+        title: Agenda
+        cards:
+          - type: horizontal-stack
+            cards:  
+              - type: custom:atomic-calendar-revive
+                entities:
+                  - entity: calendar.gezin
+                maxDaysToShow: 5
+      - type: custom:gap-card
+      

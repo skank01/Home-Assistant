@@ -2,7 +2,7 @@ default_config:
 
 http:
   use_x_forwarded_for: true
-  trusted_proxies: !secret http_trusted_proxies
+  trusted_proxies: 172.30.33.11
 
 homeassistant:
   packages: !include_dir_named packages
@@ -18,7 +18,6 @@ homeassistant:
       name: Authenticator app
     - type: notify
       message: "Access token: {}"     
-
   
 lovelace:
   mode: yaml

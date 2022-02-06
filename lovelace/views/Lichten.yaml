@@ -162,7 +162,7 @@ cards:
                     name: Dressing
                     icon: mdi:wall-sconce-flat          
           - column: 10
-            tileOnRow: 2
+            tileOnRow: 1
             entities:
               - title: Slaapkamer Arne
                 entities:
@@ -170,7 +170,7 @@ cards:
                     name: Hanglamp
                     icon: mdi:ceiling-light
           - column: 11
-            tileOnRow: 2
+            tileOnRow: 1
             entities:
               - title: Slaapkamer Noor
                 entities:
@@ -205,4 +205,12 @@ cards:
                 entities:
                   - entity: light.technische_ruimte
                     name: Hanglamp
-                    icon: mdi:ceiling-light           
+                    icon: mdi:ceiling-light 
+          - column: 15
+            tileOnRow: 1
+            entities:
+              - title: Zolder
+                entities:
+                  - entity: switch.zolder
+                    name: TL-lamp
+                    icon: mdi:lightbulb-fluorescent-tube-outline        

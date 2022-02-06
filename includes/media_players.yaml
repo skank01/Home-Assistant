@@ -26,6 +26,3 @@
     - media_player.bureau
     - media_player.badkamer
     
-- platform: androidtv
-  name: Shield TV
-  host: !secret shield

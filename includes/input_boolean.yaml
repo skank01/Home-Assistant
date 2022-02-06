@@ -1,7 +1,3 @@
-haard:
-  name: Haard
-  icon: mdi:fire
-  
 haard_eco:
   name: Eco vlammen 
   icon: mdi:leaf

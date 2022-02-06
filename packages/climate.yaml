@@ -1,5 +1,5 @@
 climate:
   - platform: generic_thermostat
     name: Haard
-    heater: input_boolean.haard
-    target_sensor: sensor.temperature_keuken
+    heater: light.haard
+    target_sensor: sensor.temperature_inkom

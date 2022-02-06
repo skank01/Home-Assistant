@@ -259,4 +259,23 @@ cards:
                     entity_id: this
                   name: next
                   icon: mdi:skip-next        
-  
+  - type: custom:layout-break
+  - type: horizontal-stack
+    title: Energie
+    cards:
+      - type: gauge
+        entity: sensor.huidig_stroomverbruik_watt
+        max: 5000
+        name: Verbruik electriciteit
+        severity:
+          blue: 0
+          yellow: 2000
+          red: 3000
+      - type: gauge
+        entity: sensor.huidig_stroomopbrengst_watt
+        max: 4000
+        name: Teruggave electriciteit
+        severity:
+          blue: 0
+          yellow: 2000
+          red: 3000   

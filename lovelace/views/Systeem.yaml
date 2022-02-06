@@ -89,12 +89,12 @@ cards:
                   - card: custom:button-card
                     noPadding: true
                     cardOptions:
-                      icon: mdi:home-assistant
+                      icon: mdi:hammer-screwdriver
                       tap_action: 
                         action: navigate
-                        navigation_path: "/hassio/dashboard"
+                        navigation_path: "/developer-tools/state"
                       show_state: true
-                      name: Supervisor
+                      name: Developer Tool
                       size: 40px
                       styles:
                         card:
@@ -327,36 +327,10 @@ cards:
                         icon:
                           - justify-self: start 
                           - padding-top: 10px
-                  - card: custom:button-card
-                    noPadding: true
-                    cardOptions:
-                      icon: mdi:hammer-screwdriver
-                      tap_action: 
-                        action: navigate
-                        navigation_path: "/developer-tools/state"
-                      show_state: true
-                      name: Developer Tools
-                      size: 40px
-                      styles:
-                        card:
-                          - width: 120px
-                          - height: 120px
-                          - font-size: 15px
-                        name:
-                          - justify-self: start
-                          - padding-left: 10px
-                          - font-weight: bold
-                          - padding-bottom: 25px
-                        img_cell:
-                          - justify-content: start
-                          - padding-left: 25px
-                        icon:
-                          - justify-self: start  
-                          - padding-top: 10px
           - column: 2
             tileOnRow: 2
             entities:
-              - title: Server
+              - title: Varia
                 entities:
                   - entity: sensor.unraid_server
                     name: Server
@@ -387,26 +361,9 @@ cards:
                         icon:
                           - justify-self: start 
                           - padding-top: 10px
-                  - card: gauge
-                    noPadding: true
-                    cardOptions:     
-                      entity: sensor.huidig_stroomverbruik_watt
-                      max: 5000
-                      name: Verbruik electriciteit
-                      severity:
-                        blue: 0
-                        yellow: 2000
-                        red: 3000
-                  - card: gauge
-                    noPadding: true
-                    cardOptions: 
-                      entity: sensor.huidig_stroomopbrengst_watt
-                      max: 4000
-                      name: Teruggave electriciteit
-                      severity:
-                        blue: 0
-                        yellow: 2000
-                        red: 3000   
+                  - entity: input_boolean.kerstmodus
+                    name: Kerstvakantie
+                    icon: mdi:pine-tree        
       - row: 3   
         columns:
           - column: 1

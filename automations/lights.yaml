@@ -103,30 +103,33 @@
       entity_id: light.inkom
     service: light.toggle
 
-- alias: "Lichten: Spots inkom aan bij beweging"
-  trigger:
-  - entity_id: binary_sensor.det_inkom
-    platform: state
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  action:
-  - service: light.turn_on
-    entity_id: light.inkom
- 
-- alias: "Lichten: Spots inkom uit 30 seconden na laatste beweging" 
-  trigger:
-  - entity_id: binary_sensor.det_inkom
-    platform: state
-    to: 'off'
-    for:
-      seconds: 30
-  action:
-    service: light.turn_off
-    entity_id: light.inkom    
 
+- id: Spots aan inkom
+  alias: "Lichten: Spots inkom aan bij beweging"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.presence_inkom
+      from: "off"
+      to: "on"
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.lightlevel_inkom
+      below: 25
+  action:
+    - service: light.turn_on
+      entity_id: light.inkom
+
+- id: Spots uit inkom
+  alias: "Lichten: Spots inkom uit 30 seconden na laatste beweging" 
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.presence_inkom
+      to: 'off'
+      for:
+        seconds: 20
+  action:
+    - service: light.turn_off
+      entity_id: light.inkom    
 
 ##########################
 ## Verlichting eetplaats
@@ -164,12 +167,12 @@
 ######################################
 ## Lichten aan bij te weinig licht
 ######################################
-- alias: "Lichten: Kastlamp en keukenwand aan bij te weinig licht"
+- alias: "Lichten: Kastlamp en keukenwand aan 30min voor zonsondergang"
   description: ''
   trigger:
-  - platform: numeric_state
-    entity_id: sensor.lightlevel_keuken
-    below: 18
+  - platform: sun
+    event: sunset
+    offset: "-00:30:00"
   condition:
   - condition: state
     entity_id: group.family
@@ -180,26 +183,6 @@
       - light.kastlamp
       - light.keuken_wand
 
-- alias: "Lichten: Kastlamp en keukenwand uit bij genoeg licht"
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.lightlevel_keuken
-    above: 35
-  condition:
-    - condition: or
-      conditions:
-        - condition: state
-          entity_id: light.kastlamp
-          state: "on"
-        - condition: state
-          entity_id: light.keuken_wand
-          state: "on" 
-  action:
-  - service: light.turn_off
-    entity_id: 
-      - light.kastlamp
-      - light.keuken_wand
 
 ########################################
 ## Keuken
@@ -227,7 +210,8 @@
   action:
     - service: light.turn_on
       entity_id: light.keuken
-    
+      
+      
 
 ########################################
 ## Badkamer ouders
@@ -360,6 +344,30 @@
   action: 
   - service: light.toggle
     entity_id: light.cinema_scherm
+
+
+########################################
+## Lichten zolder
+########################################    
+- id: 'Turn_on_attic_lights_after_opening_hatch'
+  alias: "Lichten: Licht zolder aan na openen luik"
+  trigger:
+    - entity_id: binary_sensor.zolder
+      platform: state
+      to: 'on'
+  action: 
+  - service: switch.turn_on
+    entity_id: switch.zolder
+
+- id: Turn_off_attic_lights_after_closing_hatch
+  alias: "Lichten: Licht zolder uit na sluiten luik"
+  trigger:
+    - entity_id: binary_sensor.zolder
+      platform: state
+      to: 'off'
+  action: 
+  - service: switch.turn_off
+    entity_id: switch.zolder
 
 
 ########################################

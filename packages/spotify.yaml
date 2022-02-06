@@ -5,6 +5,7 @@ spotify:
 spotcast:
   sp_dc: !secret primary_sp_dc
   sp_key: !secret primary_sp_key
+  country: BE
   accounts:
     kim:
       sp_dc: !secret kim_sp_dc

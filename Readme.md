@@ -35,7 +35,8 @@ Themes used (slightly adjusted):
 - [Eufy Security Addon](https://github.com/bropat/eufy-security-ws/tree/master/docker)
 - [RTSP Simple Server Addon](http://192.168.99.3:8123/hassio)
 - [Duck DNS](https://github.com/home-assistant/addons/tree/master/duckdns)
-- [NGINX HA SSL proxy](https://github.com/home-assistant/addons/tree/master/nginx_proxy)
+- [Nginx Proxy Manager](https://github.com/hassio-addons/addon-nginx-proxy-manager)
+- [Maria DB](https://mariadb.com/)
 
 ### Integrations ###
 - Adguard
@@ -71,8 +72,9 @@ Integrations:
 - Browser Mod
 - Afvalbeheer
 - Spotcast
-- Unifi Gateway
+- Sensor.Unifigateway
 - Eufy Security
+- Feedparser
 
 
 Plugins:
@@ -100,6 +102,7 @@ Plugins:
 - Weather Card
 - Media player popup card
 - Sidebar card
+- List card
 
 ## Devices ##
 

@@ -44,6 +44,9 @@ entity_config:
     switch.wasmachine:
       expose: true
       room: Bureau
+    switch.terras:
+      expose: true
+      room: Tuin
     light.kerstverlichting_buxus:
       room: Oprit
     light.licht_voordeur:
@@ -104,6 +107,11 @@ entity_config:
       room: Speelkamer
     light.technische_ruimte:
       room: Technische Ruimte
+    light.haard:
+      expose: false
+    climate.haard:
+      expose: true
+      room: Woonkamer
     input_boolean.film_kijken:
       expose: true
       room: Woonkamer
