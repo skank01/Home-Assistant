@@ -25,8 +25,9 @@ tv_aanzetten:
               entity_id: media_player.living_tv
               state: "off"
           sequence:
-            - service: media_player.turn_on
-              entity_id: media_player.living_tv
+            - service: wake_on_lan.send_magic_packet
+              data:
+                mac: !secret mac_tv
             - delay: 00:00:15
     - choose:
         - conditions: "{{ actie == 'tv' }}"

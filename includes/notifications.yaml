@@ -67,7 +67,7 @@
     type: custom:decluttering-card
     template: notification_template
     variables:
-      - name:  lampen aan
+      - name: '[[[ return "Er zijn " + states['sensor.current_lights_on'].state + " lampen aan" ]]]'
 - type: conditional
   conditions:
     - entity: sensor.current_media_players_on
